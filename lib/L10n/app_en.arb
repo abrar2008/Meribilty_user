@@ -1,0 +1,528 @@
+{
+    "language" :"English",
+    "@language":{
+        "description":"The current language"
+    },
+     "ride":"Make an Order",
+     "@ride": {
+         "description":"A programmer greeting"
+     },
+     "ridedetail":"Request delivery confirmed  by a \n       nearby trusted vendor",
+     "@ridedetail": {
+         "description":"A programmer"
+     },
+
+     "skip":"Skip",
+     "@Skip": {
+         "description":"Skip"
+     },
+    
+
+     "drive":"Confirm Your Driver",
+     "@drive": {
+         "description":"drive"
+     },
+
+     "drivedetail":"Huge truck network helps you find \n reliable, safe and cheap deliveries",
+     "@drivedetail": {
+         "description":"drivedetail"
+     },
+     "truck":"Track your stuff",
+     "@truck": {
+         "description":"Track"
+     },
+      "truckdetail":"Know your driver in advance and be \nable to veiw current location in real\n       time on the Map",
+     "@truckdetail": {
+         "description":"Know your driver"
+     },
+
+     "start":"GET STARTED!",
+     "@start": {
+         "description":"STARTED!"
+     },
+     "meet":"Hi nice to meet you!",
+     "@meet": {
+         "description":"nice"
+     },
+     "meetdetail":"Choose you location to start finding \n     your perfect logistic vender",
+     "@meetdetail": {
+         "description":"you location"
+     },
+     "meetlocation":"Use current location",
+     "@meetlocation": {
+         "description":"Use current location"
+     },
+     "meetlom":"Select it manually",
+     "@meetlom": {
+         "description":"Select it manually"
+     },
+     "verfiy":"Phone Verification",
+     "@verfiy": {
+         "description":"Phone Verification"
+     },
+      "veotp":"Enter your OTP code here",
+     "@veotp": {
+         "description":"Enter your OTP code here"
+     },
+     
+     "ver":"verify now",
+     "@ver": {
+         "description":"Verify now"
+     },
+     "market":"Market me sub se best rates",
+     "@market": {
+         "description":"Market me sub se best rates"
+     },
+     "top":"Top Services",
+     "@top": {
+         "description":"Top Services"
+     },
+     "coming":"Coming Soon",
+     "@coming": {
+         "description":"coming Soon"
+     },
+     "port":"Project &\nPort Logistics",
+     "@port": {
+         "description":"Project"
+     },
+     "same":"Same City \nMovement",
+     "@same": {
+         "description":"same City"
+     },
+     "cargo":"Cargo movements and \nShipments to all over \nPakistan, Afghanistan &More",
+     "@cargo": {
+         "description":"cargo movements"
+     },
+     "small":"Same City\nMovement",
+     "@small": {
+         "description":"Same City"
+     },
+      "delivsmall":"Small deiveries Home\n shifting and commercial \n vehicles ",
+      "@delivsmall": {
+         "description":"Small"
+     },
+     "ware":"Warehouse ",
+     "@ware": {
+         "description":"Warehouse"
+     },
+     "water":"Water Tanker ",
+     "@water": {
+         "description":"Water"     
+     },
+     "car":"Rent a car ",
+    "@car": {
+         "description":"Water"
+     },
+    "sea":"Sea Freight ",
+    "@sea": {
+         "description":"Sea"
+     },
+     "air":"Air Freight",
+     "@air": {
+         "description":"Air"
+     },
+     "need":"Need Vehicle Spare parts?",
+     "@need": {
+         "description":"need"
+     },
+     "access":"Accessories",
+     "@access": {
+         "description":"acces"
+     },
+    "braker":"Braker & Drum\n Assembly",
+     "@braker": {
+         "description":"Braker"
+     },
+      "tyres":"tyres & Wheels",
+     "@tyres": {
+         "description":"tyres"
+     },
+    "neehelp":"Need help? click here",
+     "@neehelp": {
+         "description":"neehelp"
+     },
+     "cash":"Cash",
+     "@cash": {
+         "description":"cash"
+     },
+     "hom":"Home",
+     "@home": {
+         "description":"hom"
+     },
+     "mywalle":"My Wallet",
+     "@mywalle": {
+         "description":"mywalle"
+     },
+      "team":"Team /Clearing Agent",
+     "@team": {
+         "description":"team"
+     },
+     "mydeliver":"My Deliveries",
+     "@mydeliver": {
+         "description":"mydeliver"
+     },
+     "notifica":"Notifications",
+     "@notifica": {
+         "description":"notifica"
+     },
+     "chat":"Chat",
+     "@chat": {
+         "description":"Chat"
+     },
+     "invite":"Invite Friends",
+     "@invite": {
+         "description":"invite"
+     },
+
+      "setting":"Setting",
+     "@setting": {
+         "description":"setting"
+     },
+     "logout":"Logout",
+     "@setting": {
+         "description":"setting"
+     },
+     "use":"Use Wallet",
+     "@use": {
+         "description":"use"
+     },
+     "bal":"Balance",
+     "@bal": {
+         "description":"bal"
+     },
+      "est":"ESTIMATED FARE",
+     "@est": {
+         "description":"est"
+     },
+      "sel":"Select Vehicle",
+     "@sel": {
+         "description":"sel"
+     },
+      "load":"Need help in loading & unloading?",
+     "@load": {
+         "description":"load"
+     },
+    "insure":"Do you want to insure you cargo",
+     "@insure": {
+         "description":"insure"
+     },
+      "cargov":"Enter Cargo Value",
+     "@cargov": {
+         "description":"cargov"
+     },
+      "book":"Book Now ",
+     "@book": {
+         "description":"book"
+     },
+     "sche":"SCHEDULE",
+     "@sche": {
+         "description":"sche"
+     },
+
+     "loading":"Select Loaading Options ",
+     "@loading": {
+         "description":"loading"
+     },
+     "unloading":"Select unLoaading Options ",
+     "@loading": {
+         "description":"loading"
+     },
+
+      "next":"Next ",
+     "@next": {
+         "description":"next"
+     },
+     
+      "save":"Save & Continue ",
+     "@save": {
+         "description":"save"
+     },
+    "thank":"Thanks you you order, your booking will be \n update within ",
+     "@thank": {
+         "description":"thank"
+     },
+     "dis":"DISTANCE ",
+     "@dis": {
+         "description":"dis"
+     },
+     "tim":"Time ",
+     "@tim": {
+         "description":"dis"
+     },
+
+     "vehicle":"Select Vehicle & weight  ",
+     "@vehicle": {
+         "description":"vehicle"
+     },
+
+     
+     "material":"Select Material Type  ",
+     "@material": {
+         "description":"material"
+     },
+     "selec":"Select Time  ",
+     "@selec": {
+         "description":"Selec"
+     },
+     "quote":"Select Quote ",
+     "@quote": {
+         "description":"quote"
+     },
+
+     "deliver":"    Go to \n My Deliveries",
+     "@deliver": {
+         "description":"deliver"
+     },
+     "estim":"Estimated Rates",
+     "@estim": {
+         "description":"estim"
+     },
+     "base":"Based on market average for the mouth Rated can be higher or lower\n as per demand and supply",
+     "@base": {
+         "description":"base"
+     },
+     "wait":"              Lets wait    \n           10:00 Minutes    \n while we negotiate the\n    best rates for you  ",
+     "@wait": {
+         "description":"wait"
+     },
+      "bare":"               Please bare with us \n while we Continue to find best rates \n                  for your cargo \n                  15:00 Minutes ",
+     "@bare": {
+         "description":"bare"
+     },
+
+      "book":" Booking are valid for 30 Minutes  only",
+     "@book": {
+         "description":"book"
+     },
+
+     "bokd":" Decide within 30 minutes",
+     "@bokd": {
+         "description":"bokd"
+     },
+     "reject":" Reject",
+     "@reject": {
+         "description":"reject"
+     },
+
+      "count":" Counter Offer",
+     "@count": {
+         "description":"count"
+     },
+     
+      "acept":"Accept Bility",
+     "@acept": {
+         "description":"acept"
+     },
+      
+      "expend":" Click to expand",
+     "@expend": {
+         "description":"expend"
+     },
+
+     
+      "countof":" Send Counter Offer ",
+     "@countof": {
+         "description":"countof"
+     },
+
+      "countoffer":" If you conuter is aceepted , the transaction will be considered confirmed  if you reject a 5% penality will be applied of  the value. Enter the counter offer below,  which you want to send to the vendor ",
+     "@countoffer": {
+         "description":"countoffer"
+     },
+
+       "cancel":" Cancel ",
+     "@cancel": {
+         "description":"cancel"
+     },
+
+     
+       "deal":" You have got the Best deal! \n Counter offer accept",
+     "@deal": {
+         "description":"deal"
+     },
+
+
+      "preparing":"Your vendor is preparing the vehicles if you reject now , a 5% penalty will be applied of the counter ofter value",
+     "@preparing": {
+         "description":"preparing"
+     },
+     
+     
+     "limited":"You have limited time available to accept  the offer from our vendor",
+     "@limited": {
+         "description":"limited"
+     },
+      "venderoffer":"Vendor countered your offer",
+     "@venderoffer": {
+         "description":"venderoffer"
+     },
+     "order":"You have rejected the offer your order detail are saved in your Profile",
+     "@order": {
+         "description":" order"
+     },
+      "oh":"Ohh!",
+     "@oh": {
+         "description":"oh"
+     },
+     "cancellation":"Your cancellation caused delay in our fleet movement a 5% penalty is charged into your account",
+     "@cancellation": {
+         "description":"cancellation"
+     },
+
+     "payment":"Select Payment \nMethod",
+     "@payment": {
+         "description":"payment"
+     },
+     "bank":"   Bank Transfer    ",
+     "@bank": {
+         "description":"bank"
+     },
+      "bankupload":"You have to upload transfer slip to Procced",
+     "@bankupload": {
+         "description":"bankupload"
+     },
+
+      "credit":"Credit Pro",
+     "@credit": {
+         "description":"credit"
+     },
+      "creditprop":"Get Pro to avail  ",
+     "@creditpro": {
+         "description":"creditpro"
+     },
+
+     "cash":"Cash on delivery  ",
+     "@cash": {
+         "description":"cash"
+     },
+    
+
+     "pay":"Pay by debit/credit card  ",  
+     "@pay": {
+         "description":"pay"
+     },
+     "deft":"Default Payment Method    ",
+     "@deft": {
+         "description":"deft"
+     },
+
+
+
+
+
+     "merbank":"MERIBILITY BANK DETAILS    ",
+     "@merbank": {
+         "description":"merbank"
+     },
+     "bankaddress":"MEEZAN BANK 465465465132  II CHUNDRIGAR ROAD KARACHI  ",
+     "@bankaddress": {
+         "description":"bankaddress"
+     },
+
+      "bankupload":"Upload Transfer Slip  ",
+     "@bankupload": {
+         "description":"bankupload"
+     },
+
+
+
+    "contact":"Select Contact Person \n   or Clearing Agent",
+     "@contact": {
+         "description":"contact"
+     },
+
+     "existing":"Select From Existing List",
+     "@existing": {
+         "description":"existing"
+     },
+      "addnew":"Add New",
+     "@addnew": {
+         "description":"addnew"
+     },
+
+      "tranfe":"You have  to upload tranfer slip to proceed",
+     "@tranfe": {
+         "description":"tranfe"
+     },
+     "manage":"I will manage Myself",
+     "@manage": {
+         "description":"manage"
+     },
+     "teamember":"Team Members",
+     "@teamember": {
+         "description":"teamember"
+     },
+      "track":"Now you can track the order and Provide further detail of the delivery",
+     "@track": {
+         "description":"track"
+     },
+
+     "addTeam":"Add Team",
+     "@addTeam": {
+         "description":"addTeam"
+     },
+
+      "update":"Update",
+     "@update": {
+         "description":"update"
+     },
+
+      "invite":"Invite Friends",
+     "@invite": {
+         "description":"invite"
+     },
+
+      "coupons":"Get 3 Coupons each !",
+     "@coupons": {
+         "description":"coupons"
+     },
+     "sign":"When your friend sign up with your \n referral code, you'll both 3.0 coupons",
+     "@sign": {
+         "description":"sign"
+     },
+      "code":"Share Your Invite Code",
+     "@code": {
+         "description":"code"
+     },
+
+      "noto":"Notification",
+     "@noto": {
+         "description":"noto"
+     },
+
+      "se":"Settings ",
+     "@se": {
+         "description":"se"
+     },
+     "la":"Language",
+     "@la": {
+         "description":"la"
+     },
+     "cac":"Clean cache",
+     "@cac": {
+         "description":"cac"
+     },
+     "te":"Teams & Privacy Policay",
+     "@te": {
+         "description":"te"
+     },
+     "con":"Contact Us ",
+     "@con": {
+         "description":"con"
+     },
+
+     "log":"Logout",
+     "@log": {
+         "description":"log"
+     }
+
+
+      
+
+
+
+
+
+     
+     
+}
