@@ -264,7 +264,7 @@
      "@selec": {
          "description":"Selec"
      },
-     "quote":"Select Quote ",
+     "quote":"Send Quote ",
      "@quote": {
          "description":"quote"
      },
