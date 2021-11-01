@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, unused_field
+
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
@@ -29,7 +31,7 @@ class Homedetail extends StatefulWidget {
 }
 
 class _HomedetailState extends State<Homedetail> {
-  Completer<GoogleMapController> _controller = Completer();
+  final Completer<GoogleMapController> _controller = Completer();
 
   static final CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(37.42796133580664, -122.085749655962),
@@ -86,7 +88,7 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                 ),
                 description: Container(
                   child: Column(
-                    children: [
+                    children: const [
                       Text("REFFERED              "),
                       Text("CONTAINER 20 FT"),
                       Text("PNG-978                "),
@@ -145,7 +147,7 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
             padding: EdgeInsets.all(20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: const [
                 Text(
                   "Tracking & Check Points",
                   style: TextStyle(
@@ -202,7 +204,7 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                             children: [
                               Text("Order Time"),
                               Row(
-                                children: [
+                                children: const [
                                   Text("22 Aug 2019 04:47:41 PM"),
                                 ],
                               ),
@@ -245,7 +247,7 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                           children: [
                             Text("Offer Receiving Time"),
                             Row(
-                              children: [
+                              children: const [
                                 Text(" 22 Aug 2019 04:47:41 PM"),
                               ],
                             ),
@@ -288,7 +290,7 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                             Container(child: Text("Offer Acceptance Time")),
                             Container(
                               child: Row(
-                                children: [
+                                children: const [
                                   Text(" 22 Aug 2019 04:47:41 PM"),
                                 ],
                               ),
@@ -331,7 +333,7 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                           children: [
                             Text(" Delivery PickUp Time"),
                             Row(
-                              children: [
+                              children: const [
                                 Text(" 22 Aug 2019 04:47:41 PM"),
                               ],
                             ),
@@ -373,7 +375,7 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                           children: [
                             Text(" Delivery Arrival Time"),
                             Row(
-                              children: [
+                              children: const [
                                 Text(" 22 Aug 2019 04:47:41 PM"),
                               ],
                             ),
@@ -415,7 +417,7 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                           children: [
                             Text(" Delivery Unloading  Time"),
                             Row(
-                              children: [
+                              children: const [
                                 Text(" 22 Aug 2019 04:47:41 PM"),
                               ],
                             ),
@@ -428,44 +430,42 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                 SizedBox(
                   height: 10,
                 ),
-                Container(
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        width: 20,
+                Row(
+                  children: [
+                    SizedBox(
+                      width: 20,
+                    ),
+                    GFCheckbox(
+                      size: GFSize.SMALL,
+                      activeBgColor: GFColors.SUCCESS,
+                      type: GFCheckboxType.circle,
+                      onChanged: (value) {
+                        setState(() {
+                          isChecked = value;
+                        });
+                      },
+                      value: isChecked,
+                      inactiveIcon: null,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    //  Image.asset('assets/L1.png'),
+                    Container(
+                      padding: EdgeInsets.only(left: 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(" Container Return Time"),
+                          Row(
+                            children: const [
+                              Text(" Pending"),
+                            ],
+                          ),
+                        ],
                       ),
-                      GFCheckbox(
-                        size: GFSize.SMALL,
-                        activeBgColor: GFColors.SUCCESS,
-                        type: GFCheckboxType.circle,
-                        onChanged: (value) {
-                          setState(() {
-                            isChecked = value;
-                          });
-                        },
-                        value: isChecked,
-                        inactiveIcon: null,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      //  Image.asset('assets/L1.png'),
-                      Container(
-                        padding: EdgeInsets.only(left: 10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(" Container Return Time"),
-                            Row(
-                              children: [
-                                Text(" Pending"),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -516,50 +516,43 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
             ),
           ),
 
-          Container(
-            child: GFListTile(
-                avatar: GFAvatar(
-                  backgroundImage: AssetImage("assets/truk.png"),
-                  shape: GFAvatarShape.circle,
-                  size: 40,
-                ),
-                title: Row(
-                  children: [
-                    Text(
-                      "Ahmed s.",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      "PRO",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF2F4D84)),
-                    ),
-                  ],
-                ),
-                description: Container(
-                  child: Column(
-                    children: [
-                      Text("Change      "),
-                    ],
+          GFListTile(
+              avatar: GFAvatar(
+                backgroundImage: AssetImage("assets/truk.png"),
+                shape: GFAvatarShape.circle,
+                size: 40,
+              ),
+              title: Row(
+                children: const [
+                  Text(
+                    "Ahmed s.",
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-                ),
-                icon: Container(
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Image.asset("assets/Message.png"),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Image.asset("assets/Call.png"),
-                        ],
-                      )
-                    ],
+                  Text(
+                    "PRO",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Color(0xFF2F4D84)),
                   ),
-                )),
-          ),
+                ],
+              ),
+              description: Column(
+                children: const [
+                  Text("Change      "),
+                ],
+              ),
+              icon: Column(
+                children: [
+                  Row(
+                    children: [
+                      Image.asset("assets/Message.png"),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Image.asset("assets/Call.png"),
+                    ],
+                  )
+                ],
+              )),
 
           Container(
             padding: EdgeInsets.all(20),
@@ -568,27 +561,23 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      child: Row(
-                        children: [
-                          Icon(Icons.not_listed_location),
-                          Text(
-                            "B-292 Block 15 Block13 \n Gulshan-e-Johar",
-                            style: TextStyle(fontSize: 13),
-                          )
-                        ],
-                      ),
+                    Row(
+                      children: const [
+                        Icon(Icons.not_listed_location),
+                        Text(
+                          "B-292 Block 15 Block13 \n Gulshan-e-Johar",
+                          style: TextStyle(fontSize: 13),
+                        )
+                      ],
                     ),
-                    Container(
-                      child: Row(
-                        children: [
-                          Icon(Icons.not_listed_location),
-                          Text(
-                            "B-292 Block 15 Block13 \n Gulshan-e-Johar",
-                            style: TextStyle(fontSize: 13),
-                          )
-                        ],
-                      ),
+                    Row(
+                      children: const [
+                        Icon(Icons.not_listed_location),
+                        Text(
+                          "B-292 Block 15 Block13 \n Gulshan-e-Johar",
+                          style: TextStyle(fontSize: 13),
+                        )
+                      ],
                     )
                   ],
                 ),

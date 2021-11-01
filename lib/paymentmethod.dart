@@ -1,6 +1,7 @@
+// ignore_for_file: prefer_const_constructors, unused_element
+
 import 'package:flutter/material.dart';
 import 'package:meribilty/bids.dart';
-import 'package:meribilty/mywallet.dart';
 import 'package:meribilty/payment.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:file_picker/file_picker.dart';
@@ -27,7 +28,7 @@ class _PaymentState extends State<Payment> {
         color: Color(0xffF8F8F8),
         child: Column(
           children: [
-            Container(
+            SizedBox(
               height: 250,
               child: Stack(
                 children: [
@@ -47,6 +48,7 @@ class _PaymentState extends State<Payment> {
                   Positioned(
                     top: 120,
                     left: 20,
+                    right: 20,
                     child: InkWell(
                       onTap: () {
                         _onBankdetail(context);
@@ -83,26 +85,28 @@ class _PaymentState extends State<Payment> {
                                 SizedBox(
                                   height: 6,
                                 ),
-                                Container(
-                                  child: Text(
-                                    AppLocalizations.of(context)!.bank,
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
+                                Column(
+                                  children: [
+                                    Text(
+                                      AppLocalizations.of(context)!.bank,
+                                      style: TextStyle(
                                         fontSize: 20,
-                                        letterSpacing: 1),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  AppLocalizations.of(context)!.bankupload,
-                                  style: TextStyle(
-                                    color: Color(0xffC8C7CC),
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 12,
-                                  ),
-                                ),
+                                        color: Color(0xFF2F4D84),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text(
+                                      AppLocalizations.of(context)!.bankupload,
+                                      style: TextStyle(
+                                        color: Color(0xffC8C7CC),
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ],
+                                )
                               ],
                             )
                           ],
@@ -146,13 +150,11 @@ class _PaymentState extends State<Payment> {
                       SizedBox(
                         height: 6,
                       ),
-                      Container(
-                        child: Text(
-                          AppLocalizations.of(context)!.credit,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                              letterSpacing: 1),
+                      Text(
+                        AppLocalizations.of(context)!.credit,
+                        style: TextStyle(
+                          color: Color(0xFF2F4D84),
+                          fontSize: 20,
                         ),
                       ),
                       SizedBox(
@@ -182,9 +184,9 @@ class _PaymentState extends State<Payment> {
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(10),
-                      topRight: Radius.circular(10),
-                      bottomLeft: Radius.circular(10),
-                      bottomRight: Radius.circular(10)),
+                      topRight: const Radius.circular(10),
+                      bottomLeft: const Radius.circular(10),
+                      bottomRight: const Radius.circular(10)),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(0.5),
@@ -202,24 +204,22 @@ class _PaymentState extends State<Payment> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 6,
                       ),
-                      Container(
-                        child: Text(
-                          AppLocalizations.of(context)!.cash,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                              letterSpacing: 1),
+                      Text(
+                        AppLocalizations.of(context)!.cash,
+                        style: const TextStyle(
+                          color: Color(0xFF2F4D84),
+                          fontSize: 17,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Text(
                         AppLocalizations.of(context)!.deft,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Color(0xffC8C7CC),
                           fontWeight: FontWeight.bold,
                           fontSize: 12,
@@ -230,21 +230,23 @@ class _PaymentState extends State<Payment> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             InkWell(
               onTap: () {
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => Paymentcard()));
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const Paymentcard()));
               },
               child: Container(
                 height: 100,
                 width: 350,
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(10),
                         topRight: Radius.circular(10),
                         bottomLeft: Radius.circular(10),
@@ -254,44 +256,48 @@ class _PaymentState extends State<Payment> {
                         color: Colors.grey.withOpacity(0.5),
                         spreadRadius: 5,
                         blurRadius: 7,
-                        offset: Offset(0, 3), // changes position of shadow
+                        offset:
+                            const Offset(0, 3), // changes position of shadow
                       ),
                     ]),
                 child: Row(
                   children: [
                     Image.asset("assets/bank.png"),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           height: 6,
                         ),
                         InkWell(
                           onTap: () {},
-                          child: Container(
-                            child: Text(
-                              AppLocalizations.of(context)!.pay,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20,
-                                  letterSpacing: 1),
+                          child: Text(
+                            AppLocalizations.of(context)!.pay,
+                            textAlign: TextAlign.start,
+                            style: const TextStyle(
+                              color: Color(0xFF2F4D84),
+                              fontSize: 20,
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        Text(
-                          AppLocalizations.of(context)!.deft,
-                          style: TextStyle(
-                            color: Color(0xffC8C7CC),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 12,
-                          ),
-                        ),
+                        // Container(
+                        //   alignment: Alignment.topLeft,
+                        //   child: Text(
+                        //     "Default payment Method",
+                        //     textAlign: TextAlign.left,
+                        //     style: const TextStyle(
+                        //       color: Color(0xffC8C7CC),
+                        //       fontWeight: FontWeight.bold,
+                        //       fontSize: 12,
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     )
                   ],
@@ -311,19 +317,19 @@ _onBankdetail(context) {
       children: <Widget>[
         Text(
           AppLocalizations.of(context)!.merbank,
-          style: TextStyle(
+          style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
               color: Color(0xff242E42)),
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         Text(
           AppLocalizations.of(context)!.bankaddress,
-          style: TextStyle(color: Color(0xff8A8A8F)),
+          style: const TextStyle(color: Color(0xff8A8A8F)),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         InkWell(
@@ -337,7 +343,7 @@ _onBankdetail(context) {
           },
           child: Text(
             AppLocalizations.of(context)!.bankupload,
-            style: TextStyle(
+            style: const TextStyle(
                 fontWeight: FontWeight.bold, color: Color(0xff5AC8FA)),
           ),
         ),
@@ -345,7 +351,7 @@ _onBankdetail(context) {
     ),
     buttons: [
       DialogButton(
-        child: Text(
+        child: const Text(
           "Cancel ",
           style: TextStyle(color: Color(0xffC8C7CC), fontSize: 20),
         ),
@@ -353,14 +359,14 @@ _onBankdetail(context) {
         color: Colors.white,
       ),
       DialogButton(
-        child: Text(
+        child: const Text(
           "Done",
           style: TextStyle(color: Color(0xFF2F4D84), fontSize: 20),
         ),
         onPressed: () => Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => Bids(),
+              builder: (context) => const Bids(),
             )),
         color: Colors.white,
       )
@@ -375,19 +381,19 @@ _onpayonline(context) {
       children: <Widget>[
         Text(
           AppLocalizations.of(context)!.merbank,
-          style: TextStyle(
+          style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
               color: Color(0xff242E42)),
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         Text(
           AppLocalizations.of(context)!.bankaddress,
-          style: TextStyle(color: Color(0xff8A8A8F)),
+          style: const TextStyle(color: Color(0xff8A8A8F)),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         InkWell(
@@ -401,7 +407,7 @@ _onpayonline(context) {
           },
           child: Text(
             AppLocalizations.of(context)!.bankupload,
-            style: TextStyle(
+            style: const TextStyle(
                 fontWeight: FontWeight.bold, color: Color(0xff5AC8FA)),
           ),
         ),
@@ -409,7 +415,7 @@ _onpayonline(context) {
     ),
     buttons: [
       DialogButton(
-        child: Text(
+        child: const Text(
           "Cancel ",
           style: TextStyle(color: Color(0xffC8C7CC), fontSize: 20),
         ),
@@ -417,7 +423,7 @@ _onpayonline(context) {
         color: Colors.white,
       ),
       DialogButton(
-        child: Text(
+        child: const Text(
           "Done",
           style: TextStyle(color: Color(0xFF2F4D84), fontSize: 20),
         ),

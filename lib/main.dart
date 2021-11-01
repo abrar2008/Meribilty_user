@@ -24,17 +24,17 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
               // primarySwatch: Colors.blue,
-              primaryColor: Color(0xFF2F4D84),
+              primaryColor: const Color(0xFF2F4D84),
             ),
             locale: provider.locale,
             supportedLocales: L10n.all,
-            localizationsDelegates: [
+            localizationsDelegates: const [
               AppLocalizations.delegate,
               GlobalMaterialLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
             ],
-            home: SplashScreen(),
+            home: const SplashScreen(),
           );
         });
   }

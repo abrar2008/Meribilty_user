@@ -17,108 +17,106 @@ class _SettingState extends State<Setting> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF2F4D84),
+        backgroundColor: const Color(0xFF2F4D84),
         elevation: 0,
       ),
       body: SingleChildScrollView(
         child: SafeArea(
-          child: Container(
-            child: Column(
-              children: [
-                Container(
-                  height: 50,
-                  color: Color(0xFF2F4D84),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        child: Text(
-                          AppLocalizations.of(context)!.se,
-                          style: TextStyle(
-                              fontSize: 30,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 40,
-                      ),
-                    ],
-                  ),
+          child: Column(
+            children: [
+              Container(
+                height: 50,
+                color: const Color(0xFF2F4D84),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Text(
+                      AppLocalizations.of(context)!.se,
+                      style: const TextStyle(
+                          fontSize: 30,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(
+                      width: 40,
+                    ),
+                  ],
                 ),
-                InkWell(
-                  onTap: () {
-                    Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => Myaccoutn()));
-                  },
-                  child: GFListTile(
-                      avatar: GFAvatar(
-                        backgroundImage: AssetImage("assets/pic1.png"),
-                      ),
-                      titleText: 'Larry Davis',
-                      subTitleText: 'Pro Member',
-                      icon: Icon(
-                        Icons.arrow_forward_ios,
-                        color: Colors.black38,
-                      )),
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Myaccoutn()));
+                },
+                child: const GFListTile(
+                    avatar: GFAvatar(
+                      backgroundImage: AssetImage("assets/pic1.png"),
+                    ),
+                    titleText: 'Larry Davis',
+                    subTitleText: 'Pro Member',
+                    icon: Icon(
+                      Icons.arrow_forward_ios,
+                      color: Colors.black38,
+                    )),
+              ),
+              GFListTile(
+                  titleText: AppLocalizations.of(context)!.noto,
+                  icon: const Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.black38,
+                  )),
+              GFListTile(
+                  titleText: AppLocalizations.of(context)!.se,
+                  icon: const Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.black38,
+                  )),
+              GFListTile(
+                  titleText: AppLocalizations.of(context)!.la,
+                  icon: const Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.black38,
+                  )),
+              const SizedBox(
+                height: 20,
+              ),
+              GFListTile(
+                  titleText: AppLocalizations.of(context)!.cac,
+                  icon: const Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.black38,
+                  )),
+              GFListTile(
+                  titleText: AppLocalizations.of(context)!.te,
+                  icon: const Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.black38,
+                  )),
+              GFListTile(
+                  titleText: AppLocalizations.of(context)!.con,
+                  icon: const Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.black38,
+                  )),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                padding: const EdgeInsets.only(left: 10, right: 10),
+                child: GFButton(
+                  onPressed: () {},
+                  text: AppLocalizations.of(context)!.log,
+                  textStyle: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black26),
+                  fullWidthButton: true,
+                  color: Colors.white,
                 ),
-                GFListTile(
-                    titleText: AppLocalizations.of(context)!.noto,
-                    icon: Icon(
-                      Icons.arrow_forward_ios,
-                      color: Colors.black38,
-                    )),
-                GFListTile(
-                    titleText: AppLocalizations.of(context)!.se,
-                    icon: Icon(
-                      Icons.arrow_forward_ios,
-                      color: Colors.black38,
-                    )),
-                GFListTile(
-                    titleText: AppLocalizations.of(context)!.la,
-                    icon: Icon(
-                      Icons.arrow_forward_ios,
-                      color: Colors.black38,
-                    )),
-                SizedBox(
-                  height: 20,
-                ),
-                GFListTile(
-                    titleText: AppLocalizations.of(context)!.cac,
-                    icon: Icon(
-                      Icons.arrow_forward_ios,
-                      color: Colors.black38,
-                    )),
-                GFListTile(
-                    titleText: AppLocalizations.of(context)!.te,
-                    icon: Icon(
-                      Icons.arrow_forward_ios,
-                      color: Colors.black38,
-                    )),
-                GFListTile(
-                    titleText: AppLocalizations.of(context)!.con,
-                    icon: Icon(
-                      Icons.arrow_forward_ios,
-                      color: Colors.black38,
-                    )),
-                SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  padding: EdgeInsets.only(left: 10, right: 10),
-                  child: GFButton(
-                    onPressed: () {},
-                    text: AppLocalizations.of(context)!.log,
-                    textStyle: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black26),
-                    fullWidthButton: true,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

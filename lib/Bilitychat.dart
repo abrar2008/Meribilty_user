@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import, file_names
+
 import 'dart:convert';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -170,17 +172,18 @@ class _BilityChatState extends State<BilityChat> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF2F4D84),
-        title: Text(
+        backgroundColor: const Color(0xFF2F4D84),
+        title: const Text(
           "Bility No \n 1222245",
           style: TextStyle(color: Colors.white),
         ),
-        actions: [],
+        actions: const [],
       ),
       body: SafeArea(
         bottom: false,
         child: Chat(
-          theme: DefaultChatTheme(inputBackgroundColor: Color(0xFF2F4D84)),
+          theme:
+              const DefaultChatTheme(inputBackgroundColor: Color(0xFF2F4D84)),
           messages: _messages,
           onAttachmentPressed: _handleAtachmentPressed,
           onMessageTap: _handleMessageTap,

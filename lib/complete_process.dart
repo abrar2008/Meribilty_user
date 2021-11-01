@@ -1,11 +1,13 @@
-import 'package:flutter/material.dart';
-import 'package:meribilty/MyDeliveries.dart';
+// ignore_for_file: avoid_unnecessary_containers
 
-import 'package:meribilty/onbounding.dart';
+import 'package:flutter/material.dart';
+
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'mydeliver.dart';
 
 class CompleteProcess extends StatefulWidget {
+  const CompleteProcess({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return CompleteProcessState();
@@ -16,9 +18,9 @@ class CompleteProcessState extends State<CompleteProcess> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 30), () {
+    Future.delayed(const Duration(seconds: 10), () {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => MyDeliver()));
+          context, MaterialPageRoute(builder: (context) => const MyDeliver()));
     });
   }
 
@@ -28,10 +30,10 @@ class CompleteProcessState extends State<CompleteProcess> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.all(15),
+          padding: const EdgeInsets.all(15),
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
@@ -60,7 +62,7 @@ class CompleteProcessState extends State<CompleteProcess> {
                           children: [
                             Text(
                               AppLocalizations.of(context)!.deliver,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Color(0xFF2F4D84),
                                 fontWeight: FontWeight.bold,
                                 fontSize: 25,
@@ -71,46 +73,48 @@ class CompleteProcessState extends State<CompleteProcess> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
               Text(
                 AppLocalizations.of(context)!.estim,
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 20,
                     color: Color(0xFF2F4D84),
                     fontWeight: FontWeight.bold),
               ),
-              Text(
+              const Text(
                 "Rs 120,000 - 130,000",
                 style: TextStyle(
                   fontSize: 20,
                   color: Colors.black,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Text(
-                AppLocalizations.of(context)!.base,
-                style: TextStyle(color: Color(0xff8A8A8F)),
-              ),
-              Container(child: Image.asset("assets/load.PNG")),
-              Container(
+              Align(
+                alignment: Alignment.center,
                 child: Text(
-                  AppLocalizations.of(context)!.wait,
-                  style: TextStyle(
-                      fontSize: 20,
-                      color: Color(0xFF2F4D84),
-                      fontWeight: FontWeight.bold),
+                  AppLocalizations.of(context)!.base,
+                  style:
+                      const TextStyle(color: Color(0xff8A8A8F), fontSize: 15),
                 ),
               ),
-              SizedBox(
+              Image.asset("assets/load.PNG"),
+              Text(
+                AppLocalizations.of(context)!.wait,
+                style: const TextStyle(
+                    fontSize: 20,
+                    color: Color(0xFF2F4D84),
+                    fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(
                 height: 30,
               ),
               Text(
                 AppLocalizations.of(context)!.bare,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Color(0xff8A8A8F),
                   fontSize: 18,
                 ),

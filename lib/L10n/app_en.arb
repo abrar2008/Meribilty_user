@@ -31,7 +31,7 @@
      "@truck": {
          "description":"Track"
      },
-      "truckdetail":"Know your driver in advance and be \nable to veiw current location in real\n       time on the Map",
+      "truckdetail":"Know your driver in advance and be \nable to veiw current location in real\n              time on the Map",
      "@truckdetail": {
          "description":"Know your driver"
      },
@@ -65,7 +65,7 @@
          "description":"Enter your OTP code here"
      },
      
-     "ver":"verify now",
+     "ver":"Verify Now",
      "@ver": {
          "description":"Verify now"
      },
@@ -133,7 +133,7 @@
      "@braker": {
          "description":"Braker"
      },
-      "tyres":"tyres & Wheels",
+      "tyres":"Tyres & Wheels",
      "@tyres": {
          "description":"tyres"
      },
@@ -141,9 +141,9 @@
      "@neehelp": {
          "description":"neehelp"
      },
-     "cash":"Cash",
-     "@cash": {
-         "description":"cash"
+     "cah":"Cash",
+     "@cah": {
+         "description":"cah"
      },
      "hom":"Home",
      "@home": {
@@ -277,7 +277,7 @@
      "@estim": {
          "description":"estim"
      },
-     "base":"Based on market average for the mouth Rated can be higher or lower\n as per demand and supply",
+     "base":"Based on market average for the mouth \n         Rated can be higher or lower\n      as per demand and supply",
      "@base": {
          "description":"base"
      },
@@ -290,8 +290,8 @@
          "description":"bare"
      },
 
-      "book":" Booking are valid for 30 Minutes  only",
-     "@book": {
+      "bookv":" Booking are valid for 30 Minutes  only",
+     "@bookv": {
          "description":"book"
      },
 
@@ -373,11 +373,11 @@
      "@payment": {
          "description":"payment"
      },
-     "bank":"   Bank Transfer    ",
+     "bank":"Bank Transfer                        ",
      "@bank": {
          "description":"bank"
      },
-      "bankupload":"You have to upload transfer slip to Procced",
+      "bankupload":"You have to upload transfer slip to Procced   ",
      "@bankupload": {
          "description":"bankupload"
      },
@@ -401,7 +401,7 @@
      "@pay": {
          "description":"pay"
      },
-     "deft":"Default Payment Method    ",
+     "deft":"Default Payment Method",
      "@deft": {
          "description":"deft"
      },
@@ -419,7 +419,7 @@
          "description":"bankaddress"
      },
 
-      "bankupload":"Upload Transfer Slip  ",
+      "bankuplad":"Upload Transfer Slip  ",
      "@bankupload": {
          "description":"bankupload"
      },

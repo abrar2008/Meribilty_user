@@ -60,6 +60,7 @@ dependencies:
   open_file:
   timer_count_down:
   mime:
+  url_launcher:
   flutter_test:
     sdk: flutter
 

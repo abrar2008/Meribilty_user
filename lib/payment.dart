@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
 
 class Paymentcard extends StatefulWidget {
@@ -12,14 +14,14 @@ class _PaymentcardState extends State<Paymentcard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xff4EDA93),
+        backgroundColor: Color(0xFF2F4D84),
         elevation: 0,
       ),
       body: SafeArea(
         child: Container(
           child: Column(
             children: [
-              Container(
+              SizedBox(
                 height: 250,
                 child: Stack(
                   children: [
@@ -27,7 +29,7 @@ class _PaymentcardState extends State<Paymentcard> {
                       padding: EdgeInsets.all(10),
                       height: 160,
                       width: double.infinity,
-                      color: Color(0xff4EDA93),
+                      color: Color(0xFF2F4D84),
                       child: Text(
                         "Payment Method",
                         style: TextStyle(
@@ -119,11 +121,12 @@ class _PaymentcardState extends State<Paymentcard> {
                         color: Colors.grey.withOpacity(0.5),
                         spreadRadius: 5,
                         blurRadius: 7,
-                        offset: Offset(0, 3), // changes position of shadow
+                        offset:
+                            const Offset(0, 3), // changes position of shadow
                       ),
                     ]),
                 child: Column(
-                  children: [Text("sadas")],
+                  children: const [Text("sadas")],
                 ),
               )
             ],

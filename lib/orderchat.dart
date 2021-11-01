@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, duplicate_ignore
+
 import 'dart:convert';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -5,7 +7,6 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:intl/date_symbol_data_local.dart';
 import 'package:mime/mime.dart';
 import 'package:open_file/open_file.dart';
 import 'package:uuid/uuid.dart';
@@ -180,6 +181,7 @@ class _OrderChatPageState extends State<OrderChatPage> {
       body: SafeArea(
         bottom: false,
         child: Chat(
+          // ignore: prefer_const_constructors
           theme: DefaultChatTheme(inputBackgroundColor: Color(0xFF2F4D84)),
           messages: _messages,
           onAttachmentPressed: _handleAtachmentPressed,

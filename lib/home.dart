@@ -1,7 +1,8 @@
+import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:meribilty/MainProfile.dart';
+import 'package:flutter/painting.dart';
 import 'package:meribilty/darwer.dart';
 import 'package:meribilty/loading_select.dart';
 import 'package:meribilty/pickLocation.dart';
@@ -21,7 +22,7 @@ class _HomeState extends State<Home> {
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Column(
               children: [
                 Row(
@@ -31,7 +32,8 @@ class _HomeState extends State<Home> {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Darwe()),
+                          MaterialPageRoute(
+                              builder: (context) => const Darwe()),
                         );
                       },
                       child: Align(
@@ -42,7 +44,7 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                     ),
-                    Align(
+                    const Align(
                       alignment: Alignment.topRight,
                       child: Text(
                         "Hi Ahmed,",
@@ -59,34 +61,34 @@ class _HomeState extends State<Home> {
                   alignment: Alignment.bottomRight,
                   child: Text(
                     AppLocalizations.of(context)!.market,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Color(0xFF2F4D84),
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       width: 280,
                     ),
                     Image.asset("assets/Noti.png"),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Image.asset("assets/mes.png"),
                   ],
                 ),
-                Container(
+                SizedBox(
                   width: double.infinity,
                   child: Text(
                     AppLocalizations.of(context)!.top,
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 20,
                         color: Color(
                           0xFF2F4D84,
@@ -95,29 +97,29 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.all(1),
+                  padding: const EdgeInsets.all(1),
                   child: Column(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
-                            padding: EdgeInsets.all(12),
-                            decoration: new BoxDecoration(
+                            padding: const EdgeInsets.all(12),
+                            decoration: const BoxDecoration(
                                 color: Color(0xFF2F4D84),
-                                borderRadius: new BorderRadius.only(
-                                  topRight: const Radius.circular(20.0),
-                                  bottomLeft: const Radius.circular(20.0),
-                                  bottomRight: const Radius.circular(20.0),
+                                borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(20.0),
+                                  bottomLeft: Radius.circular(20.0),
+                                  bottomRight: Radius.circular(20.0),
                                 )),
                             width: 170,
                             height: 330,
                             child: Column(
                               children: [
-                                SizedBox(
+                                const SizedBox(
                                   height: 10,
                                 ),
                                 InkWell(
@@ -125,49 +127,48 @@ class _HomeState extends State<Home> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => ProjectMain()),
+                                          builder: (context) =>
+                                              const ProjectMain()),
                                     );
                                   },
                                   child: Container(
-                                    padding: EdgeInsets.all(10),
+                                    padding: const EdgeInsets.all(10),
                                     height: 160,
                                     width: 150,
-                                    decoration: new BoxDecoration(
+                                    decoration: const BoxDecoration(
                                         color: Colors.white,
-                                        borderRadius: new BorderRadius.only(
-                                          topRight: const Radius.circular(20.0),
-                                          bottomLeft:
-                                              const Radius.circular(20.0),
-                                          bottomRight:
-                                              const Radius.circular(20.0),
+                                        borderRadius: BorderRadius.only(
+                                          topRight: Radius.circular(20.0),
+                                          bottomLeft: Radius.circular(20.0),
+                                          bottomRight: Radius.circular(20.0),
                                         )),
                                     child: Image.asset(
                                       "assets/hom.png",
                                     ),
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 10,
                                 ),
-                                Container(
+                                SizedBox(
                                   width: double.infinity,
                                   child: Text(
                                     AppLocalizations.of(context)!.port,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 10,
                                 ),
-                                Container(
+                                SizedBox(
                                   width: double.infinity,
                                   child: Text(
                                     AppLocalizations.of(context)!.cargo,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 10,
                                     ),
@@ -178,13 +179,13 @@ class _HomeState extends State<Home> {
                           ),
                           //
                           Container(
-                            padding: EdgeInsets.all(12),
-                            decoration: new BoxDecoration(
+                            padding: const EdgeInsets.all(12),
+                            decoration: const BoxDecoration(
                                 color: Color(0xFF2F4D84),
-                                borderRadius: new BorderRadius.only(
-                                  topRight: const Radius.circular(20.0),
-                                  bottomLeft: const Radius.circular(20.0),
-                                  bottomRight: const Radius.circular(20.0),
+                                borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(20.0),
+                                  bottomLeft: Radius.circular(20.0),
+                                  bottomRight: Radius.circular(20.0),
                                 )),
                             width: 170,
                             height: 330,
@@ -193,53 +194,52 @@ class _HomeState extends State<Home> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => Loadingselect()),
+                                      builder: (context) =>
+                                          const Loadingselect()),
                                 );
                               },
                               child: Column(
                                 children: [
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 10,
                                   ),
                                   Container(
-                                    padding: EdgeInsets.all(10),
+                                    padding: const EdgeInsets.all(10),
                                     height: 160,
                                     width: 150,
-                                    decoration: new BoxDecoration(
+                                    decoration: const BoxDecoration(
                                         color: Colors.white,
-                                        borderRadius: new BorderRadius.only(
-                                          topRight: const Radius.circular(20.0),
-                                          bottomLeft:
-                                              const Radius.circular(20.0),
-                                          bottomRight:
-                                              const Radius.circular(20.0),
+                                        borderRadius: BorderRadius.only(
+                                          topRight: Radius.circular(20.0),
+                                          bottomLeft: Radius.circular(20.0),
+                                          bottomRight: Radius.circular(20.0),
                                         )),
                                     child: Image.asset(
-                                      "assets/hom.png",
+                                      "assets/city.png",
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 10,
                                   ),
-                                  Container(
+                                  SizedBox(
                                     width: double.infinity,
                                     child: Text(
                                       AppLocalizations.of(context)!.same,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         color: Colors.white,
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 10,
                                   ),
-                                  Container(
+                                  SizedBox(
                                     width: double.infinity,
                                     child: Text(
                                       AppLocalizations.of(context)!.delivsmall,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         color: Colors.white,
                                         fontSize: 10,
                                       ),
@@ -251,21 +251,21 @@ class _HomeState extends State<Home> {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
-                      Container(
+                      SizedBox(
                         width: double.infinity,
                         child: Text(
                           AppLocalizations.of(context)!.coming,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 20,
                             color: Color(0xFF2F4D84),
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       SingleChildScrollView(
@@ -274,34 +274,31 @@ class _HomeState extends State<Home> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                              padding: EdgeInsets.all(10),
+                              padding: const EdgeInsets.all(10),
                               height: 140,
                               width: 150,
-                              decoration: new BoxDecoration(
+                              decoration: BoxDecoration(
                                   color: Colors.white,
                                   border: Border.all(
-                                      color: Color(0xFF2F4D84), width: 3),
-                                  borderRadius: new BorderRadius.only(
-                                    topRight: const Radius.circular(20.0),
-                                    bottomLeft: const Radius.circular(20.0),
-                                    bottomRight: const Radius.circular(20.0),
+                                      color: const Color(0xFF2F4D84), width: 3),
+                                  borderRadius: const BorderRadius.only(
+                                    topRight: Radius.circular(20.0),
+                                    bottomLeft: Radius.circular(20.0),
+                                    bottomRight: Radius.circular(20.0),
                                   )),
                               child: Center(
                                 child: Column(
                                   children: [
-                                    SizedBox(
-                                      height: 20,
+                                    const SizedBox(
+                                      height: 10,
                                     ),
                                     Image.asset(
                                       "assets/po.png",
-                                      width: 30,
-                                    ),
-                                    SizedBox(
-                                      height: 10,
+                                      width: 70,
                                     ),
                                     Text(
                                       AppLocalizations.of(context)!.ware,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         color: Color(0xFF2F4D84),
                                         fontWeight: FontWeight.bold,
                                         fontSize: 18,
@@ -311,38 +308,35 @@ class _HomeState extends State<Home> {
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 20,
                             ),
                             Container(
-                              padding: EdgeInsets.all(10),
+                              padding: const EdgeInsets.all(10),
                               height: 140,
                               width: 150,
-                              decoration: new BoxDecoration(
+                              decoration: BoxDecoration(
                                   color: Colors.white,
                                   border: Border.all(
-                                      color: Color(0xFF2F4D84), width: 3),
-                                  borderRadius: new BorderRadius.only(
-                                    topRight: const Radius.circular(20.0),
-                                    bottomLeft: const Radius.circular(20.0),
-                                    bottomRight: const Radius.circular(20.0),
+                                      color: const Color(0xFF2F4D84), width: 3),
+                                  borderRadius: const BorderRadius.only(
+                                    topRight: Radius.circular(20.0),
+                                    bottomLeft: Radius.circular(20.0),
+                                    bottomRight: Radius.circular(20.0),
                                   )),
                               child: Center(
                                 child: Column(
                                   children: [
-                                    SizedBox(
-                                      height: 20,
+                                    const SizedBox(
+                                      height: 10,
                                     ),
                                     Image.asset(
                                       "assets/water.png",
                                       width: 70,
                                     ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
                                     Text(
                                       AppLocalizations.of(context)!.water,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         color: Color(0xFF2F4D84),
                                         fontWeight: FontWeight.bold,
                                         fontSize: 18,
@@ -352,38 +346,35 @@ class _HomeState extends State<Home> {
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 20,
                             ),
                             Container(
-                              padding: EdgeInsets.all(10),
+                              padding: const EdgeInsets.all(10),
                               height: 140,
                               width: 150,
-                              decoration: new BoxDecoration(
+                              decoration: BoxDecoration(
                                   color: Colors.white,
                                   border: Border.all(
-                                      color: Color(0xFF2F4D84), width: 3),
-                                  borderRadius: new BorderRadius.only(
-                                    topRight: const Radius.circular(20.0),
-                                    bottomLeft: const Radius.circular(20.0),
-                                    bottomRight: const Radius.circular(20.0),
+                                      color: const Color(0xFF2F4D84), width: 3),
+                                  borderRadius: const BorderRadius.only(
+                                    topRight: Radius.circular(20.0),
+                                    bottomLeft: Radius.circular(20.0),
+                                    bottomRight: Radius.circular(20.0),
                                   )),
                               child: Center(
                                 child: Column(
                                   children: [
-                                    SizedBox(
-                                      height: 20,
+                                    const SizedBox(
+                                      height: 10,
                                     ),
                                     Image.asset(
                                       "assets/car.png",
-                                      width: 50,
-                                    ),
-                                    SizedBox(
-                                      height: 10,
+                                      width: 70,
                                     ),
                                     Text(
                                       AppLocalizations.of(context)!.car,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         color: Color(0xFF2F4D84),
                                         fontWeight: FontWeight.bold,
                                         fontSize: 18,
@@ -398,7 +389,7 @@ class _HomeState extends State<Home> {
                           ],
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       SingleChildScrollView(
@@ -407,34 +398,34 @@ class _HomeState extends State<Home> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                              padding: EdgeInsets.all(10),
+                              padding: const EdgeInsets.all(10),
                               height: 140,
                               width: 150,
-                              decoration: new BoxDecoration(
+                              decoration: BoxDecoration(
                                   color: Colors.white,
                                   border: Border.all(
-                                      color: Color(0xFF2F4D84), width: 3),
-                                  borderRadius: new BorderRadius.only(
-                                    topRight: const Radius.circular(20.0),
-                                    bottomLeft: const Radius.circular(20.0),
-                                    bottomRight: const Radius.circular(20.0),
+                                      color: const Color(0xFF2F4D84), width: 3),
+                                  borderRadius: const BorderRadius.only(
+                                    topRight: Radius.circular(20.0),
+                                    bottomLeft: Radius.circular(20.0),
+                                    bottomRight: Radius.circular(20.0),
                                   )),
                               child: Center(
                                 child: Column(
                                   children: [
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 20,
                                     ),
                                     Image.asset(
-                                      "assets/car.png",
+                                      "assets/sea.png",
                                       width: 50,
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 10,
                                     ),
                                     Text(
                                       AppLocalizations.of(context)!.sea,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         color: Color(0xFF2F4D84),
                                         fontWeight: FontWeight.bold,
                                         fontSize: 18,
@@ -444,38 +435,38 @@ class _HomeState extends State<Home> {
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 20,
                             ),
                             Container(
-                              padding: EdgeInsets.all(10),
+                              padding: const EdgeInsets.all(10),
                               height: 140,
                               width: 150,
-                              decoration: new BoxDecoration(
+                              decoration: BoxDecoration(
                                   color: Colors.white,
                                   border: Border.all(
-                                      color: Color(0xFF2F4D84), width: 3),
-                                  borderRadius: new BorderRadius.only(
-                                    topRight: const Radius.circular(20.0),
-                                    bottomLeft: const Radius.circular(20.0),
-                                    bottomRight: const Radius.circular(20.0),
+                                      color: const Color(0xFF2F4D84), width: 3),
+                                  borderRadius: const BorderRadius.only(
+                                    topRight: Radius.circular(20.0),
+                                    bottomLeft: Radius.circular(20.0),
+                                    bottomRight: Radius.circular(20.0),
                                   )),
                               child: Center(
                                 child: Column(
                                   children: [
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 20,
                                     ),
                                     Image.asset(
-                                      "assets/car.png",
+                                      "assets/air.png",
                                       width: 50,
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 10,
                                     ),
                                     Text(
                                       AppLocalizations.of(context)!.air,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         color: Color(0xFF2F4D84),
                                         fontWeight: FontWeight.bold,
                                         fontSize: 18,
@@ -485,7 +476,7 @@ class _HomeState extends State<Home> {
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 20,
                             ),
 
@@ -493,72 +484,72 @@ class _HomeState extends State<Home> {
                           ],
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
-                      Container(
-                        child: CarouselSlider(
-                          items: [
-                            //1st Image of Slider
-                            Container(
-                              margin: EdgeInsets.all(6.0),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8.0),
-                                image: DecorationImage(
-                                  image: AssetImage('assets/img1.png'),
-                                ),
+                      CarouselSlider(
+                        items: [
+                          //1st Image of Slider
+                          Container(
+                            margin: const EdgeInsets.all(6.0),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8.0),
+                              image: const DecorationImage(
+                                image: AssetImage('assets/img1.png'),
                               ),
                             ),
-
-                            //2nd Image of Slider
-                            Container(
-                              margin: EdgeInsets.all(6.0),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8.0),
-                                image: DecorationImage(
-                                  image: AssetImage('assets/img1.png'),
-                                ),
-                              ),
-                            ),
-
-                            //3rd Image of Slider
-                            Container(
-                              margin: EdgeInsets.all(6.0),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8.0),
-                                image: DecorationImage(
-                                  image: AssetImage('assets/img1.png'),
-                                ),
-                              ),
-                            ),
-                          ],
-
-                          //Slider Container properties
-                          options: CarouselOptions(
-                            height: 200,
-                            enlargeCenterPage: false,
-                            autoPlay: true,
-                            aspectRatio: 16 / 9,
-                            autoPlayCurve: Curves.fastOutSlowIn,
-                            enableInfiniteScroll: true,
-                            autoPlayAnimationDuration:
-                                Duration(milliseconds: 1800),
-                            viewportFraction: 1,
                           ),
+
+                          //2nd Image of Slider
+                          Container(
+                            margin: const EdgeInsets.all(6.0),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8.0),
+                              image: const DecorationImage(
+                                image: AssetImage('assets/img1.png'),
+                              ),
+                            ),
+                          ),
+
+                          //3rd Image of Slider
+                          Container(
+                            margin: const EdgeInsets.all(6.0),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8.0),
+                              image: const DecorationImage(
+                                image: AssetImage('assets/img1.png'),
+                              ),
+                            ),
+                          ),
+                        ],
+
+                        //Slider Container properties
+                        options: CarouselOptions(
+                          height: 200,
+                          enlargeCenterPage: false,
+                          autoPlay: true,
+                          aspectRatio: 16 / 9,
+                          autoPlayCurve: Curves.fastOutSlowIn,
+                          enableInfiniteScroll: true,
+                          autoPlayAnimationDuration:
+                              const Duration(milliseconds: 1800),
+                          viewportFraction: 1,
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         width: double.infinity,
                         child: Text(
                           AppLocalizations.of(context)!.need,
-                          style:
-                              TextStyle(fontSize: 20, color: Color(0xFF2F4D84)),
+                          style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF2F4D84)),
                         ),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 SingleChildScrollView(
@@ -567,29 +558,32 @@ class _HomeState extends State<Home> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         height: 200,
                         width: 150,
-                        decoration: new BoxDecoration(
+                        decoration: BoxDecoration(
                             color: Colors.white,
                             border: Border.all(color: Colors.black12, width: 3),
-                            borderRadius: new BorderRadius.only(
-                              topRight: const Radius.circular(20.0),
-                              bottomLeft: const Radius.circular(20.0),
-                              bottomRight: const Radius.circular(20.0),
+                            borderRadius: const BorderRadius.only(
+                              topRight: Radius.circular(20.0),
+                              bottomLeft: Radius.circular(20.0),
+                              bottomRight: Radius.circular(20.0),
                             )),
                         child: Center(
                           child: Column(
                             children: [
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               Image.asset(
                                 "assets/acc1.png",
                               ),
+                              const SizedBox(
+                                height: 15,
+                              ),
                               Text(
                                 AppLocalizations.of(context)!.access,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Color(0xffB8B8D2),
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18,
@@ -599,77 +593,129 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 20,
                       ),
                       Container(
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         height: 200,
                         width: 150,
-                        decoration: new BoxDecoration(
+                        decoration: BoxDecoration(
                             color: Colors.white,
                             border: Border.all(color: Colors.black12, width: 3),
-                            borderRadius: new BorderRadius.only(
-                              topRight: const Radius.circular(20.0),
-                              bottomLeft: const Radius.circular(20.0),
-                              bottomRight: const Radius.circular(20.0),
+                            borderRadius: const BorderRadius.only(
+                              topRight: Radius.circular(20.0),
+                              bottomLeft: Radius.circular(20.0),
+                              bottomRight: Radius.circular(20.0),
                             )),
                         child: Center(
                           child: Column(
                             children: [
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               Image.asset(
-                                "assets/acc2.JPG",
+                                "assets/acc2.png",
+                              ),
+                              const SizedBox(
+                                height: 20,
                               ),
                               Text(
                                 AppLocalizations.of(context)!.tyres,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Color(0xffB8B8D2),
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 18,
+                                  fontSize: 15,
                                 ),
                               )
                             ],
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 20,
                       ),
 
                       //
                       Container(
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         height: 200,
                         width: 150,
-                        decoration: new BoxDecoration(
+                        decoration: BoxDecoration(
                             color: Colors.white,
                             border: Border.all(color: Colors.black12, width: 3),
-                            borderRadius: new BorderRadius.only(
-                              topRight: const Radius.circular(20.0),
-                              bottomLeft: const Radius.circular(20.0),
-                              bottomRight: const Radius.circular(20.0),
+                            borderRadius: const BorderRadius.only(
+                              topRight: Radius.circular(20.0),
+                              bottomLeft: Radius.circular(20.0),
+                              bottomRight: Radius.circular(20.0),
                             )),
                         child: Center(
                           child: Column(
                             children: [
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               Image.asset(
-                                "assets/acc3.PNG",
+                                "assets/acc3.png",
+                              ),
+                              const SizedBox(
+                                height: 20,
                               ),
                               Text(
                                 AppLocalizations.of(context)!.braker,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Color(0xffB8B8D2),
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 18,
+                                  fontSize: 15,
                                 ),
                               )
                             ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          _launchURL();
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.all(10),
+                          height: 200,
+                          width: 150,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              border:
+                                  Border.all(color: Colors.black12, width: 3),
+                              borderRadius: const BorderRadius.only(
+                                topRight: Radius.circular(20.0),
+                                bottomLeft: Radius.circular(20.0),
+                                bottomRight: Radius.circular(20.0),
+                              )),
+                          child: Center(
+                            child: Column(
+                              children: [
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                Image.asset(
+                                  "assets/plus.png",
+                                  width: 80,
+                                ),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                const Text(
+                                  "More Detail ",
+                                  style: TextStyle(
+                                    color: Color(0xffB8B8D2),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -677,25 +723,25 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 Container(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(7),
                     width: double.infinity,
                     child: Container(
-                      width: 200,
-                      height: 90,
-                      padding: EdgeInsets.all(10),
+                      width: double.infinity,
+                      height: 70,
+                      padding: const EdgeInsets.all(10),
                       child: ElevatedButton(
                         child: Center(
                           child: Row(
                             children: [
-                              SizedBox(
+                              const SizedBox(
                                 width: 40,
                               ),
                               Image.asset('assets/add.png'),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
                               Text(AppLocalizations.of(context)!.neehelp,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 15,
                                     color: Color(0xFF583EF2),
                                     fontWeight: FontWeight.bold,
@@ -704,16 +750,18 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                         style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all<Color>(Colors.white),
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                                const Color(0xffEAEAFF)),
                             shape: MaterialStateProperty.all<
                                 RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
+                              const RoundedRectangleBorder(
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(8)),
+                                      BorderRadius.all(Radius.circular(18)),
                                   side: BorderSide(color: Colors.white)),
                             )),
-                        onPressed: () {},
+                        onPressed: () {
+                          _launchURL();
+                        },
                       ),
                     )),
               ],
@@ -722,5 +770,14 @@ class _HomeState extends State<Home> {
         ),
       ),
     );
+  }
+}
+
+_launchURL() async {
+  const url = 'https://www.google.com/';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
 }

@@ -1,9 +1,13 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_element
+
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:meribilty/Location.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class OnBoardingPage extends StatefulWidget {
+  const OnBoardingPage({Key? key}) : super(key: key);
+
   @override
   _OnBoardingPageState createState() => _OnBoardingPageState();
 }
@@ -35,7 +39,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
   Widget build(BuildContext context) {
     const bodyStyle = TextStyle(fontSize: 19.0);
 
-    const pageDecoration = const PageDecoration(
+    const pageDecoration = PageDecoration(
       titleTextStyle: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700),
       bodyTextStyle: bodyStyle,
       descriptionPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
@@ -49,19 +53,51 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
       pages: [
         PageViewModel(
-            titleWidget: Text(
-              AppLocalizations.of(context)!.ride,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
+            titleWidget: Column(
+              children: [
+                Align(
+                  alignment: Alignment.bottomRight,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (_) => home()));
+                    },
+                    child: Text(
+                      AppLocalizations.of(context)!.skip,
+                      style: TextStyle(
+                        fontSize: 17,
+                        color: Color(0xFF2F4D84),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 50,
+                ),
+                Image.asset("assets/onbo1.png"),
+                SizedBox(
+                  height: 30,
+                ),
+                Text(
+                  AppLocalizations.of(context)!.ride,
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 30),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+              ],
             ),
             // body: "Request a ride get picked up by a \n nearby community driver ",
             bodyWidget: Text(
               AppLocalizations.of(context)!.ridedetail,
-              style: TextStyle(fontSize: 20),
+              style: TextStyle(
+                fontSize: 17,
+                fontWeight: FontWeight.w300,
+              ),
             ),
-            image: Image.asset("assets/onbo1.png"),
+            // image: Image.asset("assets/onbo1.png"),
             decoration: pageDecoration,
-            footer: Container(
-                child: Column(
+            footer: Column(
               children: [
                 SizedBox(
                   height: 120,
@@ -74,43 +110,97 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 //   ),
                 // ),
               ],
-            ))),
+            )),
         PageViewModel(
-            titleWidget: Text(
-              AppLocalizations.of(context)!.drive,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
+            titleWidget: Column(
+              children: [
+                Align(
+                  alignment: Alignment.bottomRight,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (_) => home()),
+                      );
+                    },
+                    child: Text(
+                      AppLocalizations.of(context)!.skip,
+                      style: TextStyle(
+                        fontSize: 17,
+                        color: Color(0xFF2F4D84),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 50,
+                ),
+                Image.asset("assets/tast2.png"),
+                SizedBox(
+                  height: 30,
+                ),
+                Text(
+                  AppLocalizations.of(context)!.drive,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+              ],
             ),
             bodyWidget: Text(
               AppLocalizations.of(context)!.drivedetail,
-              style: TextStyle(fontSize: 20),
+              style: TextStyle(fontSize: 17, fontWeight: FontWeight.w300),
             ),
-            image: Image.asset("assets/tast2.png"),
+            // image: Image.asset("assets/tast2.png"),
             decoration: pageDecoration,
-            footer: Container(
-                child: Column(
+            footer: Column(
               children: [
                 SizedBox(
                   height: 120,
                 ),
-                // Text(
-                //   AppLocalizations.of(context)!.skip,
-                //   style: TextStyle(
-                //     fontSize: 20,
-                //     color: Color(0xFF2F4D84),
-                //   ),
-                // ),
               ],
-            ))),
+            )),
         PageViewModel(
-          titleWidget: Text(
-            AppLocalizations.of(context)!.truck,
-            style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+          titleWidget: Column(
+            children: [
+              Align(
+                alignment: Alignment.bottomRight,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (_) => home()),
+                    );
+                  },
+                  child: Text(
+                    AppLocalizations.of(context)!.skip,
+                    style: TextStyle(
+                      fontSize: 17,
+                      color: Color(0xFF2F4D84),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              Image.asset("assets/map.png"),
+              SizedBox(
+                height: 40,
+              ),
+              Text(
+                AppLocalizations.of(context)!.truck,
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+            ],
           ),
           bodyWidget: Text(
             AppLocalizations.of(context)!.truckdetail,
-            style: TextStyle(fontSize: 20),
+            style: TextStyle(fontSize: 17),
           ),
-          image: Image.asset("assets/map.png"),
+          // image: Image.asset("assets/map.png"),
           decoration: pageDecoration,
           footer: Column(
             children: [
@@ -140,20 +230,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       //onSkip: () => _onIntroEnd(context), // You can override onSkip callback
 
       skipFlex: 0,
-      skip: Text(
-        AppLocalizations.of(context)!.skip,
-        style: TextStyle(
-          fontSize: 20,
-          color: Color(0xFF2F4D84),
-        ),
-      ),
-      showSkipButton: true,
+
       nextFlex: 0,
-      onSkip: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(builder: (_) => home()),
-        );
-      },
 
       next: Text(" "),
 
@@ -167,17 +245,21 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       controlsMargin: const EdgeInsets.all(16),
 
       dotsDecorator: const DotsDecorator(
-        activeShape: Border(),
+        activeShape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(18.0)),
+        ),
         spacing: EdgeInsets.only(left: 0, right: 0),
         size: Size(30.0, 10.0),
-        shape: Border(),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(18.0)),
+        ),
         color: Color(0xFFEFEFF4),
         activeColor: Color(0xFF2F4D84),
-        activeSize: Size(30.0, 10.0),
+        activeSize: Size(40.0, 10.0),
       ),
       dotsContainerDecorator: const ShapeDecoration(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(8.0)),
+          borderRadius: BorderRadius.all(Radius.circular(18.0)),
         ),
       ),
     );

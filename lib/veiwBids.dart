@@ -1,12 +1,10 @@
+// ignore_for_file: unused_element, file_names
+
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:getwidget/colors/gf_color.dart';
-import 'package:getwidget/components/alert/gf_alert.dart';
 import 'package:getwidget/components/button/gf_button.dart';
-import 'package:getwidget/components/floating_widget/gf_floating_widget.dart';
 import 'package:getwidget/position/gf_position.dart';
 import 'package:getwidget/shape/gf_button_shape.dart';
-import 'package:getwidget/types/gf_alert_type.dart';
 import 'package:getwidget/types/gf_button_type.dart';
 import 'package:meribilty/paymentmethod.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
@@ -25,34 +23,30 @@ class _VeiwBirdsState extends State<VeiwBirds> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color(0xFF2F4D84),
-        title: Text(
-          "Veiw Bids  ",
+        backgroundColor: const Color(0xFF2F4D84),
+        title: const Text(
+          "Veiw Bds  ",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.normal),
         ),
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.close,
-            color: Colors.black,
+            color: Colors.white,
           ),
           onPressed: () {},
         ),
       ),
       body: SafeArea(
-        child: Container(
-          child: Column(
-            children: [
-              Container(
-                child: Center(
-                  child: Text(
-                    AppLocalizations.of(context)!.book,
-                    style: TextStyle(color: Colors.red, fontSize: 20),
-                  ),
-                ),
+        child: Column(
+          children: [
+            Center(
+              child: Text(
+                AppLocalizations.of(context)!.book,
+                style: const TextStyle(color: Colors.red, fontSize: 20),
               ),
-              decision(context),
-            ],
-          ),
+            ),
+            decision(context),
+          ],
         ),
       ),
     );
@@ -61,17 +55,28 @@ class _VeiwBirdsState extends State<VeiwBirds> {
 
 Widget decision(BuildContext context) {
   return Container(
-    padding: EdgeInsets.all(20),
-    color: Colors.white,
+    padding: const EdgeInsets.all(10),
+    decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(40.0),
+          topRight: Radius.circular(40.0),
+        )),
     child: Column(
       children: [
         Container(
           width: double.infinity,
-          color: Color(0xff666666),
+          height: 20,
+          decoration: const BoxDecoration(
+              color: Color(0xff666666),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(10.0),
+                topRight: Radius.circular(10.0),
+              )),
           child: Center(
             child: Text(
               AppLocalizations.of(context)!.bokd,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
               ),
             ),
@@ -79,7 +84,7 @@ Widget decision(BuildContext context) {
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
+          children: const [
             Text(
               "Order No .00214 ",
               style: TextStyle(
@@ -92,51 +97,48 @@ Widget decision(BuildContext context) {
             ),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         GFButton(
           child: Container(
-            color: Color(0xff242E42),
+            color: const Color(0xff242E42),
             child: Row(
               children: [
                 Image.asset("assets/truk.png"),
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 ),
-                Container(
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "20 Feet Container",
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        "5 Tons",
-                        style:
-                            TextStyle(fontSize: 20, color: Color(0xffC8C7CC)),
-                      )
-                    ],
-                  ),
+                Column(
+                  children: const [
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      "20 Feet Container",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "5 Tons",
+                      style: TextStyle(fontSize: 20, color: Color(0xffC8C7CC)),
+                    )
+                  ],
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 40,
                 ),
                 Container(
                   height: 30,
                   width: 30,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
                   child: TextButton(
-                    style: ButtonStyle(),
+                    style: const ButtonStyle(),
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       '1',
                     ),
                   ),
@@ -145,8 +147,8 @@ Widget decision(BuildContext context) {
             ),
           ),
           size: 60,
-          color: Color(0xff242E42),
-          textStyle: TextStyle(fontSize: 20),
+          color: const Color(0xff242E42),
+          textStyle: const TextStyle(fontSize: 20),
           onPressed: () {},
           type: GFButtonType.solid,
           borderSide: BorderSide.none,
@@ -156,46 +158,43 @@ Widget decision(BuildContext context) {
         ),
         GFButton(
           child: Container(
-            color: Color(0xff242E42),
+            color: const Color(0xff242E42),
             child: Row(
               children: [
                 Image.asset("assets/truk.png"),
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 ),
-                Container(
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "20 Feet Container",
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        "5 Tons",
-                        style:
-                            TextStyle(fontSize: 20, color: Color(0xffC8C7CC)),
-                      )
-                    ],
-                  ),
+                Column(
+                  children: const [
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      "20 Feet Container",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "5 Tons",
+                      style: TextStyle(fontSize: 20, color: Color(0xffC8C7CC)),
+                    )
+                  ],
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 40,
                 ),
                 Container(
                   height: 30,
                   width: 30,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
                   child: TextButton(
-                    style: ButtonStyle(),
+                    style: const ButtonStyle(),
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       '1',
                     ),
                   ),
@@ -204,8 +203,8 @@ Widget decision(BuildContext context) {
             ),
           ),
           size: 60,
-          color: Color(0xff242E42),
-          textStyle: TextStyle(fontSize: 20),
+          color: const Color(0xff242E42),
+          textStyle: const TextStyle(fontSize: 20),
           onPressed: () {},
           type: GFButtonType.solid,
           borderSide: BorderSide.none,
@@ -220,25 +219,24 @@ Widget decision(BuildContext context) {
             InkWell(
               onTap: () {},
               child: GFButton(
-                color: Color(0xFF2F4D84),
+                color: const Color(0xFF2F4D84),
                 onPressed: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => VeiwBirds(),
+                        builder: (context) => const VeiwBirds(),
                       ));
                 },
                 text: "COD",
                 shape: GFButtonShape.pills,
-                textStyle: TextStyle(
+                textStyle: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
-            Container(
-                child: Row(
-              children: [
+            Row(
+              children: const [
                 Text(
                   "*",
                   style: TextStyle(
@@ -253,53 +251,55 @@ Widget decision(BuildContext context) {
                   ),
                 ),
               ],
-            )),
+            ),
             GFButton(
               color: Colors.black26,
               onPressed: () {},
               text: "Rs :200,000",
               shape: GFButtonShape.pills,
-              textStyle: TextStyle(fontSize: 20, color: Colors.black),
+              textStyle: const TextStyle(fontSize: 20, color: Colors.black),
             ),
-            SizedBox(
+            const SizedBox(
               width: 20,
             ),
           ],
         ),
-        Container(
-          child: Row(
-            children: [
-              GFButton(
-                color: Color(0xffFF2D55),
-                size: 50,
-                onPressed: () {
-                  _onOfferreject(context);
-                },
-                text: AppLocalizations.of(context)!.reject,
-                textStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              GFButton(
-                color: Color(0xff5AC8FA),
-                onPressed: () {
-                  _onVendorcounter(context);
-                },
-                text: AppLocalizations.of(context)!.count,
-                size: 50,
-                shape: GFButtonShape.square,
-                textStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              GFButton(
-                onPressed: () {
-                  _onSendCounterAccept(context);
-                },
-                color: Color(0xFF2F4D84),
-                text: AppLocalizations.of(context)!.acept,
-                size: 50,
-                shape: GFButtonShape.square,
-                textStyle: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
-              ),
-            ],
-          ),
+        Row(
+          children: [
+            GFButton(
+              shape: GFButtonShape.standard,
+              color: const Color(0xffFF2D55),
+              size: 50,
+              onPressed: () {
+                _onOfferreject(context);
+              },
+              text: AppLocalizations.of(context)!.reject,
+              textStyle:
+                  const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            GFButton(
+              color: const Color(0xff5AC8FA),
+              onPressed: () {
+                _onVendorcounter(context);
+              },
+              text: AppLocalizations.of(context)!.count,
+              size: 50,
+              shape: GFButtonShape.square,
+              textStyle:
+                  const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            GFButton(
+              onPressed: () {
+                _onSendCounterAccept(context);
+              },
+              color: const Color(0xFF2F4D84),
+              text: AppLocalizations.of(context)!.acept,
+              size: 50,
+              shape: GFButtonShape.square,
+              textStyle:
+                  const TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
+            ),
+          ],
         )
       ],
     ),
@@ -323,16 +323,16 @@ Widget expand(BuildContext context) {
                 tapBodyToCollapse: true,
               ),
               header: Padding(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   child: Center(
                     child: Text(
                       AppLocalizations.of(context)!.expend,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Color(0xFF2F4D84),
                       ),
                     ),
                   )),
-              collapsed: Text(
+              collapsed: const Text(
                 "  ",
                 softWrap: true,
                 maxLines: 1,
@@ -341,16 +341,16 @@ Widget expand(BuildContext context) {
               expanded: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Row(
                     children: [
                       Image.asset('assets/Ol.png'),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
-                      Text(
+                      const Text(
                         "Pick Up location",
                         style: TextStyle(
                           fontSize: 20,
@@ -358,16 +358,16 @@ Widget expand(BuildContext context) {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   Row(
                     children: [
                       Image.asset('assets/ma.png'),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
-                      Text(
+                      const Text(
                         "Drop off location",
                         style: TextStyle(
                           fontSize: 20,
@@ -375,16 +375,16 @@ Widget expand(BuildContext context) {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   Row(
                     children: [
                       Image.asset('assets/Ol.png'),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
-                      Text(
+                      const Text(
                         "Empty Container Return",
                         style: TextStyle(
                           fontSize: 20,
@@ -392,48 +392,45 @@ Widget expand(BuildContext context) {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       GFButton(
-                        color: Color(0xFF2F4D84),
+                        color: const Color(0xFF2F4D84),
                         onPressed: () {},
                         text: "Load",
                         shape: GFButtonShape.pills,
                       ),
-                      Text("1 x Fork Lifter Rs. 3000  "),
+                      const Text("1 x Fork Lifter Rs. 3000  "),
                     ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        child: Row(
-                          children: [
-                            Text(
-                              "DISTANCE",
-                              style: TextStyle(
-                                  color: Color(0xFF2F4D84),
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              "2000 km",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
+                      Row(
+                        children: const [
+                          Text(
+                            "DISTANCE",
+                            style: TextStyle(
+                                color: Color(0xFF2F4D84),
+                                fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            "2000 km",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
                       ),
-                      Container(
-                          child: Row(
-                        children: [
+                      Row(
+                        children: const [
                           Text(
                             "Time",
                             style: TextStyle(
@@ -450,14 +447,15 @@ Widget expand(BuildContext context) {
                                 fontWeight: FontWeight.bold),
                           ),
                         ],
-                      )),
+                      ),
                     ],
                   ),
                 ],
               ),
               builder: (_, collapsed, expanded) {
                 return Padding(
-                  padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
+                  padding:
+                      const EdgeInsets.only(left: 10, right: 10, bottom: 10),
                   child: Expandable(
                     collapsed: collapsed,
                     expanded: expanded,
@@ -479,15 +477,19 @@ _onSendCounter(context) {
       children: <Widget>[
         Text(
           AppLocalizations.of(context)!.countoffer,
-          style:
-              TextStyle(fontWeight: FontWeight.bold, color: Color(0xff5AC8FA)),
+          style: const TextStyle(
+              fontWeight: FontWeight.bold, color: Color(0xff5AC8FA)),
         ),
         Text(
           AppLocalizations.of(context)!.preparing,
-          style: TextStyle(color: Color(0xff8A8A8F)),
+          style: const TextStyle(color: Color(0xff8A8A8F)),
         ),
-        Text(
-          "Rs 450.0000 ",
+        const Divider(
+          height: 2,
+          color: Colors.black,
+        ),
+        const Text(
+          "Rs 40.0000 ",
           style:
               TextStyle(fontWeight: FontWeight.bold, color: Color(0xff5AC8FA)),
         ),
@@ -495,7 +497,7 @@ _onSendCounter(context) {
     ),
     buttons: [
       DialogButton(
-        child: Text(
+        child: const Text(
           "Cancel ",
           style: TextStyle(color: Colors.black38, fontSize: 20),
         ),
@@ -503,7 +505,7 @@ _onSendCounter(context) {
         color: Colors.white,
       ),
       DialogButton(
-        child: Text(
+        child: const Text(
           "Send",
           style: TextStyle(color: Color(0xFF2F4D84), fontSize: 20),
         ),
@@ -521,31 +523,45 @@ _onSendCounterAccept(context) {
       children: <Widget>[
         Text(
           AppLocalizations.of(context)!.deal,
-          style: TextStyle(
+          style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
               color: Color(0xff242E42)),
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         Text(
           AppLocalizations.of(context)!.preparing,
-          style: TextStyle(color: Color(0xff8A8A8F)),
+          style: const TextStyle(color: Color(0xff8A8A8F)),
         ),
-        SizedBox(
+        const SizedBox(
+          height: 20,
+        ),
+        const Divider(
+          height: 2,
+          color: Colors.black38,
+        ),
+        const SizedBox(
           height: 10,
         ),
-        Text(
-          "Rs 450.0000 ",
+        const Text(
+          "Rs 40.0000 ",
           style:
               TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF2F4D84)),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        const Divider(
+          height: 2,
+          color: Colors.black38,
         ),
       ],
     ),
     buttons: [
       DialogButton(
-        child: Text(
+        child: const Text(
           "Reject ",
           style: TextStyle(color: Colors.red, fontSize: 20),
         ),
@@ -553,14 +569,14 @@ _onSendCounterAccept(context) {
         color: Colors.white,
       ),
       DialogButton(
-        child: Text(
+        child: const Text(
           "Proceed",
           style: TextStyle(color: Color(0xFF2F4D84), fontSize: 20),
         ),
         onPressed: () => Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => Payment(),
+              builder: (context) => const Payment(),
             )),
         color: Colors.white,
       )
@@ -573,28 +589,28 @@ _reminder(context) {
   Alert(
     content: Column(
       children: <Widget>[
-        Text(
+        const Text(
           "Reminder",
           style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
               color: Color(0xff242E42)),
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         Text(
           AppLocalizations.of(context)!.limited,
-          style: TextStyle(color: Color(0xff8A8A8F)),
+          style: const TextStyle(color: Color(0xff8A8A8F)),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
       ],
     ),
     buttons: [
       DialogButton(
-        child: Text(
+        child: const Text(
           "Proceed",
           style: TextStyle(color: Color(0xFF2F4D84), fontSize: 20),
         ),
@@ -612,31 +628,42 @@ _onVendorcounter(context) {
       children: <Widget>[
         Text(
           AppLocalizations.of(context)!.venderoffer,
-          style: TextStyle(
+          style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
               color: Color(0xff242E42)),
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         Text(
           AppLocalizations.of(context)!.countoffer,
-          style: TextStyle(color: Color(0xff8A8A8F)),
+          style: const TextStyle(color: Color(0xff8A8A8F)),
         ),
-        SizedBox(
+        const Divider(
+          height: 2,
+          color: Colors.black38,
+        ),
+        const SizedBox(
           height: 20,
         ),
-        Text(
+        const Text(
           "Rs 450.0000 ",
           style:
               TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF2F4D84)),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        const Divider(
+          height: 2,
+          color: Colors.black38,
         ),
       ],
     ),
     buttons: [
       DialogButton(
-        child: Text(
+        child: const Text(
           "Reject ",
           style: TextStyle(color: Colors.red, fontSize: 20),
         ),
@@ -644,7 +671,7 @@ _onVendorcounter(context) {
         color: Colors.white,
       ),
       DialogButton(
-        child: Text(
+        child: const Text(
           "Accept",
           style: TextStyle(color: Color(0xFF2F4D84), fontSize: 20),
         ),
@@ -660,7 +687,7 @@ _onOfferreject(context) {
   Alert(
     type: AlertType.error,
     content: Column(
-      children: <Widget>[
+      children: const <Widget>[
         Text(
           "Offer Rejected",
           style: TextStyle(
@@ -678,13 +705,17 @@ _onOfferreject(context) {
         SizedBox(
           height: 20,
         ),
+        Divider(
+          height: 10,
+          color: Colors.black38,
+        ),
       ],
     ),
     buttons: [
       DialogButton(
-        child: Text(
+        child: const Text(
           "Done",
-          style: TextStyle(color: Color(0xff4CE5B1), fontSize: 20),
+          style: TextStyle(color: Color(0xFF2F4D84), fontSize: 20),
         ),
         onPressed: () => Navigator.pop(context),
         color: Colors.white,
@@ -701,33 +732,33 @@ _onOfferrejectConform(context) {
       children: <Widget>[
         Text(
           AppLocalizations.of(context)!.oh,
-          style: TextStyle(
+          style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
               color: Color(0xff242E42)),
         ),
-        Text(
+        const Text(
           "Offer Rejected",
           style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
               color: Color(0xff242E42)),
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         Text(
           AppLocalizations.of(context)!.cancellation,
-          style: TextStyle(color: Color(0xff8A8A8F)),
+          style: const TextStyle(color: Color(0xff8A8A8F)),
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
       ],
     ),
     buttons: [
       DialogButton(
-        child: Text(
+        child: const Text(
           "Done",
           style: TextStyle(color: Color(0xff4CE5B1), fontSize: 20),
         ),

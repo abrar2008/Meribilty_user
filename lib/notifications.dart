@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:getwidget/components/avatar/gf_avatar.dart';
 import 'package:getwidget/components/list_tile/gf_list_tile.dart';
@@ -18,81 +20,79 @@ class _NotifcationState extends State<Notifcation> {
         elevation: 0,
         backgroundColor: Color(0xFF2F4D84),
       ),
-      body: Container(
-        child: Column(
-          children: [
-            Container(
-              height: 50,
-              color: Color(0xFF2F4D84),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text(
-                    AppLocalizations.of(context)!.noto,
-                    style: TextStyle(
-                        fontSize: 30,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Image.asset("assets/not.png")
-                ],
-              ),
-            ),
-            GFListTile(
-              avatar: GFAvatar(
-                backgroundImage: AssetImage(
-                  "assets/Shape2.png",
+      body: Column(
+        children: [
+          Container(
+            height: 50,
+            color: Color(0xFF2F4D84),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  AppLocalizations.of(context)!.noto,
+                  style: TextStyle(
+                      fontSize: 30,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
                 ),
-                size: 20,
-              ),
-              titleText: 'System',
-              subTitleText: 'Your booking #1234 has bees successfully',
-            ),
-            GFListTile(
-              avatar: GFAvatar(
-                backgroundImage: AssetImage(
-                  "assets/shape4.png",
+                SizedBox(
+                  width: 20,
                 ),
-                size: 20,
-              ),
-              titleText: 'Promotion',
-              subTitleText: 'Invite friends -Get 3 coupons each',
+                Image.asset("assets/not.png")
+              ],
             ),
-            GFListTile(
-              avatar: GFAvatar(
-                backgroundImage: AssetImage(
-                  "assets/shape4.png",
-                ),
-                size: 20,
+          ),
+          GFListTile(
+            avatar: GFAvatar(
+              backgroundImage: AssetImage(
+                "assets/Shape2.png",
               ),
-              titleText: 'Promotion',
-              subTitleText: 'Invite friends -Get 3 coupons each',
+              size: 20,
             ),
-            GFListTile(
-              avatar: GFAvatar(
-                backgroundImage: AssetImage(
-                  "assets/Shape3.png",
-                ),
-                size: 20,
+            titleText: 'System',
+            subTitleText: 'Your booking #1234 has bees successfully',
+          ),
+          GFListTile(
+            avatar: GFAvatar(
+              backgroundImage: AssetImage(
+                "assets/shape4.png",
               ),
-              titleText: 'System',
-              subTitleText: 'Your booking #1205 has been cancelled',
+              size: 20,
             ),
-            GFListTile(
-              avatar: GFAvatar(
-                backgroundImage: AssetImage(
-                  "assets/sha.png",
-                ),
-                size: 20,
+            titleText: 'Promotion',
+            subTitleText: 'Invite friends -Get 3 coupons each',
+          ),
+          GFListTile(
+            avatar: GFAvatar(
+              backgroundImage: AssetImage(
+                "assets/shape4.png",
               ),
-              titleText: 'System',
-              subTitleText: 'Your booking #1205 has been cancelled',
+              size: 20,
             ),
-          ],
-        ),
+            titleText: 'Promotion',
+            subTitleText: 'Invite friends -Get 3 coupons each',
+          ),
+          GFListTile(
+            avatar: GFAvatar(
+              backgroundImage: AssetImage(
+                "assets/Shape3.png",
+              ),
+              size: 20,
+            ),
+            titleText: 'System',
+            subTitleText: 'Your booking #1205 has been cancelled',
+          ),
+          GFListTile(
+            avatar: GFAvatar(
+              backgroundImage: AssetImage(
+                "assets/sha.png",
+              ),
+              size: 20,
+            ),
+            titleText: 'System',
+            subTitleText: 'Your booking #1205 has been cancelled',
+          ),
+        ],
       ),
     );
   }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:getwidget/components/avatar/gf_avatar.dart';
 import 'package:getwidget/components/list_tile/gf_list_tile.dart';
 import 'package:getwidget/getwidget.dart';
-import 'package:meribilty/home.dart';
 import 'package:meribilty/loading_select.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -19,24 +18,26 @@ class _UnLoadingOptionState extends State<UnLoadingOption> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SlidingUpPanel(
+        renderPanelSheet: false,
         minHeight: 300,
-        panelBuilder: (ScrollController sc) => _scrollingList(sc, context),
+        panel: _floatingPanel(context),
+        // panelBuilder: (ScrollController sc) => _scrollingList(sc, context),
       ),
       bottomNavigationBar: BottomAppBar(
         child: Container(
-          padding: EdgeInsets.all(15),
+          padding: const EdgeInsets.all(15),
           child: GFButton(
             size: 60,
-            color: Color(0xFF2F4D84),
+            color: const Color(0xFF2F4D84),
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Loadingselect()),
+                MaterialPageRoute(builder: (context) => const Loadingselect()),
               );
             },
             child: Text(
               AppLocalizations.of(context)!.save,
-              style: TextStyle(fontSize: 25),
+              style: const TextStyle(fontSize: 25),
             ),
             type: GFButtonType.solid,
             shape: GFButtonShape.standard,
@@ -48,358 +49,381 @@ class _UnLoadingOptionState extends State<UnLoadingOption> {
   }
 }
 
-Widget _scrollingList(ScrollController sc, context) {
-  return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(
-            Icons.keyboard_arrow_left_rounded,
-            color: Colors.black,
-            size: 45,
+Widget _floatingPanel(context) {
+  return Container(
+      decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(194.0),
+            topRight: Radius.circular(194.0),
           ),
-        ),
-        backgroundColor: Colors.white,
-        title: Text(
-          AppLocalizations.of(context)!.unloading,
-          style: TextStyle(
-            color: Color(0xFF2F4D84),
-            fontWeight: FontWeight.bold,
-            fontSize: 25,
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 20.0,
+              color: Colors.grey,
+            ),
+          ]),
+      margin: const EdgeInsets.all(6.0),
+      child: Scaffold(
+          appBar: AppBar(
+            elevation: 0,
+            leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(
+                Icons.keyboard_arrow_left_rounded,
+                color: Colors.black,
+                size: 45,
+              ),
+            ),
+            backgroundColor: Colors.white,
+            title: Column(
+              children: [
+                Text(
+                  AppLocalizations.of(context)!.unloading,
+                  style: const TextStyle(
+                    color: Color(0xFF2F4D84),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 22,
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Center(child: Image.asset("assets/arrow.png"))
+              ],
+            ),
           ),
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: Container(
+          body: SingleChildScrollView(
             child: Column(
-          children: [
-            Container(
-              child: GFListTile(
-                  avatar: GFAvatar(
-                    backgroundImage: AssetImage("assets/truk.png"),
-                    shape: GFAvatarShape.square,
-                    size: 40,
-                  ),
-                  titleText: 'Labor',
-                  subTitleText: 'Rs 1000 per hour/Minimum',
-                  icon: Container(
-                    child: Column(
+              children: [
+                GFListTile(
+                    avatar: const GFAvatar(
+                      backgroundImage: AssetImage("assets/truk.png"),
+                      shape: GFAvatarShape.square,
+                      size: 40,
+                    ),
+                    titleText: 'Labor',
+                    subTitleText: 'Rs 1000 per hour/Minimum',
+                    icon: Column(
                       children: [
                         Row(
                           children: [
                             Container(
-                              decoration: new BoxDecoration(
-                                  color: Color(0xFF2F4D84),
-                                  borderRadius: new BorderRadius.circular(10)),
+                              decoration: BoxDecoration(
+                                  color: const Color(0xFF2F4D84),
+                                  borderRadius: BorderRadius.circular(10)),
                               height: 30,
                               width: 30,
-                              child: Icon(Icons.add),
+                              child: const Icon(
+                                Icons.add,
+                                color: Colors.white,
+                              ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 5,
                             ),
-                            Text(
+                            const Text(
                               "0",
                               style: TextStyle(fontSize: 25),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 5,
                             ),
                             Container(
-                              decoration: new BoxDecoration(
-                                  color: Color(0xFF2F4D84),
-                                  borderRadius: new BorderRadius.circular(10)),
+                              decoration: BoxDecoration(
+                                  color: const Color(0xFF2F4D84),
+                                  borderRadius: BorderRadius.circular(10)),
                               height: 30,
                               width: 30,
-                              child: Icon(Icons.minimize),
+                              child: const Icon(
+                                Icons.remove,
+                                color: Colors.white,
+                              ),
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         )
                       ],
+                    )),
+                Container(
+                  color: const Color(0xFF2F4D84),
+                  child: GFListTile(
+                      avatar: const GFAvatar(
+                        foregroundColor: Color(0xFF2F4D84),
+                        backgroundImage: AssetImage(
+                          "assets/Path.png",
+                        ),
+                        shape: GFAvatarShape.square,
+                      ),
+                      title: const Text(
+                        "Crane",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                        ),
+                      ),
+                      subTitle: const Text(
+                        "Rs 1000 ",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                        ),
+                      ),
+                      icon: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10)),
+                                height: 30,
+                                width: 30,
+                                child: const Icon(Icons.add),
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              const Text(
+                                "1",
+                                style: TextStyle(fontSize: 25),
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10)),
+                                height: 30,
+                                width: 30,
+                                child: const Center(
+                                  child: Icon(
+                                    Icons.remove,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          const Text(
+                            "Rs 1000 ",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                            ),
+                          ),
+                        ],
+                      )),
+                ),
+                Container(
+                  color: const Color(0xFF2F4D84),
+                  child: GFListTile(
+                      avatar: const GFAvatar(
+                        foregroundColor: Color(0xFF2F4D84),
+                        backgroundImage: AssetImage(
+                          "assets/Path.png",
+                        ),
+                        shape: GFAvatarShape.square,
+                      ),
+                      title: const Text(
+                        "Crane",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                        ),
+                      ),
+                      subTitle: const Text(
+                        "Rs 1000 ",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                        ),
+                      ),
+                      icon: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10)),
+                                height: 30,
+                                width: 30,
+                                child: const Icon(
+                                  Icons.add,
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              const Text(
+                                "1",
+                                style: TextStyle(fontSize: 25),
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10)),
+                                height: 30,
+                                width: 30,
+                                child: const Center(
+                                  child: Icon(
+                                    Icons.remove,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          const Text(
+                            "Rs 1000 ",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                            ),
+                          ),
+                        ],
+                      )),
+                ),
+                Container(
+                  color: const Color(0xFF2F4D84),
+                  child: GFListTile(
+                      avatar: const GFAvatar(
+                        foregroundColor: Color(0xFF2F4D84),
+                        backgroundImage: AssetImage(
+                          "assets/Path.png",
+                        ),
+                        shape: GFAvatarShape.square,
+                      ),
+                      title: const Text(
+                        "Crane",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                        ),
+                      ),
+                      subTitle: const Text(
+                        "Rs 1000 ",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                        ),
+                      ),
+                      icon: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10)),
+                                height: 30,
+                                width: 30,
+                                child: const Icon(Icons.add),
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              const Text(
+                                "1",
+                                style: TextStyle(fontSize: 25),
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10)),
+                                height: 30,
+                                width: 30,
+                                child: const Center(
+                                  child: Icon(
+                                    Icons.remove,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          const Text(
+                            "Rs 1000 ",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                            ),
+                          ),
+                        ],
+                      )),
+                ),
+                GFListTile(
+                    avatar: const GFAvatar(
+                      backgroundImage: AssetImage("assets/truk.png"),
+                      shape: GFAvatarShape.square,
+                      size: 40,
                     ),
-                  )),
-            ),
-            Container(
-              color: Color(0xFF2F4D84),
-              child: GFListTile(
-                  avatar: GFAvatar(
-                    foregroundColor: Color(0xFF2F4D84),
-                    backgroundImage: AssetImage(
-                      "assets/Path.png",
-                    ),
-                    shape: GFAvatarShape.square,
-                  ),
-                  title: Text(
-                    "Crane",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                    ),
-                  ),
-                  subTitle: Text(
-                    "Rs 1000 ",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                    ),
-                  ),
-                  icon: Container(
-                    child: Column(
+                    titleText: 'Labor',
+                    subTitleText: 'Rs 1000 per hour/Minimum',
+                    icon: Column(
                       children: [
                         Row(
                           children: [
                             Container(
-                              decoration: new BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: new BorderRadius.circular(10)),
+                              decoration: BoxDecoration(
+                                  color: const Color(0xFF2F4D84),
+                                  borderRadius: BorderRadius.circular(10)),
                               height: 30,
                               width: 30,
-                              child: Icon(Icons.add),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              "1",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Container(
-                              decoration: new BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: new BorderRadius.circular(10)),
-                              height: 30,
-                              width: 30,
-                              child: Column(
-                                children: [
-                                  Center(child: Icon(Icons.minimize)),
-                                ],
+                              child: const Icon(
+                                Icons.add,
+                                color: Colors.white,
                               ),
                             ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "Rs 1000 ",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
-                          ),
-                        ),
-                      ],
-                    ),
-                  )),
-            ),
-            Container(
-              color: Color(0xFF2F4D84),
-              child: GFListTile(
-                  avatar: GFAvatar(
-                    foregroundColor: Color(0xFF2F4D84),
-                    backgroundImage: AssetImage(
-                      "assets/Path.png",
-                    ),
-                    shape: GFAvatarShape.square,
-                  ),
-                  title: Text(
-                    "Crane",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                    ),
-                  ),
-                  subTitle: Text(
-                    "Rs 1000 ",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                    ),
-                  ),
-                  icon: Container(
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Container(
-                              decoration: new BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: new BorderRadius.circular(10)),
-                              height: 30,
-                              width: 30,
-                              child: Icon(Icons.add),
-                            ),
-                            SizedBox(
+                            const SizedBox(
                               width: 5,
                             ),
-                            Text(
-                              "1",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Container(
-                              decoration: new BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: new BorderRadius.circular(10)),
-                              height: 30,
-                              width: 30,
-                              child: Column(
-                                children: [
-                                  Center(child: Icon(Icons.minimize)),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "Rs 1000 ",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
-                          ),
-                        ),
-                      ],
-                    ),
-                  )),
-            ),
-            Container(
-              color: Color(0xFF2F4D84),
-              child: GFListTile(
-                  avatar: GFAvatar(
-                    foregroundColor: Color(0xFF2F4D84),
-                    backgroundImage: AssetImage(
-                      "assets/Path.png",
-                    ),
-                    shape: GFAvatarShape.square,
-                  ),
-                  title: Text(
-                    "Crane",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                    ),
-                  ),
-                  subTitle: Text(
-                    "Rs 1000 ",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                    ),
-                  ),
-                  icon: Container(
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Container(
-                              decoration: new BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: new BorderRadius.circular(10)),
-                              height: 30,
-                              width: 30,
-                              child: Icon(Icons.add),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              "1",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Container(
-                              decoration: new BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: new BorderRadius.circular(10)),
-                              height: 30,
-                              width: 30,
-                              child: Column(
-                                children: [
-                                  Center(child: Icon(Icons.minimize)),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "Rs 1000 ",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
-                          ),
-                        ),
-                      ],
-                    ),
-                  )),
-            ),
-            Container(
-              child: GFListTile(
-                  avatar: GFAvatar(
-                    backgroundImage: AssetImage("assets/truk.png"),
-                    shape: GFAvatarShape.square,
-                    size: 40,
-                  ),
-                  titleText: 'Labor',
-                  subTitleText: 'Rs 1000 per hour/Minimum',
-                  icon: Container(
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Container(
-                              decoration: new BoxDecoration(
-                                  color: Color(0xFF2F4D84),
-                                  borderRadius: new BorderRadius.circular(10)),
-                              height: 30,
-                              width: 30,
-                              child: Icon(Icons.add),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text(
+                            const Text(
                               "0",
                               style: TextStyle(fontSize: 25),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 5,
                             ),
                             Container(
-                              decoration: new BoxDecoration(
-                                  color: Color(0xFF2F4D84),
-                                  borderRadius: new BorderRadius.circular(10)),
+                              decoration: BoxDecoration(
+                                  color: const Color(0xFF2F4D84),
+                                  borderRadius: BorderRadius.circular(10)),
                               height: 30,
                               width: 30,
-                              child: Icon(Icons.minimize),
+                              child: const Center(
+                                child: Icon(
+                                  Icons.remove,
+                                  color: Colors.white,
+                                ),
+                              ),
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         )
                       ],
-                    ),
-                  )),
+                    )),
+              ],
             ),
-          ],
-        )),
-      ));
+          )));
 }

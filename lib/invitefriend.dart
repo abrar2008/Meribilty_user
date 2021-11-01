@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:getwidget/components/button/gf_button.dart';
 import 'package:meribilty/sendinvite.dart';
@@ -21,101 +23,99 @@ class _InviteFriendState extends State<InviteFriend> {
         title: Text(AppLocalizations.of(context)!.invite),
       ),
       body: SingleChildScrollView(
-        child: Container(
-          child: Column(
-            children: [
-              Container(
-                color: Color(0xFF2F4D84),
-                child: Center(
-                  child: Column(
-                    children: [
-                      Image.asset("assets/Art.png"),
-                      Text(
-                        AppLocalizations.of(context)!.invite,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Text(
-                        AppLocalizations.of(context)!.coupons,
-                        style: TextStyle(
-                            fontSize: 30,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Text(
-                        AppLocalizations.of(context)!.sign,
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.white,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-                padding: EdgeInsets.all(20),
+        child: Column(
+          children: [
+            Container(
+              color: Color(0xFF2F4D84),
+              child: Center(
                 child: Column(
                   children: [
-                    SizedBox(
-                      height: 20,
+                    Image.asset("assets/Art.png"),
+                    Text(
+                      AppLocalizations.of(context)!.invite,
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold),
                     ),
-                    Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          AppLocalizations.of(context)!.code,
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.w500),
-                        )),
                     SizedBox(
-                      height: 20,
+                      height: 30,
                     ),
-                    TextFormField(
-                      autofocus: false,
-                      decoration: InputDecoration(
-                        suffix: Image.asset("assets/share.png"),
-                        border: OutlineInputBorder(),
-                        contentPadding: EdgeInsets.all(10.0),
+                    Text(
+                      AppLocalizations.of(context)!.coupons,
+                      style: TextStyle(
+                          fontSize: 30,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Text(
+                      AppLocalizations.of(context)!.sign,
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
                       ),
                     ),
                     SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                      padding: EdgeInsets.all(1),
-                      child: GFButton(
-                        onPressed: () {
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Sendinvite()));
-                        },
-                        text: AppLocalizations.of(context)!.invite,
-                        textStyle: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
-                        fullWidthButton: true,
-                        color: Color(0xFF2F4D84),
-                      ),
+                      height: 20,
                     ),
                   ],
                 ),
-              )
-            ],
-          ),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              padding: EdgeInsets.all(20),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        AppLocalizations.of(context)!.code,
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.w500),
+                      )),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  TextFormField(
+                    autofocus: false,
+                    decoration: InputDecoration(
+                      suffix: Image.asset("assets/share.png"),
+                      border: OutlineInputBorder(),
+                      contentPadding: EdgeInsets.all(10.0),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(1),
+                    child: GFButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Sendinvite()));
+                      },
+                      text: AppLocalizations.of(context)!.invite,
+                      textStyle:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      fullWidthButton: true,
+                      color: Color(0xFF2F4D84),
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );

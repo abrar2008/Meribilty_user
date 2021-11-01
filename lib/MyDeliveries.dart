@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, file_names
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -28,7 +30,7 @@ class _MyDeliveriesState extends State<MyDeliveries> {
         leading: IconButton(
           icon: Icon(
             Icons.close,
-            color: Colors.black,
+            color: Colors.white,
           ),
           onPressed: () {},
         ),
@@ -39,7 +41,7 @@ class _MyDeliveriesState extends State<MyDeliveries> {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: const [
                 Text(
                   "22 Aug 2019, 04:45 PM ",
                   style: TextStyle(),
@@ -58,50 +60,46 @@ class _MyDeliveriesState extends State<MyDeliveries> {
                 Navigator.pushReplacement(context,
                     MaterialPageRoute(builder: (context) => Completeenstime()));
               },
-              child: Container(
-                child: GFListTile(
-                  avatar: GFAvatar(
-                    backgroundImage: AssetImage("assets/truk.png"),
-                    shape: GFAvatarShape.circle,
-                    size: 40,
-                  ),
-                  title: Row(
-                    children: [
-                      Icon(Icons.mode_standby_sharp),
-                      Text(
-                        "B-292 Block 15 Block 15 Gulistan-e-johar",
-                        style: TextStyle(
-                          fontSize: 8,
-                        ),
-                      ),
-                    ],
-                  ),
-                  subTitle: Row(
-                    children: [
-                      Icon(Icons.mode_standby_sharp),
-                      Text(
-                        "Karachi Northem ByPass keamari Karachi west",
-                        style: TextStyle(
-                          fontSize: 8,
-                        ),
-                      ),
-                    ],
-                  ),
-                  description: Row(
-                    children: [
-                      Icon(Icons.assignment_turned_in_outlined),
-                      Text(
-                        "Complete",
-                        style: TextStyle(
-                          fontSize: 12,
-                        ),
-                      ),
-                    ],
-                  ),
-                  icon: Container(
-                    child: Image.asset("assets/Message.png"),
-                  ),
+              child: GFListTile(
+                avatar: GFAvatar(
+                  backgroundImage: AssetImage("assets/truk.png"),
+                  shape: GFAvatarShape.circle,
+                  size: 40,
                 ),
+                title: Row(
+                  children: const [
+                    Icon(Icons.mode_standby_sharp),
+                    Text(
+                      "B-292 Block 15 Block 15 Gulistan-e-johar",
+                      style: TextStyle(
+                        fontSize: 8,
+                      ),
+                    ),
+                  ],
+                ),
+                subTitle: Row(
+                  children: const [
+                    Icon(Icons.mode_standby_sharp),
+                    Text(
+                      "Karachi Northem ByPass keamari Karachi west",
+                      style: TextStyle(
+                        fontSize: 8,
+                      ),
+                    ),
+                  ],
+                ),
+                description: Row(
+                  children: const [
+                    Icon(Icons.assignment_turned_in_outlined),
+                    Text(
+                      "Complete",
+                      style: TextStyle(
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                ),
+                icon: Image.asset("assets/Message.png"),
               ),
             ),
           ],

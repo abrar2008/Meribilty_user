@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, avoid_print, unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:meribilty/home.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -39,7 +41,7 @@ class _OtpScrenState extends State<OtpScren> {
             color: Colors.white,
           ),
         ),
-        body: Container(
+        body: SizedBox(
           width: double.infinity,
           child: Column(
             children: [
@@ -56,7 +58,7 @@ class _OtpScrenState extends State<OtpScren> {
                       width: double.infinity,
                       child: Column(
                         children: [
-                          Container(
+                          SizedBox(
                             width: double.infinity,
                             child: Text(
                               AppLocalizations.of(context)!.verfiy,
@@ -70,7 +72,7 @@ class _OtpScrenState extends State<OtpScren> {
                           SizedBox(
                             height: 10,
                           ),
-                          Container(
+                          SizedBox(
                             width: double.infinity,
                             child: Text(
                               AppLocalizations.of(context)!.veotp,
@@ -131,7 +133,7 @@ class _OtpScrenState extends State<OtpScren> {
 
                         controller: textEditingController,
                         keyboardType: TextInputType.number,
-                        boxShadows: [
+                        boxShadows: const [
                           BoxShadow(
                             offset: Offset(0, 1),
                             color: Colors.black12,
@@ -192,6 +194,8 @@ class _OtpScrenState extends State<OtpScren> {
 }
 
 class SuccessfulOtpScreen extends StatelessWidget {
+  const SuccessfulOtpScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(

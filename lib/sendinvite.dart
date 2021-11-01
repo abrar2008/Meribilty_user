@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:getwidget/colors/gf_color.dart';
 import 'package:getwidget/components/avatar/gf_avatar.dart';
 import 'package:getwidget/components/checkbox/gf_checkbox.dart';
 import 'package:getwidget/components/list_tile/gf_list_tile.dart';
@@ -25,209 +24,208 @@ class _SendinviteState extends State<Sendinvite> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Invite Friends",
           style: TextStyle(color: Colors.white),
         ),
         elevation: 0,
-        backgroundColor: Color(0xFF2F4D84),
+        backgroundColor: const Color(0xFF2F4D84),
         centerTitle: true,
       ),
-      body: Container(
-        child: Column(
-          children: [
-            Container(
-              color: Color(0xFF2F4D84),
-              width: double.infinity,
-              height: 90,
-              child: GFSearchBar(
-                searchList: list,
-                searchQueryBuilder: (query, list) {
-                  return list.toList();
-                },
-                overlaySearchListItemBuilder: (item) {
-                  return Container(
-                    padding: const EdgeInsets.all(8),
-                    child: Text(
-                      "item",
-                      style: const TextStyle(fontSize: 18, color: Colors.white),
-                    ),
-                  );
-                },
-                onItemSelected: (item) {
-                  setState(() {
-                    print('$item');
-                  });
-                },
-              ),
+      body: Column(
+        children: [
+          Container(
+            color: const Color(0xFF2F4D84),
+            width: double.infinity,
+            height: 90,
+            child: GFSearchBar(
+              searchList: list,
+              searchQueryBuilder: (query, list) {
+                return list.toList();
+              },
+              overlaySearchListItemBuilder: (item) {
+                return Container(
+                  padding: const EdgeInsets.all(8),
+                  child: const Text(
+                    "item",
+                    style: TextStyle(fontSize: 18, color: Colors.white),
+                  ),
+                );
+              },
+              onItemSelected: (item) {
+                setState(() {
+                  // ignore: avoid_print
+                  print('$item');
+                });
+              },
             ),
-            GFListTile(
-                avatar: GFAvatar(
-                  backgroundImage: AssetImage("assets/pic1.png"),
-                ),
-                titleText: 'Johnny Rios',
-                icon: Column(
-                  children: [
-                    GFCheckbox(
-                      activeIcon: Icon(
-                        Icons.check,
-                        color: Colors.white,
-                      ),
-                      inactiveBgColor: Color(0xFF2F4D84),
-                      inactiveIcon: Icon(
-                        Icons.add,
-                        color: Colors.white,
-                      ),
-                      size: GFSize.SMALL,
-                      activeBgColor: Colors.black45,
-                      onChanged: (value) {
-                        setState(() {
-                          isChecked = value;
-                        });
-                      },
-                      value: isChecked,
+          ),
+          GFListTile(
+              avatar: const GFAvatar(
+                backgroundImage: AssetImage("assets/pic1.png"),
+              ),
+              titleText: 'Johnny Rios',
+              icon: Column(
+                children: [
+                  GFCheckbox(
+                    activeIcon: const Icon(
+                      Icons.check,
+                      color: Colors.white,
                     ),
-                  ],
-                )),
-            GFListTile(
-                avatar: GFAvatar(
-                  backgroundImage: AssetImage("assets/pic2.png"),
-                ),
-                titleText: 'Alfred Hodges',
-                icon: Column(
-                  children: [
-                    GFCheckbox(
-                      activeIcon: Icon(
-                        Icons.check,
-                        color: Colors.white,
-                      ),
-                      inactiveBgColor: Color(0xFF2F4D84),
-                      inactiveIcon: Icon(
-                        Icons.add,
-                        color: Colors.white,
-                      ),
-                      size: GFSize.SMALL,
-                      activeBgColor: Colors.black45,
-                      onChanged: (value) {
-                        setState(() {
-                          isChecked = value;
-                        });
-                      },
-                      value: isChecked,
+                    inactiveBgColor: const Color(0xFF2F4D84),
+                    inactiveIcon: const Icon(
+                      Icons.add,
+                      color: Colors.white,
                     ),
-                  ],
-                )),
-            GFListTile(
-                avatar: GFAvatar(
-                  backgroundImage: AssetImage("assets/pic1.png"),
-                ),
-                titleText: 'Johnny Rios',
-                icon: Column(
-                  children: [
-                    GFCheckbox(
-                      activeIcon: Icon(
-                        Icons.check,
-                        color: Colors.white,
-                      ),
-                      inactiveBgColor: Color(0xFF2F4D84),
-                      inactiveIcon: Icon(Icons.add, color: Colors.white),
-                      size: GFSize.SMALL,
-                      activeBgColor: Colors.black45,
-                      onChanged: (value) {
-                        setState(() {
-                          isChecked = value;
-                        });
-                      },
-                      value: isChecked,
+                    size: GFSize.SMALL,
+                    activeBgColor: Colors.black45,
+                    onChanged: (value) {
+                      setState(() {
+                        isChecked = value;
+                      });
+                    },
+                    value: isChecked,
+                  ),
+                ],
+              )),
+          GFListTile(
+              avatar: const GFAvatar(
+                backgroundImage: AssetImage("assets/pic2.png"),
+              ),
+              titleText: 'Alfred Hodges',
+              icon: Column(
+                children: [
+                  GFCheckbox(
+                    activeIcon: const Icon(
+                      Icons.check,
+                      color: Colors.white,
                     ),
-                  ],
-                )),
-            GFListTile(
-                avatar: GFAvatar(
-                  backgroundImage: AssetImage("assets/pic2.png"),
-                ),
-                titleText: 'Alfred Hodges',
-                icon: Column(
-                  children: [
-                    GFCheckbox(
-                      activeIcon: Icon(
-                        Icons.check,
-                        color: Colors.white,
-                      ),
-                      inactiveBgColor: Color(0xFF2F4D84),
-                      inactiveIcon: Icon(
-                        Icons.add,
-                        color: Colors.white,
-                      ),
-                      size: GFSize.SMALL,
-                      activeBgColor: Colors.black45,
-                      onChanged: (value) {
-                        setState(() {
-                          isChecked = value;
-                        });
-                      },
-                      value: isChecked,
+                    inactiveBgColor: const Color(0xFF2F4D84),
+                    inactiveIcon: const Icon(
+                      Icons.add,
+                      color: Colors.white,
                     ),
-                  ],
-                )),
-            GFListTile(
-                avatar: GFAvatar(
-                  backgroundImage: AssetImage("assets/pic1.png"),
-                ),
-                titleText: 'Johnny Rios',
-                icon: Column(
-                  children: [
-                    GFCheckbox(
-                      activeIcon: Icon(
-                        Icons.check,
-                        color: Colors.white,
-                      ),
-                      inactiveBgColor: Color(0xFF2F4D84),
-                      inactiveIcon: Icon(
-                        Icons.add,
-                        color: Colors.white,
-                      ),
-                      size: GFSize.SMALL,
-                      activeBgColor: Colors.black45,
-                      onChanged: (value) {
-                        setState(() {
-                          isChecked = value;
-                        });
-                      },
-                      value: isChecked,
+                    size: GFSize.SMALL,
+                    activeBgColor: Colors.black45,
+                    onChanged: (value) {
+                      setState(() {
+                        isChecked = value;
+                      });
+                    },
+                    value: isChecked,
+                  ),
+                ],
+              )),
+          GFListTile(
+              avatar: const GFAvatar(
+                backgroundImage: AssetImage("assets/pic1.png"),
+              ),
+              titleText: 'Johnny Rios',
+              icon: Column(
+                children: [
+                  GFCheckbox(
+                    activeIcon: const Icon(
+                      Icons.check,
+                      color: Colors.white,
                     ),
-                  ],
-                )),
-            GFListTile(
-                avatar: GFAvatar(
-                  backgroundImage: AssetImage("assets/pic2.png"),
-                ),
-                titleText: 'Alfred Hodges',
-                icon: Column(
-                  children: [
-                    GFCheckbox(
-                      activeIcon: Icon(
-                        Icons.check,
-                        color: Colors.white,
-                      ),
-                      inactiveBgColor: Color(0xFF2F4D84),
-                      inactiveIcon: Icon(
-                        Icons.add,
-                        color: Colors.white,
-                      ),
-                      size: GFSize.SMALL,
-                      activeBgColor: Colors.black45,
-                      onChanged: (value) {
-                        setState(() {
-                          isChecked = value;
-                        });
-                      },
-                      value: isChecked,
+                    inactiveBgColor: const Color(0xFF2F4D84),
+                    inactiveIcon: const Icon(Icons.add, color: Colors.white),
+                    size: GFSize.SMALL,
+                    activeBgColor: Colors.black45,
+                    onChanged: (value) {
+                      setState(() {
+                        isChecked = value;
+                      });
+                    },
+                    value: isChecked,
+                  ),
+                ],
+              )),
+          GFListTile(
+              avatar: const GFAvatar(
+                backgroundImage: AssetImage("assets/pic2.png"),
+              ),
+              titleText: 'Alfred Hodges',
+              icon: Column(
+                children: [
+                  GFCheckbox(
+                    activeIcon: const Icon(
+                      Icons.check,
+                      color: Colors.white,
                     ),
-                  ],
-                )),
-          ],
-        ),
+                    inactiveBgColor: const Color(0xFF2F4D84),
+                    inactiveIcon: const Icon(
+                      Icons.add,
+                      color: Colors.white,
+                    ),
+                    size: GFSize.SMALL,
+                    activeBgColor: Colors.black45,
+                    onChanged: (value) {
+                      setState(() {
+                        isChecked = value;
+                      });
+                    },
+                    value: isChecked,
+                  ),
+                ],
+              )),
+          GFListTile(
+              avatar: const GFAvatar(
+                backgroundImage: AssetImage("assets/pic1.png"),
+              ),
+              titleText: 'Johnny Rios',
+              icon: Column(
+                children: [
+                  GFCheckbox(
+                    activeIcon: const Icon(
+                      Icons.check,
+                      color: Colors.white,
+                    ),
+                    inactiveBgColor: const Color(0xFF2F4D84),
+                    inactiveIcon: const Icon(
+                      Icons.add,
+                      color: Colors.white,
+                    ),
+                    size: GFSize.SMALL,
+                    activeBgColor: Colors.black45,
+                    onChanged: (value) {
+                      setState(() {
+                        isChecked = value;
+                      });
+                    },
+                    value: isChecked,
+                  ),
+                ],
+              )),
+          GFListTile(
+              avatar: const GFAvatar(
+                backgroundImage: AssetImage("assets/pic2.png"),
+              ),
+              titleText: 'Alfred Hodges',
+              icon: Column(
+                children: [
+                  GFCheckbox(
+                    activeIcon: const Icon(
+                      Icons.check,
+                      color: Colors.white,
+                    ),
+                    inactiveBgColor: const Color(0xFF2F4D84),
+                    inactiveIcon: const Icon(
+                      Icons.add,
+                      color: Colors.white,
+                    ),
+                    size: GFSize.SMALL,
+                    activeBgColor: Colors.black45,
+                    onChanged: (value) {
+                      setState(() {
+                        isChecked = value;
+                      });
+                    },
+                    value: isChecked,
+                  ),
+                ],
+              )),
+        ],
       ),
     );
   }

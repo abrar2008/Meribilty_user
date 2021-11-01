@@ -24,8 +24,10 @@ class _AddTeamState extends State<AddTeam> {
           elevation: 0,
         ),
         body: SlidingUpPanel(
-          minHeight: 100,
-          panelBuilder: (ScrollController sc) => _scrollingList(sc),
+          renderPanelSheet: false,
+          minHeight: 260,
+          panel: _floatingPanel(context),
+          // panelBuilder: (ScrollController sc) => _scrollingList(sc),
           body: Container(
             color: Colors.white,
             child: Column(
@@ -177,90 +179,47 @@ class _AddTeamState extends State<AddTeam> {
   }
 }
 
-Widget _scrollingList(ScrollController sc) {
-  return SingleChildScrollView(
-      child: Column(
-    children: [
-      const SizedBox(
-        height: 10,
-      ),
-      const Text(
-        "Team Member",
-        style: TextStyle(
-          fontSize: 20,
-          color: Color(0xFF2F4D84),
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      SizedBox(
-        height: 10,
-      ),
-      Image.asset("assets/arrow.png"),
-      GFListTile(
-          avatar: const GFAvatar(
-            backgroundImage: AssetImage("assets/hum.png"),
-            shape: GFAvatarShape.circle,
-            size: 40,
+Widget _floatingPanel(context) {
+  return Container(
+      decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(10.0),
+            topRight: Radius.circular(10.0),
           ),
-          titleText: 'Ashfaq Alam ',
-          icon: Column(
-            children: const [
-              Text(
-                "03223384476",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              )
-            ],
-          )),
-      Container(
-        child: GFListTile(
-            avatar: const GFAvatar(
-              backgroundImage: AssetImage("assets/hum.png"),
-              shape: GFAvatarShape.circle,
-              size: 40,
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 20.0,
+              color: Colors.grey,
             ),
-            titleText: 'Ashfaq Alam ',
-            icon: Column(
-              children: const [
-                Text(
-                  "03223384476",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                )
-              ],
-            )),
-      ),
-      GFListTile(
-          avatar: GFAvatar(
-            backgroundImage: AssetImage("assets/hum.png"),
-            shape: GFAvatarShape.circle,
-            size: 40,
+          ]),
+      margin: const EdgeInsets.all(6.0),
+      child: SingleChildScrollView(
+          child: Column(
+        children: [
+          const SizedBox(
+            height: 10,
           ),
-          titleText: 'Ashfaq Alam ',
-          icon: Container(
-            child: Column(
-              children: const [
-                Text(
-                  "03223384476",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                )
-              ],
+          const Text(
+            "Team Member",
+            style: TextStyle(
+              fontSize: 20,
+              color: Color(0xFF2F4D84),
+              fontWeight: FontWeight.bold,
             ),
-          )),
-      Container(
-        child: GFListTile(
-            avatar: GFAvatar(
-              backgroundImage: AssetImage("assets/hum.png"),
-              shape: GFAvatarShape.circle,
-              size: 40,
-            ),
-            titleText: 'Ashfaq Alam ',
-            icon: Container(
-              child: Column(
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Image.asset("assets/arrow.png"),
+          GFListTile(
+              avatar: const GFAvatar(
+                backgroundImage: AssetImage("assets/hum.png"),
+                shape: GFAvatarShape.circle,
+                size: 40,
+              ),
+              titleText: 'Ashfaq Alam ',
+              icon: Column(
                 children: const [
                   Text(
                     "03223384476",
@@ -269,9 +228,58 @@ Widget _scrollingList(ScrollController sc) {
                     ),
                   )
                 ],
+              )),
+          GFListTile(
+              avatar: const GFAvatar(
+                backgroundImage: AssetImage("assets/hum.png"),
+                shape: GFAvatarShape.circle,
+                size: 40,
               ),
-            )),
-      ),
-    ],
-  ));
+              titleText: 'Ashfaq Alam ',
+              icon: Column(
+                children: const [
+                  Text(
+                    "03223384476",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  )
+                ],
+              )),
+          GFListTile(
+              avatar: const GFAvatar(
+                backgroundImage: AssetImage("assets/hum.png"),
+                shape: GFAvatarShape.circle,
+                size: 40,
+              ),
+              titleText: 'Ashfaq Alam ',
+              icon: Column(
+                children: const [
+                  Text(
+                    "03223384476",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  )
+                ],
+              )),
+          GFListTile(
+              avatar: const GFAvatar(
+                backgroundImage: AssetImage("assets/hum.png"),
+                shape: GFAvatarShape.circle,
+                size: 40,
+              ),
+              titleText: 'Ashfaq Alam ',
+              icon: Column(
+                children: const [
+                  Text(
+                    "03223384476",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  )
+                ],
+              )),
+        ],
+      )));
 }
