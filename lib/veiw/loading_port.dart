@@ -8,14 +8,14 @@ import 'package:meribilty/veiw/unloading.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class LoadingOption extends StatefulWidget {
-  const LoadingOption({Key? key}) : super(key: key);
+class Loadingport extends StatefulWidget {
+  const Loadingport({Key? key}) : super(key: key);
 
   @override
-  _LoadingOptionState createState() => _LoadingOptionState();
+  _LoadingportState createState() => _LoadingportState();
 }
 
-class _LoadingOptionState extends State<LoadingOption> {
+class _LoadingportState extends State<Loadingport> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

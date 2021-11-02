@@ -53,39 +53,48 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
       pages: [
         PageViewModel(
-            titleWidget: Column(
-              children: [
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (_) => home()));
-                    },
-                    child: Text(
-                      AppLocalizations.of(context)!.skip,
-                      style: TextStyle(
-                        fontSize: 17,
-                        color: Color(0xFF2F4D84),
+            titleWidget: Container(
+              child: Column(
+                children: [
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (_) => home()));
+                      },
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            AppLocalizations.of(context)!.skip,
+                            style: TextStyle(
+                              fontSize: 17,
+                              color: Color(0xFF2F4D84),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: 50,
-                ),
-                Image.asset("assets/onbo1.png"),
-                SizedBox(
-                  height: 30,
-                ),
-                Text(
-                  AppLocalizations.of(context)!.ride,
-                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 30),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-              ],
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Image.asset("assets/onbo1.png"),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Text(
+                    AppLocalizations.of(context)!.ride,
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 30),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                ],
+              ),
             ),
             // body: "Request a ride get picked up by a \n nearby community driver ",
             bodyWidget: Text(
@@ -114,6 +123,9 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         PageViewModel(
             titleWidget: Column(
               children: [
+                SizedBox(
+                  height: 20,
+                ),
                 Align(
                   alignment: Alignment.bottomRight,
                   child: InkWell(
@@ -122,12 +134,19 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                         MaterialPageRoute(builder: (_) => home()),
                       );
                     },
-                    child: Text(
-                      AppLocalizations.of(context)!.skip,
-                      style: TextStyle(
-                        fontSize: 17,
-                        color: Color(0xFF2F4D84),
-                      ),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          AppLocalizations.of(context)!.skip,
+                          style: TextStyle(
+                            fontSize: 17,
+                            color: Color(0xFF2F4D84),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -171,12 +190,19 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                       MaterialPageRoute(builder: (_) => home()),
                     );
                   },
-                  child: Text(
-                    AppLocalizations.of(context)!.skip,
-                    style: TextStyle(
-                      fontSize: 17,
-                      color: Color(0xFF2F4D84),
-                    ),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 10,
+                      ),
+                      // Text(
+                      //   AppLocalizations.of(context)!.skip,
+                      //   style: TextStyle(
+                      //     fontSize: 17,
+                      //     color: Color(0xFF2F4D84),
+                      //   ),
+                      // ),
+                    ],
                   ),
                 ),
               ),

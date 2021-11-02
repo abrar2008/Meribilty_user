@@ -102,6 +102,7 @@ class _OtpScrenState extends State<OtpScren> {
                       padding: const EdgeInsets.symmetric(
                           vertical: 8.0, horizontal: 30),
                       child: PinCodeTextField(
+                        showCursor: true,
                         appContext: context,
                         pastedTextStyle: TextStyle(
                           color: Colors.black,
@@ -168,9 +169,10 @@ class _OtpScrenState extends State<OtpScren> {
                 child: Container(
                     padding: EdgeInsets.all(20),
                     width: double.infinity,
+                    height: 90,
                     child: ElevatedButton(
                       child: Text(AppLocalizations.of(context)!.ver,
-                          style: TextStyle(fontSize: 14)),
+                          style: TextStyle(fontSize: 17)),
                       style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(
                               Color(0xFF375E99)),

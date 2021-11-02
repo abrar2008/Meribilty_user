@@ -19,7 +19,7 @@ class TimewaitState extends State<Timewait> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 60), () {
+    Future.delayed(const Duration(seconds: 20), () {
       Navigator.pushReplacement(context,
           MaterialPageRoute(builder: (context) => const MainProfile()));
     });

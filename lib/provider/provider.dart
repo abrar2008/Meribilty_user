@@ -16,4 +16,10 @@ class LocaleProvider extends ChangeNotifier {
   void clearLocale() {
     notifyListeners();
   }
+
+  increasement(var number) {
+    number = number + 1;
+    notifyListeners();
+    return number;
+  }
 }

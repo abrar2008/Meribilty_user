@@ -27,12 +27,19 @@ class _MyDeliveriesState extends State<MyDeliveries> {
           "My Deliveries  ",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.normal),
         ),
-        leading: IconButton(
-          icon: Icon(
-            Icons.close,
-            color: Colors.white,
+        leading: InkWell(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: IconButton(
+            icon: Icon(
+              Icons.close,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            },
           ),
-          onPressed: () {},
         ),
       ),
       body: Container(
@@ -122,9 +129,18 @@ class _MyDeliveriesState extends State<MyDeliveries> {
                     ),
                   ],
                 ),
-                icon: Align(
-                    alignment: Alignment.bottomRight,
-                    child: Image.asset("assets/Message.png")),
+                icon: Container(
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Align(
+                          alignment: Alignment.bottomRight,
+                          child: Image.asset("assets/Message.png")),
+                    ],
+                  ),
+                ),
               ),
             ),
           ],

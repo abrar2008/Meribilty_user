@@ -28,6 +28,7 @@ class _SignInState extends State<SignIn> {
                   children: [
                     Positioned(
                       child: Container(
+                        width: double.infinity,
                         height: 900,
                         color: Colors.white,
                       ),
@@ -35,23 +36,27 @@ class _SignInState extends State<SignIn> {
                     Positioned(
                         top: 50,
                         left: 50,
-                        child: Image.asset("assets/logo1.png")),
+                        child:
+                            Container(child: Image.asset("assets/logo1.png"))),
                     Positioned(
                         top: 150,
-                        child: Image.asset(
-                          "assets/mai.png",
+                        child: Container(
+                          child: Image.asset(
+                            "assets/mai.png",
+                          ),
                         )),
                     Positioned(
                       top: 280,
                       left: 20,
-                      child: Center(
+                      child: Container(
+                        padding: EdgeInsets.all(10),
                         child: Container(
                           decoration: const BoxDecoration(
                               color: Colors.white,
                               borderRadius:
                                   BorderRadius.all(Radius.circular(10))),
                           padding: const EdgeInsets.all(8.0),
-                          width: 350,
+                          width: 300,
                           height: 700,
                           child: ContainedTabBarView(
                             tabs: const [

@@ -73,10 +73,11 @@ class _HomeState extends State<Home> {
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    const SizedBox(
-                      width: 280,
-                    ),
+                    // const SizedBox(
+                    //   width: 280,
+                    // ),
                     Image.asset("assets/Noti.png"),
                     const SizedBox(
                       width: 10,
@@ -133,18 +134,19 @@ class _HomeState extends State<Home> {
                                   },
                                   child: Container(
                                     padding: const EdgeInsets.all(10),
-                                    height: 160,
-                                    width: 150,
+                                    height: 170,
+                                    width: 130,
                                     decoration: const BoxDecoration(
                                         color: Colors.white,
+                                        image: DecorationImage(
+                                            image: AssetImage('assets/hom.png'),
+                                            fit: BoxFit.cover),
                                         borderRadius: BorderRadius.only(
                                           topRight: Radius.circular(20.0),
                                           bottomLeft: Radius.circular(20.0),
                                           bottomRight: Radius.circular(20.0),
                                         )),
-                                    child: Image.asset(
-                                      "assets/hom.png",
-                                    ),
+                                    child: const Text(""),
                                   ),
                                 ),
                                 const SizedBox(
@@ -178,6 +180,9 @@ class _HomeState extends State<Home> {
                             ),
                           ),
                           //
+                          const SizedBox(
+                            width: 10,
+                          ),
                           Container(
                             padding: const EdgeInsets.all(12),
                             decoration: const BoxDecoration(
@@ -206,17 +211,19 @@ class _HomeState extends State<Home> {
                                   Container(
                                     padding: const EdgeInsets.all(10),
                                     height: 160,
-                                    width: 150,
+                                    width: 130,
                                     decoration: const BoxDecoration(
                                         color: Colors.white,
+                                        image: DecorationImage(
+                                            image:
+                                                AssetImage('assets/city.png'),
+                                            fit: BoxFit.cover),
                                         borderRadius: BorderRadius.only(
                                           topRight: Radius.circular(20.0),
                                           bottomLeft: Radius.circular(20.0),
                                           bottomRight: Radius.circular(20.0),
                                         )),
-                                    child: Image.asset(
-                                      "assets/city.png",
-                                    ),
+                                    child: const Text(""),
                                   ),
                                   const SizedBox(
                                     height: 10,
@@ -252,21 +259,21 @@ class _HomeState extends State<Home> {
                         ],
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 20,
                       ),
                       SizedBox(
                         width: double.infinity,
                         child: Text(
                           AppLocalizations.of(context)!.coming,
                           style: const TextStyle(
-                            fontSize: 20,
+                            fontSize: 18,
                             color: Color(0xFF2F4D84),
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 20,
                       ),
                       SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
@@ -384,19 +391,11 @@ class _HomeState extends State<Home> {
                                 ),
                               ),
                             ),
-
+                            const SizedBox(
+                              width: 20,
+                            ),
                             //
-                          ],
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
+
                             Container(
                               padding: const EdgeInsets.all(10),
                               height: 140,
@@ -438,6 +437,7 @@ class _HomeState extends State<Home> {
                             const SizedBox(
                               width: 20,
                             ),
+
                             Container(
                               padding: const EdgeInsets.all(10),
                               height: 140,
@@ -476,14 +476,14 @@ class _HomeState extends State<Home> {
                                 ),
                               ),
                             ),
-                            const SizedBox(
-                              width: 20,
-                            ),
-
-                            //
                           ],
                         ),
                       ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+
+                      //
                       const SizedBox(
                         height: 10,
                       ),

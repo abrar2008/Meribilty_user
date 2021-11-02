@@ -46,7 +46,9 @@ class _CompleteenstimeState extends State<Completeenstime> {
             Icons.close,
             color: Colors.white,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
       body: Container(

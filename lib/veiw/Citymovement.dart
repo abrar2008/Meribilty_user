@@ -200,513 +200,386 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                     ),
 
                     GFListTile(
-                        avatar: GFAvatar(
-                          backgroundColor: Colors.white10,
-                          shape: GFAvatarShape.square,
-                          child: Image.asset(
-                            "assets/Path.png",
-                            // color: Colors.black
+                      avatar: GFAvatar(
+                        backgroundColor: Colors.white10,
+                        shape: GFAvatarShape.square,
+                        child: Image.asset(
+                          "assets/Path.png",
+                          // color: Colors.black
+                        ),
+                      ),
+                      title: const Text(
+                        "Truck",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                        ),
+                      ),
+                      icon: Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                                color: const Color(0xFF2F4D84),
+                                borderRadius: BorderRadius.circular(10)),
+                            height: 30,
+                            width: 30,
+                            child: const Icon(
+                              Icons.add,
+                              color: Colors.white,
+                            ),
                           ),
-                        ),
-                        title: const Text(
-                          "Truck",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
+                          const SizedBox(
+                            width: 5,
                           ),
-                        ),
-                        subTitle: Column(
-                          children: [
-                            const SizedBox(
-                              height: 10,
+                          const Text(
+                            "0",
+                            style: TextStyle(fontSize: 25),
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                                color: const Color(0xFF2F4D84),
+                                borderRadius: BorderRadius.circular(10)),
+                            height: 30,
+                            width: 30,
+                            child: const Icon(
+                              Icons.remove,
+                              color: Colors.white,
                             ),
-                            Row(
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                      color: const Color(0xFF2F4D84),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  height: 30,
-                                  width: 30,
-                                  child: const Icon(
-                                    Icons.add,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                const Text(
-                                  "0",
-                                  style: TextStyle(fontSize: 25),
-                                ),
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                Container(
-                                  decoration: BoxDecoration(
-                                      color: const Color(0xFF2F4D84),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  height: 30,
-                                  width: 30,
-                                  child: const Icon(
-                                    Icons.remove,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        icon: Column(
-                          children: const [
-                            SizedBox(
-                              height: 30,
-                            ),
-                            Text(
-                              "5 Ton Limit",
-                              style: TextStyle(color: Colors.black38),
-                            )
-                          ],
-                        )),
+                          ),
+                        ],
+                      ),
+                    ),
                     const Divider(
                       color: Colors.black54,
                     ),
                     GFListTile(
-                        avatar: GFAvatar(
-                          backgroundColor: Colors.white10,
-                          shape: GFAvatarShape.square,
-                          child: Image.asset("assets/Path.png",
-                              color: Colors.black),
+                      avatar: GFAvatar(
+                        backgroundColor: Colors.white10,
+                        shape: GFAvatarShape.square,
+                        child:
+                            Image.asset("assets/Path.png", color: Colors.black),
+                      ),
+                      title: const Text(
+                        "Truck",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
                         ),
-                        title: const Text(
-                          "Truck",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
+                      ),
+                      icon: Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                                color: const Color(0xFF2F4D84),
+                                borderRadius: BorderRadius.circular(10)),
+                            height: 30,
+                            width: 30,
+                            child: const Icon(
+                              Icons.add,
+                              color: Colors.white,
+                            ),
                           ),
-                        ),
-                        subTitle: Column(
-                          children: [
-                            const SizedBox(
-                              height: 10,
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          const Text(
+                            "0",
+                            style: TextStyle(fontSize: 25),
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                                color: const Color(0xFF2F4D84),
+                                borderRadius: BorderRadius.circular(10)),
+                            height: 30,
+                            width: 30,
+                            child: const Icon(
+                              Icons.remove,
+                              color: Colors.white,
                             ),
-                            Row(
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                      color: const Color(0xFF2F4D84),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  height: 30,
-                                  width: 30,
-                                  child: const Icon(
-                                    Icons.add,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                const Text(
-                                  "0",
-                                  style: TextStyle(fontSize: 25),
-                                ),
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                Container(
-                                  decoration: BoxDecoration(
-                                      color: const Color(0xFF2F4D84),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  height: 30,
-                                  width: 30,
-                                  child: const Icon(
-                                    Icons.remove,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        icon: Column(
-                          children: const [
-                            SizedBox(
-                              height: 30,
-                            ),
-                            Text(
-                              "Select Average Weight ",
-                              style: TextStyle(
-                                  color: Colors.black38, fontSize: 15),
-                            )
-                          ],
-                        )),
+                          ),
+                        ],
+                      ),
+                    ),
                     const Divider(
                       color: Colors.black54,
                     ),
                     GFListTile(
-                        avatar: GFAvatar(
-                          backgroundColor: Colors.white10,
-                          shape: GFAvatarShape.square,
-                          child: Image.asset("assets/Path.png",
-                              color: Colors.black),
+                      avatar: GFAvatar(
+                        backgroundColor: Colors.white10,
+                        shape: GFAvatarShape.square,
+                        child:
+                            Image.asset("assets/Path.png", color: Colors.black),
+                      ),
+                      title: const Text(
+                        "Truck",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
                         ),
-                        title: const Text(
-                          "Truck",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
+                      ),
+                      icon: Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                                color: const Color(0xFF2F4D84),
+                                borderRadius: BorderRadius.circular(10)),
+                            height: 30,
+                            width: 30,
+                            child: const Icon(
+                              Icons.add,
+                              color: Colors.white,
+                            ),
                           ),
-                        ),
-                        subTitle: Column(
-                          children: [
-                            const SizedBox(
-                              height: 10,
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          const Text(
+                            "0",
+                            style: TextStyle(fontSize: 25),
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                                color: const Color(0xFF2F4D84),
+                                borderRadius: BorderRadius.circular(10)),
+                            height: 30,
+                            width: 30,
+                            child: const Icon(
+                              Icons.remove,
+                              color: Colors.white,
                             ),
-                            Row(
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                      color: const Color(0xFF2F4D84),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  height: 30,
-                                  width: 30,
-                                  child: const Icon(
-                                    Icons.add,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                const Text(
-                                  "2",
-                                  style: TextStyle(fontSize: 25),
-                                ),
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                Container(
-                                  decoration: BoxDecoration(
-                                      color: const Color(0xFF2F4D84),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  height: 30,
-                                  width: 30,
-                                  child: const Icon(
-                                    Icons.remove,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        icon: Column(
-                          children: const [
-                            SizedBox(
-                              height: 30,
-                            ),
-                            Text(
-                              "Select Average Weight ",
-                              style: TextStyle(
-                                  color: Colors.black38, fontSize: 15),
-                            )
-                          ],
-                        )),
+                          ),
+                        ],
+                      ),
+                    ),
                     const Divider(
                       color: Colors.black54,
                     ),
                     GFListTile(
-                        avatar: GFAvatar(
-                          backgroundColor: Colors.white10,
-                          shape: GFAvatarShape.square,
-                          child: Image.asset("assets/Path.png",
-                              color: const Color(0xFF2F4D84)),
+                      avatar: GFAvatar(
+                        backgroundColor: Colors.white10,
+                        shape: GFAvatarShape.square,
+                        child: Image.asset("assets/Path.png",
+                            color: const Color(0xFF2F4D84)),
+                      ),
+                      title: const Text(
+                        "40 FT Container",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
                         ),
-                        title: const Text(
-                          "40 FT Container",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
+                      ),
+                      icon: Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                                color: const Color(0xFF2F4D84),
+                                borderRadius: BorderRadius.circular(10)),
+                            height: 30,
+                            width: 30,
+                            child: const Icon(
+                              Icons.add,
+                              color: Colors.white,
+                            ),
                           ),
-                        ),
-                        subTitle: Column(
-                          children: [
-                            const SizedBox(
-                              height: 10,
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          const Text(
+                            "0",
+                            style: TextStyle(fontSize: 25),
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                                color: const Color(0xFF2F4D84),
+                                borderRadius: BorderRadius.circular(10)),
+                            height: 30,
+                            width: 30,
+                            child: const Icon(
+                              Icons.remove,
+                              color: Colors.white,
                             ),
-                            Row(
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                      color: const Color(0xFF2F4D84),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  height: 30,
-                                  width: 30,
-                                  child: const Icon(
-                                    Icons.add,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                const Text(
-                                  "1",
-                                  style: TextStyle(fontSize: 25),
-                                ),
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                Container(
-                                  decoration: BoxDecoration(
-                                      color: const Color(0xFF2F4D84),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  height: 30,
-                                  width: 30,
-                                  child: const Icon(
-                                    Icons.remove,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        icon: Column(
-                          children: const [
-                            SizedBox(
-                              height: 30,
-                            ),
-                            Text(
-                              "Select Average Weight ",
-                              style: TextStyle(
-                                  color: Colors.black38, fontSize: 15),
-                            )
-                          ],
-                        )), //
+                          ),
+                        ],
+                      ),
+                    ), //
                     const Divider(
                       color: Colors.black54,
                     ),
                     Container(
                       color: const Color(0xFF2F4D84),
                       child: GFListTile(
-                          avatar: GFAvatar(
-                            backgroundColor: Colors.white10,
-                            shape: GFAvatarShape.square,
-                            child: Image.asset("assets/Path.png",
-                                color: Colors.white),
+                        avatar: GFAvatar(
+                          backgroundColor: Colors.white10,
+                          shape: GFAvatarShape.square,
+                          child: Image.asset("assets/Path.png",
+                              color: Colors.white),
+                        ),
+                        title: const Text(
+                          "Truck 20 Wheels",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
                           ),
-                          title: const Text(
-                            "Truck 20 Wheels",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
+                        ),
+                        icon: Row(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                  color: const Color(0xFF2F4D84),
+                                  borderRadius: BorderRadius.circular(10)),
+                              height: 30,
+                              width: 30,
+                              child: const Icon(
+                                Icons.add,
+                                color: Colors.white,
+                              ),
                             ),
-                          ),
-                          subTitle: Column(
-                            children: [
-                              const SizedBox(
-                                height: 10,
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            const Text(
+                              "0",
+                              style: TextStyle(fontSize: 25),
+                            ),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            Container(
+                              decoration: BoxDecoration(
+                                  color: const Color(0xFF2F4D84),
+                                  borderRadius: BorderRadius.circular(10)),
+                              height: 30,
+                              width: 30,
+                              child: const Icon(
+                                Icons.remove,
+                                color: Colors.white,
                               ),
-                              Row(
-                                children: [
-                                  Container(
-                                    decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                    height: 30,
-                                    width: 30,
-                                    child: const Icon(
-                                      Icons.add,
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    width: 5,
-                                  ),
-                                  const Text(
-                                    "1",
-                                    style: TextStyle(
-                                        fontSize: 25, color: Colors.white),
-                                  ),
-                                  const SizedBox(
-                                    width: 5,
-                                  ),
-                                  Container(
-                                    decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                    height: 30,
-                                    width: 30,
-                                    child: const Icon(
-                                      Icons.remove,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                          icon: Column(
-                            children: const [
-                              SizedBox(
-                                height: 30,
-                              ),
-                              Text(
-                                "5 Tons",
-                                style: TextStyle(
-                                    color: Colors.black38, fontSize: 20),
-                              )
-                            ],
-                          )),
+                            ),
+                          ],
+                        ),
+                      ),
                     ), //
                     ///
                     const Divider(
                       color: Colors.black54,
                     ),
                     GFListTile(
-                        avatar: GFAvatar(
-                          backgroundColor: Colors.white10,
-                          shape: GFAvatarShape.square,
-                          child: Image.asset("assets/Path.png",
-                              color: Colors.black),
+                      avatar: GFAvatar(
+                        backgroundColor: Colors.white10,
+                        shape: GFAvatarShape.square,
+                        child:
+                            Image.asset("assets/Path.png", color: Colors.black),
+                      ),
+                      title: const Text(
+                        "Truck",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
                         ),
-                        title: const Text(
-                          "Truck",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
+                      ),
+                      icon: Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                                color: const Color(0xFF2F4D84),
+                                borderRadius: BorderRadius.circular(10)),
+                            height: 30,
+                            width: 30,
+                            child: const Icon(
+                              Icons.add,
+                              color: Colors.white,
+                            ),
                           ),
-                        ),
-                        subTitle: Column(
-                          children: [
-                            const SizedBox(
-                              height: 10,
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          const Text(
+                            "0",
+                            style: TextStyle(fontSize: 25),
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                                color: const Color(0xFF2F4D84),
+                                borderRadius: BorderRadius.circular(10)),
+                            height: 30,
+                            width: 30,
+                            child: const Icon(
+                              Icons.remove,
+                              color: Colors.white,
                             ),
-                            Row(
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                      color: const Color(0xFF2F4D84),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  height: 30,
-                                  width: 30,
-                                  child: const Icon(
-                                    Icons.add,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                const Text(
-                                  "0",
-                                  style: TextStyle(fontSize: 25),
-                                ),
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                Container(
-                                  decoration: BoxDecoration(
-                                      color: const Color(0xFF2F4D84),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  height: 30,
-                                  width: 30,
-                                  child: const Icon(
-                                    Icons.remove,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        icon: Column(
-                          children: const [
-                            SizedBox(
-                              height: 30,
-                            ),
-                            Text(
-                              "Select Average Weight ",
-                              style: TextStyle(
-                                  color: Colors.black38, fontSize: 15),
-                            )
-                          ],
-                        )),
+                          ),
+                        ],
+                      ),
+                    ),
                     const Divider(
                       color: Colors.black54,
                     ),
                     GFListTile(
-                        avatar: GFAvatar(
-                          backgroundColor: Colors.white10,
-                          shape: GFAvatarShape.square,
-                          child: Image.asset("assets/Path.png",
-                              color: Colors.black),
+                      avatar: GFAvatar(
+                        backgroundColor: Colors.white10,
+                        shape: GFAvatarShape.square,
+                        child:
+                            Image.asset("assets/Path.png", color: Colors.black),
+                      ),
+                      title: const Text(
+                        "Truck",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
                         ),
-                        title: const Text(
-                          "Truck",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
+                      ),
+                      icon: Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                                color: const Color(0xFF2F4D84),
+                                borderRadius: BorderRadius.circular(10)),
+                            height: 30,
+                            width: 30,
+                            child: const Icon(
+                              Icons.add,
+                              color: Colors.white,
+                            ),
                           ),
-                        ),
-                        subTitle: Column(
-                          children: [
-                            const SizedBox(
-                              height: 10,
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          const Text(
+                            "0",
+                            style: TextStyle(fontSize: 25),
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                                color: const Color(0xFF2F4D84),
+                                borderRadius: BorderRadius.circular(10)),
+                            height: 30,
+                            width: 30,
+                            child: const Icon(
+                              Icons.remove,
+                              color: Colors.white,
                             ),
-                            Row(
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                      color: const Color(0xFF2F4D84),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  height: 30,
-                                  width: 30,
-                                  child: const Icon(
-                                    Icons.add,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                const Text(
-                                  "0",
-                                  style: TextStyle(fontSize: 25),
-                                ),
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                Container(
-                                  decoration: BoxDecoration(
-                                      color: const Color(0xFF2F4D84),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  height: 30,
-                                  width: 30,
-                                  child: const Icon(
-                                    Icons.remove,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        icon: Column(
-                          children: const [
-                            SizedBox(
-                              height: 30,
-                            ),
-                            Text(
-                              "Select Average Weight ",
-                              style: TextStyle(
-                                  color: Colors.black38, fontSize: 15),
-                            )
-                          ],
-                        )),
+                          ),
+                        ],
+                      ),
+                    ),
                     const Divider(
                       color: Colors.black54,
                     ),
@@ -722,7 +595,8 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                         );
                       },
                       text: "Save & Contine ",
-                      textStyle: const TextStyle(fontSize: 25),
+                      textStyle:
+                          const TextStyle(fontSize: 25, color: Colors.white),
                       type: GFButtonType.solid,
                       shape: GFButtonShape.standard,
                       blockButton: true,
@@ -734,9 +608,7 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
 
             //end
           },
-          textStyle: const TextStyle(
-            fontSize: 20,
-          ),
+          textStyle: const TextStyle(fontSize: 20, color: Colors.white),
           text: AppLocalizations.of(context)!.sel,
           type: GFButtonType.solid,
           blockButton: true,
@@ -747,9 +619,7 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
         GFButton(
           size: 60,
           color: const Color(0xFF2F4D84),
-          textStyle: const TextStyle(
-            fontSize: 20,
-          ),
+          textStyle: const TextStyle(fontSize: 17, color: Colors.white),
           onPressed: () {
             Navigator.push(
               context,
@@ -797,6 +667,7 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
           ),
         ),
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             GFButton(
               color: Colors.white,
@@ -811,25 +682,29 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
               borderSide: const BorderSide(color: Color(0xFF2F4D84), width: 2),
             ),
             const SizedBox(
-              width: 10,
+              width: 5,
             ),
-            SizedBox(
+            Container(
+              padding: const EdgeInsets.all(10),
               width: 270,
-              child: GFButton(
-                color: const Color(0xFF2F4D84),
-                textStyle: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold),
-                size: 60,
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Timewait()),
-                  );
-                },
-                text: AppLocalizations.of(context)!.book,
-                type: GFButtonType.solid,
+              child: Container(
+                padding: const EdgeInsets.all(4),
+                child: GFButton(
+                  color: const Color(0xFF2F4D84),
+                  textStyle: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                  size: 60,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const Timewait()),
+                    );
+                  },
+                  text: AppLocalizations.of(context)!.book,
+                  type: GFButtonType.solid,
+                ),
               ),
             ),
           ],

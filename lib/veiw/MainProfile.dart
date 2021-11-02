@@ -43,7 +43,8 @@ class _MainProfileState extends State<MainProfile> {
           elevation: 0,
         ),
         body: SlidingUpPanel(
-          minHeight: 400,
+          minHeight: 600,
+          maxHeight: 900,
           panelBuilder: (ScrollController sc) => _scrollingList(sc, context),
           body: GoogleMap(
             mapType: MapType.normal,
@@ -108,11 +109,14 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                 padding: const EdgeInsets.all(10),
                 child: Column(
                   children: [
-                    Image.asset("assets/shareloc.png"),
                     const SizedBox(
-                      height: 10,
+                      height: 4,
                     ),
-                    const Text("   Share \nLocation"),
+                    Image.asset("assets/shareloc.png"),
+                    const Text(
+                      "   Share \nLocation",
+                      style: TextStyle(fontSize: 13, letterSpacing: 0),
+                    ),
                   ],
                 ),
               ),
@@ -137,7 +141,7 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                       width: 30,
                     ),
                     const SizedBox(
-                      height: 10,
+                      height: 15,
                     ),
                     const Text("Cancel Request"),
                   ],
@@ -344,130 +348,161 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
           ),
         ),
         Container(
+          width: double.infinity,
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Image.asset("assets/iconlo.png"),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      const Text(
-                        "B-292 Block 15 Block13 \n Gulshan-e-Johar",
-                        style: TextStyle(fontSize: 13),
-                      )
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Image.asset("assets/dis.png"),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      const Text(
-                        "B-292 Block 15 Block13 \n Gulshan-e-Johar",
-                        style: TextStyle(fontSize: 13),
-                      )
-                    ],
-                  )
-                ],
-              )
-            ],
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Image.asset(
-                        "assets/distance.png",
-                        width: 30,
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      const Text(
-                        "EST.DISTANCE : 24.1",
-                        style: TextStyle(fontSize: 13),
-                      )
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Image.asset(
-                        "assets/alarm-clock.png",
-                        width: 30,
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      const Text(
-                        "EST.TIME:35 mins",
-                        style: TextStyle(fontSize: 13),
-                      ),
-                      const SizedBox(
-                        width: 30,
-                      ),
-                    ],
-                  )
-                ],
-              )
-            ],
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  SizedBox(
-                    width: 180,
-                    child: Row(
-                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(2),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                Image.asset("assets/iconlo.png"),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                const Text(
+                                  "B-292 Block 15 Block13 \n Gulshan-e-Johar",
+                                  style: TextStyle(fontSize: 13),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Image.asset("assets/dis.png"),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            const Text(
+                              "B-292 Block 15 Block13 \n Gulshan-e-Johar",
+                              style: TextStyle(fontSize: 13),
+                            )
+                          ],
+                        )
+                      ])),
+              const SizedBox(
+                height: 20,
+              ),
+              const Divider(
+                height: 2,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              SizedBox(
+                width: double.infinity,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
                       children: [
                         Image.asset(
-                          "assets/labour-day.png",
+                          "assets/distance.png",
                           width: 30,
                         ),
                         const SizedBox(
                           width: 10,
                         ),
                         const Text(
-                          "LABOUS :1",
+                          "EST.DISTANCE : 24.1",
                           style: TextStyle(fontSize: 13),
                         )
                       ],
                     ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Image.asset(
-                        "assets/cleaning.png",
-                        width: 40,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Image.asset(
+                          "assets/alarm-clock.png",
+                          width: 30,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        const Text(
+                          "EST.TIME:35 mins",
+                          style: TextStyle(fontSize: 13),
+                        ),
+                        const SizedBox(
+                          width: 30,
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const Divider(
+                height: 2,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              SizedBox(
+                width: double.infinity,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: 180,
+                      child: Row(
+                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Image.asset(
+                            "assets/labour-day.png",
+                            width: 30,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          const Text(
+                            "LABOUS :1",
+                            style: TextStyle(fontSize: 13),
+                          )
+                        ],
                       ),
-                      const Text(
-                        "Flocrs:2",
-                        style: TextStyle(fontSize: 13),
-                      ),
-                    ],
-                  )
-                ],
-              )
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Image.asset(
+                          "assets/cleaning.png",
+                          width: 40,
+                        ),
+                        const Text(
+                          "Flocrs:2",
+                          style: TextStyle(fontSize: 13),
+                        ),
+                        const SizedBox(
+                          width: 90,
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              const Divider(
+                height: 2,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
             ],
           ),
-        )
+        ),
       ],
     ),
   );
