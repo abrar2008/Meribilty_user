@@ -83,8 +83,7 @@ class _Citymovement_screenState extends State<Citymovement_screen> {
 Widget _scrollingList(ScrollController sc, BuildContext context) {
   bool isSwitched = false;
   void toggleSwitch(bool value) {
-    // ignore: avoid_print
-    print("object");
+    // print("object");
   }
 
   return Container(
@@ -666,34 +665,35 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
             borderSide: const BorderSide(color: Colors.black, width: 2),
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            GFButton(
-              color: Colors.white,
-              textStyle: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold),
-              size: 50,
-              onPressed: () {},
-              text: AppLocalizations.of(context)!.sche,
-              type: GFButtonType.solid,
-              borderSide: const BorderSide(color: Color(0xFF2F4D84), width: 2),
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-            Container(
-              padding: const EdgeInsets.all(10),
-              width: 270,
-              child: Container(
+        Container(
+          width: double.infinity,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              GFButton(
+                color: Colors.white,
+                textStyle: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold),
+                size: 60,
+                onPressed: () {},
+                text: AppLocalizations.of(context)!.sche,
+                type: GFButtonType.solid,
+                borderSide:
+                    const BorderSide(color: Color(0xFF2F4D84), width: 2),
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              Container(
                 padding: const EdgeInsets.all(4),
+                width: 230,
                 child: GFButton(
                   color: const Color(0xFF2F4D84),
                   textStyle: const TextStyle(
                       color: Colors.white,
-                      fontSize: 20,
+                      fontSize: 17,
                       fontWeight: FontWeight.bold),
                   size: 60,
                   onPressed: () {
@@ -706,8 +706,11 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                   type: GFButtonType.solid,
                 ),
               ),
-            ),
-          ],
+              SizedBox(
+                width: 5,
+              ),
+            ],
+          ),
         )
       ],
     ),

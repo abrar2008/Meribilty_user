@@ -257,8 +257,11 @@ Widget _floatingPanel(context) {
             ),
             GFButton(
               size: 60,
-              color: Color(0xFF2F4D84),
-              textStyle: TextStyle(fontSize: 20),
+              color: Color(0xFF242E42),
+              textStyle: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
               onPressed: () {
                 // Navigator.push(
                 //   context,
@@ -838,8 +841,11 @@ Widget _floatingPanel(context) {
             //material
             GFButton(
               size: 60,
-              color: const Color(0xFF2F4D84),
-              textStyle: const TextStyle(fontSize: 20),
+              color: const Color(0xFF242E42),
+              textStyle: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
               onPressed: () {
                 showMaterialModalBottomSheet(
                     shape: RoundedRectangleBorder(
@@ -979,7 +985,7 @@ Widget _floatingPanel(context) {
             //load
             GFButton(
               size: 60,
-              color: const Color(0xFF2F4D84),
+              color: const Color(0xFF242E42),
               onPressed: () {
                 Navigator.push(
                     context,
@@ -989,7 +995,10 @@ Widget _floatingPanel(context) {
               },
               text: AppLocalizations.of(context)!.load,
               type: GFButtonType.solid,
-              textStyle: const TextStyle(fontSize: 20),
+              textStyle: const TextStyle(
+                fontSize: 17,
+                fontWeight: FontWeight.bold,
+              ),
               shape: GFButtonShape.standard,
               blockButton: true,
             ),
@@ -1011,7 +1020,7 @@ Widget _floatingPanel(context) {
                     height: 30,
                     width: 50,
                     child: const Checkbox(
-                      value: true,
+                      value: false,
                       onChanged: null,
                       focusColor: Color(0xFF2F4D84),
                     ),
@@ -1020,29 +1029,29 @@ Widget _floatingPanel(context) {
               ),
             ),
 
-            GFButton(
-              color: Colors.white,
-              size: 60,
-              onPressed: () {
-                //
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Selectitme(),
-                    ));
+            // GFButton(
+            //   color: Colors.white,
+            //   size: 60,
+            //   onPressed: () {
+            //     //
+            //     Navigator.push(
+            //         context,
+            //         MaterialPageRoute(
+            //           builder: (context) =>
+            //         ));
 
-                //end
-              },
-              textStyle: const TextStyle(
-                fontSize: 20,
-                color: Color(0xFF2F4D84),
-                fontWeight: FontWeight.bold,
-              ),
-              text: AppLocalizations.of(context)!.cargov,
-              type: GFButtonType.solid,
-              blockButton: true,
-              borderSide: const BorderSide(color: Color(0xFF2F4D84), width: 2),
-            ),
+            //     //end
+            //   },
+            //   textStyle: const TextStyle(
+            //     fontSize: 20,
+            //     color: Color(0xFF2F4D84),
+            //     fontWeight: FontWeight.bold,
+            //   ),
+            //   text: AppLocalizations.of(context)!.cargov,
+            //   type: GFButtonType.solid,
+            //   blockButton: true,
+            //   borderSide: const BorderSide(color: Color(0xFF2F4D84), width: 2),
+            // ),
             const SizedBox(
               height: 10,
             ),
@@ -1083,7 +1092,7 @@ Widget _floatingPanel(context) {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const CompleteProcess(),
+                      builder: (context) => const Selectitme(),
                     ));
               },
               text: AppLocalizations.of(context)!.quote,

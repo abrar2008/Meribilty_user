@@ -22,7 +22,7 @@ class _HomeState extends State<Home> {
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.all(10),
             child: Column(
               children: [
                 Row(
@@ -98,132 +98,60 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.all(1),
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(2),
                   child: Column(
                     children: [
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.all(12),
-                            decoration: const BoxDecoration(
-                                color: Color(0xFF2F4D84),
-                                borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(20.0),
-                                  bottomLeft: Radius.circular(20.0),
-                                  bottomRight: Radius.circular(20.0),
-                                )),
-                            width: 170,
-                            height: 330,
-                            child: Column(
-                              children: [
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                InkWell(
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const Portlogistics()),
-                                    );
-                                  },
-                                  child: Container(
-                                    padding: const EdgeInsets.all(10),
-                                    height: 170,
-                                    width: 130,
-                                    decoration: const BoxDecoration(
-                                        color: Colors.white,
-                                        image: DecorationImage(
-                                            image: AssetImage('assets/hom.png'),
-                                            fit: BoxFit.cover),
-                                        borderRadius: BorderRadius.only(
-                                          topRight: Radius.circular(20.0),
-                                          bottomLeft: Radius.circular(20.0),
-                                          bottomRight: Radius.circular(20.0),
-                                        )),
-                                    child: const Text(""),
-                                  ),
-                                ),
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                SizedBox(
-                                  width: double.infinity,
-                                  child: Text(
-                                    AppLocalizations.of(context)!.port,
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                SizedBox(
-                                  width: double.infinity,
-                                  child: Text(
-                                    AppLocalizations.of(context)!.cargo,
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 10,
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                          //
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Container(
-                            padding: const EdgeInsets.all(12),
-                            decoration: const BoxDecoration(
-                                color: Color(0xFF2F4D84),
-                                borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(20.0),
-                                  bottomLeft: Radius.circular(20.0),
-                                  bottomRight: Radius.circular(20.0),
-                                )),
-                            width: 170,
-                            height: 330,
-                            child: InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const Citymovement_screen()),
-                                );
-                              },
+                      Container(
+                        width: double.infinity,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(12),
+                              decoration: const BoxDecoration(
+                                  color: Color(0xFF2F4D84),
+                                  borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(20.0),
+                                    bottomLeft: Radius.circular(20.0),
+                                    bottomRight: Radius.circular(20.0),
+                                  )),
+                              width: 160,
+                              height: 330,
                               child: Column(
                                 children: [
                                   const SizedBox(
                                     height: 10,
                                   ),
-                                  Container(
-                                    padding: const EdgeInsets.all(10),
-                                    height: 160,
-                                    width: 130,
-                                    decoration: const BoxDecoration(
-                                        color: Colors.white,
-                                        image: DecorationImage(
-                                            image:
-                                                AssetImage('assets/city.png'),
-                                            fit: BoxFit.cover),
-                                        borderRadius: BorderRadius.only(
-                                          topRight: Radius.circular(20.0),
-                                          bottomLeft: Radius.circular(20.0),
-                                          bottomRight: Radius.circular(20.0),
-                                        )),
-                                    child: const Text(""),
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const Portlogistics()),
+                                      );
+                                    },
+                                    child: Container(
+                                      padding: const EdgeInsets.all(10),
+                                      height: 170,
+                                      width: 140,
+                                      decoration: const BoxDecoration(
+                                          color: Colors.white,
+                                          image: DecorationImage(
+                                              image:
+                                                  AssetImage('assets/hom.png'),
+                                              fit: BoxFit.cover),
+                                          borderRadius: BorderRadius.only(
+                                            topRight: Radius.circular(20.0),
+                                            bottomLeft: Radius.circular(20.0),
+                                            bottomRight: Radius.circular(20.0),
+                                          )),
+                                      child: const Text(""),
+                                    ),
                                   ),
                                   const SizedBox(
                                     height: 10,
@@ -231,7 +159,7 @@ class _HomeState extends State<Home> {
                                   SizedBox(
                                     width: double.infinity,
                                     child: Text(
-                                      AppLocalizations.of(context)!.same,
+                                      AppLocalizations.of(context)!.port,
                                       style: const TextStyle(
                                         color: Colors.white,
                                         fontSize: 20,
@@ -245,19 +173,98 @@ class _HomeState extends State<Home> {
                                   SizedBox(
                                     width: double.infinity,
                                     child: Text(
-                                      AppLocalizations.of(context)!.delivsmall,
+                                      AppLocalizations.of(context)!.cargo,
                                       style: const TextStyle(
                                         color: Colors.white,
                                         fontSize: 10,
                                       ),
                                     ),
-                                  ),
+                                  )
                                 ],
                               ),
                             ),
-                          ),
-                        ],
+                            //
+                            const SizedBox(
+                              width: 8,
+                            ),
+                            Container(
+                              padding: const EdgeInsets.all(10),
+                              decoration: const BoxDecoration(
+                                  color: Color(0xFF2F4D84),
+                                  borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(20.0),
+                                    bottomLeft: Radius.circular(20.0),
+                                    bottomRight: Radius.circular(20.0),
+                                  )),
+                              width: 165,
+                              height: 330,
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const Citymovement_screen()),
+                                  );
+                                },
+                                child: Column(
+                                  children: [
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    Container(
+                                      padding: const EdgeInsets.all(10),
+                                      height: 160,
+                                      width: 130,
+                                      decoration: const BoxDecoration(
+                                          color: Colors.white,
+                                          image: DecorationImage(
+                                              image:
+                                                  AssetImage('assets/city.png'),
+                                              fit: BoxFit.cover),
+                                          borderRadius: BorderRadius.only(
+                                            topRight: Radius.circular(20.0),
+                                            bottomLeft: Radius.circular(20.0),
+                                            bottomRight: Radius.circular(20.0),
+                                          )),
+                                      child: const Text(""),
+                                    ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    SizedBox(
+                                      width: double.infinity,
+                                      child: Text(
+                                        AppLocalizations.of(context)!.same,
+                                        style: const TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    SizedBox(
+                                      width: double.infinity,
+                                      child: Text(
+                                        AppLocalizations.of(context)!
+                                            .delivsmall,
+                                        style: const TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 10,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
+
                       const SizedBox(
                         height: 20,
                       ),

@@ -63,82 +63,87 @@ class _MyDeliveriesState extends State<MyDeliveries> {
                 ),
               ],
             ),
-            InkWell(
-              onTap: () {
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => Completeenstime()));
-              },
-              child: GFListTile(
-                avatar: GFAvatar(
-                  backgroundImage: AssetImage("assets/truk.png"),
-                  shape: GFAvatarShape.circle,
-                  size: 30,
-                ),
-                title: Row(
-                  children: [
-                    Image.asset(
-                      "assets/gps.png",
-                      width: 20,
-                    ),
-                    SizedBox(
-                      width: 2,
-                    ),
-                    Text(
-                      "B-292 Block 15 Block 15 Gulistan-e-johar",
-                      style:
-                          TextStyle(fontSize: 10, fontWeight: FontWeight.w400),
-                    ),
-                  ],
-                ),
-                subTitle: Column(
-                  children: [
-                    SizedBox(
-                      height: 3,
-                    ),
-                    Row(
-                      children: [
-                        Image.asset(
-                          "assets/shar.png",
-                          width: 20,
-                        ),
-                        SizedBox(
-                          width: 2,
-                        ),
-                        Text(
-                          "Karachi Northem ByPass keamari Karachi west",
-                          style: TextStyle(
-                              fontSize: 9, fontWeight: FontWeight.w400),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                description: Row(
-                  children: [
-                    Image.asset(
-                      "assets/check.png",
-                      width: 30,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      "Complete",
-                      style:
-                          TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
-                    ),
-                  ],
-                ),
-                icon: Container(
-                  child: Row(
+            Container(
+              width: double.infinity,
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Completeenstime()));
+                },
+                child: GFListTile(
+                  avatar: GFAvatar(
+                    backgroundImage: AssetImage("assets/truk.png"),
+                    shape: GFAvatarShape.circle,
+                    size: 30,
+                  ),
+                  title: Row(
                     children: [
-                      SizedBox(
+                      Image.asset(
+                        "assets/gps.png",
                         width: 20,
                       ),
-                      Align(
-                          alignment: Alignment.bottomRight,
-                          child: Image.asset("assets/Message.png")),
+                      SizedBox(
+                        width: 2,
+                      ),
+                      Text(
+                        "B-292 Block 15 Block 15 ",
+                        style: TextStyle(
+                            fontSize: 10, fontWeight: FontWeight.w400),
+                      ),
                     ],
+                  ),
+                  subTitle: Column(
+                    children: [
+                      SizedBox(
+                        height: 3,
+                      ),
+                      Row(
+                        children: [
+                          Image.asset(
+                            "assets/shar.png",
+                            width: 20,
+                          ),
+                          SizedBox(
+                            width: 2,
+                          ),
+                          Text(
+                            "Karachi Northem ByPass keamari ",
+                            style: TextStyle(
+                                fontSize: 9, fontWeight: FontWeight.w400),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  description: Row(
+                    children: [
+                      Image.asset(
+                        "assets/check.png",
+                        width: 20,
+                      ),
+                      SizedBox(
+                        width: 7,
+                      ),
+                      Text(
+                        "Complete",
+                        style: TextStyle(
+                            fontSize: 10, fontWeight: FontWeight.w400),
+                      ),
+                    ],
+                  ),
+                  icon: Container(
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Align(
+                            alignment: Alignment.bottomRight,
+                            child: Image.asset("assets/Message.png")),
+                      ],
+                    ),
                   ),
                 ),
               ),
