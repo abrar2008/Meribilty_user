@@ -17,7 +17,7 @@ import 'package:getwidget/types/gf_button_type.dart';
 import 'package:getwidget/types/gf_checkbox_type.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:meribilty/veiw/Message.dart';
-import 'package:meribilty/veiw/MyDeliveries.dart';
+import 'package:meribilty/veiw/myDeliveries.dart';
 
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 

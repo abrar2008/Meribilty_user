@@ -1,3 +1,7 @@
+// ignore: file_names
+
+// ignore_for_file: file_names, duplicate_ignore
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -6,18 +10,18 @@ import 'package:getwidget/position/gf_position.dart';
 import 'package:getwidget/shape/gf_button_shape.dart';
 import 'package:getwidget/types/gf_button_type.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:meribilty/veiw/Portlogistics.dart';
+import 'package:meribilty/veiw/portlogistics.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class Selectitme extends StatefulWidget {
-  const Selectitme({Key? key}) : super(key: key);
+class Selectcargo extends StatefulWidget {
+  const Selectcargo({Key? key}) : super(key: key);
 
   @override
-  _SelectitmeState createState() => _SelectitmeState();
+  _SelectcargoState createState() => _SelectcargoState();
 }
 
-class _SelectitmeState extends State<Selectitme> {
+class _SelectcargoState extends State<Selectcargo> {
   final Completer<GoogleMapController> _controller = Completer();
   static const CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(37.42796133580664, -122.085749655962),

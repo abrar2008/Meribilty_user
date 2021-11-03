@@ -33,7 +33,7 @@ class _AddTeamState extends State<AddTeam> {
             child: Column(
               children: [
                 Container(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(20),
                   width: double.infinity,
                   height: 80,
                   color: const Color(0xFF2F4D84),
@@ -43,7 +43,7 @@ class _AddTeamState extends State<AddTeam> {
                       const Text(
                         "Add Team",
                         style: TextStyle(
-                            fontSize: 50,
+                            fontSize: 30,
                             color: Colors.white,
                             fontWeight: FontWeight.bold),
                       ),
@@ -65,18 +65,16 @@ class _AddTeamState extends State<AddTeam> {
                 const SizedBox(
                   height: 10,
                 ),
-                Container(
-                  padding: const EdgeInsets.all(10),
-                  child: Column(
-                    children: [
-                      TextFormField(
-                        autofocus: false,
-                        obscureText: true,
-                        decoration: const InputDecoration(
+                Column(
+                  children: [
+                    TextFormField(
+                      autofocus: false,
+                      obscureText: true,
+                      decoration: const InputDecoration(
                           labelText: 'First Name',
                           labelStyle: TextStyle(color: Colors.black),
                           suffixIcon: Icon(
-                            Icons.clear,
+                            Icons.arrow_forward_ios_outlined,
                             size: 20.0,
                           ),
                           border: OutlineInputBorder(
@@ -84,65 +82,60 @@ class _AddTeamState extends State<AddTeam> {
                                 BorderRadius.all(Radius.circular(0.0)),
                           ),
                           hintText: 'First Name',
-                          contentPadding: EdgeInsets.all(10.0),
+                          contentPadding: EdgeInsets.only(left: 20, right: 20)),
+                    ),
+                    TextFormField(
+                      autofocus: false,
+                      obscureText: true,
+                      decoration: const InputDecoration(
+                        labelText: 'Last Name',
+                        labelStyle: TextStyle(color: Colors.black),
+                        suffixIcon: Icon(
+                          Icons.arrow_forward_ios_outlined,
+                          size: 20.0,
                         ),
-                      ),
-                      TextFormField(
-                        autofocus: false,
-                        obscureText: true,
-                        decoration: const InputDecoration(
-                          labelText: 'Last Name',
-                          labelStyle: TextStyle(color: Colors.black),
-                          suffixIcon: Icon(
-                            Icons.clear,
-                            size: 20.0,
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(0.0)),
-                          ),
-                          hintText: 'Mobile Number',
-                          contentPadding: EdgeInsets.all(10.0),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(0.0)),
                         ),
+                        hintText: 'Mobile Number',
+                        contentPadding: EdgeInsets.all(10.0),
                       ),
-                      TextFormField(
-                        autofocus: false,
-                        obscureText: true,
-                        decoration: const InputDecoration(
-                          labelText: 'Email',
-                          labelStyle: TextStyle(color: Colors.black),
-                          suffixIcon: Icon(
-                            Icons.clear,
-                            size: 20.0,
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(0.0)),
-                          ),
-                          hintText: 'Give Limited app Access',
-                          contentPadding: EdgeInsets.all(10.0),
+                    ),
+                    TextFormField(
+                      autofocus: false,
+                      obscureText: true,
+                      decoration: const InputDecoration(
+                        labelText: 'Email',
+                        labelStyle: TextStyle(color: Colors.black),
+                        suffixIcon: Icon(
+                          Icons.arrow_forward_ios_outlined,
+                          size: 20.0,
                         ),
-                      ),
-                      TextFormField(
-                        autofocus: false,
-                        obscureText: true,
-                        decoration: const InputDecoration(
-                          labelText: 'Give limited app access',
-                          labelStyle: TextStyle(color: Colors.black),
-                          suffixIcon: Icon(
-                            Icons.clear,
-                            size: 20.0,
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(0.0)),
-                          ),
-                          hintText: 'Give limited app access',
-                          contentPadding: EdgeInsets.all(10.0),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(0.0)),
                         ),
+                        hintText: 'Give Limited app Access',
+                        contentPadding: EdgeInsets.all(10.0),
                       ),
-                    ],
-                  ),
+                    ),
+                    TextFormField(
+                      autofocus: false,
+                      obscureText: true,
+                      decoration: const InputDecoration(
+                        labelText: 'Give limited app access',
+                        labelStyle: TextStyle(color: Colors.black),
+                        suffixIcon: Icon(
+                          Icons.arrow_forward_ios_outlined,
+                          size: 20.0,
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(0.0)),
+                        ),
+                        hintText: 'Give limited app access',
+                        contentPadding: EdgeInsets.all(10.0),
+                      ),
+                    ),
+                  ],
                 ),
                 Container(
                   padding: const EdgeInsets.all(30),

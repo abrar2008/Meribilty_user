@@ -9,7 +9,8 @@ import 'package:getwidget/components/avatar/gf_avatar.dart';
 import 'package:getwidget/components/list_tile/gf_list_tile.dart';
 import 'package:getwidget/shape/gf_avatar_shape.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:meribilty/veiw/MyDeliveries.dart';
+import 'package:meribilty/veiw/Message.dart';
+import 'package:meribilty/veiw/myDeliveries.dart';
 
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
@@ -119,16 +120,24 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                   ],
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.all(10),
-                child: Column(
-                  children: [
-                    Image.asset("assets/Message.png"),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const Text("Chat"),
-                  ],
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Message()),
+                  );
+                },
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  child: Column(
+                    children: [
+                      Image.asset("assets/Message.png"),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const Text("Chat"),
+                    ],
+                  ),
                 ),
               ),
               Container(
@@ -357,40 +366,35 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Image.asset("assets/iconlo.png"),
-                                  const SizedBox(
-                                    width: 6,
-                                  ),
-                                  const Text(
-                                    "B-292 Block 15 Block13 \n Gulshan-e-Johar",
-                                    style: TextStyle(fontSize: 10),
-                                  )
-                                ],
-                              ),
-                            ],
-                          ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Image.asset("assets/iconlo.png"),
+                                const SizedBox(
+                                  width: 6,
+                                ),
+                                const Text(
+                                  "B-292 Block 15 Block13 \n Gulshan-e-Johar",
+                                  style: TextStyle(fontSize: 10),
+                                )
+                              ],
+                            ),
+                          ],
                         ),
-                        Container(
-                          child: Row(
-                            children: [
-                              Image.asset("assets/dis.png"),
-                              const SizedBox(
-                                width: 5,
-                              ),
-                              const Text(
-                                "B-292 Block 15 Block13 \n Gulshan-e-Johar",
-                                style: TextStyle(fontSize: 10),
-                              )
-                            ],
-                          ),
+                        Row(
+                          children: [
+                            Image.asset("assets/dis.png"),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            const Text(
+                              "B-292 Block 15 Block13 \n Gulshan-e-Johar",
+                              style: TextStyle(fontSize: 10),
+                            )
+                          ],
                         )
                       ])),
               const SizedBox(
@@ -407,44 +411,40 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Image.asset(
-                            "assets/distance.png",
-                            width: 30,
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          const Text(
-                            "EST.DISTANCE : 24.1",
-                            style: TextStyle(fontSize: 10),
-                          )
-                        ],
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Image.asset(
+                          "assets/distance.png",
+                          width: 30,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        const Text(
+                          "EST.DISTANCE : 24.1",
+                          style: TextStyle(fontSize: 10),
+                        )
+                      ],
                     ),
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Image.asset(
-                            "assets/alarm-clock.png",
-                            width: 30,
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          const Text(
-                            "EST.TIME:35 mins",
-                            style: TextStyle(fontSize: 10),
-                          ),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                        ],
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Image.asset(
+                          "assets/alarm-clock.png",
+                          width: 30,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        const Text(
+                          "EST.TIME:35 mins",
+                          style: TextStyle(fontSize: 10),
+                        ),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                      ],
                     )
                   ],
                 ),
@@ -482,23 +482,21 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                         ],
                       ),
                     ),
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Image.asset(
-                            "assets/cleaning.png",
-                            width: 30,
-                          ),
-                          const Text(
-                            "Flocrs:2",
-                            style: TextStyle(fontSize: 10),
-                          ),
-                          const SizedBox(
-                            width: 70,
-                          ),
-                        ],
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Image.asset(
+                          "assets/cleaning.png",
+                          width: 30,
+                        ),
+                        const Text(
+                          "Flocrs:2",
+                          style: TextStyle(fontSize: 10),
+                        ),
+                        const SizedBox(
+                          width: 70,
+                        ),
+                      ],
                     )
                   ],
                 ),

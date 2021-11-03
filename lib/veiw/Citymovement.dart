@@ -665,7 +665,7 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
             borderSide: const BorderSide(color: Colors.black, width: 2),
           ),
         ),
-        Container(
+        SizedBox(
           width: double.infinity,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -706,7 +706,7 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                   type: GFButtonType.solid,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 5,
               ),
             ],

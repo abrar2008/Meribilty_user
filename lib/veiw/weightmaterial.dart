@@ -3,7 +3,7 @@ import 'package:getwidget/components/button/gf_button.dart';
 import 'package:getwidget/components/list_tile/gf_list_tile.dart';
 import 'package:getwidget/shape/gf_button_shape.dart';
 import 'package:getwidget/types/gf_button_type.dart';
-import 'package:meribilty/veiw/Portlogistics.dart';
+import 'package:meribilty/veiw/portlogistics.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class Weightmaterial extends StatefulWidget {

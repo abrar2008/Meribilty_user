@@ -22,7 +22,9 @@ class _UpdateTeamState extends State<UpdateTeam> {
         child: Column(
           children: [
             Container(
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.only(
+                left: 20,
+              ),
               width: double.infinity,
               height: 80,
               color: const Color(0xFF2F4D84),
@@ -32,13 +34,19 @@ class _UpdateTeamState extends State<UpdateTeam> {
                   Text(
                     "Ashfaq Alam",
                     style: TextStyle(
-                        fontSize: 50,
+                        fontSize: 30,
                         color: Colors.white,
                         fontWeight: FontWeight.bold),
                   ),
-                  GFAvatar(backgroundImage: AssetImage("assets/hum.png")),
                   SizedBox(
-                    width: 9,
+                    width: 10,
+                  ),
+                  Align(
+                    child:
+                        GFAvatar(backgroundImage: AssetImage("assets/hum.png")),
+                  ),
+                  SizedBox(
+                    width: 4,
                   ),
                 ],
               ),

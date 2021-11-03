@@ -26,6 +26,7 @@ class _PaymentState extends State<Payment> {
         width: double.infinity,
         height: double.infinity,
         color: Color(0xffF8F8F8),
+        // padding: EdgeInsets.all(10),
         child: Column(
           children: [
             SizedBox(
@@ -33,7 +34,7 @@ class _PaymentState extends State<Payment> {
               child: Stack(
                 children: [
                   Container(
-                    padding: EdgeInsets.all(10),
+                    padding: EdgeInsets.only(left: 20, right: 20),
                     height: 160,
                     width: double.infinity,
                     color: Color(0xFF2F4D84),
@@ -55,8 +56,8 @@ class _PaymentState extends State<Payment> {
                       },
                       child: Container(
                         height: 100,
-                        width: 350,
-                        padding: EdgeInsets.all(20),
+                        width: double.infinity,
+                        padding: EdgeInsets.all(10),
                         decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.only(
@@ -79,36 +80,40 @@ class _PaymentState extends State<Payment> {
                             SizedBox(
                               width: 10,
                             ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                SizedBox(
-                                  height: 6,
-                                ),
-                                Column(
-                                  children: [
-                                    Text(
-                                      AppLocalizations.of(context)!.bank,
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        color: Color(0xFF2F4D84),
-                                      ),
+                            Container(
+                              padding: EdgeInsets.only(left: 10, top: 10),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: const [
+                                  SizedBox(
+                                    height: 6,
+                                  ),
+                                  Text(
+                                    "Bank Transfer                             ",
+                                    textAlign: TextAlign.start,
+                                    // AppLocalizations.of(context)!.bank,
+                                    style: TextStyle(
+                                      fontSize: 17,
+                                      color: Color(0xFF2F4D84),
                                     ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      AppLocalizations.of(context)!.bankupload,
-                                      style: TextStyle(
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Text(
+                                    "You have yo upload tranfer slip to procced",
+                                    textAlign: TextAlign.start,
+                                    style: TextStyle(
                                         color: Color(0xffC8C7CC),
-                                        fontWeight: FontWeight.bold,
                                         fontSize: 12,
-                                      ),
-                                    ),
-                                  ],
-                                )
-                              ],
-                            )
+                                        fontWeight: FontWeight.bold),
+                                  )
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              width: 1,
+                            ),
                           ],
                         ),
                       ),
@@ -120,114 +125,122 @@ class _PaymentState extends State<Payment> {
 
             //
             Container(
-              height: 100,
-              width: 350,
-              padding: EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      topRight: Radius.circular(10),
-                      bottomLeft: Radius.circular(10),
-                      bottomRight: Radius.circular(10)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(0, 3), // changes position of shadow
+              width: double.infinity,
+              padding: EdgeInsets.only(left: 20, right: 20),
+              child: Container(
+                height: 100,
+                width: 350,
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        topRight: Radius.circular(10),
+                        bottomLeft: Radius.circular(10),
+                        bottomRight: Radius.circular(10)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(0, 3), // changes position of shadow
+                      ),
+                    ]),
+                child: Row(
+                  children: [
+                    Image.asset("assets/bank.png"),
+                    SizedBox(
+                      width: 10,
                     ),
-                  ]),
-              child: Row(
-                children: [
-                  Image.asset("assets/bank.png"),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 6,
-                      ),
-                      Text(
-                        AppLocalizations.of(context)!.credit,
-                        style: TextStyle(
-                          color: Color(0xFF2F4D84),
-                          fontSize: 20,
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 6,
                         ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        AppLocalizations.of(context)!.creditprop,
-                        style: TextStyle(
-                          color: Color(0xffC8C7CC),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12,
+                        Text(
+                          AppLocalizations.of(context)!.credit,
+                          style: TextStyle(
+                            color: Color(0xFF2F4D84),
+                            fontSize: 20,
+                          ),
                         ),
-                      ),
-                    ],
-                  )
-                ],
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          AppLocalizations.of(context)!.creditprop,
+                          style: TextStyle(
+                            color: Color(0xffC8C7CC),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
             SizedBox(
               height: 20,
             ),
             Container(
-              height: 100,
-              width: 350,
-              padding: EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      topRight: const Radius.circular(10),
-                      bottomLeft: const Radius.circular(10),
-                      bottomRight: const Radius.circular(10)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(0, 3), // changes position of shadow
+              width: double.infinity,
+              padding: EdgeInsets.only(left: 20, right: 20),
+              child: Container(
+                height: 100,
+                width: 350,
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        topRight: const Radius.circular(10),
+                        bottomLeft: const Radius.circular(10),
+                        bottomRight: const Radius.circular(10)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(0, 3), // changes position of shadow
+                      ),
+                    ]),
+                child: Row(
+                  children: [
+                    Image.asset("assets/bank.png"),
+                    SizedBox(
+                      width: 10,
                     ),
-                  ]),
-              child: Row(
-                children: [
-                  Image.asset("assets/bank.png"),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      const SizedBox(
-                        height: 6,
-                      ),
-                      Text(
-                        AppLocalizations.of(context)!.cash,
-                        style: const TextStyle(
-                          color: Color(0xFF2F4D84),
-                          fontSize: 17,
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        const SizedBox(
+                          height: 6,
                         ),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        AppLocalizations.of(context)!.deft,
-                        style: const TextStyle(
-                          color: Color(0xffC8C7CC),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12,
+                        Text(
+                          AppLocalizations.of(context)!.cash,
+                          style: const TextStyle(
+                            color: Color(0xFF2F4D84),
+                            fontSize: 17,
+                          ),
                         ),
-                      ),
-                    ],
-                  )
-                ],
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          AppLocalizations.of(context)!.deft,
+                          style: const TextStyle(
+                            color: Color(0xffC8C7CC),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
             const SizedBox(
@@ -241,66 +254,70 @@ class _PaymentState extends State<Payment> {
                         builder: (context) => const Paymentcard()));
               },
               child: Container(
-                height: 100,
-                width: 350,
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(10),
-                        topRight: Radius.circular(10),
-                        bottomLeft: Radius.circular(10),
-                        bottomRight: Radius.circular(10)),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 5,
-                        blurRadius: 7,
-                        offset:
-                            const Offset(0, 3), // changes position of shadow
-                      ),
-                    ]),
-                child: Row(
-                  children: [
-                    Image.asset("assets/bank.png"),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        const SizedBox(
-                          height: 6,
+                width: double.infinity,
+                padding: EdgeInsets.only(left: 20, right: 20),
+                child: Container(
+                  height: 100,
+                  width: 350,
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10),
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset:
+                              const Offset(0, 3), // changes position of shadow
                         ),
-                        InkWell(
-                          onTap: () {},
-                          child: Text(
-                            AppLocalizations.of(context)!.pay,
-                            textAlign: TextAlign.start,
-                            style: const TextStyle(
-                              color: Color(0xFF2F4D84),
-                              fontSize: 20,
+                      ]),
+                  child: Row(
+                    children: [
+                      Image.asset("assets/bank.png"),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          const SizedBox(
+                            height: 6,
+                          ),
+                          InkWell(
+                            onTap: () {},
+                            child: Text(
+                              AppLocalizations.of(context)!.pay,
+                              textAlign: TextAlign.start,
+                              style: const TextStyle(
+                                color: Color(0xFF2F4D84),
+                                fontSize: 17,
+                              ),
                             ),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        // Container(
-                        //   alignment: Alignment.topLeft,
-                        //   child: Text(
-                        //     "Default payment Method",
-                        //     textAlign: TextAlign.left,
-                        //     style: const TextStyle(
-                        //       color: Color(0xffC8C7CC),
-                        //       fontWeight: FontWeight.bold,
-                        //       fontSize: 12,
-                        //     ),
-                        //   ),
-                        // ),
-                      ],
-                    )
-                  ],
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          // Container(
+                          //   alignment: Alignment.topLeft,
+                          //   child: Text(
+                          //     "Default payment Method",
+                          //     textAlign: TextAlign.left,
+                          //     style: const TextStyle(
+                          //       color: Color(0xffC8C7CC),
+                          //       fontWeight: FontWeight.bold,
+                          //       fontSize: 12,
+                          //     ),
+                          //   ),
+                          // ),
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),

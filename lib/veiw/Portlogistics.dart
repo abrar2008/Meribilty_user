@@ -18,8 +18,8 @@ import 'package:getwidget/types/gf_button_type.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:meribilty/veiw/complete_process.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:meribilty/veiw/loading_option.dart';
-import 'package:meribilty/veiw/selectitem.dart';
+import 'package:meribilty/veiw/loading_port.dart';
+import 'package:meribilty/veiw/selectCargo.dart';
 import 'package:meribilty/veiw/weightmaterial.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
@@ -143,6 +143,7 @@ class _PortlogisticsState extends State<Portlogistics> {
 }
 
 Widget _floatingPanel(context) {
+  //
   return Container(
       decoration: BoxDecoration(
           color: Colors.white,
@@ -990,7 +991,7 @@ Widget _floatingPanel(context) {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const LoadingOption(),
+                      builder: (context) => const Loadingport(),
                     ));
               },
               text: AppLocalizations.of(context)!.load,
@@ -1020,7 +1021,10 @@ Widget _floatingPanel(context) {
                     height: 30,
                     width: 50,
                     child: const Checkbox(
-                      value: false,
+                      // fillColor: Color(0xFF2F4D84),
+                      checkColor: Color(0xFF2F4D84),
+                      activeColor: Color(0xFF2F4D84),
+                      value: true,
                       onChanged: null,
                       focusColor: Color(0xFF2F4D84),
                     ),
@@ -1029,71 +1033,49 @@ Widget _floatingPanel(context) {
               ),
             ),
 
-            // GFButton(
-            //   color: Colors.white,
-            //   size: 60,
-            //   onPressed: () {
-            //     //
-            //     Navigator.push(
-            //         context,
-            //         MaterialPageRoute(
-            //           builder: (context) =>
-            //         ));
+            GFButton(
+              color: Colors.white,
+              size: 60,
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Selectcargo()));
 
-            //     //end
-            //   },
-            //   textStyle: const TextStyle(
-            //     fontSize: 20,
-            //     color: Color(0xFF2F4D84),
-            //     fontWeight: FontWeight.bold,
-            //   ),
-            //   text: AppLocalizations.of(context)!.cargov,
-            //   type: GFButtonType.solid,
-            //   blockButton: true,
-            //   borderSide: const BorderSide(color: Color(0xFF2F4D84), width: 2),
-            // ),
+                //end
+              },
+              textStyle: const TextStyle(
+                fontSize: 20,
+                color: Color(0xFF2F4D84),
+                fontWeight: FontWeight.bold,
+              ),
+              text: AppLocalizations.of(context)!.cargov,
+              type: GFButtonType.solid,
+              blockButton: true,
+              borderSide: const BorderSide(color: Color(0xFF2F4D84), width: 2),
+            ),
             const SizedBox(
               height: 10,
             ),
             //time
+
+            const SizedBox(
+              height: 10,
+            ),
             GFButton(
               size: 60,
               color: const Color(0xFF2F4D84),
               onPressed: () {
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //       builder: (context) => DatePage(),
-                //     ));
-
                 DatePicker.showDateTimePicker(context, showTitleActions: true,
                     onChanged: (date) {
                   // ignore: avoid_print
                   print('change $date in time zone ' +
                       date.timeZoneOffset.inHours.toString());
                 }, onConfirm: (date) {
-                  // ignore: avoid_print
-                  print('confirm $date');
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CompleteProcess(),
+                      ));
                 }, currentTime: DateTime(2008, 12, 31, 23, 12, 34));
-              },
-              text: AppLocalizations.of(context)!.selec,
-              textStyle: const TextStyle(fontSize: 25),
-              type: GFButtonType.solid,
-              shape: GFButtonShape.standard,
-              blockButton: true,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            GFButton(
-              size: 60,
-              color: const Color(0xFF2F4D84),
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Selectitme(),
-                    ));
               },
               text: AppLocalizations.of(context)!.quote,
               textStyle: const TextStyle(fontSize: 25),
@@ -1168,24 +1150,5 @@ class CustomPicker extends CommonPickerModel {
             currentLeftIndex(), currentMiddleIndex(), currentRightIndex())
         : DateTime(currentTime.year, currentTime.month, currentTime.day,
             currentLeftIndex(), currentMiddleIndex(), currentRightIndex());
-  }
-}
-
-class DatePage extends StatelessWidget {
-  const DatePage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          children: const <Widget>[
-            //import
-
-            //
-          ],
-        ),
-      ),
-    );
   }
 }

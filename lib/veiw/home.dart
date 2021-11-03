@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/painting.dart';
 import 'package:meribilty/veiw/darwer.dart';
-import 'package:meribilty/veiw/Citymovement.dart';
-import 'package:meribilty/veiw/Portlogistics.dart';
+import 'package:meribilty/veiw/citymovement.dart';
+import 'package:meribilty/veiw/portlogistics.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Home extends StatefulWidget {
@@ -105,7 +105,7 @@ class _HomeState extends State<Home> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Container(
+                      SizedBox(
                         width: double.infinity,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,

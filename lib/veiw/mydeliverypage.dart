@@ -24,7 +24,9 @@ class _MydeliverypageState extends State<Mydeliverypage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SlidingUpPanel(
-      minHeight: 80,
+      renderPanelSheet: false,
+      minHeight: 200,
+      maxHeight: 600,
       panel: _floatingPanel(context),
       // panelBuilder: (ScrollController sc) => _scrollingList(sc),
       body: SafeArea(
@@ -37,375 +39,392 @@ class _MydeliverypageState extends State<Mydeliverypage> {
       ),
     ));
   }
+
+  Widget _floatingPanel(context) {
+    return Container(
+        decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(10.0),
+              topRight: Radius.circular(10.0),
+            ),
+            boxShadow: [
+              BoxShadow(
+                blurRadius: 20.0,
+                color: Colors.grey,
+              ),
+            ]),
+        margin: const EdgeInsets.all(6.0),
+        child: SingleChildScrollView(
+            child: Column(
+          children: [
+            const SizedBox(
+              height: 10,
+            ),
+            const Text(
+              "Order Bility",
+              style: TextStyle(
+                fontSize: 20,
+                color: Color(0xFF2F4D84),
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Image.asset("assets/arrow.png"),
+            Container(
+              child: GFListTile(
+                  avatar: GFAvatar(
+                    size: 60,
+                    backgroundColor: Colors.white,
+                    shape: GFAvatarShape.standard,
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          "assets/t.png",
+                          width: 50,
+                        ),
+                        Text(
+                          "Mazda",
+                          style: TextStyle(fontSize: 15, color: Colors.black38),
+                        ),
+                        Text(
+                          "20 Feet",
+                          style: TextStyle(fontSize: 15, color: Colors.black38),
+                        ),
+                        Text(
+                          "Pending",
+                          style:
+                              TextStyle(fontSize: 15, color: Color(0xffFF3B30)),
+                        )
+                      ],
+                    ),
+                  ),
+                  titleText: 'BT145857',
+                  description: Container(
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 4,
+                        ),
+                        Text(
+                          "Driver Pending",
+                          style: TextStyle(
+                              color: Colors.red,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 4,
+                        ),
+                        Container(
+                          child: Text(
+                            "Status          ",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w300),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  icon: Container(
+                    child: Column(
+                      children: const [
+                        Text(
+                          "09 Sept, 2021",
+                          style: TextStyle(color: Color(0xffC8C7CC)),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Pending",
+                          style: TextStyle(
+                            color: Colors.red,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "In Process",
+                          style: TextStyle(color: Color(0xffC8C7CC)),
+                        ),
+                      ],
+                    ),
+                  )),
+            ),
+            Container(
+              child: GFListTile(
+                  avatar: GFAvatar(
+                    size: 60,
+                    backgroundColor: Colors.white,
+                    shape: GFAvatarShape.standard,
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          "assets/t.png",
+                          width: 50,
+                        ),
+                        Text(
+                          "Mazda",
+                          style: TextStyle(fontSize: 15, color: Colors.black38),
+                        ),
+                        Text(
+                          "20 Feet",
+                          style: TextStyle(fontSize: 15, color: Colors.black38),
+                        ),
+                        Text(
+                          "AML-410",
+                          style: TextStyle(fontSize: 15, color: Colors.black38),
+                        )
+                      ],
+                    ),
+                  ),
+                  titleText: 'BT145857',
+                  description: Container(
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 4,
+                        ),
+                        Text(
+                          "Ahmed Bashir",
+                          style: TextStyle(
+                              color: Colors.black38,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 4,
+                        ),
+                        Container(
+                          child: Text(
+                            "Status          ",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w300),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  icon: Container(
+                    child: Column(
+                      children: const [
+                        Text(
+                          "09 Sept, 2021",
+                          style: TextStyle(color: Color(0xffC8C7CC)),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "032233230882",
+                          style: TextStyle(color: Color(0xffC8C7CC)),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "In Process",
+                          style: TextStyle(color: Color(0xffC8C7CC)),
+                        ),
+                      ],
+                    ),
+                  )),
+            ),
+            Container(
+              child: GFListTile(
+                  avatar: GFAvatar(
+                    size: 60,
+                    backgroundColor: Colors.white,
+                    shape: GFAvatarShape.standard,
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          "assets/t.png",
+                          width: 50,
+                        ),
+                        Text(
+                          "Mazda",
+                          style: TextStyle(fontSize: 15, color: Colors.black38),
+                        ),
+                        Text(
+                          "20 Feet",
+                          style: TextStyle(fontSize: 15, color: Colors.black38),
+                        ),
+                        Text(
+                          "AML-410",
+                          style: TextStyle(fontSize: 15, color: Colors.black38),
+                        )
+                      ],
+                    ),
+                  ),
+                  titleText: 'BT145857',
+                  description: Container(
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 4,
+                        ),
+                        Text(
+                          "Ahmed Bashir",
+                          style: TextStyle(
+                              color: Colors.black38,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 4,
+                        ),
+                        Container(
+                          child: Text(
+                            "Status          ",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w300),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  icon: Container(
+                    child: Column(
+                      children: const [
+                        Text(
+                          "09 Sept, 2021",
+                          style: TextStyle(color: Color(0xffC8C7CC)),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "032233230882",
+                          style: TextStyle(color: Color(0xffC8C7CC)),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "In Process",
+                          style: TextStyle(color: Color(0xffC8C7CC)),
+                        ),
+                      ],
+                    ),
+                  )),
+            ),
+          ],
+        )));
+  }
 }
 
-Widget _floatingPanel(context) {
-  return Container(
-    decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(10.0),
-          topRight: Radius.circular(10.0),
-        ),
-        boxShadow: const [
-          BoxShadow(
-            blurRadius: 10.0,
-            color: Colors.black26,
-          ),
-        ]),
-    margin: const EdgeInsets.all(5.0),
-    child: SingleChildScrollView(
-        child: SingleChildScrollView(
-      child: Container(
-          child: Column(
-        children: [
-          SizedBox(
-            height: 10,
-          ),
-          Text(
-            "Order Bility",
-            style: TextStyle(
-              fontSize: 20,
-              color: Color(0xFF2F4D84),
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Image.asset("assets/arrow.png"),
-          Container(
-            child: GFListTile(
-                avatar: GFAvatar(
-                  size: 60,
-                  backgroundColor: Colors.white,
-                  shape: GFAvatarShape.standard,
-                  child: Column(
-                    children: [
-                      Image.asset(
-                        "assets/t.png",
-                        width: 50,
-                      ),
-                      Text(
-                        "Mazda",
-                        style: TextStyle(fontSize: 15, color: Colors.black38),
-                      ),
-                      Text(
-                        "20 Feet",
-                        style: TextStyle(fontSize: 15, color: Colors.black38),
-                      ),
-                      Text(
-                        "Pending",
-                        style:
-                            TextStyle(fontSize: 15, color: Color(0xffFF3B30)),
-                      )
-                    ],
-                  ),
-                ),
-                titleText: 'BT145857',
-                description: Container(
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 4,
-                      ),
-                      Text(
-                        "Driver Pending",
-                        style: TextStyle(
-                            color: Colors.red,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 4,
-                      ),
-                      Container(
-                        child: Text(
-                          "Status          ",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w300),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                icon: Container(
-                  child: Column(
-                    children: const [
-                      Text(
-                        "09 Sept, 2021",
-                        style: TextStyle(color: Color(0xffC8C7CC)),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "Pending",
-                        style: TextStyle(
-                          color: Colors.red,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "In Process",
-                        style: TextStyle(color: Color(0xffC8C7CC)),
-                      ),
-                    ],
-                  ),
-                )),
-          ),
-          Container(
-            child: GFListTile(
-                avatar: GFAvatar(
-                  size: 60,
-                  backgroundColor: Colors.white,
-                  shape: GFAvatarShape.standard,
-                  child: Column(
-                    children: [
-                      Image.asset(
-                        "assets/t.png",
-                        width: 50,
-                      ),
-                      Text(
-                        "Mazda",
-                        style: TextStyle(fontSize: 15, color: Colors.black38),
-                      ),
-                      Text(
-                        "20 Feet",
-                        style: TextStyle(fontSize: 15, color: Colors.black38),
-                      ),
-                      Text(
-                        "AML-410",
-                        style: TextStyle(fontSize: 15, color: Colors.black38),
-                      )
-                    ],
-                  ),
-                ),
-                titleText: 'BT145857',
-                description: Container(
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 4,
-                      ),
-                      Text(
-                        "Ahmed Bashir",
-                        style: TextStyle(
-                            color: Colors.black38,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 4,
-                      ),
-                      Container(
-                        child: Text(
-                          "Status          ",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w300),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                icon: Container(
-                  child: Column(
-                    children: const [
-                      Text(
-                        "09 Sept, 2021",
-                        style: TextStyle(color: Color(0xffC8C7CC)),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "032233230882",
-                        style: TextStyle(color: Color(0xffC8C7CC)),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "In Process",
-                        style: TextStyle(color: Color(0xffC8C7CC)),
-                      ),
-                    ],
-                  ),
-                )),
-          ),
-          Container(
-            child: GFListTile(
-                avatar: GFAvatar(
-                  size: 60,
-                  backgroundColor: Colors.white,
-                  shape: GFAvatarShape.standard,
-                  child: Column(
-                    children: [
-                      Image.asset(
-                        "assets/t.png",
-                        width: 50,
-                      ),
-                      Text(
-                        "Mazda",
-                        style: TextStyle(fontSize: 15, color: Colors.black38),
-                      ),
-                      Text(
-                        "20 Feet",
-                        style: TextStyle(fontSize: 15, color: Colors.black38),
-                      ),
-                      Text(
-                        "AML-410",
-                        style: TextStyle(fontSize: 15, color: Colors.black38),
-                      )
-                    ],
-                  ),
-                ),
-                titleText: 'BT145857',
-                description: Container(
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 4,
-                      ),
-                      Text(
-                        "Ahmed Bashir",
-                        style: TextStyle(
-                            color: Colors.black38,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 4,
-                      ),
-                      Container(
-                        child: Text(
-                          "Status          ",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w300),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                icon: Container(
-                  child: Column(
-                    children: const [
-                      Text(
-                        "09 Sept, 2021",
-                        style: TextStyle(color: Color(0xffC8C7CC)),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "032233230882",
-                        style: TextStyle(color: Color(0xffC8C7CC)),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "In Process",
-                        style: TextStyle(color: Color(0xffC8C7CC)),
-                      ),
-                    ],
-                  ),
-                )),
-          ),
-          Container(
-            child: GFListTile(
-                avatar: GFAvatar(
-                  size: 60,
-                  backgroundColor: Colors.white,
-                  shape: GFAvatarShape.standard,
-                  child: Column(
-                    children: [
-                      Image.asset(
-                        "assets/t.png",
-                        width: 50,
-                      ),
-                      Text(
-                        "Mazda",
-                        style: TextStyle(fontSize: 15, color: Colors.black38),
-                      ),
-                      Text(
-                        "20 Feet",
-                        style: TextStyle(fontSize: 15, color: Colors.black38),
-                      ),
-                      Text(
-                        "AML-410",
-                        style: TextStyle(fontSize: 15, color: Colors.black38),
-                      )
-                    ],
-                  ),
-                ),
-                titleText: 'BT145857',
-                description: Container(
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 4,
-                      ),
-                      Text(
-                        "Ahmed Bashir",
-                        style: TextStyle(
-                            color: Colors.black38,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 4,
-                      ),
-                      Container(
-                        child: Text(
-                          "Status          ",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w300),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                icon: Container(
-                  child: Column(
-                    children: const [
-                      Text(
-                        "09 Sept, 2021",
-                        style: TextStyle(color: Color(0xffC8C7CC)),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "032233230882",
-                        style: TextStyle(color: Color(0xffC8C7CC)),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "In Process",
-                        style: TextStyle(color: Color(0xffC8C7CC)),
-                      ),
-                    ],
-                  ),
-                )),
-          ),
-        ],
-      )),
-    )),
-  );
-}
+// Widget _floatingPanel(context) {
+//   return Container(
+//       decoration: BoxDecoration(
+//           color: Colors.white,
+//           borderRadius: BorderRadius.only(
+//             topLeft: Radius.circular(10.0),
+//             topRight: Radius.circular(10.0),
+//           ),
+//           boxShadow: const [
+//             BoxShadow(
+//               blurRadius: 20.0,
+//               color: Colors.grey,
+//             ),
+//           ]),
+//       margin: const EdgeInsets.all(10.0),
+//       child: SingleChildScrollView(
+//         child: Container(
+//           padding: const EdgeInsets.all(12.0),
+//           decoration: BoxDecoration(
+//               color: Colors.white,
+//               borderRadius: BorderRadius.only(
+//                 topLeft: const Radius.circular(40.0),
+//                 topRight: const Radius.circular(40.0),
+//               )),
+//           child: Column(
+//             children: [
+//               SizedBox(
+//                 height: 10,
+//               ),
+
+//               SizedBox(
+//                 height: 10,
+//               ),
+//               Container(
+//                   child: Column(
+//                 children: [
+//                   SingleChildScrollView(
+//                     child: Column(
+//                       children: [
+//                         SizedBox(
+//                           height: 10,
+//                         ),
+//                         Image.asset("assets/arrow.png"),
+
+//
+
+//                                     SizedBox(
+//                                       height: 4,
+//                                     ),
+//                                     Container(
+//                                       child: Text(
+//                                         "Status          ",
+//                                         style: TextStyle(
+//                                             color: Colors.black,
+//                                             fontSize: 18,
+//                                             fontWeight: FontWeight.w300),
+//                                       ),
+//                                     ),
+//                                   ],
+//                                 ),
+//                               ),
+//                               icon: Container(
+//                                 child: Column(
+//                                   children: const [
+//                                     Text(
+//                                       "09 Sept, 2021",
+//                                       style:
+//                                           TextStyle(color: Color(0xffC8C7CC)),
+//                                     ),
+//                                     SizedBox(
+//                                       height: 10,
+//                                     ),
+//                                     Text(
+//                                       "032233230882",
+//                                       style:
+//                                           TextStyle(color: Color(0xffC8C7CC)),
+//                                     ),
+//                                     SizedBox(
+//                                       height: 10,
+//                                     ),
+//                                     Text(
+//                                       "In Process",
+//                                       style:
+//                                           TextStyle(color: Color(0xffC8C7CC)),
+//                                     ),
+//                                   ],
+//                                 ),
+//                               )),
+//                         ),
+//                       ],
+//                     ),
+//                   )
+//                 ],
+//               ))
+
+//               ///
+//             ],
+//           ),
+//         ),
+//       ));
+// }
 
 Widget complete(BuildContext context) {
   return Column(
@@ -591,7 +610,7 @@ Widget complete(BuildContext context) {
                       "Completed",
                       style: TextStyle(
                           color: Color(0xFF2F4D84),
-                          fontSize: 20,
+                          fontSize: 17,
                           fontWeight: FontWeight.w600),
                     ),
                   )

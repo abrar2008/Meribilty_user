@@ -4,9 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:meribilty/veiw/Message.dart';
-import 'package:meribilty/veiw/SignIn.dart';
+import 'package:meribilty/veiw/signIn.dart';
 import 'package:meribilty/veiw/invitefriend.dart';
-import 'package:meribilty/veiw/mydeliver.dart';
+import 'package:meribilty/veiw/mydeliverport.dart';
 import 'package:meribilty/veiw/mywallet.dart';
 import 'package:meribilty/veiw/notifications.dart';
 import 'package:meribilty/veiw/setting_page.dart';
@@ -200,7 +200,7 @@ class _DarweState extends State<Darwe> {
                 title: Text(AppLocalizations.of(context)!.mydeliver),
                 onTap: () {
                   Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => MyDeliver()));
+                      MaterialPageRoute(builder: (context) => MyDeliverport()));
                 },
               ),
               ListTile(

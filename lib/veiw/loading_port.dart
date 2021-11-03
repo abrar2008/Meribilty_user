@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:getwidget/components/avatar/gf_avatar.dart';
 import 'package:getwidget/components/list_tile/gf_list_tile.dart';
 import 'package:getwidget/getwidget.dart';
-import 'package:meribilty/veiw/unloading.dart';
+import 'package:meribilty/veiw/unloadingport.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -21,7 +21,8 @@ class _LoadingportState extends State<Loadingport> {
     return Scaffold(
       body: SlidingUpPanel(
         renderPanelSheet: false,
-        minHeight: 700,
+        minHeight: 400,
+        maxHeight: 900,
         panel: _floatingPanel(context),
         // panelBuilder: (ScrollController sc) => _scrollingList(sc, context),
         body: Container(
@@ -40,7 +41,7 @@ class _LoadingportState extends State<Loadingport> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => UnLoadingOption()),
+                  MaterialPageRoute(builder: (context) => UnLoadingport()),
                 );
               },
               child: Text(

@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'mydeliver.dart';
+import 'mydeliverport.dart';
 
 class CompleteProcess extends StatefulWidget {
   const CompleteProcess({Key? key}) : super(key: key);
@@ -19,8 +19,8 @@ class CompleteProcessState extends State<CompleteProcess> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 10), () {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => const MyDeliver()));
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => const MyDeliverport()));
     });
   }
 

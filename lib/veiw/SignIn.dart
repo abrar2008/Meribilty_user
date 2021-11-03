@@ -36,20 +36,17 @@ class _SignInState extends State<SignIn> {
                     Positioned(
                         top: 50,
                         left: 50,
-                        child:
-                            Container(child: Image.asset("assets/logo1.png"))),
+                        child: Image.asset("assets/logo1.png")),
                     Positioned(
                         top: 150,
-                        child: Container(
-                          child: Image.asset(
-                            "assets/mai.png",
-                          ),
+                        child: Image.asset(
+                          "assets/mai.png",
                         )),
                     Positioned(
                       top: 280,
                       left: 20,
                       child: Container(
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         child: Container(
                           decoration: const BoxDecoration(
                               color: Colors.white,
@@ -57,7 +54,7 @@ class _SignInState extends State<SignIn> {
                                   BorderRadius.all(Radius.circular(10))),
                           padding: const EdgeInsets.all(8.0),
                           width: 300,
-                          height: 700,
+                          height: 610,
                           child: ContainedTabBarView(
                             tabs: const [
                               Text(
@@ -70,183 +67,229 @@ class _SignInState extends State<SignIn> {
                             views: [
                               //first tab
                               Container(
-                                color: Colors.white,
-                                child: Column(
-                                  children: [
-                                    const SizedBox(
-                                      height: 20,
-                                    ),
-                                    Container(
-                                      padding: const EdgeInsets.all(10),
-                                      child: Column(
-                                        children: [
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
+                                height: 300,
+                                child: Card(
+                                  child: Container(
+                                    color: Colors.white,
+                                    child: Column(
+                                      children: [
+                                        const SizedBox(
+                                          height: 20,
+                                        ),
+                                        Container(
+                                          padding: const EdgeInsets.all(10),
+                                          child: Column(
                                             children: [
-                                              const SizedBox(
-                                                width: 5,
-                                              ),
-                                              Column(
-                                                children: [
-                                                  Image.asset(
-                                                      "assets/simple.png"),
-                                                  const SizedBox(
-                                                    height: 10,
-                                                  ),
-                                                  const Text(
-                                                    "Individual",
-                                                    style:
-                                                        TextStyle(fontSize: 20),
-                                                  ),
-                                                  const Text(""),
-                                                  const Text(""),
-                                                  const Text(""),
-                                                ],
-                                              ),
-                                              const SizedBox(
-                                                width: 20,
-                                              ),
-                                              Column(
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
                                                 children: [
                                                   const SizedBox(
-                                                    height: 10,
+                                                    width: 5,
                                                   ),
-                                                  Image.asset(
-                                                      "assets/business.png"),
-                                                  const Text(
-                                                    "Business Pro",
-                                                    style: TextStyle(
-                                                        fontSize: 20,
-                                                        color:
-                                                            Color(0xffFFCC00)),
+                                                  Column(
+                                                    children: [
+                                                      Image.asset(
+                                                          "assets/simple.png"),
+                                                      const SizedBox(
+                                                        height: 10,
+                                                      ),
+                                                      const Text(
+                                                        "Individual",
+                                                        style: TextStyle(
+                                                            fontSize: 20),
+                                                      ),
+                                                      const Text(""),
+                                                      const Text(""),
+                                                      const Text(""),
+                                                    ],
                                                   ),
-                                                  const Text(
-                                                      "Credit Facility "),
-                                                  const Text("Counter Offers "),
-                                                  const Text(
-                                                      "Requires Verfication"),
+                                                  const SizedBox(
+                                                    width: 20,
+                                                  ),
+                                                  Column(
+                                                    children: [
+                                                      const SizedBox(
+                                                        height: 10,
+                                                      ),
+                                                      Image.asset(
+                                                          "assets/business.png"),
+                                                      const Text(
+                                                        "Business Pro",
+                                                        style: TextStyle(
+                                                            fontSize: 17,
+                                                            color: Color(
+                                                                0xffFFCC00)),
+                                                      ),
+                                                      const Text(
+                                                        "Credit Facility ",
+                                                        style: TextStyle(
+                                                            fontSize: 10),
+                                                      ),
+                                                      const Text(
+                                                        "Counter Offers ",
+                                                        style: TextStyle(
+                                                            fontSize: 10),
+                                                      ),
+                                                      const Text(
+                                                        "Requires Verfication",
+                                                        style: TextStyle(
+                                                            fontSize: 10),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  const SizedBox(
+                                                    width: 6,
+                                                  ),
                                                 ],
                                               ),
+                                              TextFormField(
+                                                cursorColor: Colors.black,
+                                                decoration:
+                                                    const InputDecoration(
+                                                        border:
+                                                            OutlineInputBorder(),
+                                                        contentPadding:
+                                                            EdgeInsets.only(
+                                                                left: 15,
+                                                                bottom: 11,
+                                                                top: 11,
+                                                                right: 15),
+                                                        hintText: "Full Name"),
+                                              ),
+                                              SizedBox(
+                                                height: 6,
+                                              ),
+                                              TextFormField(
+                                                cursorColor: Colors.black,
+                                                decoration:
+                                                    const InputDecoration(
+                                                        border:
+                                                            OutlineInputBorder(),
+                                                        contentPadding:
+                                                            EdgeInsets.only(
+                                                                left: 15,
+                                                                bottom: 11,
+                                                                top: 11,
+                                                                right: 15),
+                                                        hintText:
+                                                            "name@example.com"),
+                                              ),
+                                              SizedBox(
+                                                height: 6,
+                                              ),
+                                              TextFormField(
+                                                cursorColor: Colors.black,
+                                                decoration:
+                                                    const InputDecoration(
+                                                        border:
+                                                            OutlineInputBorder(),
+                                                        contentPadding:
+                                                            EdgeInsets.only(
+                                                                left: 15,
+                                                                bottom: 11,
+                                                                top: 11,
+                                                                right: 15),
+                                                        hintText: "Password"),
+                                              ),
                                               const SizedBox(
-                                                width: 6,
+                                                height: 20,
+                                              ),
+                                              Container(
+                                                child: Row(
+                                                  children: [
+                                                    Container(
+                                                      padding: EdgeInsets.only(
+                                                        left: 10,
+                                                      ),
+                                                      height: 50,
+                                                      color: Colors.white,
+                                                      child: Row(
+                                                        children: [
+                                                          Image.asset(
+                                                            "assets/pakistan.png",
+                                                            width: 30,
+                                                          ),
+                                                          Icon(Icons
+                                                              .arrow_drop_down_outlined),
+                                                          SizedBox(
+                                                            width: 2,
+                                                          ),
+                                                          const Text(
+                                                            "+92",
+                                                            style: TextStyle(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold),
+                                                          ),
+                                                          SizedBox(
+                                                            width: 3,
+                                                          ),
+                                                          Container(
+                                                              height: 50,
+                                                              width: 150,
+                                                              child: TextField(
+                                                                style: TextStyle(
+                                                                    fontSize:
+                                                                        20.0,
+                                                                    color: Colors
+                                                                        .black),
+                                                                decoration: InputDecoration(
+                                                                    border:
+                                                                        OutlineInputBorder(),
+                                                                    labelText:
+                                                                        'Mobile Number',
+                                                                    labelStyle: TextStyle(
+                                                                        fontSize:
+                                                                            14)),
+                                                              ))
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              const SizedBox(
+                                                height: 20,
+                                              ),
+                                              SizedBox(
+                                                  width: double.infinity,
+                                                  child: ElevatedButton(
+                                                    child: Text(
+                                                        "Sign Up".toUpperCase(),
+                                                        style: const TextStyle(
+                                                            fontSize: 14)),
+                                                    style: ButtonStyle(
+                                                        backgroundColor:
+                                                            MaterialStateProperty
+                                                                .all<Color>(
+                                                                    const Color(
+                                                                        0xFF2F4D84)),
+                                                        shape: MaterialStateProperty
+                                                            .all<
+                                                                RoundedRectangleBorder>(
+                                                          const RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .all(Radius
+                                                                          .circular(
+                                                                              8)),
+                                                              side: BorderSide(
+                                                                  color: Color(
+                                                                      0xFF2F4D84))),
+                                                        )),
+                                                    onPressed: () {},
+                                                  )),
+                                              const SizedBox(
+                                                height: 10,
                                               ),
                                             ],
                                           ),
-                                          TextFormField(
-                                            cursorColor: Colors.black,
-                                            decoration: const InputDecoration(
-                                                border: InputBorder.none,
-                                                focusedBorder: InputBorder.none,
-                                                enabledBorder: InputBorder.none,
-                                                errorBorder: InputBorder.none,
-                                                disabledBorder:
-                                                    InputBorder.none,
-                                                contentPadding: EdgeInsets.only(
-                                                    left: 15,
-                                                    bottom: 11,
-                                                    top: 11,
-                                                    right: 15),
-                                                hintText: "name@example.com"),
-                                          ),
-                                          TextFormField(
-                                            cursorColor: Colors.black,
-                                            decoration: const InputDecoration(
-                                                border: InputBorder.none,
-                                                focusedBorder: InputBorder.none,
-                                                enabledBorder: InputBorder.none,
-                                                errorBorder: InputBorder.none,
-                                                disabledBorder:
-                                                    InputBorder.none,
-                                                contentPadding: EdgeInsets.only(
-                                                    left: 15,
-                                                    bottom: 11,
-                                                    top: 11,
-                                                    right: 15),
-                                                hintText: "Password"),
-                                          ),
-                                          const SizedBox(
-                                            height: 20,
-                                          ),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: const [
-                                              Text(
-                                                "+92",
-                                                style: TextStyle(
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              // TextFormField(
-                                              //   cursorColor: Colors.black,
-                                              //   decoration: new InputDecoration(
-                                              //       border: InputBorder.none,
-                                              //       focusedBorder:
-                                              //           InputBorder.none,
-                                              //       enabledBorder:
-                                              //           InputBorder.none,
-                                              //       errorBorder:
-                                              //           InputBorder.none,
-                                              //       disabledBorder:
-                                              //           InputBorder.none,
-                                              //       contentPadding:
-                                              //           EdgeInsets.only(
-                                              //               left: 15,
-                                              //               bottom: 11,
-                                              //               top: 11,
-                                              //               right: 15),
-                                              //       hintText: "Password"),
-                                              // ),
-                                            ],
-                                          ),
-                                          const SizedBox(
-                                            height: 20,
-                                          ),
-                                          SizedBox(
-                                              width: double.infinity,
-                                              child: ElevatedButton(
-                                                child: Text(
-                                                    "Sign Up".toUpperCase(),
-                                                    style: const TextStyle(
-                                                        fontSize: 14)),
-                                                style: ButtonStyle(
-                                                    backgroundColor:
-                                                        MaterialStateProperty
-                                                            .all<Color>(
-                                                                const Color(
-                                                                    0xFF2F4D84)),
-                                                    shape: MaterialStateProperty
-                                                        .all<
-                                                            RoundedRectangleBorder>(
-                                                      const RoundedRectangleBorder(
-                                                          borderRadius:
-                                                              BorderRadius.all(
-                                                                  Radius
-                                                                      .circular(
-                                                                          8)),
-                                                          side: BorderSide(
-                                                              color: Color(
-                                                                  0xFF2F4D84))),
-                                                    )),
-                                                onPressed: () {},
-                                              )),
-                                          const SizedBox(
-                                            height: 10,
-                                          ),
-                                          const SizedBox(
-                                            height: 10,
-                                          ),
-                                          const Text(
-                                            "By clicking signup you agree to our Terms and Condition",
-                                            style: TextStyle(
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w300),
-                                          ),
-                                        ],
-                                      ),
-                                    )
-                                  ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
                                 ),
                               ),
                               //seocnd tab

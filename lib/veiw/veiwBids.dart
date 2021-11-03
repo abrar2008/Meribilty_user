@@ -1,4 +1,4 @@
-// ignore_for_file: unused_element, file_names
+// ignore_for_file: unused_element, file_names, sized_box_for_whitespace
 
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
@@ -213,93 +213,100 @@ Widget decision(BuildContext context) {
           blockButton: true,
         ),
         expand(context),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            InkWell(
-              onTap: () {},
-              child: GFButton(
-                color: const Color(0xFF2F4D84),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const VeiwBirds(),
-                      ));
-                },
-                text: "COD",
-                shape: GFButtonShape.pills,
-                textStyle: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+        Container(
+          width: double.infinity,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              InkWell(
+                onTap: () {},
+                child: GFButton(
+                  color: const Color(0xFF2F4D84),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const VeiwBirds(),
+                        ));
+                  },
+                  text: "COD",
+                  shape: GFButtonShape.pills,
+                  textStyle: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-            ),
-            Row(
-              children: const [
-                Text(
-                  "*",
-                  style: TextStyle(
-                    color: Colors.orange,
-                    fontSize: 35,
+              Row(
+                children: const [
+                  Text(
+                    "*",
+                    style: TextStyle(
+                      color: Colors.orange,
+                      fontSize: 35,
+                    ),
                   ),
-                ),
-                Text(
-                  "4.9",
-                  style: TextStyle(
-                    fontSize: 25,
+                  Text(
+                    "4.9",
+                    style: TextStyle(
+                      fontSize: 25,
+                    ),
                   ),
-                ),
-              ],
-            ),
-            GFButton(
-              color: Colors.black26,
-              onPressed: () {},
-              text: "Rs :200,000",
-              shape: GFButtonShape.pills,
-              textStyle: const TextStyle(fontSize: 20, color: Colors.black),
-            ),
-            const SizedBox(
-              width: 20,
-            ),
-          ],
+                ],
+              ),
+              GFButton(
+                color: Colors.black26,
+                onPressed: () {},
+                text: "Rs :200,000",
+                shape: GFButtonShape.pills,
+                textStyle: const TextStyle(fontSize: 20, color: Colors.black),
+              ),
+              const SizedBox(
+                width: 20,
+              ),
+            ],
+          ),
         ),
-        Row(
-          children: [
-            GFButton(
-              shape: GFButtonShape.standard,
-              color: const Color(0xffFF2D55),
-              size: 50,
-              onPressed: () {
-                _onOfferreject(context);
-              },
-              text: AppLocalizations.of(context)!.reject,
-              textStyle:
-                  const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            GFButton(
-              color: const Color(0xff5AC8FA),
-              onPressed: () {
-                _onVendorcounter(context);
-              },
-              text: AppLocalizations.of(context)!.count,
-              size: 50,
-              shape: GFButtonShape.square,
-              textStyle:
-                  const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            GFButton(
-              onPressed: () {
-                _onSendCounterAccept(context);
-              },
-              color: const Color(0xFF2F4D84),
-              text: AppLocalizations.of(context)!.acept,
-              size: 50,
-              shape: GFButtonShape.square,
-              textStyle:
-                  const TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
-            ),
-          ],
+        Container(
+          width: double.infinity,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              GFButton(
+                shape: GFButtonShape.standard,
+                color: const Color(0xffFF2D55),
+                size: 50,
+                onPressed: () {
+                  _onOfferreject(context);
+                },
+                text: AppLocalizations.of(context)!.reject,
+                textStyle:
+                    const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              GFButton(
+                color: const Color(0xff5AC8FA),
+                onPressed: () {
+                  _onVendorcounter(context);
+                },
+                text: AppLocalizations.of(context)!.count,
+                size: 50,
+                shape: GFButtonShape.square,
+                textStyle:
+                    const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              GFButton(
+                onPressed: () {
+                  _onSendCounterAccept(context);
+                },
+                color: const Color(0xFF2F4D84),
+                text: AppLocalizations.of(context)!.acept,
+                size: 50,
+                shape: GFButtonShape.square,
+                textStyle:
+                    const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
         )
       ],
     ),

@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, camel_case_types, duplicate_ignore, file_names
 
 import 'package:flutter/material.dart';
-import 'package:meribilty/veiw/SignIn.dart';
+import 'package:meribilty/veiw/signIn.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class home extends StatefulWidget {

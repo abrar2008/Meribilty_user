@@ -63,7 +63,7 @@ class _MyDeliveriesState extends State<MyDeliveries> {
                 ),
               ],
             ),
-            Container(
+            SizedBox(
               width: double.infinity,
               child: InkWell(
                 onTap: () {
@@ -133,17 +133,15 @@ class _MyDeliveriesState extends State<MyDeliveries> {
                       ),
                     ],
                   ),
-                  icon: Container(
-                    child: Row(
-                      children: [
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Align(
-                            alignment: Alignment.bottomRight,
-                            child: Image.asset("assets/Message.png")),
-                      ],
-                    ),
+                  icon: Row(
+                    children: [
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Align(
+                          alignment: Alignment.bottomRight,
+                          child: Image.asset("assets/Message.png")),
+                    ],
                   ),
                 ),
               ),
