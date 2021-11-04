@@ -9,7 +9,6 @@ import 'package:getwidget/position/gf_position.dart';
 import 'package:getwidget/shape/gf_avatar_shape.dart';
 import 'package:getwidget/shape/gf_button_shape.dart';
 import 'package:getwidget/types/gf_button_type.dart';
-import 'package:meribilty/veiw/complete_process.dart';
 import 'package:meribilty/veiw/mainProfile.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 

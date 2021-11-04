@@ -203,15 +203,13 @@ class _SignInState extends State<SignIn> {
                                                         decoration:
                                                             BoxDecoration(
                                                                 borderRadius:
-                                                                    new BorderRadius
+                                                                    const BorderRadius
                                                                         .only(
-                                                                  topLeft:
-                                                                      const Radius
-                                                                              .circular(
+                                                                  topLeft: Radius
+                                                                      .circular(
                                                                           10.0),
-                                                                  bottomLeft:
-                                                                      const Radius
-                                                                              .circular(
+                                                                  bottomLeft: Radius
+                                                                      .circular(
                                                                           10.0),
                                                                 ),
                                                                 border:
@@ -348,13 +346,13 @@ class _SignInState extends State<SignIn> {
                                                     height: 50,
                                                     decoration: BoxDecoration(
                                                         borderRadius:
-                                                            new BorderRadius
+                                                            const BorderRadius
                                                                 .only(
-                                                          topLeft: const Radius
-                                                              .circular(10.0),
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  10.0),
                                                           bottomLeft:
-                                                              const Radius
-                                                                      .circular(
+                                                              Radius.circular(
                                                                   10.0),
                                                         ),
                                                         border: Border.all(
