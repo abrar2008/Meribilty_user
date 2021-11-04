@@ -71,7 +71,6 @@ Widget decision(BuildContext context) {
           ),
           GFButton(
             child: Container(
-              width: double.infinity,
               color: Color(0xff435E8F),
               child: Row(
                 children: [
@@ -87,17 +86,17 @@ Widget decision(BuildContext context) {
                       Text(
                         "20 Feet Container",
                         style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
+                            fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                       Text(
                         "5 Tons",
                         style:
-                            TextStyle(fontSize: 18, color: Color(0xffC8C7CC)),
+                            TextStyle(fontSize: 20, color: Color(0xffC8C7CC)),
                       )
                     ],
                   ),
                   SizedBox(
-                    width: 45,
+                    width: 40,
                   ),
                   Container(
                     height: 30,
@@ -113,7 +112,7 @@ Widget decision(BuildContext context) {
                         '1',
                       ),
                     ),
-                  ),
+                  )
                 ],
               ),
             ),
@@ -127,66 +126,62 @@ Widget decision(BuildContext context) {
             shape: GFButtonShape.standard,
             blockButton: true,
           ),
-          SizedBox(
-            width: double.infinity,
-            child: GFButton(
-              child: Container(
-                width: double.infinity,
-                color: Color(0xff435E8F),
-                child: Row(
-                  children: [
-                    Image.asset("assets/truk.png"),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Column(
-                      children: const [
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "20 Feet Container",
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          "5 Tons",
-                          style:
-                              TextStyle(fontSize: 20, color: Color(0xffC8C7CC)),
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      width: 40,
-                    ),
-                    Container(
-                      height: 30,
-                      width: 30,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                      ),
-                      child: TextButton(
-                        style: ButtonStyle(),
-                        onPressed: () {},
-                        child: Text(
-                          '1',
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              size: 60,
+          GFButton(
+            child: Container(
               color: Color(0xff435E8F),
-              textStyle: TextStyle(fontSize: 20),
-              onPressed: () {},
-              type: GFButtonType.solid,
-              borderSide: BorderSide.none,
-              position: GFPosition.end,
-              shape: GFButtonShape.standard,
-              blockButton: true,
+              child: Row(
+                children: [
+                  Image.asset("assets/truk.png"),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Column(
+                    children: const [
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "20 Feet Container",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        "5 Tons",
+                        style:
+                            TextStyle(fontSize: 20, color: Color(0xffC8C7CC)),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    width: 40,
+                  ),
+                  Container(
+                    height: 30,
+                    width: 30,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    ),
+                    child: TextButton(
+                      style: ButtonStyle(),
+                      onPressed: () {},
+                      child: Text(
+                        '1',
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
+            size: 60,
+            color: Color(0xff435E8F),
+            textStyle: TextStyle(fontSize: 20),
+            onPressed: () {},
+            type: GFButtonType.solid,
+            borderSide: BorderSide.none,
+            position: GFPosition.end,
+            shape: GFButtonShape.standard,
+            blockButton: true,
           ),
           expand(context),
           SizedBox(
@@ -488,6 +483,7 @@ Widget inprocess(BuildContext context) {
             shape: GFButtonShape.standard,
             blockButton: true,
           ),
+          //
           GFButton(
             child: Container(
               color: Color(0xff435E8F),

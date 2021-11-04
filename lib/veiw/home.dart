@@ -97,9 +97,9 @@ class _HomeState extends State<Home> {
                         fontWeight: FontWeight.w900),
                   ),
                 ),
-                Container(
+                SizedBox(
                   width: double.infinity,
-                  padding: const EdgeInsets.all(2),
+                  // padding: const EdgeInsets.all(2),
                   child: Column(
                     children: [
                       const SizedBox(
@@ -108,7 +108,7 @@ class _HomeState extends State<Home> {
                       SizedBox(
                         width: double.infinity,
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Container(
                               padding: const EdgeInsets.all(12),

@@ -9,7 +9,8 @@ import 'package:getwidget/position/gf_position.dart';
 import 'package:getwidget/shape/gf_avatar_shape.dart';
 import 'package:getwidget/shape/gf_button_shape.dart';
 import 'package:getwidget/types/gf_button_type.dart';
-import 'package:meribilty/veiw/homedetail.dart';
+import 'package:meribilty/veiw/complete_process.dart';
+import 'package:meribilty/veiw/mainProfile.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class Mydeliverypage extends StatefulWidget {
@@ -23,21 +24,39 @@ class _MydeliverypageState extends State<Mydeliverypage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SlidingUpPanel(
-      renderPanelSheet: false,
-      minHeight: 200,
-      maxHeight: 600,
-      panel: _floatingPanel(context),
-      // panelBuilder: (ScrollController sc) => _scrollingList(sc),
-      body: SafeArea(
-        child: Container(
-          color: Colors.white,
-          child: Column(
-            children: [complete(context)],
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: const Color(0xFF2F4D84),
+          title: const Text(
+            "MyDeliveries",
+            style:
+                TextStyle(color: Colors.white, fontWeight: FontWeight.normal),
+          ),
+          leading: IconButton(
+            icon: const Icon(
+              Icons.close,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            },
           ),
         ),
-      ),
-    ));
+        body: SlidingUpPanel(
+          renderPanelSheet: false,
+          minHeight: 200,
+          maxHeight: 600,
+          panel: _floatingPanel(context),
+          // panelBuilder: (ScrollController sc) => _scrollingList(sc),
+          body: SafeArea(
+            child: Container(
+              color: Colors.white,
+              child: Column(
+                children: [complete(context)],
+              ),
+            ),
+          ),
+        ));
   }
 
   Widget _floatingPanel(context) {
@@ -427,200 +446,200 @@ class _MydeliverypageState extends State<Mydeliverypage> {
 // }
 
 Widget complete(BuildContext context) {
-  return Column(
-    children: [
-      SizedBox(
-        height: 10,
-      ),
-      Card(
-        child: Container(
-          padding: EdgeInsets.all(10),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text(
-                    "Order No .00214 ",
-                    style: TextStyle(
-                        color: Color(0xFF2F4D84), fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    "09 Sep, 21 05:51 Pm",
-                    style: TextStyle(
-                        color: Color(0xFF2F4D84), fontWeight: FontWeight.bold),
-                  ),
-                ],
+  return Card(
+    child: Container(
+      width: double.infinity,
+      padding: EdgeInsets.all(5),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              Text(
+                "Order No .00214 ",
+                style: TextStyle(
+                    color: Color(0xFF2F4D84), fontWeight: FontWeight.w600),
               ),
-              SizedBox(
-                height: 10,
+              Text(
+                "09 Sep, 21 05:51 Pm",
+                style: TextStyle(
+                    color: Color(0xFF2F4D84), fontWeight: FontWeight.w600),
               ),
-              GFButton(
-                child: Container(
-                  color: Color(0xFF2F4D84),
-                  child: Row(
-                    children: [
-                      Image.asset("assets/truk.png"),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      Container(
-                        child: Column(
-                          children: const [
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              "20 Feet Container",
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              "5 Tons each",
-                              style: TextStyle(
-                                  fontSize: 20, color: Color(0xffC8C7CC)),
-                            )
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        width: 40,
-                      ),
-                      Container(
-                        height: 30,
-                        width: 30,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                        ),
-                        child: TextButton(
-                          style: ButtonStyle(),
-                          onPressed: () {},
-                          child: Text(
-                            '1',
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                size: 60,
-                color: Color(0xFF2F4D84),
-                textStyle: TextStyle(fontSize: 20),
-                onPressed: () {},
-                type: GFButtonType.solid,
-                borderSide: BorderSide.none,
-                position: GFPosition.end,
-                shape: GFButtonShape.standard,
-                blockButton: true,
-              ),
-              GFButton(
-                child: Container(
-                  color: Color(0xFF2F4D84),
-                  child: Row(
-                    children: [
-                      Image.asset("assets/truk.png"),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      Container(
-                        child: Column(
-                          children: const [
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              "20 Feet Container",
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              "5 Tons each",
-                              style: TextStyle(
-                                  fontSize: 20, color: Color(0xffC8C7CC)),
-                            )
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        width: 40,
-                      ),
-                      Container(
-                        height: 30,
-                        width: 30,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                        ),
-                        child: TextButton(
-                          style: ButtonStyle(),
-                          onPressed: () {},
-                          child: Text(
-                            '1',
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                size: 60,
-                color: Color(0xFF2F4D84),
-                textStyle: TextStyle(fontSize: 20),
-                onPressed: () {},
-                type: GFButtonType.solid,
-                borderSide: BorderSide.none,
-                position: GFPosition.end,
-                shape: GFButtonShape.standard,
-                blockButton: true,
-              ),
-              expand(context),
-              Row(
+            ],
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          GFButton(
+            child: Container(
+              color: Color(0xff435E8F),
+              child: Row(
                 children: [
-                  GFButton(
-                    color: Color(0xFF2F4D84),
-                    onPressed: () {},
-                    text: "COD",
-                    shape: GFButtonShape.pills,
-                    textStyle: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  GFButton(
-                    color: Colors.black12,
-                    onPressed: () {},
-                    text: "Rs :200,000",
-                    shape: GFButtonShape.pills,
-                    textStyle: TextStyle(fontSize: 20, color: Colors.black),
-                  ),
+                  Image.asset("assets/truk.png"),
                   SizedBox(
                     width: 20,
                   ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Homedetail()));
-                    },
-                    child: Text(
-                      "Completed",
-                      style: TextStyle(
-                          color: Color(0xFF2F4D84),
-                          fontSize: 17,
-                          fontWeight: FontWeight.w600),
+                  Column(
+                    children: const [
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "20 Feet Container",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        "5 Tons",
+                        style:
+                            TextStyle(fontSize: 20, color: Color(0xffC8C7CC)),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    width: 40,
+                  ),
+                  Container(
+                    height: 30,
+                    width: 30,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    ),
+                    child: TextButton(
+                      style: ButtonStyle(),
+                      onPressed: () {},
+                      child: Text(
+                        '1',
+                      ),
                     ),
                   )
                 ],
               ),
-            ],
+            ),
+            size: 60,
+            color: Color(0xff435E8F),
+            textStyle: TextStyle(fontSize: 20),
+            onPressed: () {},
+            type: GFButtonType.solid,
+            borderSide: BorderSide.none,
+            position: GFPosition.end,
+            shape: GFButtonShape.standard,
+            blockButton: true,
           ),
-        ),
+          GFButton(
+            child: Container(
+              color: Color(0xff435E8F),
+              child: Row(
+                children: [
+                  Image.asset("assets/truk.png"),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Column(
+                    children: const [
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "20 Feet Container",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        "5 Tons",
+                        style:
+                            TextStyle(fontSize: 20, color: Color(0xffC8C7CC)),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    width: 40,
+                  ),
+                  Container(
+                    height: 30,
+                    width: 30,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    ),
+                    child: TextButton(
+                      style: ButtonStyle(),
+                      onPressed: () {},
+                      child: Text(
+                        '1',
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            size: 60,
+            color: Color(0xff435E8F),
+            textStyle: TextStyle(fontSize: 20),
+            onPressed: () {},
+            type: GFButtonType.solid,
+            borderSide: BorderSide.none,
+            position: GFPosition.end,
+            shape: GFButtonShape.standard,
+            blockButton: true,
+          ),
+          expand(context),
+          SizedBox(
+            width: double.infinity,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                SizedBox(
+                  width: 4,
+                ),
+                GFButton(
+                  color: Color(0xff435E8F),
+                  onPressed: () {},
+                  text: "  COD  ",
+                  shape: GFButtonShape.pills,
+                  textStyle: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                // SizedBox(
+                //   width: 10,
+                // ),
+                GFButton(
+                  color: Colors.black12,
+                  onPressed: () {},
+                  text: "  Rs:200,000  ",
+                  shape: GFButtonShape.pills,
+                  textStyle: TextStyle(fontSize: 17, color: Colors.black),
+                ),
+                // SizedBox(
+                //   width: 20,
+                // ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MainProfile()),
+                    );
+                  },
+                  child: Text(
+                    "Completed",
+                    style: TextStyle(
+                        color: Color(0xFF2F4D84),
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ),
+                SizedBox(
+                  width: 7,
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
-    ],
+    ),
   );
 }
 

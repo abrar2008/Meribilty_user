@@ -115,22 +115,24 @@ class _OtpScrenState extends State<OtpScren> {
                         blinkWhenObscuring: true,
                         animationType: AnimationType.fade,
                         validator: (v) {
-                          if (v!.length < 3) {
+                          if (v!.length < 4) {
                             return "I'm from validator";
                           } else {
                             return null;
                           }
                         },
                         pinTheme: PinTheme(
-                          selectedFillColor: Colors.white,
-                          shape: PinCodeFieldShape.box,
-                          borderRadius: BorderRadius.circular(5),
-                          fieldHeight: 50,
-                          fieldWidth: 40,
-                          activeFillColor: Colors.white,
-                        ),
+                            selectedFillColor: Colors.purple,
+                            shape: PinCodeFieldShape.box,
+                            borderRadius: BorderRadius.circular(5),
+                            fieldHeight: 50,
+                            inactiveFillColor: Colors.purple,
+                            selectedColor: Colors.purple,
+                            fieldWidth: 40,
+                            activeFillColor: Colors.white,
+                            activeColor: Colors.purple),
                         cursorColor: Colors.black,
-                        animationDuration: Duration(milliseconds: 300),
+                        // animationDuration: Duration(milliseconds: 300),
 
                         controller: textEditingController,
                         keyboardType: TextInputType.number,

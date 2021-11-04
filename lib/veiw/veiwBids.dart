@@ -25,7 +25,7 @@ class _VeiwBirdsState extends State<VeiwBirds> {
         elevation: 0,
         backgroundColor: const Color(0xFF2F4D84),
         title: const Text(
-          "Veiw Bds  ",
+          "Veiw Bids  ",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.normal),
         ),
         leading: IconButton(

@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_maps_place_picker/google_maps_place_picker.dart';
 import 'package:meribilty/veiw/loading_option.dart';
@@ -177,11 +178,6 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
           size: 60,
           color: const Color(0xFF2F4D84),
           onPressed: () {
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(builder: (context) => SelectVehicle()),
-            // );
-
             showMaterialModalBottomSheet(
               context: context,
               builder: (context) => SingleChildScrollView(
@@ -604,8 +600,6 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                 ),
               ),
             );
-
-            //end
           },
           textStyle: const TextStyle(fontSize: 20, color: Colors.white),
           text: AppLocalizations.of(context)!.sel,
@@ -639,13 +633,16 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
               Container(
                 decoration: BoxDecoration(
                     color: const Color(0xFF2F4D84),
-                    borderRadius: BorderRadius.circular(10)),
+                    borderRadius: BorderRadius.circular(15)),
                 height: 30,
-                width: 50,
+                width: 40,
                 child: const Checkbox(
+                  // activeColor: Colors.white,
+                  // fillColor: Color(0xFF2F4D84),
+                  checkColor: Colors.white,
+
                   value: true,
                   onChanged: null,
-                  focusColor: Color(0xFF4CE5B1),
                 ),
               ),
             ],
@@ -665,10 +662,13 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
             borderSide: const BorderSide(color: Colors.black, width: 2),
           ),
         ),
+        const SizedBox(
+          height: 10,
+        ),
         SizedBox(
           width: double.infinity,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               GFButton(
                 color: Colors.white,
@@ -677,7 +677,20 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                     fontSize: 15,
                     fontWeight: FontWeight.bold),
                 size: 60,
-                onPressed: () {},
+                onPressed: () {
+                  DatePicker.showDateTimePicker(context, showTitleActions: true,
+                      onChanged: (date) {
+                    // ignore: avoid_print
+                    print('change $date in time zone ' +
+                        date.timeZoneOffset.inHours.toString());
+                  }, onConfirm: (date) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Citymovement_screen(),
+                        ));
+                  }, currentTime: DateTime(2008, 12, 31, 23, 12, 34));
+                },
                 text: AppLocalizations.of(context)!.sche,
                 type: GFButtonType.solid,
                 borderSide:
@@ -686,10 +699,12 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
               const SizedBox(
                 width: 5,
               ),
-              Container(
-                padding: const EdgeInsets.all(4),
-                width: 230,
+              SizedBox(
+                width: 235,
+                // padding: const EdgeInsets.all(5),
+                // width: 250,
                 child: GFButton(
+                  fullWidthButton: true,
                   color: const Color(0xFF2F4D84),
                   textStyle: const TextStyle(
                       color: Colors.white,

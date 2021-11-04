@@ -1017,15 +1017,17 @@ Widget _floatingPanel(context) {
                   Container(
                     decoration: BoxDecoration(
                         color: const Color(0xFF2F4D84),
-                        borderRadius: BorderRadius.circular(10)),
+                        borderRadius: BorderRadius.circular(20)),
                     height: 30,
-                    width: 50,
+                    width: 40,
                     child: const Checkbox(
                       // fillColor: Color(0xFF2F4D84),
-                      checkColor: Color(0xFF2F4D84),
+
                       activeColor: Color(0xFF2F4D84),
                       value: true,
                       onChanged: null,
+                      checkColor: Colors.white,
+
                       focusColor: Color(0xFF2F4D84),
                     ),
                   ),
@@ -1033,7 +1035,7 @@ Widget _floatingPanel(context) {
               ),
             ),
 
-            GFButton(
+            GFButton( 
               color: Colors.white,
               size: 60,
               onPressed: () {

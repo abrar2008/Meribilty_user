@@ -33,7 +33,9 @@ class _BidsState extends State<Bids> {
             Icons.close,
             color: Colors.white,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
       body: Container(
@@ -345,9 +347,15 @@ _biltyaccepted(context) {
         const SizedBox(
           height: 20,
         ),
-        Text(
-          AppLocalizations.of(context)!.track,
-          style: const TextStyle(color: Color(0xff8A8A8F)),
+        Padding(
+          padding: const EdgeInsets.all(15),
+          child: Align(
+            alignment: Alignment.center,
+            child: Text(
+              AppLocalizations.of(context)!.track,
+              style: const TextStyle(fontSize: 15, color: Colors.black26),
+            ),
+          ),
         ),
         const SizedBox(
           height: 10,

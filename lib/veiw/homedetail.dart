@@ -555,7 +555,7 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
               )),
 
           Container(
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.all(0),
             child: Column(
               children: [
                 Row(
