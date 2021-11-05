@@ -16,6 +16,112 @@ class Weightmaterial extends StatefulWidget {
 class _WeightmaterialState extends State<Weightmaterial> {
   @override
   Widget build(BuildContext context) {
+    Widget _floatingPanel(context) {
+      bool hasBeenPressed = false;
+      return Container(
+          decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(10.0),
+                topRight: Radius.circular(10.0),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  blurRadius: 40.0,
+                  color: Colors.black12,
+                ),
+              ]),
+          margin: const EdgeInsets.all(10.0),
+          child: SingleChildScrollView(
+              child: Column(
+            children: [
+              const SizedBox(
+                height: 10,
+              ),
+              const Text(
+                "How much material weights",
+                style: TextStyle(
+                    color: Color(0xFF2F4D84),
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Image.asset("assets/arrow.png"),
+              SizedBox(
+                height: 90,
+                child: InkWell(
+                  onTap: () {},
+                  child: GFButton(
+                    color: hasBeenPressed ? Colors.blue : Colors.white,
+                    child: Center(
+                      child: Column(
+                        children: const [
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "1 - 3 Tons",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    onPressed: () {
+                      print(hasBeenPressed);
+                      setState(() {
+                        hasBeenPressed = !hasBeenPressed;
+                        print(hasBeenPressed);
+                      });
+                    },
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 90,
+                child: GFListTile(
+                  color: const Color(0xFF2F4D84),
+                  title: Center(
+                    child: Column(
+                      children: const [
+                        SizedBox(
+                          height: 14,
+                        ),
+                        Text(
+                          "3 - 5 Tons",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              const GFListTile(
+                title: Center(
+                  child: Text(
+                    "5 - 7 Tons",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+            ],
+          )));
+    }
+
     return Scaffold(
       body: SlidingUpPanel(
         renderPanelSheet: false,
@@ -49,98 +155,4 @@ class _WeightmaterialState extends State<Weightmaterial> {
       ),
     );
   }
-}
-
-Widget _floatingPanel(context) {
-  return Container(
-      decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(10.0),
-            topRight: Radius.circular(10.0),
-          ),
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 40.0,
-              color: Colors.black12,
-            ),
-          ]),
-      margin: const EdgeInsets.all(10.0),
-      child: SingleChildScrollView(
-          child: Column(
-        children: [
-          const SizedBox(
-            height: 10,
-          ),
-          const Text(
-            "How much material weights",
-            style: TextStyle(
-                color: Color(0xFF2F4D84),
-                fontSize: 20,
-                fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Image.asset("assets/arrow.png"),
-          SizedBox(
-            height: 90,
-            child: GFListTile(
-              title: Center(
-                child: Column(
-                  children: const [
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      "1 - 3 Tons",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 90,
-            child: GFListTile(
-              color: const Color(0xFF2F4D84),
-              title: Center(
-                child: Column(
-                  children: const [
-                    SizedBox(
-                      height: 14,
-                    ),
-                    Text(
-                      "3 - 5 Tons",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          const GFListTile(
-            title: Center(
-              child: Text(
-                "5 - 7 Tons",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 20,
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-        ],
-      )));
 }

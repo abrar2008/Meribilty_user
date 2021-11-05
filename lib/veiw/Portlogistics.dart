@@ -143,7 +143,7 @@ class _PortlogisticsState extends State<Portlogistics> {
 }
 
 Widget _floatingPanel(context) {
-  //
+  bool _hasBeenPressed = false;
   return Container(
       decoration: BoxDecoration(
           color: Colors.white,
@@ -881,18 +881,24 @@ Widget _floatingPanel(context) {
                                   height: 10,
                                 ),
                                 Image.asset("assets/arrow.png"),
-                                GFListTile(
-                                  avatar: GFAvatar(
-                                    backgroundColor: Colors.white10,
-                                    shape: GFAvatarShape.square,
-                                    child: Image.asset("assets/elect.png",
-                                        color: Colors.black),
-                                  ),
-                                  title: const Text(
-                                    "Electronics",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 20,
+                                InkWell(
+                                  onTap: () {},
+                                  child: GFListTile(
+                                    color: _hasBeenPressed
+                                        ? Colors.blue
+                                        : Colors.white,
+                                    avatar: GFAvatar(
+                                      backgroundColor: Colors.white10,
+                                      shape: GFAvatarShape.square,
+                                      child: Image.asset("assets/elect.png",
+                                          color: Colors.black),
+                                    ),
+                                    title: const Text(
+                                      "Electronics",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 20,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -1035,7 +1041,7 @@ Widget _floatingPanel(context) {
               ),
             ),
 
-            GFButton( 
+            GFButton(
               color: Colors.white,
               size: 60,
               onPressed: () {

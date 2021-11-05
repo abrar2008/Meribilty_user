@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:getwidget/components/avatar/gf_avatar.dart';
 import 'package:getwidget/components/list_tile/gf_list_tile.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:meribilty/provider/provider.dart';
 import 'package:meribilty/veiw/unloading.dart';
+import 'package:provider/provider.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -59,6 +61,8 @@ class _LoadingOptionState extends State<LoadingOption> {
 }
 
 Widget _floatingPanel(content) {
+  var number = 0;
+  final provider = Provider.of<LocaleProvider>(content);
   return Container(
     decoration: BoxDecoration(
         color: Color(0xffFFFFFF),
@@ -131,7 +135,9 @@ Widget _floatingPanel(content) {
                               height: 30,
                               width: 30,
                               child: InkWell(
-                                onTap: () {},
+                                onTap: () {
+                                  provider.increasement();
+                                },
                                 child: Icon(
                                   Icons.add,
                                   color: Colors.white,
@@ -142,7 +148,7 @@ Widget _floatingPanel(content) {
                               width: 5,
                             ),
                             Text(
-                              "0",
+                              "${provider.number}",
                               style: TextStyle(fontSize: 25),
                             ),
                             SizedBox(
@@ -154,9 +160,14 @@ Widget _floatingPanel(content) {
                                   borderRadius: BorderRadius.circular(10)),
                               height: 30,
                               width: 30,
-                              child: Icon(
-                                Icons.remove,
-                                color: Colors.white,
+                              child: InkWell(
+                                onTap: () {
+                                  provider.descrese();
+                                },
+                                child: Icon(
+                                  Icons.remove,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
                           ],

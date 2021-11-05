@@ -668,9 +668,170 @@ class _HomeState extends State<Home> {
                               Text(
                                 AppLocalizations.of(context)!.braker,
                                 style: const TextStyle(
-                                  color: Color(0xffB8B8D2),
+                                  color: Color(0xff38385E),
                                   fontWeight: FontWeight.bold,
                                   fontSize: 15,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        height: 200,
+                        width: 150,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            border: Border.all(color: Colors.black12, width: 3),
+                            borderRadius: const BorderRadius.only(
+                              topRight: Radius.circular(20.0),
+                              bottomLeft: Radius.circular(20.0),
+                              bottomRight: Radius.circular(20.0),
+                            )),
+                        child: Center(
+                          child: Column(
+                            children: [
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Image.asset(
+                                "assets/engine-oil.png",
+                                width: 80,
+                              ),
+                              const SizedBox(
+                                height: 15,
+                              ),
+                              const Text(
+                                "Automotive",
+                                style: TextStyle(
+                                  color: Color(0xff38385E),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        height: 200,
+                        width: 150,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            border: Border.all(color: Colors.black12, width: 3),
+                            borderRadius: const BorderRadius.only(
+                              topRight: Radius.circular(20.0),
+                              bottomLeft: Radius.circular(20.0),
+                              bottomRight: Radius.circular(20.0),
+                            )),
+                        child: Center(
+                          child: Column(
+                            children: [
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Image.asset(
+                                "assets/sus.png",
+                                width: 80,
+                              ),
+                              const SizedBox(
+                                height: 15,
+                              ),
+                              const Text(
+                                "Suspension & Steering",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Color(0xff38385E),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        height: 200,
+                        width: 150,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            border: Border.all(color: Colors.black12, width: 3),
+                            borderRadius: const BorderRadius.only(
+                              topRight: Radius.circular(20.0),
+                              bottomLeft: Radius.circular(20.0),
+                              bottomRight: Radius.circular(20.0),
+                            )),
+                        child: Center(
+                          child: Column(
+                            children: [
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Image.asset(
+                                "assets/bodyparts.png",
+                                width: 80,
+                              ),
+                              const SizedBox(
+                                height: 15,
+                              ),
+                              const Text(
+                                "Body Parts",
+                                style: TextStyle(
+                                  color: Color(0xff38385E),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        height: 200,
+                        width: 150,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            border: Border.all(color: Colors.black12, width: 3),
+                            borderRadius: const BorderRadius.only(
+                              topRight: Radius.circular(20.0),
+                              bottomLeft: Radius.circular(20.0),
+                              bottomRight: Radius.circular(20.0),
+                            )),
+                        child: Center(
+                          child: Column(
+                            children: [
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Image.asset(
+                                "assets/engine.png",
+                                width: 80,
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              const Text(
+                                "Engine",
+                                style: TextStyle(
+                                  color: Color(0xff38385E),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14,
                                 ),
                               )
                             ],
@@ -704,18 +865,18 @@ class _HomeState extends State<Home> {
                                   height: 20,
                                 ),
                                 Image.asset(
-                                  "assets/plus.png",
+                                  "assets/more.png",
                                   width: 80,
                                 ),
                                 const SizedBox(
                                   height: 10,
                                 ),
                                 const Text(
-                                  "More Detail ",
+                                  "More ",
                                   style: TextStyle(
-                                    color: Color(0xffB8B8D2),
+                                    color: Color(0xff38385E),
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 15,
+                                    fontSize: 14,
                                   ),
                                 )
                               ],

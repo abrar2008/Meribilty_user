@@ -129,7 +129,7 @@ Widget _floatingPanel(context) {
                               width: 30,
                               child: InkWell(
                                 onTap: () {
-                                  provider.increasement(number);
+                                  provider.increasement();
                                 },
                                 child: const Icon(
                                   Icons.add,
