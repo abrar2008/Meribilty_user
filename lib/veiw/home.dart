@@ -109,6 +109,7 @@ class _HomeState extends State<Home> {
                         width: double.infinity,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
                               padding: const EdgeInsets.all(12),

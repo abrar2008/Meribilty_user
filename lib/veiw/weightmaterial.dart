@@ -72,10 +72,8 @@ class _WeightmaterialState extends State<Weightmaterial> {
                       ),
                     ),
                     onPressed: () {
-                      print(hasBeenPressed);
                       setState(() {
                         hasBeenPressed = !hasBeenPressed;
-                        print(hasBeenPressed);
                       });
                     },
                   ),
