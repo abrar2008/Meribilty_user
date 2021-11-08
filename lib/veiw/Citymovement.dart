@@ -1,4 +1,4 @@
-// ignore_for_file: camel_case_types, file_names
+// ignore_for_file: camel_case_types, file_names, use_key_in_widget_constructors
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -624,44 +624,7 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
           shape: GFButtonShape.standard,
           blockButton: true,
         ),
-        Container(
-          padding: const EdgeInsets.all(15),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(AppLocalizations.of(context)!.insure),
-              Container(
-                decoration: BoxDecoration(
-                    color: const Color(0xFF2F4D84),
-                    borderRadius: BorderRadius.circular(15)),
-                height: 30,
-                width: 40,
-                child: const Checkbox(
-                  // activeColor: Colors.white,
-                  // fillColor: Color(0xFF2F4D84),
-                  checkColor: Colors.white,
-
-                  value: true,
-                  onChanged: null,
-                ),
-              ),
-            ],
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.all(10),
-          child: GFButton(
-            color: Colors.white,
-            textStyle: const TextStyle(
-                color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
-            size: 60,
-            onPressed: () {},
-            text: AppLocalizations.of(context)!.cargov,
-            type: GFButtonType.solid,
-            fullWidthButton: true,
-            borderSide: const BorderSide(color: Colors.black, width: 2),
-          ),
-        ),
+        Cargo(),
         const SizedBox(
           height: 10,
         ),
@@ -730,4 +693,68 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
       ],
     ),
   );
+}
+
+class Cargo extends StatefulWidget {
+  @override
+  _CargoState createState() => _CargoState();
+}
+
+class _CargoState extends State<Cargo> {
+  bool isChecked = false;
+  bool isVisiable = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(15),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(AppLocalizations.of(context)!.insure),
+              Container(
+                decoration: BoxDecoration(
+                    color: const Color(0xFF2F4D84),
+                    borderRadius: BorderRadius.circular(15)),
+                height: 30,
+                width: 40,
+                child: Checkbox(
+                  activeColor: const Color(0xFF2F4D84),
+                  checkColor: Colors.white,
+                  value: isChecked,
+                  onChanged: (value) {
+                    setState(() {
+                      isChecked = value!;
+                      isVisiable = value;
+                    });
+                  },
+                ),
+              ),
+            ],
+          ),
+          Visibility(
+            visible: isVisiable,
+            child: Container(
+              padding: const EdgeInsets.all(10),
+              child: GFButton(
+                color: Colors.white,
+                textStyle: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+                size: 60,
+                onPressed: () {},
+                text: AppLocalizations.of(context)!.cargov,
+                type: GFButtonType.solid,
+                fullWidthButton: true,
+                borderSide: const BorderSide(color: Colors.black, width: 2),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }

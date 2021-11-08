@@ -1,8 +1,9 @@
 // ignore_for_file: prefer_const_constructors, avoid_print, unused_local_variable
 
 import 'package:flutter/material.dart';
+import 'package:flutter_verification_code/flutter_verification_code.dart';
 import 'package:meribilty/veiw/home.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
+
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class OtpScren extends StatefulWidget {
@@ -13,15 +14,6 @@ class OtpScren extends StatefulWidget {
 }
 
 class _OtpScrenState extends State<OtpScren> {
-  Future<String?> validateOtp(String otp) async {
-    await Future.delayed(Duration(milliseconds: 2000));
-    if (otp == "123456") {
-      return null;
-    } else {
-      return "The entered Otp is wrong";
-    }
-  }
-
   void moveToNextScreen(context) {
     Navigator.push(context,
         MaterialPageRoute(builder: (context) => SuccessfulOtpScreen()));
@@ -30,7 +22,8 @@ class _OtpScrenState extends State<OtpScren> {
   @override
   Widget build(BuildContext context) {
     TextEditingController textEditingController = TextEditingController();
-
+    bool _onEditing = true;
+    String _code;
     String currentText = "";
     final formKey = GlobalKey<FormState>();
     return Scaffold(
@@ -94,102 +87,33 @@ class _OtpScrenState extends State<OtpScren> {
               SizedBox(
                 height: 50,
               ),
+
               Container(
-                color: Colors.white,
-                child: Form(
-                  key: formKey,
-                  child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 8.0, horizontal: 30),
-                      child: PinCodeTextField(
-                        showCursor: true,
-                        appContext: context,
-                        pastedTextStyle: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        length: 4,
-                        obscureText: true,
-                        obscuringCharacter: '*',
-
-                        blinkWhenObscuring: true,
-                        animationType: AnimationType.fade,
-                        validator: (v) {
-                          if (v!.length < 4) {
-                            return "I'm from validator";
-                          } else {
-                            return null;
-                          }
-                        },
-                        pinTheme: PinTheme(
-                            selectedFillColor: Colors.purple,
-                            shape: PinCodeFieldShape.box,
-                            borderRadius: BorderRadius.circular(5),
-                            fieldHeight: 50,
-                            inactiveFillColor: Colors.purple,
-                            selectedColor: Colors.purple,
-                            fieldWidth: 40,
-                            activeFillColor: Colors.white,
-                            activeColor: Colors.purple),
-                        cursorColor: Colors.black,
-                        // animationDuration: Duration(milliseconds: 300),
-
-                        controller: textEditingController,
-                        keyboardType: TextInputType.number,
-                        boxShadows: const [
-                          BoxShadow(
-                            offset: Offset(0, 1),
-                            color: Colors.black12,
-                            blurRadius: 10,
-                          )
-                        ],
-                        onCompleted: (v) {
-                          print("Completed");
-                        },
-                        // onTap: () {
-                        //   print("Pressed");
-                        // },
-                        onChanged: (value) {
-                          print(value);
-                          setState(() {
-                            currentText = value;
-                          });
-                        },
-                        beforeTextPaste: (text) {
-                          print("Allowing to paste $text");
-
-                          return true;
-                        },
-                      )),
+                padding: EdgeInsets.only(left: 40),
+                width: double.infinity,
+                child: VerificationCode(
+                  isSecure: true,
+                  textStyle: TextStyle(fontSize: 40.0, color: Colors.black),
+                  underlineColor: Colors.amber,
+                  keyboardType: TextInputType.number,
+                  length: 4,
+                  itemSize: 70,
+                  onCompleted: (String value) {
+                    setState(() {
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) => Home()));
+                    });
+                  },
+                  onEditing: (bool value) {
+                    setState(() {
+                      _onEditing = value;
+                    });
+                  },
                 ),
               ),
+
               SizedBox(
                 height: 10,
-              ),
-              Container(
-                padding: EdgeInsets.all(20),
-                child: Container(
-                    padding: EdgeInsets.all(20),
-                    width: double.infinity,
-                    height: 90,
-                    child: ElevatedButton(
-                      child: Text(AppLocalizations.of(context)!.ver,
-                          style: TextStyle(fontSize: 17)),
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                              Color(0xFF375E99)),
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(8)),
-                                side: BorderSide(color: Color(0xFF375E99))),
-                          )),
-                      onPressed: () {
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) => Home()));
-                      },
-                    )),
               ),
             ],
           ),

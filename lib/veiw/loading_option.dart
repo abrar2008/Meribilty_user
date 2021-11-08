@@ -61,8 +61,8 @@ class _LoadingOptionState extends State<LoadingOption> {
 }
 
 Widget _floatingPanel(content) {
-  var number = 0;
   final provider = Provider.of<LocaleProvider>(content);
+  var number = "${provider.number}";
   return Container(
     decoration: BoxDecoration(
         color: Color(0xffFFFFFF),
@@ -115,6 +115,7 @@ Widget _floatingPanel(content) {
                 color: Colors.white,
                 child: Center(child: Image.asset("assets/arrow.png"))),
             Container(
+              color: number == 1 ? Colors.white : Colors.white,
               child: GFListTile(
                   avatar: GFAvatar(
                     backgroundImage: AssetImage("assets/truk.png"),
@@ -122,7 +123,10 @@ Widget _floatingPanel(content) {
                     size: 40,
                   ),
                   titleText: 'Labor',
-                  subTitleText: 'Rs 1000 per hour/Minimum',
+
+                  // subTitleText: 'Rs 1000 per hour/Minimum',
+
+                  subTitle: Text("Rs 1000 per hour/Minimum"),
                   icon: Container(
                     child: Column(
                       children: [

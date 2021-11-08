@@ -58,7 +58,7 @@ class _UnLoadingportState extends State<UnLoadingport> {
 
 Widget _floatingPanel(context) {
   final provider = Provider.of<LocaleProvider>(context);
-  var number = 10;
+
   return Container(
       decoration: const BoxDecoration(
           color: Colors.white,

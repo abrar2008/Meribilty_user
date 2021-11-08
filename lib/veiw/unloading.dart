@@ -23,7 +23,6 @@ class _UnLoadingOptionState extends State<UnLoadingOption> {
         renderPanelSheet: false,
         minHeight: 300,
         panel: _floatingPanel(context),
-        // panelBuilder: (ScrollController sc) => _scrollingList(sc, context),
       ),
       bottomNavigationBar: BottomAppBar(
         child: Container(
@@ -58,7 +57,7 @@ class _UnLoadingOptionState extends State<UnLoadingOption> {
 
 Widget _floatingPanel(context) {
   final provider = Provider.of<LocaleProvider>(context);
-  var number = 10;
+
   return Container(
       decoration: const BoxDecoration(
           color: Colors.white,
@@ -141,7 +140,7 @@ Widget _floatingPanel(context) {
                               width: 5,
                             ),
                             const Text(
-                              "0",
+                              "20",
                               style: TextStyle(fontSize: 25),
                             ),
                             const SizedBox(
