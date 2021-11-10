@@ -25,7 +25,6 @@ class _LoadingOptionState extends State<LoadingOption> {
         renderPanelSheet: false,
         minHeight: 700,
         panel: _floatingPanel(context),
-        // panelBuilder: (ScrollController sc) => _scrollingList(sc, context),
         body: Container(
           color: Color(0xffF8F8F8),
         ),
@@ -62,7 +61,6 @@ class _LoadingOptionState extends State<LoadingOption> {
 
 Widget _floatingPanel(content) {
   final provider = Provider.of<LocaleProvider>(content);
-  var number = "${provider.number}";
   return Container(
     decoration: BoxDecoration(
         color: Color(0xffFFFFFF),
@@ -77,7 +75,6 @@ Widget _floatingPanel(content) {
           ),
         ]),
     margin: const EdgeInsets.all(10.0),
-    // padding: const EdgeInsets.all(10.0),
     child: Scaffold(
         appBar: AppBar(
           elevation: 0,
@@ -115,7 +112,7 @@ Widget _floatingPanel(content) {
                 color: Colors.white,
                 child: Center(child: Image.asset("assets/arrow.png"))),
             Container(
-              color: number == 1 ? Colors.white : Colors.white,
+              color: Colors.white,
               child: GFListTile(
                   avatar: GFAvatar(
                     backgroundImage: AssetImage("assets/truk.png"),
@@ -123,9 +120,6 @@ Widget _floatingPanel(content) {
                     size: 40,
                   ),
                   titleText: 'Labor',
-
-                  // subTitleText: 'Rs 1000 per hour/Minimum',
-
                   subTitle: Text("Rs 1000 per hour/Minimum"),
                   icon: Container(
                     child: Column(
@@ -140,7 +134,7 @@ Widget _floatingPanel(content) {
                               width: 30,
                               child: InkWell(
                                 onTap: () {
-                                  provider.increasement();
+                                  // content.read<LocaleProvider>().increment(e);
                                 },
                                 child: Icon(
                                   Icons.add,
@@ -166,7 +160,7 @@ Widget _floatingPanel(content) {
                               width: 30,
                               child: InkWell(
                                 onTap: () {
-                                  provider.descrese();
+                                  // provider.descrese();
                                 },
                                 child: Icon(
                                   Icons.remove,

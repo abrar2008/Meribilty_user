@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meribilty/L10n/l10n.dart';
+import 'package:meribilty/model/counter_model.dart';
 
 enum Screen {
   zero,
@@ -8,8 +9,16 @@ enum Screen {
 }
 
 class LocaleProvider extends ChangeNotifier {
+  var _counterList = <CounterModels>[
+    CounterModels(count: 0),
+    CounterModels(count: 0),
+    CounterModels(count: 0),
+    CounterModels(count: 0),
+  ];
+
+  List<CounterModels> get loadCount => _counterList;
   Locale _locale = const Locale('hi');
-  var _number = 1;
+  final _number = 1;
 
   Screen _screen = Screen.zero;
   Locale get locale => _locale;
@@ -28,16 +37,23 @@ class LocaleProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  increasement() {
-    _number = _number + 1;
+  void increment(CounterModels counterModels) {
+    _counterList = _counterList.map((e) {
+      return e.id == counterModels.id
+          ? e.copyWith(count: counterModels.count + 1)
+          : e;
+    }).toList();
     notifyListeners();
-    return number;
   }
 
-  descrese() {
-    _number = _number + -1;
+  void decrement(CounterModels counterModels) {
+    _counterList = _counterList.map((e) {
+      return e.id == counterModels.id
+          ? e.copyWith(
+              count: counterModels.count == 0 ? 0 : counterModels.count - 1)
+          : e;
+    }).toList();
     notifyListeners();
-    return number;
   }
 
   void changeScreen(Screen screen) {

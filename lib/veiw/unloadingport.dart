@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:getwidget/components/avatar/gf_avatar.dart';
 import 'package:getwidget/components/list_tile/gf_list_tile.dart';
 import 'package:getwidget/getwidget.dart';
-import 'package:meribilty/provider/provider.dart';
 import 'package:meribilty/veiw/portlogistics.dart';
-import 'package:provider/provider.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -57,8 +55,6 @@ class _UnLoadingportState extends State<UnLoadingport> {
 }
 
 Widget _floatingPanel(context) {
-  final provider = Provider.of<LocaleProvider>(context);
-
   return Container(
       decoration: const BoxDecoration(
           color: Colors.white,
@@ -129,7 +125,7 @@ Widget _floatingPanel(context) {
                               width: 30,
                               child: InkWell(
                                 onTap: () {
-                                  provider.increasement();
+                                  // provider.increasement();
                                 },
                                 child: const Icon(
                                   Icons.add,
