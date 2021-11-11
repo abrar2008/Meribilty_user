@@ -29,52 +29,32 @@ class _Citymovement_screenState extends State<Citymovement_screen> {
       body: SlidingUpPanel(
         minHeight: 300,
         panelBuilder: (ScrollController sc) => _scrollingList(sc, context),
-        body: PlacePicker(
-          apiKey: "AIzaSyDHo2tJrP5bwgbYzvJkmXpttE0S09ZUQpY",
-          initialPosition: kInitialPosition,
-          useCurrentLocation: true,
-          selectInitialPosition: true,
-
-          //usePlaceDetailSearch: true,
-          onPlacePicked: (result) {
-            Navigator.of(context).pop();
-            setState(() {});
-          },
-          //forceSearchOnZoomChanged: true,
-          //automaticallyImplyAppBarLeading: false,
-          //autocompleteLanguage: "ko",
-          //region: 'au',
-          //selectInitialPosition: true,
-          // selectedPlaceWidgetBuilder: (_, selectedPlace, state, isSearchBarFocused) {
-          //   print("state: $state, isSearchBarFocused: $isSearchBarFocused");
-          //   return isSearchBarFocused
-          //       ? Container()
-          //       : FloatingCard(
-          //           bottomPosition: 0.0, // MediaQuery.of(context) will cause rebuild. See MediaQuery document for the information.
-          //           leftPosition: 0.0,
-          //           rightPosition: 0.0,
-          //           width: 500,
-          //           borderRadius: BorderRadius.circular(12.0),
-          //           child: state == SearchingState.Searching
-          //               ? Center(child: CircularProgressIndicator())
-          //               : RaisedButton(
-          //                   child: Text("Pick Here"),
-          //                   onPressed: () {
-          //                     // IMPORTANT: You MUST manage selectedPlace data yourself as using this build will not invoke onPlacePicker as
-          //                     //            this will override default 'Select here' Button.
-          //                     print("do something with [selectedPlace] data");
-          //                     Navigator.of(context).pop();
-          //                   },
-          //                 ),
-          //         );
-          // },
-          // pinBuilder: (context, state) {
-          //   if (state == PinState.Idle) {
-          //     return Icon(Icons.favorite_border);
-          //   } else {
-          //     return Icon(Icons.favorite);
-          //   }
-          // },
+        body: SafeArea(
+          child: Container(
+            child: Column(
+              children: [
+                TextField(
+                  style: TextStyle(fontSize: 15),
+                  decoration: InputDecoration.collapsed(
+                    fillColor: Colors.white,
+                    hintStyle: TextStyle(color: Colors.black),
+                    hintText: "Enter Location for post",
+                  ),
+                  // focusNode: value1.nodeTo,
+                  // autofocus: false,
+                  // controller: value1.addressTo,
+                  // onChanged: (String value) {
+                  //   placeBloc.searchPlace(value);
+                  // },
+                  // onTap: () {
+                  //   value1.inputTo = true;
+                  //   value1.inputFrom = false;
+                  //   print(value1.inputTo);
+                  // },
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
