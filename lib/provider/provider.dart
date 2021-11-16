@@ -9,7 +9,9 @@ enum Screen {
 }
 
 class LocaleProvider extends ChangeNotifier {
-  var _counterList = <CounterModels>[
+
+  
+  var _counterList = <CounterModels>[   
     CounterModels(count: 0),
     CounterModels(count: 0),
     CounterModels(count: 0),
