@@ -18,7 +18,25 @@ class LocaleProvider extends ChangeNotifier {
     CounterModels(count: 0),
   ];
 
+var _selectvichele = <CounterModels>[   
+    CounterModels(count: 0),
+    CounterModels(count: 0),
+    CounterModels(count: 0),
+    CounterModels(count: 0),
+    CounterModels(count: 0),
+
+    CounterModels(count: 0),
+
+    CounterModels(count: 0),
+
+  ];
+
+
+
   List<CounterModels> get loadCount => _counterList;
+  List<CounterModels> get selectvichele => _selectvichele;
+
+
   Locale _locale = const Locale('hi');
   final _number = 1;
 
@@ -38,7 +56,15 @@ class LocaleProvider extends ChangeNotifier {
   void clearLocale() {
     notifyListeners();
   }
-
+void decrement(CounterModels counterModels) {
+    _counterList = _counterList.map((e) {
+      return e.id == counterModels.id
+          ? e.copyWith(
+              count: counterModels.count == 0 ? 0 : counterModels.count - 1)
+          : e;
+    }).toList();
+    notifyListeners();
+  }
   void increment(CounterModels counterModels) {
     _counterList = _counterList.map((e) {
       return e.id == counterModels.id
@@ -48,8 +74,16 @@ class LocaleProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void decrement(CounterModels counterModels) {
-    _counterList = _counterList.map((e) {
+  void invechechle(CounterModels counterModels) {
+    _selectvichele = _selectvichele.map((e) {
+      return e.id == counterModels.id
+          ? e.copyWith(count: counterModels.count + 1)
+          : e;
+    }).toList();
+    notifyListeners();
+  }
+   void decvehicle(CounterModels counterModels) {
+    _selectvichele = _selectvichele.map((e) {
       return e.id == counterModels.id
           ? e.copyWith(
               count: counterModels.count == 0 ? 0 : counterModels.count - 1)
@@ -57,6 +91,7 @@ class LocaleProvider extends ChangeNotifier {
     }).toList();
     notifyListeners();
   }
+  
 
   void changeScreen(Screen screen) {
     _screen = screen;

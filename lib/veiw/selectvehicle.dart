@@ -78,7 +78,7 @@ class _SelectVehicleState extends State<SelectVehicle> {
                       ),
                     ],
                   ),
-                  icon: Column(
+                  icon: Column( 
                     children: const [
                       SizedBox(
                         height: 30,
