@@ -20,7 +20,6 @@ class LoadingOption extends StatefulWidget {
 class _LoadingOptionState extends State<LoadingOption> {
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<LocaleProvider>(context);
     return SafeArea(
       child: Scaffold(
         body: SlidingUpPanel(
@@ -32,7 +31,7 @@ class _LoadingOptionState extends State<LoadingOption> {
               decoration: BoxDecoration(
       color:Color(0xffF8F8F8),
       
-      boxShadow: [
+      boxShadow: const [
         BoxShadow(
           blurRadius: 30.0,
           color: Colors.grey,
@@ -43,7 +42,7 @@ class _LoadingOptionState extends State<LoadingOption> {
         decoration: BoxDecoration(
       color: Colors.white,
       
-      boxShadow: [
+      boxShadow: const [
         BoxShadow(
           blurRadius: 30.0,
           color: Colors.grey,
@@ -91,6 +90,7 @@ class _LoadingOptionState extends State<LoadingOption> {
 
  
 
+// ignore: camel_case_types
 class floating extends StatelessWidget {
   const floating({ Key? key }) : super(key: key);
 
@@ -104,7 +104,7 @@ class floating extends StatelessWidget {
     decoration: BoxDecoration(
       color: Colors.white,
       borderRadius: BorderRadius.all(Radius.circular(24.0)),
-      boxShadow: [
+      boxShadow: const [
         BoxShadow(
           blurRadius: 10.0,
           color: Colors.grey,
@@ -115,10 +115,10 @@ class floating extends StatelessWidget {
                child: Column(
                  children: [
                     SizedBox(height: 12,),
-                  Container(
+                  SizedBox(
                     width: double.infinity,
                     child: Row(
-                      children: [  
+                      children: const [  
                         SizedBox(width: 30,),
                         Icon(Icons.arrow_back_ios ),
                          SizedBox(width: 30,),

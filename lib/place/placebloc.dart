@@ -3,13 +3,14 @@ import 'dart:async';
 import 'package:meribilty/place/placeservice.dart';
 
 class PlaceBloc {
-  var _placeController = StreamController.broadcast();
+  final _placeController = StreamController.broadcast();
   Stream get placeStream => _placeController.stream;
 
   void searchPlace(String keyword) {
     _placeController.sink.add("start");
     PlaceService.searchPlace(keyword).then((rs) {
       _placeController.sink.add(rs);
+    // ignore: argument_type_not_assignable_to_error_handler
     }).catchError(() {
       //sink stop
     });

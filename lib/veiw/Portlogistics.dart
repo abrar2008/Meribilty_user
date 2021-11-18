@@ -19,10 +19,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:meribilty/veiw/complete_process.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:meribilty/veiw/loading_port.dart';
-import 'package:meribilty/veiw/selectCargo.dart';
 import 'package:meribilty/veiw/selectvehicleppl.dart';
 
-import 'package:meribilty/veiw/weightmaterial.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
@@ -1008,6 +1006,8 @@ Cargo(),
 
 
 class Cargo extends StatefulWidget {
+  const Cargo({Key? key}) : super(key: key);
+
   @override
   _CargoState createState() => _CargoState();
 }

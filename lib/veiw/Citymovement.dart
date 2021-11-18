@@ -4,13 +4,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:google_maps_place_picker/google_maps_place_picker.dart';
 import 'package:meribilty/veiw/loading_option.dart';
 import 'package:meribilty/veiw/selectvehiclecity.dart';
 
 import 'package:meribilty/veiw/timewait.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -25,36 +22,34 @@ class Citymovement_screen extends StatefulWidget {
 class _Citymovement_screenState extends State<Citymovement_screen> {
   @override
   Widget build(BuildContext context) {
-    const kInitialPosition = LatLng(-33.8567844, 151.213108);
     return Scaffold(
       body: SlidingUpPanel(
         minHeight: 300,
         panelBuilder: (ScrollController sc) => _scrollingList(sc, context),
         body: SafeArea(
-          child: Container(
-            child: Column(
-              children: [
-                TextField(
-                  style: TextStyle(fontSize: 15),
-                  decoration: InputDecoration.collapsed(
-                    fillColor: Colors.white,
-                    hintStyle: TextStyle(color: Colors.black),
-                    hintText: "Enter Location for post",
-                  ),
-                  // focusNode: value1.nodeTo,
-                  // autofocus: false,
-                  // controller: value1.addressTo,
-                  // onChanged: (String value) {
-                  //   placeBloc.searchPlace(value);
-                  // },
-                  // onTap: () {
-                  //   value1.inputTo = true;
-                  //   value1.inputFrom = false;
-                  //   print(value1.inputTo);
-                  // },
+          child: Column(
+            // ignore: prefer_const_literals_to_create_immutables
+            children: [
+              const TextField(
+                style: TextStyle(fontSize: 15),
+                decoration: InputDecoration.collapsed(
+                  fillColor: Colors.white,
+                  hintStyle: TextStyle(color: Colors.black),
+                  hintText: "Enter Location for post",
                 ),
-              ],
-            ),
+                // focusNode: value1.nodeTo,
+                // autofocus: false,
+                // controller: value1.addressTo,
+                // onChanged: (String value) {
+                //   placeBloc.searchPlace(value);
+                // },
+                // onTap: () {
+                //   value1.inputTo = true;
+                //   value1.inputFrom = false;
+                //   print(value1.inputTo);
+                // },
+              ),
+            ],
           ),
         ),
       ),
@@ -707,9 +702,7 @@ class _CargoState extends State<Cargo> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                 
-                  child: Text(AppLocalizations.of(context)!.insure)),
+                Text(AppLocalizations.of(context)!.insure),
                 Container(
                   decoration: BoxDecoration(
                       color: const Color(0xFF2F4D84),

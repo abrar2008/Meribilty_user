@@ -34,7 +34,7 @@ var _selectvichele = <CounterModels>[
 
 
 
-var _selectmertail = <MerterialModels>[   
+final _selectmertail = <MerterialModels>[   
    
    MerterialModels(title: "1 -3"),
    MerterialModels(title: "3 -5"),

@@ -7,13 +7,12 @@ import 'package:meribilty/place/placeItem.dart';
 
 class PlaceService {
   static Future<List<PlaceItemRes>> searchPlace(String keyword) async {
-    String language = Config.language;
     String region = Config.region;
     String apiKey = Config.apiKey;
     String url =
         "https://maps.googleapis.com/maps/api/place/textsearch/json?key=$apiKey&region=$region&query=" +
             Uri.encodeQueryComponent(keyword);
-    HttpClient client = new HttpClient();
+    HttpClient client = HttpClient();
 
     //var res = await http.get(url);
     HttpClientRequest request = await client.getUrl(Uri.parse(url));

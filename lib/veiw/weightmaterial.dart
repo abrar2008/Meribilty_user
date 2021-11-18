@@ -1,6 +1,5 @@
 // ignore_for_file: dead_code
 
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:getwidget/components/button/gf_button.dart';
@@ -58,6 +57,7 @@ class _WeightmaterialState extends State<Weightmaterial> {
   }
 }
 
+// ignore: camel_case_types
 class floatingpanel extends StatefulWidget {
   const floatingpanel({ Key? key }) : super(key: key);
 
@@ -65,6 +65,7 @@ class floatingpanel extends StatefulWidget {
   _floatingpanelState createState() => _floatingpanelState();
 }
 
+// ignore: camel_case_types
 class _floatingpanelState extends State<floatingpanel> {
   
   @override
@@ -91,7 +92,7 @@ class _floatingpanelState extends State<floatingpanel> {
           child: Column(
             children: [
 
-               Text(
+               const Text(
                           "How much material weights",
                           style: TextStyle(
                               color: Color(0xFF2F4D84),
@@ -104,11 +105,9 @@ class _floatingpanelState extends State<floatingpanel> {
            Image.asset("assets/arrow.png"),
               Column(
                 children: state.selectmaterial.map( (e) {
-                       return Container(
-
-                     child: Column(
-                       children: [
-                       SizedBox(
+                       return Column(
+                         children: [
+                         SizedBox(
             height: 90,
             child:
              GFListTile(
@@ -120,24 +119,22 @@ class _floatingpanelState extends State<floatingpanel> {
                 child: Column(
                   children: const [
                     SizedBox(
-                      height: 14,
+                        height: 14,
                     ),
                     Text(
-                      "3 - 5 Tons",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                      ),
+                        "3 - 5 Tons",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                        ),
                     ),
                   ],
                 ),
               ),
             ),
           ), 
-                       ],
-                     ),
-
+                         ],
                        );
                 }
                
