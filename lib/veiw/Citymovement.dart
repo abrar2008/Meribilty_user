@@ -7,6 +7,7 @@ import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_maps_place_picker/google_maps_place_picker.dart';
 import 'package:meribilty/veiw/loading_option.dart';
+import 'package:meribilty/veiw/selectvehiclecity.dart';
 
 import 'package:meribilty/veiw/timewait.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
@@ -159,431 +160,437 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
           color: const Color(0xFF2F4D84),
           onPressed: () {
 
-            showMaterialModalBottomSheet(
-              context: context,
-              builder: (context) => SingleChildScrollView(
-                child: Column(
-                  children: [
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const Text(
-                      "Select Vehicle",
-                      style: TextStyle(
-                          color: Color(0xFF2F4D84),
-                          fontWeight: FontWeight.w500,
-                          fontSize: 25),
-                    ),
+            Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Selectvehiclecity(),
+                    ));
 
-                    GFListTile(
-                      avatar: GFAvatar(
-                        backgroundColor: Colors.white10,
-                        shape: GFAvatarShape.square,
-                        child: Image.asset(
-                          "assets/Path.png",
-                          // color: Colors.black
-                        ),
-                      ),
-                      title: const Text(
-                        "Truck",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                        ),
-                      ),
-                      icon: Row(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                color: const Color(0xFF2F4D84),
-                                borderRadius: BorderRadius.circular(10)),
-                            height: 30,
-                            width: 30,
-                            child: const Icon(
-                              Icons.add,
-                              color: Colors.white,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          const Text(
-                            "0",
-                            style: TextStyle(fontSize: 25),
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                                color: const Color(0xFF2F4D84),
-                                borderRadius: BorderRadius.circular(10)),
-                            height: 30,
-                            width: 30,
-                            child: const Icon(
-                              Icons.remove,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+            // showMaterialModalBottomSheet(
+            //   context: context,
+            //   builder: (context) => SingleChildScrollView(
+            //     child: Column(
+            //       children: [
+            //         const SizedBox(
+            //           height: 10,
+            //         ),
+            //         const Text(
+            //           "Select Vehicle",
+            //           style: TextStyle(
+            //               color: Color(0xFF2F4D84),
+            //               fontWeight: FontWeight.w500,
+            //               fontSize: 25),
+            //         ),
+
+            //         GFListTile(
+            //           avatar: GFAvatar(
+            //             backgroundColor: Colors.white10,
+            //             shape: GFAvatarShape.square,
+            //             child: Image.asset(
+            //               "assets/Path.png",
+            //               // color: Colors.black
+            //             ),
+            //           ),
+            //           title: const Text(
+            //             "Truck",
+            //             style: TextStyle(
+            //               color: Colors.black,
+            //               fontSize: 20,
+            //             ),
+            //           ),
+            //           icon: Row(
+            //             children: [
+            //               Container(
+            //                 decoration: BoxDecoration(
+            //                     color: const Color(0xFF2F4D84),
+            //                     borderRadius: BorderRadius.circular(10)),
+            //                 height: 30,
+            //                 width: 30,
+            //                 child: const Icon(
+            //                   Icons.add,
+            //                   color: Colors.white,
+            //                 ),
+            //               ),
+            //               const SizedBox(
+            //                 width: 5,
+            //               ),
+            //               const Text(
+            //                 "0",
+            //                 style: TextStyle(fontSize: 25),
+            //               ),
+            //               const SizedBox(
+            //                 width: 5,
+            //               ),
+            //               Container(
+            //                 decoration: BoxDecoration(
+            //                     color: const Color(0xFF2F4D84),
+            //                     borderRadius: BorderRadius.circular(10)),
+            //                 height: 30,
+            //                 width: 30,
+            //                 child: const Icon(
+            //                   Icons.remove,
+            //                   color: Colors.white,
+            //                 ),
+            //               ),
+            //             ],
+            //           ),
+            //         ),
                    
-                   //
-                    const Divider(
-                      color: Colors.black54,
-                    ),
-                    GFListTile(
-                      avatar: GFAvatar(
-                        backgroundColor: Colors.white10,
-                        shape: GFAvatarShape.square,
-                        child:
-                            Image.asset("assets/Path.png", color: Colors.black),
-                      ),
-                      title: const Text(
-                        "Truck",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                        ),
-                      ),
-                      icon: Row(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                color: const Color(0xFF2F4D84),
-                                borderRadius: BorderRadius.circular(10)),
-                            height: 30,
-                            width: 30,
-                            child: const Icon(
-                              Icons.add,
-                              color: Colors.white,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          const Text(
-                            "0",
-                            style: TextStyle(fontSize: 25),
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                                color: const Color(0xFF2F4D84),
-                                borderRadius: BorderRadius.circular(10)),
-                            height: 30,
-                            width: 30,
-                            child: const Icon(
-                              Icons.remove,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const Divider(
-                      color: Colors.black54,
-                    ),
-                    GFListTile(
-                      avatar: GFAvatar(
-                        backgroundColor: Colors.white10,
-                        shape: GFAvatarShape.square,
-                        child:
-                            Image.asset("assets/Path.png", color: Colors.black),
-                      ),
-                      title: const Text(
-                        "Truck",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                        ),
-                      ),
-                      icon: Row(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                color: const Color(0xFF2F4D84),
-                                borderRadius: BorderRadius.circular(10)),
-                            height: 30,
-                            width: 30,
-                            child: const Icon(
-                              Icons.add,
-                              color: Colors.white,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          const Text(
-                            "0",
-                            style: TextStyle(fontSize: 25),
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                                color: const Color(0xFF2F4D84),
-                                borderRadius: BorderRadius.circular(10)),
-                            height: 30,
-                            width: 30,
-                            child: const Icon(
-                              Icons.remove,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const Divider(
-                      color: Colors.black54,
-                    ),
-                    GFListTile(
-                      avatar: GFAvatar(
-                        backgroundColor: Colors.white10,
-                        shape: GFAvatarShape.square,
-                        child: Image.asset("assets/Path.png",
-                            color: const Color(0xFF2F4D84)),
-                      ),
-                      title: const Text(
-                        "40 FT Container",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                        ),
-                      ),
-                      icon: Row(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                color: const Color(0xFF2F4D84),
-                                borderRadius: BorderRadius.circular(10)),
-                            height: 30,
-                            width: 30,
-                            child: const Icon(
-                              Icons.add,
-                              color: Colors.white,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          const Text(
-                            "0",
-                            style: TextStyle(fontSize: 25),
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                                color: const Color(0xFF2F4D84),
-                                borderRadius: BorderRadius.circular(10)),
-                            height: 30,
-                            width: 30,
-                            child: const Icon(
-                              Icons.remove,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ), //
-                    const Divider(
-                      color: Colors.black54,
-                    ),
-                    Container(
-                      color: const Color(0xFF2F4D84),
-                      child: GFListTile(
-                        avatar: GFAvatar(
-                          backgroundColor: Colors.white10,
-                          shape: GFAvatarShape.square,
-                          child: Image.asset("assets/Path.png",
-                              color: Colors.white),
-                        ),
-                        title: const Text(
-                          "Truck 20 Wheels",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                          ),
-                        ),
-                        icon: Row(
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: const Color(0xFF2F4D84),
-                                  borderRadius: BorderRadius.circular(10)),
-                              height: 30,
-                              width: 30,
-                              child: const Icon(
-                                Icons.add,
-                                color: Colors.white,
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 5,
-                            ),
-                            const Text(
-                              "0",
-                              style: TextStyle(fontSize: 25),
-                            ),
-                            const SizedBox(
-                              width: 5,
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: const Color(0xFF2F4D84),
-                                  borderRadius: BorderRadius.circular(10)),
-                              height: 30,
-                              width: 30,
-                              child: const Icon(
-                                Icons.remove,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ), //
-                    ///
-                    const Divider(
-                      color: Colors.black54,
-                    ),
-                    GFListTile(
-                      avatar: GFAvatar(
-                        backgroundColor: Colors.white10,
-                        shape: GFAvatarShape.square,
-                        child:
-                            Image.asset("assets/Path.png", color: Colors.black),
-                      ),
-                      title: const Text(
-                        "Truck",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                        ),
-                      ),
-                      icon: Row(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                color: const Color(0xFF2F4D84),
-                                borderRadius: BorderRadius.circular(10)),
-                            height: 30,
-                            width: 30,
-                            child: const Icon(
-                              Icons.add,
-                              color: Colors.white,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          const Text(
-                            "0",
-                            style: TextStyle(fontSize: 25),
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                                color: const Color(0xFF2F4D84),
-                                borderRadius: BorderRadius.circular(10)),
-                            height: 30,
-                            width: 30,
-                            child: const Icon(
-                              Icons.remove,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const Divider(
-                      color: Colors.black54,
-                    ),
-                    GFListTile(
-                      avatar: GFAvatar(
-                        backgroundColor: Colors.white10,
-                        shape: GFAvatarShape.square,
-                        child:
-                            Image.asset("assets/Path.png", color: Colors.black),
-                      ),
-                      title: const Text(
-                        "Truck",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                        ),
-                      ),
-                      icon: Row(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                color: const Color(0xFF2F4D84),
-                                borderRadius: BorderRadius.circular(10)),
-                            height: 30,
-                            width: 30,
-                            child: const Icon(
-                              Icons.add,
-                              color: Colors.white,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          const Text(
-                            "0",
-                            style: TextStyle(fontSize: 25),
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                                color: const Color(0xFF2F4D84),
-                                borderRadius: BorderRadius.circular(10)),
-                            height: 30,
-                            width: 30,
-                            child: const Icon(
-                              Icons.remove,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const Divider(
-                      color: Colors.black54,
-                    ),
-                    GFButton(
-                      size: 60,
-                      color: const Color(0xFF2F4D84),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  const Citymovement_screen()),
-                        );
-                      },
-                      text: "Save & Contine ",
-                      textStyle:
-                          const TextStyle(fontSize: 25, color: Colors.white),
-                      type: GFButtonType.solid,
-                      shape: GFButtonShape.standard,
-                      blockButton: true,
-                    ),
-                  ],
-                ),
-              ),
-            );
-         
+            //        //
+            //         const Divider(
+            //           color: Colors.black54,
+            //         ),
+            //         GFListTile(
+            //           avatar: GFAvatar(
+            //             backgroundColor: Colors.white10,
+            //             shape: GFAvatarShape.square,
+            //             child:
+            //                 Image.asset("assets/Path.png", color: Colors.black),
+            //           ),
+            //           title: const Text(
+            //             "Truck",
+            //             style: TextStyle(
+            //               color: Colors.black,
+            //               fontSize: 20,
+            //             ),
+            //           ),
+            //           icon: Row(
+            //             children: [
+            //               Container(
+            //                 decoration: BoxDecoration(
+            //                     color: const Color(0xFF2F4D84),
+            //                     borderRadius: BorderRadius.circular(10)),
+            //                 height: 30,
+            //                 width: 30,
+            //                 child: const Icon(
+            //                   Icons.add,
+            //                   color: Colors.white,
+            //                 ),
+            //               ),
+            //               const SizedBox(
+            //                 width: 5,
+            //               ),
+            //               const Text(
+            //                 "0",
+            //                 style: TextStyle(fontSize: 25),
+            //               ),
+            //               const SizedBox(
+            //                 width: 5,
+            //               ),
+            //               Container(
+            //                 decoration: BoxDecoration(
+            //                     color: const Color(0xFF2F4D84),
+            //                     borderRadius: BorderRadius.circular(10)),
+            //                 height: 30,
+            //                 width: 30,
+            //                 child: const Icon(
+            //                   Icons.remove,
+            //                   color: Colors.white,
+            //                 ),
+            //               ),
+            //             ],
+            //           ),
+            //         ),
+            //         const Divider(
+            //           color: Colors.black54,
+            //         ),
+            //         GFListTile(
+            //           avatar: GFAvatar(
+            //             backgroundColor: Colors.white10,
+            //             shape: GFAvatarShape.square,
+            //             child:
+            //                 Image.asset("assets/Path.png", color: Colors.black),
+            //           ),
+            //           title: const Text(
+            //             "Truck",
+            //             style: TextStyle(
+            //               color: Colors.black,
+            //               fontSize: 20,
+            //             ),
+            //           ),
+            //           icon: Row(
+            //             children: [
+            //               Container(
+            //                 decoration: BoxDecoration(
+            //                     color: const Color(0xFF2F4D84),
+            //                     borderRadius: BorderRadius.circular(10)),
+            //                 height: 30,
+            //                 width: 30,
+            //                 child: const Icon(
+            //                   Icons.add,
+            //                   color: Colors.white,
+            //                 ),
+            //               ),
+            //               const SizedBox(
+            //                 width: 5,
+            //               ),
+            //               const Text(
+            //                 "0",
+            //                 style: TextStyle(fontSize: 25),
+            //               ),
+            //               const SizedBox(
+            //                 width: 5,
+            //               ),
+            //               Container(
+            //                 decoration: BoxDecoration(
+            //                     color: const Color(0xFF2F4D84),
+            //                     borderRadius: BorderRadius.circular(10)),
+            //                 height: 30,
+            //                 width: 30,
+            //                 child: const Icon(
+            //                   Icons.remove,
+            //                   color: Colors.white,
+            //                 ),
+            //               ),
+            //             ],
+            //           ),
+            //         ),
+            //         const Divider(
+            //           color: Colors.black54,
+            //         ),
+            //         GFListTile(
+            //           avatar: GFAvatar(
+            //             backgroundColor: Colors.white10,
+            //             shape: GFAvatarShape.square,
+            //             child: Image.asset("assets/Path.png",
+            //                 color: const Color(0xFF2F4D84)),
+            //           ),
+            //           title: const Text(
+            //             "40 FT Container",
+            //             style: TextStyle(
+            //               color: Colors.black,
+            //               fontSize: 20,
+            //             ),
+            //           ),
+            //           icon: Row(
+            //             children: [
+            //               Container(
+            //                 decoration: BoxDecoration(
+            //                     color: const Color(0xFF2F4D84),
+            //                     borderRadius: BorderRadius.circular(10)),
+            //                 height: 30,
+            //                 width: 30,
+            //                 child: const Icon(
+            //                   Icons.add,
+            //                   color: Colors.white,
+            //                 ),
+            //               ),
+            //               const SizedBox(
+            //                 width: 5,
+            //               ),
+            //               const Text(
+            //                 "0",
+            //                 style: TextStyle(fontSize: 25),
+            //               ),
+            //               const SizedBox(
+            //                 width: 5,
+            //               ),
+            //               Container(
+            //                 decoration: BoxDecoration(
+            //                     color: const Color(0xFF2F4D84),
+            //                     borderRadius: BorderRadius.circular(10)),
+            //                 height: 30,
+            //                 width: 30,
+            //                 child: const Icon(
+            //                   Icons.remove,
+            //                   color: Colors.white,
+            //                 ),
+            //               ),
+            //             ],
+            //           ),
+            //         ), //
+            //         const Divider(
+            //           color: Colors.black54,
+            //         ),
+            //         Container(
+            //           color: const Color(0xFF2F4D84),
+            //           child: GFListTile(
+            //             avatar: GFAvatar(
+            //               backgroundColor: Colors.white10,
+            //               shape: GFAvatarShape.square,
+            //               child: Image.asset("assets/Path.png",
+            //                   color: Colors.white),
+            //             ),
+            //             title: const Text(
+            //               "Truck 20 Wheels",
+            //               style: TextStyle(
+            //                 color: Colors.white,
+            //                 fontSize: 20,
+            //               ),
+            //             ),
+            //             icon: Row(
+            //               children: [
+            //                 Container(
+            //                   decoration: BoxDecoration(
+            //                       color: const Color(0xFF2F4D84),
+            //                       borderRadius: BorderRadius.circular(10)),
+            //                   height: 30,
+            //                   width: 30,
+            //                   child: const Icon(
+            //                     Icons.add,
+            //                     color: Colors.white,
+            //                   ),
+            //                 ),
+            //                 const SizedBox(
+            //                   width: 5,
+            //                 ),
+            //                 const Text(
+            //                   "0",
+            //                   style: TextStyle(fontSize: 25),
+            //                 ),
+            //                 const SizedBox(
+            //                   width: 5,
+            //                 ),
+            //                 Container(
+            //                   decoration: BoxDecoration(
+            //                       color: const Color(0xFF2F4D84),
+            //                       borderRadius: BorderRadius.circular(10)),
+            //                   height: 30,
+            //                   width: 30,
+            //                   child: const Icon(
+            //                     Icons.remove,
+            //                     color: Colors.white,
+            //                   ),
+            //                 ),
+            //               ],
+            //             ),
+            //           ),
+            //         ), //
+            //         ///
+            //         const Divider(
+            //           color: Colors.black54,
+            //         ),
+            //         GFListTile(
+            //           avatar: GFAvatar(
+            //             backgroundColor: Colors.white10,
+            //             shape: GFAvatarShape.square,
+            //             child:
+            //                 Image.asset("assets/Path.png", color: Colors.black),
+            //           ),
+            //           title: const Text(
+            //             "Truck",
+            //             style: TextStyle(
+            //               color: Colors.black,
+            //               fontSize: 20,
+            //             ),
+            //           ),
+            //           icon: Row(
+            //             children: [
+            //               Container(
+            //                 decoration: BoxDecoration(
+            //                     color: const Color(0xFF2F4D84),
+            //                     borderRadius: BorderRadius.circular(10)),
+            //                 height: 30,
+            //                 width: 30,
+            //                 child: const Icon(
+            //                   Icons.add,
+            //                   color: Colors.white,
+            //                 ),
+            //               ),
+            //               const SizedBox(
+            //                 width: 5,
+            //               ),
+            //               const Text(
+            //                 "0",
+            //                 style: TextStyle(fontSize: 25),
+            //               ),
+            //               const SizedBox(
+            //                 width: 5,
+            //               ),
+            //               Container(
+            //                 decoration: BoxDecoration(
+            //                     color: const Color(0xFF2F4D84),
+            //                     borderRadius: BorderRadius.circular(10)),
+            //                 height: 30,
+            //                 width: 30,
+            //                 child: const Icon(
+            //                   Icons.remove,
+            //                   color: Colors.white,
+            //                 ),
+            //               ),
+            //             ],
+            //           ),
+            //         ),
+            //         const Divider(
+            //           color: Colors.black54,
+            //         ),
+            //         GFListTile(
+            //           avatar: GFAvatar(
+            //             backgroundColor: Colors.white10,
+            //             shape: GFAvatarShape.square,
+            //             child:
+            //                 Image.asset("assets/Path.png", color: Colors.black),
+            //           ),
+            //           title: const Text(
+            //             "Truck",
+            //             style: TextStyle(
+            //               color: Colors.black,
+            //               fontSize: 20,
+            //             ),
+            //           ),
+            //           icon: Row(
+            //             children: [
+            //               Container(
+            //                 decoration: BoxDecoration(
+            //                     color: const Color(0xFF2F4D84),
+            //                     borderRadius: BorderRadius.circular(10)),
+            //                 height: 30,
+            //                 width: 30,
+            //                 child: const Icon(
+            //                   Icons.add,
+            //                   color: Colors.white,
+            //                 ),
+            //               ),
+            //               const SizedBox(
+            //                 width: 5,
+            //               ),
+            //               const Text(
+            //                 "0",
+            //                 style: TextStyle(fontSize: 25),
+            //               ),
+            //               const SizedBox(
+            //                 width: 5,
+            //               ),
+            //               Container(
+            //                 decoration: BoxDecoration(
+            //                     color: const Color(0xFF2F4D84),
+            //                     borderRadius: BorderRadius.circular(10)),
+            //                 height: 30,
+            //                 width: 30,
+            //                 child: const Icon(
+            //                   Icons.remove,
+            //                   color: Colors.white,
+            //                 ),
+            //               ),
+            //             ],
+            //           ),
+            //         ),
+            //         const Divider(
+            //           color: Colors.black54,
+            //         ),
+            //         GFButton(
+            //           size: 60,
+            //           color: const Color(0xFF2F4D84),
+            //           onPressed: () {
+            //             Navigator.push(
+            //               context,
+            //               MaterialPageRoute(
+            //                   builder: (context) =>
+            //                       const Citymovement_screen()),
+            //             );
+            //           },
+            //           text: "Save & Contine ",
+            //           textStyle:
+            //               const TextStyle(fontSize: 25, color: Colors.white),
+            //           type: GFButtonType.solid,
+            //           shape: GFButtonShape.standard,
+            //           blockButton: true,
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // );
+         //
          
           },
           textStyle: const TextStyle(fontSize: 20, color: Colors.white),
@@ -692,32 +699,37 @@ class _CargoState extends State<Cargo> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(15),
+      padding: const EdgeInsets.only(top: 10,),
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(AppLocalizations.of(context)!.insure),
-              Container(
-                decoration: BoxDecoration(
-                    color: const Color(0xFF2F4D84),
-                    borderRadius: BorderRadius.circular(15)),
-                height: 30,
-                width: 40,
-                child: Checkbox(
-                  activeColor: const Color(0xFF2F4D84),
-                  checkColor: Colors.white,
-                  value: isChecked,
-                  onChanged: (value) {
-                    setState(() {
-                      isChecked = value!;
-                      isVisiable = value;
-                    });
-                  },
+          Container(
+            padding: const EdgeInsets.only(left: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                 
+                  child: Text(AppLocalizations.of(context)!.insure)),
+                Container(
+                  decoration: BoxDecoration(
+                      color: const Color(0xFF2F4D84),
+                      borderRadius: BorderRadius.circular(15)),
+                  height: 30,
+                  width: 40,
+                  child: Checkbox(
+                    activeColor: const Color(0xFF2F4D84),
+                    checkColor: Colors.white,
+                    value: isChecked,
+                    onChanged: (value) {
+                      setState(() {
+                        isChecked = value!;
+                        isVisiable = value;
+                      });
+                    },
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           Visibility(
             visible: isVisiable,

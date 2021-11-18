@@ -1,11 +1,16 @@
 // ignore_for_file: dead_code
 
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:getwidget/components/button/gf_button.dart';
 import 'package:getwidget/components/list_tile/gf_list_tile.dart';
+
 import 'package:getwidget/shape/gf_button_shape.dart';
 import 'package:getwidget/types/gf_button_type.dart';
+import 'package:meribilty/provider/provider.dart';
 import 'package:meribilty/veiw/portlogistics.dart';
+import 'package:provider/provider.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class Weightmaterial extends StatefulWidget {
@@ -18,115 +23,11 @@ class Weightmaterial extends StatefulWidget {
 class _WeightmaterialState extends State<Weightmaterial> {
   @override
   Widget build(BuildContext context) {
-    Widget _floatingPanel(context) {
-      bool hasBeenPressed = false;
-      return Container(
-          decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10.0),
-                topRight: Radius.circular(10.0),
-              ),
-              boxShadow: [
-                BoxShadow(
-                  blurRadius: 40.0,
-                  color: Colors.black12,
-                ),
-              ]),
-          margin: const EdgeInsets.all(10.0),
-          child: SingleChildScrollView(
-              child: Column(
-            children: [
-              const SizedBox(
-                height: 10,
-              ),
-              const Text(
-                "How much material weights",
-                style: TextStyle(
-                    color: Color(0xFF2F4D84),
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Image.asset("assets/arrow.png"),
-              SizedBox(
-                height: 90,
-                child: InkWell(
-                  onTap: () {},
-                  child: GFButton(
-                    color: hasBeenPressed ? Colors.blue : Colors.white,
-                    child: Center(
-                      child: Column(
-                        children: const [
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            "1 - 3 Tons",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        hasBeenPressed = !hasBeenPressed;
-                      });
-                    },
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 90,
-                child: GFListTile(
-                  color: const Color(0xFF2F4D84),
-                  title: Center(
-                    child: Column(
-                      children: const [
-                        SizedBox(
-                          height: 14,
-                        ),
-                        Text(
-                          "3 - 5 Tons",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              const GFListTile(
-                title: Center(
-                  child: Text(
-                    "5 - 7 Tons",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-            ],
-          )));
-    }
-
-    return Scaffold(
+   return Scaffold(
       body: SlidingUpPanel(
         renderPanelSheet: false,
         minHeight: 300,
-        panel: _floatingPanel(context),
+        panel:const floatingpanel(),
 
         // panelBuilder: (ScrollController sc) => _scrollingList(sc, context),
         body: Container(
@@ -156,3 +57,164 @@ class _WeightmaterialState extends State<Weightmaterial> {
     );
   }
 }
+
+class floatingpanel extends StatefulWidget {
+  const floatingpanel({ Key? key }) : super(key: key);
+
+  @override
+  _floatingpanelState createState() => _floatingpanelState();
+}
+
+class _floatingpanelState extends State<floatingpanel> {
+  
+  @override
+  Widget build(BuildContext context) {
+    
+    return Scaffold(
+          body: Consumer<LocaleProvider>(
+            builder: (context ,state , child ){
+            return Container(
+              width: double.infinity,
+          decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(10.0),
+                topRight: Radius.circular(10.0),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  blurRadius: 40.0,
+                  color: Colors.black12,
+                ),
+              ]),
+          margin: const EdgeInsets.all(10.0),
+          child: Column(
+            children: [
+
+               Text(
+                          "How much material weights",
+                          style: TextStyle(
+                              color: Color(0xFF2F4D84),
+                              fontWeight: FontWeight.w500,
+                              fontSize: 20),
+                        ),
+                const SizedBox(
+                height: 10,
+              ),
+           Image.asset("assets/arrow.png"),
+              Column(
+                children: state.selectmaterial.map( (e) {
+                       return Container(
+
+                     child: Column(
+                       children: [
+                       SizedBox(
+            height: 90,
+            child:
+             GFListTile(
+               onTap: (){
+                   context.read<LocaleProvider>().updatpressed();
+               },
+              color: Colors.white,
+              title: Center(
+                child: Column(
+                  children: const [
+                    SizedBox(
+                      height: 14,
+                    ),
+                    Text(
+                      "3 - 5 Tons",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ), 
+                       ],
+                     ),
+
+                       );
+                }
+               
+              ).toList(),
+              ),
+            ],
+          ));
+
+            }
+            
+            
+            
+            )
+            
+            
+            );
+  }
+}
+          // const SizedBox(
+          //   height: 10,
+          // ),
+          
+          
+          
+          // SizedBox(
+          //   height: 90,
+          //   child: InkWell(
+          //     onTap: () {},
+          //     child: GFButton(
+          //       color: 
+          //       // _flag ? Colors.white :
+          //       Colors.white,
+          //       child: Center(
+          //         child: Column(
+          //           children: const [
+          //             SizedBox(
+          //               height: 10,
+          //             ),
+          //             Text(
+          //               "1 - 3 Tons",
+          //               style: TextStyle(
+          //                 color: Colors.black,
+          //                 fontSize: 20,
+          //               ),
+          //             ),
+          //           ],
+          //         ),
+          //       ),
+          //       onPressed: () {
+          //         setState(() {
+          //         //  _flag = !_flag;
+          //         });
+          //       },
+          //     ),
+          //   ),
+          // ),
+          
+          
+          
+          // const GFListTile(
+          //   title: Center(
+          //     child: Text(
+          //       "5 - 7 Tons",
+          //       style: TextStyle(
+          //         color: Colors.black,
+          //         fontSize: 20,
+          //       ),
+          //     ),
+          //   ),
+          // ),
+          // const SizedBox(
+          //   height: 30,
+          // ),
+           
+           
+           
+ 
+
+
+

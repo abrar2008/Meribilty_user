@@ -20,7 +20,8 @@ import 'package:meribilty/veiw/complete_process.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:meribilty/veiw/loading_port.dart';
 import 'package:meribilty/veiw/selectCargo.dart';
-import 'package:meribilty/veiw/selectweightppl.dart';
+import 'package:meribilty/veiw/selectvehicleppl.dart';
+
 import 'package:meribilty/veiw/weightmaterial.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
@@ -79,12 +80,15 @@ class _PortlogisticsState extends State<Portlogistics> {
                           SizedBox(
                             width: 10,
                           ),
-                          Text(
-                            "Pick Up location",
-                            style: TextStyle(
-                              fontSize: 20,
-                            ),
-                          ),
+                          TextField(
+  decoration: const InputDecoration(
+    border: OutlineInputBorder(),
+    hintText: 'Pick Up location',
+    hintStyle: TextStyle(
+       color: Colors.black
+    ),
+  ),
+)
                         ],
                       ),
                       SizedBox(
@@ -267,7 +271,7 @@ Widget _floatingPanel(context) {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => (Selectweightppl()),
+                  MaterialPageRoute(builder: (context) => (Selectvehicleppl()),
                 ));
               
                 // showMaterialModalBottomSheet(
@@ -916,56 +920,56 @@ Widget _floatingPanel(context) {
               blockButton: true,
             ),
             //text
-            Container(
-              padding: const EdgeInsets.all(15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    AppLocalizations.of(context)!.insure,
-                    style: const TextStyle(
-                        fontSize: 15, fontWeight: FontWeight.bold),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                        color: const Color(0xFF2F4D84),
-                        borderRadius: BorderRadius.circular(20)),
-                    height: 30,
-                    width: 40,
-                    child: const Checkbox(
-                      // fillColor: Color(0xFF2F4D84),
+            // Container(
+            //   padding: const EdgeInsets.all(15),
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //     children: [
+            //       Text(
+            //         AppLocalizations.of(context)!.insure,
+            //         style: const TextStyle(
+            //             fontSize: 15, fontWeight: FontWeight.bold),
+            //       ),
+            //       Container(
+            //         decoration: BoxDecoration(
+            //             color: const Color(0xFF2F4D84),
+            //             borderRadius: BorderRadius.circular(20)),
+            //         height: 30,
+            //         width: 40,
+            //         child: const Checkbox(
+            //           // fillColor: Color(0xFF2F4D84),
 
-                      activeColor: Color(0xFF2F4D84),
-                      value: true,
-                      onChanged: null,
-                      checkColor: Colors.white,
+            //           activeColor: Color(0xFF2F4D84),
+            //           value: true,
+            //           onChanged: null,
+            //           checkColor: Colors.white,
 
-                      focusColor: Color(0xFF2F4D84),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            //           focusColor: Color(0xFF2F4D84),
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+Cargo(),
+            // GFButton(
+            //   color: Colors.white,
+            //   size: 60,
+            //   onPressed: () {
+            //     Navigator.push(context,
+            //         MaterialPageRoute(builder: (context) => Selectcargo()));
 
-            GFButton(
-              color: Colors.white,
-              size: 60,
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Selectcargo()));
-
-                //end
-              },
-              textStyle: const TextStyle(
-                fontSize: 20,
-                color: Color(0xFF2F4D84),
-                fontWeight: FontWeight.bold,
-              ),
-              text: AppLocalizations.of(context)!.cargov,
-              type: GFButtonType.solid,
-              blockButton: true,
-              borderSide: const BorderSide(color: Color(0xFF2F4D84), width: 2),
-            ),
+            //     //end
+            //   },
+            //   textStyle: const TextStyle(
+            //     fontSize: 20,
+            //     color: Color(0xFF2F4D84),
+            //     fontWeight: FontWeight.bold,
+            //   ),
+            //   text: AppLocalizations.of(context)!.cargov,
+            //   type: GFButtonType.solid,
+            //   blockButton: true,
+            //   borderSide: const BorderSide(color: Color(0xFF2F4D84), width: 2),
+            // ),
             const SizedBox(
               height: 10,
             ),
@@ -1002,67 +1006,171 @@ Widget _floatingPanel(context) {
       )));
 }
 
-class CustomPicker extends CommonPickerModel {
-  String digits(int value, int length) {
-    return '$value'.padLeft(length, "0");
-  }
 
-  CustomPicker({DateTime? currentTime, LocaleType? locale})
-      : super(locale: locale) {
-    this.currentTime = currentTime ?? DateTime.now();
-    setLeftIndex(this.currentTime.hour);
-    setMiddleIndex(this.currentTime.minute);
-    setRightIndex(this.currentTime.second);
-  }
+class Cargo extends StatefulWidget {
+  @override
+  _CargoState createState() => _CargoState();
+}
+
+class _CargoState extends State<Cargo> { 
+  bool isChecked = false;
+  bool isVisiable = false;
 
   @override
-  String? leftStringAtIndex(int index) {
-    if (index >= 0 && index < 24) {
-      return digits(index, 2);
-    } else {
-      return null;
-    }
-  }
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.only(top: 20),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                padding: EdgeInsets.only(left: 4),
+                child: Text(AppLocalizations.of(context)!.insure ,
+                style: TextStyle(
+                  fontSize: 14,
 
-  @override
-  String? middleStringAtIndex(int index) {
-    if (index >= 0 && index < 60) {
-      return digits(index, 2);
-    } else {
-      return null;
-    }
-  }
-
-  @override
-  String? rightStringAtIndex(int index) {
-    if (index >= 0 && index < 60) {
-      return digits(index, 2);
-    } else {
-      return null;
-    }
-  }
-
-  @override
-  String leftDivider() {
-    return "|";
-  }
-
-  @override
-  String rightDivider() {
-    return "|";
-  }
-
-  @override
-  List<int> layoutProportions() {
-    return [1, 2, 1];
-  }
-
-  @override
-  DateTime finalTime() {
-    return currentTime.isUtc
-        ? DateTime.utc(currentTime.year, currentTime.month, currentTime.day,
-            currentLeftIndex(), currentMiddleIndex(), currentRightIndex())
-        : DateTime(currentTime.year, currentTime.month, currentTime.day,
-            currentLeftIndex(), currentMiddleIndex(), currentRightIndex());
+                  fontWeight: FontWeight.w500,
+                ),
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                    color: const Color(0xFF2F4D84),
+                    borderRadius: BorderRadius.circular(15)),
+                height: 30,
+                width: 40,
+                child: Checkbox(
+                  activeColor: const Color(0xFF2F4D84),
+                  checkColor: Colors.white,
+                  value: isChecked,
+                  onChanged: (value) {
+                    setState(() {
+                      isChecked = value!;
+                      isVisiable = value;
+                    });
+                  },
+                ),
+              ),
+            ],
+          ),
+          Visibility(
+            visible: isVisiable,
+            child: Container(
+              padding: const EdgeInsets.only(top: 20),
+              child: GFButton(
+                
+                color: Colors.white,
+                textStyle: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+                size: 60,
+                onPressed: () {},
+                text: AppLocalizations.of(context)!.cargov,
+                type: GFButtonType.solid,
+                fullWidthButton: true,
+                borderSide: const BorderSide(color: Colors.black, width: 2),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// class CustomPicker extends CommonPickerModel {
+//   String digits(int value, int length) {
+//     return '$value'.padLeft(length, "0");
+//   }
+
+//   CustomPicker({DateTime? currentTime, LocaleType? locale})
+//       : super(locale: locale) {
+//     this.currentTime = currentTime ?? DateTime.now();
+//     setLeftIndex(this.currentTime.hour);
+//     setMiddleIndex(this.currentTime.minute);
+//     setRightIndex(this.currentTime.second);
+//   }
+
+//   @override
+//   String? leftStringAtIndex(int index) {
+//     if (index >= 0 && index < 24) {
+//       return digits(index, 2);
+//     } else {
+//       return null;
+//     }
+//   }
+
+//   @override
+//   String? middleStringAtIndex(int index) {
+//     if (index >= 0 && index < 60) {
+//       return digits(index, 2);
+//     } else {
+//       return null;
+//     }
+//   }
+
+//   @override
+//   String? rightStringAtIndex(int index) {
+//     if (index >= 0 && index < 60) {
+//       return digits(index, 2);
+//     } else {
+//       return null;
+//     }
+//   }
+
+//   @override
+//   String leftDivider() {
+//     return "|";
+//   }
+
+//   @override
+//   String rightDivider() {
+//     return "|";
+//   }
+
+//   @override
+//   List<int> layoutProportions() {
+//     return [1, 2, 1];
+//   }
+
+//   @override
+//   DateTime finalTime() {
+//     return currentTime.isUtc
+//         ? DateTime.utc(currentTime.year, currentTime.month, currentTime.day,
+//             currentLeftIndex(), currentMiddleIndex(), currentRightIndex())
+//         : DateTime(currentTime.year, currentTime.month, currentTime.day,
+//             currentLeftIndex(), currentMiddleIndex(), currentRightIndex());
+//   }
+// }

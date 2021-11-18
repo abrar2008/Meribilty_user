@@ -6,24 +6,23 @@ import 'package:getwidget/shape/gf_avatar_shape.dart';
 import 'package:getwidget/shape/gf_button_shape.dart';
 import 'package:getwidget/types/gf_button_type.dart';
 import 'package:meribilty/provider/provider.dart';
-import 'package:meribilty/veiw/weightmaterial.dart';
+import 'package:meribilty/veiw/Citymovement.dart';
 import 'package:provider/provider.dart';
 
-class Selectweightppl extends StatefulWidget {
-  const Selectweightppl({ Key? key }) : super(key: key);
+class Selectvehiclecity extends StatefulWidget {
+  const Selectvehiclecity({Key? key}) : super(key: key);
 
   @override
-  _SelectweightpplState createState() => _SelectweightpplState();
+  _SelectvehiclecityState createState() => _SelectvehiclecityState();
 }
 
-class _SelectweightpplState extends State<Selectweightppl> {
+class _SelectvehiclecityState extends State<Selectvehiclecity> {
   @override
   Widget build(BuildContext context) {
-     final provider = Provider.of<LocaleProvider>(context);
     return Scaffold(
-       body: Consumer<LocaleProvider>(
+        body: Consumer<LocaleProvider>(
             builder: (context ,state , child ){
-            return Container(
+            return  Container(
               child: Column(
 
                 
@@ -74,7 +73,7 @@ class _SelectweightpplState extends State<Selectweightppl> {
                                           color: e.count>=1 ? Colors.white :  Color(0xFF2F4D84),
                                           borderRadius:
                                               BorderRadius.circular(10)),
-                                      height: 30,
+                                      height: 25,
                                       width: 30,
                                       child: InkWell(
                                          onTap: (){
@@ -105,7 +104,7 @@ class _SelectweightpplState extends State<Selectweightppl> {
                                           color: e.count>=1 ? Colors.white :  Color(0xFF2F4D84),
                                           borderRadius:
                                               BorderRadius.circular(10)),
-                                      height: 30,
+                                      height: 25,
                                       width: 30,
                                       child: InkWell(
                                         onTap:(){
@@ -148,7 +147,7 @@ class _SelectweightpplState extends State<Selectweightppl> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Weightmaterial()),
+                                  builder: (context) => const Citymovement_screen()),
                             );
                           },
                           text: "Save & Contine ",
@@ -166,13 +165,9 @@ class _SelectweightpplState extends State<Selectweightppl> {
             );
                 
             }
-            ),
-    );
+            ));
+     
+     //
+     
   }
 }
-
-
-
-
-  
-                        

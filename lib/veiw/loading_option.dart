@@ -25,109 +25,37 @@ class _LoadingOptionState extends State<LoadingOption> {
       child: Scaffold(
         body: SlidingUpPanel(
           renderPanelSheet: false,
-          // minHeight: 700,
-          panel: _floatingPanel(context),
-          body: Consumer<LocaleProvider>(
-            builder: (context ,state , child ){
-            return Container(
-              child: Column(
-                children: [
-                  SizedBox(height: 200,),
-                  Column(
-                    children: state.loadCount.map( (e) {
-                    return Container(
-                      // padding: EdgeInsets.all(10),
-                      color: e.count>=1 ? Color(0xFF2F4D84) : Colors.transparent,
-                      child: GFListTile(
-                          avatar: GFAvatar(
-                            backgroundImage: AssetImage("assets/truk.png"),
-                            shape: GFAvatarShape.square,
-                            size: 40,
-                          ),
-                          title: Text("Labour",
-                          style: TextStyle(
-                            color: e.count>=1 ? Colors.white : Colors.black,
-                          ),
-                          ),
-                          
-                          subTitle: Text("Rs 1000 per hour/Minimum",
-                          style: TextStyle(
-                            color: e.count>=1 ? Colors.white : Colors.black,
-                          ),
-                          ),
-                          icon: Container(
-                            child: Column(
-                              children: [
-                                Row(
-                                  children: [
-                                    Container(
-                                      decoration: BoxDecoration(
-                                          color: Color(0xFF2F4D84),
-                                          borderRadius: BorderRadius.circular(10)),
-                                      height: 30,
-                                      width: 30,
-                                      child: GestureDetector(
-                                        onTap: () {
-                                          context.read<LocaleProvider>().increment(e);
-                                        },
-                                        child: Icon(
-                                          Icons.add,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text(
-                                      "${e.count}",
-                                      style: TextStyle(fontSize: 25,
-                                      color: e.count>=1 ? Colors.white : Colors.black,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Container(
-                                      decoration: BoxDecoration(
-                                          color: Color(0xFF2F4D84),
-                                          borderRadius: BorderRadius.circular(10)),
-                                      height: 30,
-                                      width: 30,
-                                      child: GestureDetector(
-                                        onTap: () {
-                                         context.read<LocaleProvider>().decrement(e);
-                                        },
-                                        child: Icon(
-                                          Icons.remove,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 30,
-                                )
-                              ],
-                            ),
-                          )),
-                    );
-                   
-                   
-                   
-                    }
-                    ).toList(),
-                  ),
-              
-              
-              //
-                ],
-              ),
-            );
-                
-            }
-            )
+          minHeight: 400,
+          maxHeight: 800,
+          panel:floating(),
+            body: Container(
+              decoration: BoxDecoration(
+      color:Color(0xffF8F8F8),
+      
+      boxShadow: [
+        BoxShadow(
+          blurRadius: 30.0,
+          color: Colors.grey,
+        ),
+      ]
+    ),
+    child: Container(
+        decoration: BoxDecoration(
+      color: Colors.white,
+      
+      boxShadow: [
+        BoxShadow(
+          blurRadius: 30.0,
+          color: Colors.grey,
+        ),
+      ]
+    ),
+    ),
+            ),
+        
+       
+//       
+       
         ),
        
         bottomNavigationBar: BottomAppBar(
@@ -161,8 +89,212 @@ class _LoadingOptionState extends State<LoadingOption> {
   }
 }
 
-Widget _floatingPanel(content) {
-return Container();}  
+ 
+
+class floating extends StatelessWidget {
+  const floating({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+  body:    Card(
+
+             child: Container(
+             
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.all(Radius.circular(24.0)),
+      boxShadow: [
+        BoxShadow(
+          blurRadius: 10.0,
+          color: Colors.grey,
+        ),
+      ]
+    ),
+   
+               child: Column(
+                 children: [
+                    SizedBox(height: 12,),
+                  Container(
+                    width: double.infinity,
+                    child: Row(
+                      children: [  
+                        SizedBox(width: 30,),
+                        Icon(Icons.arrow_back_ios ),
+                         SizedBox(width: 30,),
+                       Text("Select Loading Options " ,
+                                            style: TextStyle(
+                        fontSize: 20,
+                         fontWeight: FontWeight.w900,
+                       letterSpacing: 1,
+                        color:  Color(0xFF2F4D84),
+
+                        
+                                            ),
+                       
+                       )
+                      ],
+                    ),
+                  ), 
+                  SizedBox(height: 10,),
+              Container(
+                color: Colors.white,
+                child: Center(child: Image.asset("assets/arrow.png"))),
+                   SizedBox(height: 10,),
+                   Consumer<LocaleProvider>(
+                    builder: (context ,state , child ){
+                    return Container(
+                      child: Column(
+                        
+                        children: [
+                          // SizedBox(height: 200,),
+                          Column(
+                            children: state.loadCount.map( (e) {
+                            return Container(
+                              
+                              color: e.count>=1 ? Color(0xFF2F4D84) : Colors.transparent,
+                              child: GFListTile(
+                                  avatar: GFAvatar(
+                                      backgroundColor:Colors.transparent,
+                                    shape: GFAvatarShape.square,
+                                    size: 40,
+                                    child:  e.count >=1 ? Image.asset(
+                                "assets/twhite.png",
+                                // color: Colors.black
+                              ):Image.asset(
+                                "assets/Shape.png",
+                                // color: Colors.black
+                              ),
+                                  ),
+                                  title: Column(
+                                    children: [
+                                      Text("Labour",
+                                      style: TextStyle(
+                                        color: e.count>=1 ? Colors.white : Colors.black,
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.bold
+                                      
+                                      ),
+                                      ),
+                                   SizedBox(height: 10,),
+                                    ],
+                                  ),
+                                  
+                                  subTitle:e.count>=1 ? Text(" Rs 1000",
+                                  style: TextStyle(
+                                    color: e.count>=1 ? Colors.white : Color(0xffC8C7CC),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  
+                                   
+                                  
+                                  ),
+                                  
+                                  ) : Text("Rs 1000 per hour/Minimum",
+                                  style: TextStyle(
+                                    color: e.count>=1 ? Colors.white : Color(0xffC8C7CC),
+                                  fontSize: 13,
+                                  
+                                  
+                                  ),
+                                  ),
+                                  icon: Container(
+                                    child: Column(
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                  color: e.count>=1 ? Colors.white : Color(0xFF2F4D84),
+                                                  borderRadius: BorderRadius.circular(10)),
+                                              height: 25,
+                                              width: 30,
+                                              child: GestureDetector(
+                                                onTap: () {
+                                                  context.read<LocaleProvider>().increment(e);
+                                                },
+                                                child: Icon(
+                                                  Icons.add,
+                                                  color: e.count>=1 ? Colors.black : Colors.white,
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 5,
+                                            ),
+                                            Text(
+                                              "${e.count}",
+                                              style: TextStyle(fontSize: 25,
+                                              color: e.count>=1 ? Colors.white : Colors.black,
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 5,
+                                            ),
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                  color:  e.count>=1 ? Colors.white : Color(0xFF2F4D84),
+                                                  borderRadius: BorderRadius.circular(10)),
+                                              height: 25,
+                                              width: 30,
+                                              child: GestureDetector(
+                                                onTap: () {
+                                                 context.read<LocaleProvider>().decrement(e);
+                                                },
+                                                child: Icon(
+                                                  Icons.remove,
+                                                  color:  e.count>=1 ? Colors.black : Colors.white,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Divider(
+                                          height: 30,
+                                        )
+                                      ],
+                                    ),
+                                  )),
+                            );
+                         
+                            }
+                            ).toList(),
+                          ),
+                      
+                      
+                      //
+                        ],
+                      ),
+                    );
+                        
+                    }
+                    ),
+                 ],
+               ),
+             ),
+           ),      
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //   return Container(
 //     decoration: BoxDecoration(
 //         color: Color(0xffFFFFFF),
