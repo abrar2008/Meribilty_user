@@ -8,20 +8,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:getwidget/components/avatar/gf_avatar.dart';
 import 'package:getwidget/components/button/gf_button.dart';
-import 'package:getwidget/components/list_tile/gf_list_tile.dart';
 import 'package:getwidget/getwidget.dart';
-import 'package:getwidget/shape/gf_avatar_shape.dart';
 import 'package:getwidget/shape/gf_button_shape.dart';
 import 'package:getwidget/types/gf_button_type.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:meribilty/veiw/complete_process.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:meribilty/veiw/loading_port.dart';
+import 'package:meribilty/veiw/materialtype.dart';
 import 'package:meribilty/veiw/selectvehicleppl.dart';
 
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
@@ -49,104 +46,99 @@ class _PortlogisticsState extends State<Portlogistics> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        extendBody: true,
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(180.0), // here the desired height
-          child: AppBar(                                           
-              shape: ContinuousRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(30),
-                      bottomRight: Radius.circular(30))),
-              automaticallyImplyLeading: false,
-              backgroundColor: Colors.white,
-              elevation: 0,
-              flexibleSpace: SafeArea(
-                child: Container(   
-                  padding: EdgeInsets.all(25),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          topLeft: const Radius.circular(40.0),
-                          topRight: const Radius.circular(40.0))),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        children: [
-                          Image.asset('assets/Ol.png'),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          TextField(
-  decoration: const InputDecoration(
-    border: OutlineInputBorder(),
-    hintText: 'Pick Up location',
-    hintStyle: TextStyle(
-       color: Colors.black
-    ),
-  ),
-)
-                        ],
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Row(
-                        children: [
-                          Image.asset('assets/ma.png'),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            "Drop off location",
-                            style: TextStyle(
-                              fontSize: 20,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Row(
-                        children: [
-                          Image.asset('assets/Ol.png'),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            "Empty Container Return",
-                            style: TextStyle(
-                              fontSize: 20,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              )),
-        ),
-        body: SlidingUpPanel(
-          renderPanelSheet: false,
-          minHeight: 500,
-          panel: _floatingPanel(context),
-
-          // panelBuilder: (ScrollController sc) => _scrollingList(sc, context),
-          body: GoogleMap(
-            mapType: MapType.normal,
-            initialCameraPosition: _kGooglePlex,
-            onMapCreated: (GoogleMapController controller) {
-              _controller.complete(controller);
-            },
+        // extendBody: true,
+        // appBar: PreferredSize(
+        //   preferredSize: Size.fromHeight(180.0), // here the desired height
+        //   child: AppBar(                                           
+        //       shape: ContinuousRectangleBorder(
+        //           borderRadius: BorderRadius.only(
+        //               bottomLeft: Radius.circular(30),
+        //               bottomRight: Radius.circular(30))),
+        //       automaticallyImplyLeading: false,
+        //       backgroundColor: Colors.white,
+        //       elevation: 0,
+        //       flexibleSpace: SafeArea(
+        //         child: Container(   
+        //           padding: EdgeInsets.all(25),
+        //           decoration: BoxDecoration(
+        //               borderRadius: BorderRadius.only(
+        //                   topLeft: const Radius.circular(40.0),
+        //                   topRight: const Radius.circular(40.0))),
+        //           child: Column(
+        //             children: [
+        //               SizedBox(
+        //                 height: 10,
+        //               ),
+        //               Row(
+        //                 children: [
+        //                   Image.asset('assets/Ol.png'),
+        //                   SizedBox(
+        //                     width: 10,
+        //                   ),
+                          
+        //                 ],
+        //               ),
+        //               SizedBox(
+        //                 height: 15,
+        //               ),
+        //               Row(
+        //                 children: [
+        //                   Image.asset('assets/ma.png'),
+        //                   SizedBox(
+        //                     width: 10,
+        //                   ),
+        //                   Text(
+        //                     "Drop off location",
+        //                     style: TextStyle(
+        //                       fontSize: 20,
+        //                     ),
+        //                   ),
+        //                 ],
+        //               ),
+        //               SizedBox(
+        //                 height: 15,
+        //               ),
+        //               Row(
+        //                 children: [
+        //                   Image.asset('assets/Ol.png'),
+        //                   SizedBox(
+        //                     width: 10,
+        //                   ),
+        //                   Text(
+        //                     "Empty Container Return",
+        //                     style: TextStyle(
+        //                       fontSize: 20,
+        //                     ),
+        //                   ),
+        //                 ],
+        //               ),
+        //             ],
+        //           ),
+        //         ),
+        //       )),
+        // ),
+        body:Stack(
+           children: [
+          SlidingUpPanel(
+            renderPanelSheet: false,
+            minHeight: 200,
+            maxHeight: 600,
+            panel: _floatingPanel(context),
+        
+            // panelBuilder: (ScrollController sc) => _scrollingList(sc, context),
+            body: GoogleMap(
+              mapType: MapType.normal,
+              initialCameraPosition: _kGooglePlex,
+              onMapCreated: (GoogleMapController controller) {
+                _controller.complete(controller);
+              },
+            ),
           ),
-        ));
+           ]));
   }
 }
 
 Widget _floatingPanel(context) {
-  bool _hasBeenPressed = false;
   return Container(
       decoration: BoxDecoration(
           color: Colors.white,
@@ -756,136 +748,13 @@ Widget _floatingPanel(context) {
                 fontWeight: FontWeight.bold,
               ),
               onPressed: () {
-                showMaterialModalBottomSheet(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    context: context,
-                    builder: (context) => Container(
-                        height: 550.0,
-                        color: Colors
-                            .transparent, //could change this to Color(0xFF737373),
-                        //so you don't have to change MaterialApp canvasColor
-                        child: new Container(
-                            decoration: new BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: new BorderRadius.only(
-                                    topLeft: const Radius.circular(10.0),
-                                    topRight: const Radius.circular(10.0))),
-                            child: SingleChildScrollView(
-                                child: Column(
-                              children: [
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Text(
-                                  AppLocalizations.of(context)!.material,
-                                  style: const TextStyle(
-                                      color: Color(0xFF2F4D84),
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                Image.asset("assets/arrow.png"),
-                                InkWell(
-                                  onTap: () {},
-                                  child: GFListTile(
-                                    color: _hasBeenPressed
-                                        ? Colors.blue
-                                        : Colors.white,
-                                    avatar: GFAvatar(
-                                      backgroundColor: Colors.white10,
-                                      shape: GFAvatarShape.square,
-                                      child: Image.asset("assets/elect.png",
-                                          color: Colors.black),
-                                    ),
-                                    title: const Text(
-                                      "Electronics",
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 20,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                GFListTile(
-                                  avatar: GFAvatar(
-                                    backgroundColor: Colors.white10,
-                                    shape: GFAvatarShape.square,
-                                    child: Image.asset("assets/cement.png",
-                                        color: Colors.black),
-                                  ),
-                                  title: const Text(
-                                    "Cement",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 20,
-                                    ),
-                                  ),
-                                ),
-                                GFListTile(
-                                  avatar: GFAvatar(
-                                    backgroundColor: Colors.white10,
-                                    shape: GFAvatarShape.square,
-                                    child: Image.asset("assets/elect.png",
-                                        color: Colors.black),
-                                  ),
-                                  title: const Text(
-                                    "Electronics",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 20,
-                                    ),
-                                  ),
-                                ),
-                                GFListTile(
-                                  avatar: GFAvatar(
-                                    backgroundColor: Colors.white10,
-                                    shape: GFAvatarShape.square,
-                                    child: Image.asset("assets/cement.png",
-                                        color: Colors.black),
-                                  ),
-                                  title: const Text(
-                                    "Cement",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 20,
-                                    ),
-                                  ),
-                                ),
-                                GFListTile(
-                                  avatar: GFAvatar(
-                                    backgroundColor: Colors.white10,
-                                    shape: GFAvatarShape.square,
-                                    child: Image.asset("assets/elect.png",
-                                        color: Colors.black),
-                                  ),
-                                  title: const Text(
-                                    "Electronics",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 20,
-                                    ),
-                                  ),
-                                ),
-                                //
-
-                                GFButton(
-                                  size: 60,
-                                  color: const Color(0xFF2F4D84),
-                                  onPressed: () {},
-                                  child: Text(
-                                    AppLocalizations.of(context)!.save,
-                                    style: const TextStyle(fontSize: 25),
-                                  ),
-                                  type: GFButtonType.solid,
-                                  shape: GFButtonShape.standard,
-                                  blockButton: true,
-                                ),
-                              ],
-                            )))));
+                //
+                 Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Materialtype(),
+                    ));
+            
 
                 //end
               },
@@ -1022,6 +891,7 @@ class _CargoState extends State<Cargo> {
       padding: const EdgeInsets.only(top: 20),
       child: Column(
         children: [
+          
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -1075,6 +945,7 @@ class _CargoState extends State<Cargo> {
               ),
             ),
           ),
+
         ],
       ),
     );

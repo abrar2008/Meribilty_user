@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
             title: 'Meribilty',
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
-              // primarySwatch: Colors.blue,
+              
               primaryColor: const Color(0xFF2F4D84),
             ),
             locale: provider.locale,

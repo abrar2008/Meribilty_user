@@ -25,15 +25,14 @@ class _WeightmaterialState extends State<Weightmaterial> {
    return Scaffold(
       body: SlidingUpPanel(
         renderPanelSheet: false,
-        minHeight: 300,
+        minHeight: 350,
         panel:const floatingpanel(),
-
-        // panelBuilder: (ScrollController sc) => _scrollingList(sc, context),
-        body: Container(
+          body: Container(
           color: const Color(0xffF8F8F8),
         ),
       ),
       bottomNavigationBar: Container(
+        color: Colors.white,
         padding:
             const EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 20),
         child: GFButton(
@@ -70,7 +69,7 @@ class _floatingpanelState extends State<floatingpanel> {
   
   @override
   Widget build(BuildContext context) {
-    
+    bool _hasBeenPressed = false;
     return Scaffold(
           body: Consumer<LocaleProvider>(
             builder: (context ,state , child ){
@@ -88,21 +87,21 @@ class _floatingpanelState extends State<floatingpanel> {
                   color: Colors.black12,
                 ),
               ]),
-          margin: const EdgeInsets.all(10.0),
+          margin: const EdgeInsets.all(5.0),
           child: Column(
             children: [
-
+                const  SizedBox(height: 15,),
                const Text(
                           "How much material weights",
                           style: TextStyle(
                               color: Color(0xFF2F4D84),
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.bold,
                               fontSize: 20),
                         ),
                 const SizedBox(
                 height: 10,
               ),
-           Image.asset("assets/arrow.png"),
+              Image.asset("assets/arrow.png"),
               Column(
                 children: state.selectmaterial.map( (e) {
                        return Column(
@@ -111,10 +110,11 @@ class _floatingpanelState extends State<floatingpanel> {
             height: 90,
             child:
              GFListTile(
+               
                onTap: (){
-                   context.read<LocaleProvider>().updatpressed();
+                  _hasBeenPressed = !_hasBeenPressed;
                },
-              color: Colors.white,
+              color: _hasBeenPressed ? Colors.blue : Colors.white,
               title: Center(
                 child: Column(
                   children: const [
@@ -148,11 +148,38 @@ class _floatingpanelState extends State<floatingpanel> {
             
             
             )
-            
-            
             );
   }
 }
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
           // const SizedBox(
           //   height: 10,
           // ),

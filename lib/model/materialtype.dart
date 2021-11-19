@@ -1,23 +1,24 @@
 import 'package:equatable/equatable.dart';
 import 'package:uuid/uuid.dart';
 
-class CounterModels extends Equatable {
+class Merterialtype extends Equatable {
   final String id;
-  final int count;
+ final String title;
 
-  CounterModels({required this.count, String? id})
+  Merterialtype({required this.title, String? id})
       : id = id ?? const Uuid().v1();
 
   @override
   List<Object?> get props => [];
 
-  CounterModels copyWith({
+  Merterialtype copyWith({
     String? id,
-    int? count,
+    
   }) {
-    return CounterModels(
+    return Merterialtype(
       id: id,
-      count: count ?? this.count,
+      title: title
+    
     );
   }
 }

@@ -27,30 +27,34 @@ class _LoadingOptionState extends State<LoadingOption> {
           minHeight: 400,
           maxHeight: 800,
           panel:floating(),
-            body: Container(
-              decoration: BoxDecoration(
-      color:Color(0xffF8F8F8),
+            body:Container(
+          color: const Color(0xffF8F8F8),
+        ), 
+    // 
+    // Container(
+    //           decoration: BoxDecoration(
+    //   color:Color(0xffF8F8F8),
       
-      boxShadow: const [
-        BoxShadow(
-          blurRadius: 30.0,
-          color: Colors.grey,
-        ),
-      ]
-    ),
-    child: Container(
-        decoration: BoxDecoration(
-      color: Colors.white,
+    //   boxShadow: const [
+    //     BoxShadow(
+    //       blurRadius: 30.0,
+    //       color: Colors.grey,
+    //     ),
+    //   ]
+    // ),
+    // child: Container(
+    //     decoration: BoxDecoration(
+    //   color: Colors.white,
       
-      boxShadow: const [
-        BoxShadow(
-          blurRadius: 30.0,
-          color: Colors.grey,
-        ),
-      ]
-    ),
-    ),
-            ),
+    //   boxShadow: const [
+    //     BoxShadow(
+    //       blurRadius: 30.0,
+    //       color: Colors.grey,
+    //     ),
+    //   ]
+    // ),
+    // ),
+    //         ),
         
        
 //       
@@ -118,14 +122,19 @@ class floating extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: Row(
-                      children: const [  
+                      children:  [  
                         SizedBox(width: 30,),
-                        Icon(Icons.arrow_back_ios ),
+                        
+                        InkWell(
+                        onTap: (){
+                           Navigator.pop(context);
+                        },  
+                          child: Icon(Icons.arrow_back_ios )),
                          SizedBox(width: 30,),
                        Text("Select Loading Options " ,
                                             style: TextStyle(
                         fontSize: 20,
-                         fontWeight: FontWeight.w900,
+                         fontWeight: FontWeight.bold,
                        letterSpacing: 1,
                         color:  Color(0xFF2F4D84),
 
@@ -149,7 +158,7 @@ class floating extends StatelessWidget {
                         children: [
                           // SizedBox(height: 200,),
                           Column(
-                            children: state.loadCount.map( (e) {
+                            children: state.loadOption.map( (e) {
                             return Container(
                               
                               color: e.count>=1 ? Color(0xFF2F4D84) : Colors.transparent,
@@ -180,7 +189,7 @@ class floating extends StatelessWidget {
                                     ],
                                   ),
                                   
-                                  subTitle:e.count>=1 ? Text(" Rs 1000",
+                                  subTitle:e.count>=1 ? Text(" Rs 1000 ",
                                   style: TextStyle(
                                     color: e.count>=1 ? Colors.white : Color(0xffC8C7CC),
                                   fontSize: 16,

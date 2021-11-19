@@ -269,7 +269,7 @@ class _SignInState extends State<SignIn> {
                                             return const Body();
                                           }
 
-                                          if (state.loadscren == Screen.two) {
+                                          if (state.loadscren == Screen.two) {             
                                             return const Body();
                                           } else {
                                             return const Text("Something went");
@@ -639,7 +639,7 @@ class Body extends StatelessWidget {
                                 fontSize: 14, color: Color(0xffC8C7CC))),
                       ))
                 ],
-              ),
+              ), 
             ),
             const SizedBox(
               height: 20,
@@ -658,11 +658,11 @@ class Body extends StatelessWidget {
                             side: BorderSide(color: Color(0xFF2F4D84))),
                       )),
                   onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      // Navigator.pushReplacement(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => const loginin()));
+                    if (_formKey.currentState!.validate()) {     
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Loginin() ));
                     }
                   },
                 )),
