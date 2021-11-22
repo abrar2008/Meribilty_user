@@ -15,407 +15,438 @@ class  SignIn  extends StatelessWidget {
  ContainedTabBarView containedTabBarView = ContainedTabBarView(
       key: _key,
       tabs: [
-        Text(
-                                'Sign Up',
+      Text('Sign Up',
                                 style: TextStyle(color: Colors.black),
                               ),
-        Text('Sign In',
+Text('Sign In',
                                   style: TextStyle(color: Colors.black)),
       ],
       views: [
 
     SingleChildScrollView(
-      child: Card(
-        child: Container(
-          color: Colors.white,
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 20,
-              ),
-              Container(
-                padding: const EdgeInsets.all(7),
-                child: Consumer<LocaleProvider>(
-                    builder: (context, state, child) {
-                  return Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment:
-                            MainAxisAlignment
-                                .spaceBetween,
+      child: Column(
+        children: [
+          Card(
+            child: Container(
+              color: Colors.white,
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(7),
+                    child: Consumer<LocaleProvider>(
+                        builder: (context, state, child) {
+                      return Column(
                         children: [
-                          const SizedBox(
-                            width: 5,
+                          Row(
+                            mainAxisAlignment:
+                                MainAxisAlignment
+                                    .spaceBetween,
+                            children: [
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              Individual(
+                                  screen:
+                                      state.loadscren),
+                              const SizedBox(
+                                width: 20,
+                              ),
+                              Businesspro(
+                                screen: state.loadscren,
+                              ),
+                              const SizedBox(
+                                width: 6,
+                              ),
+                            ],
                           ),
-                          Individual(
-                              screen:
-                                  state.loadscren),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          Businesspro(
-                            screen: state.loadscren,
-                          ),
-                          const SizedBox(
-                            width: 6,
-                          ),
-                        ],
-                      ),
-          //             ElevatedButton(
-          //   child: Icon(Icons.arrow_forward_ios),
-          //   onPressed: () => _key.currentState?.next(),
-          // ),
-                          ],
-                  );
-                }),
-              ),
-              Consumer<LocaleProvider>(
-                  builder: (context, state, child) {
-                if (state.loadscren == Screen.zero) {
-                  return Container();
-                }
-
-                if (state.loadscren == Screen.one) {
-
-                  final _formKey = GlobalKey<FormState>();
-                  return  
-    SingleChildScrollView(
-      child: Form(
-        
-        key: _formKey,
-        child: Column(
-          children: [
-
-            TextFormField(
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter Full Name';
-                }
-                return null;
-              },
-              cursorColor: Colors.black,
-              decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  contentPadding:
-                      EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
-                  hintText: "Full Name",
-                  hintStyle: TextStyle(color: Color(0xffC8C7CC))),
-            ),
-            const SizedBox(
-              height: 6,
-            ),
-            TextFormField(
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter Email Address';
-                }
-                return null;
-              },
-              cursorColor: Colors.black,
-              decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  contentPadding:
-                      EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
-                  hintText: "name@example.com",
-                  hintStyle: TextStyle(color: Color(0xffC8C7CC))),
-            ),
-            const SizedBox(
-              height: 6,
-            ),
-            TextFormField(
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter Password';
-                }
-                return null;
-              },
-              cursorColor: Colors.black,
-              decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  contentPadding:
-                      EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
-                  hintText: "Password",
-                  hintStyle: TextStyle(color: Color(0xffC8C7CC))),
-            ),
-            const SizedBox(
-              height: 6,
-            ),
-            Container(
-              // padding:
-              //     const EdgeInsets.only(
-              //   left: 10,
-              // ),
-              height: 50,
-              width: double.infinity,
-              color: Colors.white,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Container(
-                    height: 50,
-                    decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(10.0),
-                          bottomLeft: Radius.circular(10.0),
-                        ),
-                        border: Border.all(
-                          color: Colors.black12,
-                        )),
-                    child: Row(
-                      children: [
-                        const SizedBox(
-                          width: 3,
-                        ),
-                        Image.asset(
-                          "assets/pakistan.png",
-                          width: 30,
-                        ),
-                        const Icon(Icons.arrow_drop_down_outlined),
-                        const SizedBox(
-                          width: 2,
-                        ),
-                        const Text(
-                          "+92",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        const SizedBox(
-                          width: 3,
-                        ),
-                      ],
-                    ),
+             
+                              ],
+                      );
+                    }),
                   ),
-                  Container(
-                      height: 80,
-                      width: 187,
-                      child: TextFormField(
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter Full Name';
-                          }
-                          return null;
-                        },
-                        style: const TextStyle(
-                            fontSize: 20.0, color: Colors.black),
-                        decoration: const InputDecoration(
-                            border: OutlineInputBorder(),
-                            hintText: 'Mobile Number',
-                            hintStyle: TextStyle(
-                                fontSize: 14, color: Color(0xffC8C7CC))),
-                      ))
-                ],
-              ), 
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  child: Text("Sign Up".toUpperCase(),
-                      style: const TextStyle(fontSize: 14)),
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all<Color>(
-                          const Color(0xFF2F4D84)),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(8)),
-                            side: BorderSide(color: Color(0xFF2F4D84))),
-                      )),
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                           _key.currentState?.next();
-                      // Navigator.pushReplacement(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => const Loginin() ));
+
+                  Consumer<LocaleProvider>(
+                      builder: (context, state, child) {
+                    if (state.loadscren == Screen.zero) {
+                      return SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      child: Text("Sign Up".toUpperCase(),
+                          style: const TextStyle(fontSize: 14)),
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              const Color(0xFF2F4D84)),
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(8)),
+                                side: BorderSide(color: Color(0xFF2F4D84))),
+                          )),
+                      onPressed: () {
+
+                          _key.currentState?.next();
+                        
+                      },
+                    ));
                     }
-                  },
-                )),
-          ],
-        ),
-      ),
-    );
-               //
-                }
 
-                if (state.loadscren == Screen.two) { 
-                    final _formKey = GlobalKey<FormState>();            
-                  return  
-                  SingleChildScrollView(
-      child: Form(
-        
-        key: _formKey,
-        child: Column(
-          children: [
+                    if (state.loadscren == Screen.one) {
 
-            TextFormField(
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter Full Name';
-                }
-                return null;
-              },
-              cursorColor: Colors.black,
-              decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  contentPadding:
-                      EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
-                  hintText: "Full Name",
-                  hintStyle: TextStyle(color: Color(0xffC8C7CC))),
-            ),
-            const SizedBox(
-              height: 6,
-            ),
-            TextFormField(
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter Email Address';
-                }
-                return null;
-              },
-              cursorColor: Colors.black,
-              decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  contentPadding:
-                      EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
-                  hintText: "name@example.com",
-                  hintStyle: TextStyle(color: Color(0xffC8C7CC))),
-            ),
-            const SizedBox(
-              height: 6,
-            ),
-            TextFormField(
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter Password';
-                }
-                return null;
-              },
-              cursorColor: Colors.black,
-              decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  contentPadding:
-                      EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
-                  hintText: "Password",
-                  hintStyle: TextStyle(color: Color(0xffC8C7CC))),
-            ),
-            const SizedBox(
-              height: 6,
-            ),
-            Container(
-              // padding:
-              //     const EdgeInsets.only(
-              //   left: 10,
-              // ),
-              height: 50,
-              width: double.infinity,
-              color: Colors.white,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Container(
-                    height: 50,
-                    decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(10.0),
-                          bottomLeft: Radius.circular(10.0),
-                        ),
-                        border: Border.all(
-                          color: Colors.black12,
-                        )),
-                    child: Row(
-                      children: [
-                        const SizedBox(
-                          width: 3,
-                        ),
-                        Image.asset(
-                          "assets/pakistan.png",
-                          width: 30,
-                        ),
-                        const Icon(Icons.arrow_drop_down_outlined),
-                        const SizedBox(
-                          width: 2,
-                        ),
-                        const Text(
-                          "+92",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        const SizedBox(
-                          width: 3,
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                      height: 80,
-                      width: 195,
-                      child: TextFormField(
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter Full Name';
-                          }
-                          return null;
-                        },
-                        style: const TextStyle(
-                            fontSize: 20.0, color: Colors.black),
-                        decoration: const InputDecoration(
-                            border: OutlineInputBorder(),
-                            hintText: 'Mobile Number',
-                            hintStyle: TextStyle(
-                                fontSize: 14, color: Color(0xffC8C7CC))),
-                      ))
-                ],
-              ), 
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  child: Text("Sign Up".toUpperCase(),
-                      style: const TextStyle(fontSize: 14)),
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all<Color>(
-                          const Color(0xFF2F4D84)),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(8)),
-                            side: BorderSide(color: Color(0xFF2F4D84))),
-                      )),
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                            
-                      // Navigator.pushReplacement(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => const  ));
-                    } 
+                      final _formKey = GlobalKey<FormState>();
+                      // individual
+                      return  
+                        SingleChildScrollView(
+                      child: Form(
+            
+            key: _formKey,
+            child: Column(
+              children: [
+
+                TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter Full Name';
+                    }
+                    return null;
                   },
-                )),
-          ],
-        ),
-      ),
-    ); 
-                } else {
-                  return const Text("Something went");
-                }
-              }),
-            ],
+                  cursorColor: Colors.black,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      contentPadding:
+                          EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
+                      hintText: "Full Name",
+                      hintStyle: TextStyle(color: Color(0xffC8C7CC))),
+                ),
+                const SizedBox(
+                  height: 6,
+                ),
+                TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter Email Address';
+                    }
+                    return null;
+                  },
+                  cursorColor: Colors.black,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      contentPadding:
+                          EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
+                      hintText: "name@example.com",
+                      hintStyle: TextStyle(color: Color(0xffC8C7CC))),
+                ),
+                const SizedBox(
+                  height: 6,
+                ),
+                TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter Password';
+                    }
+                    return null;
+                  },
+                  cursorColor: Colors.black,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      contentPadding:
+                          EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
+                      hintText: "Password",
+                      hintStyle: TextStyle(color: Color(0xffC8C7CC))),
+                ),
+                const SizedBox(
+                  height: 6,
+                ),
+                Container(
+                  // padding:
+                  //     const EdgeInsets.only(
+                  //   left: 10,
+                  // ),
+                  height: 50,
+                  width: double.infinity,
+                  color: Colors.white,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Container(
+                        height: 50,
+                        decoration: BoxDecoration(
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(10.0),
+                              bottomLeft: Radius.circular(10.0),
+                            ),
+                            border: Border.all(
+                              color: Colors.black12,
+                            )),
+                        child: Row(
+                          children: [
+                            const SizedBox(
+                              width: 3,
+                            ),
+                            Image.asset(
+                              "assets/pakistan.png",
+                              width: 30,
+                            ),
+                            const Icon(Icons.arrow_drop_down_outlined),
+                            const SizedBox(
+                              width: 2,
+                            ),
+                            const Text(
+                              "+92",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(
+                              width: 3,
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                          height: 80,
+                          width: 187,
+                          child: TextFormField(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter Full Name';
+                              }
+                              return null;
+                            },
+                            style: const TextStyle(
+                                fontSize: 20.0, color: Colors.black),
+                            decoration: const InputDecoration(
+                                border: OutlineInputBorder(),
+                                hintText: 'Mobile Number',
+                                hintStyle: TextStyle(
+                                    fontSize: 14, color: Color(0xffC8C7CC))),
+                          ))
+                    ],
+                  ), 
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      child: Text("Sign Up".toUpperCase(),
+                          style: const TextStyle(fontSize: 14)),
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              const Color(0xFF2F4D84)),
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(8)),
+                                side: BorderSide(color: Color(0xFF2F4D84))),
+                          )),
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                               _key.currentState?.next();
+                          // Navigator.pushReplacement(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) => const Loginin() ));
+                        }
+                      },
+                    )),
+              ],
+            ),
           ),
-        ),
+    );
+                   
+                    }
+
+                    if (state.loadscren == Screen.two) { 
+                        final _formKey = GlobalKey<FormState>();    
+                        //business bro        
+                      return  SingleChildScrollView(
+          child: Form(
+            
+            key: _formKey,
+            child: Column(
+              children: [
+
+                TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter Full Name';
+                    }
+                    return null;
+                  },
+                  cursorColor: Colors.black,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      contentPadding:
+                          EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
+                      hintText: "Full Name",
+                      hintStyle: TextStyle(color: Color(0xffC8C7CC))),
+                ),
+                const SizedBox(
+                  height: 6,
+                ),
+                TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter Email Address';
+                    }
+                    return null;
+                  },
+                  cursorColor: Colors.black,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      contentPadding:
+                          EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
+                      hintText: "name@example.com",
+                      hintStyle: TextStyle(color: Color(0xffC8C7CC))),
+                ),
+                const SizedBox(
+                  height: 6,
+                ),
+                TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter Password';
+                    }
+                    return null;
+                  },
+                  cursorColor: Colors.black,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      contentPadding:
+                          EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
+                      hintText: "Password",
+                      hintStyle: TextStyle(color: Color(0xffC8C7CC))),
+                ),
+                const SizedBox(
+                  height: 6,
+                ),
+                Container(
+                  // padding:
+                  //     const EdgeInsets.only(
+                  //   left: 10,
+                  // ),
+                  height: 50,
+                  width: double.infinity,
+                  color: Colors.white,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Container(
+                        height: 50,
+                        decoration: BoxDecoration(
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(10.0),
+                              bottomLeft: Radius.circular(10.0),
+                            ),
+                            border: Border.all(
+                              color: Colors.black12,
+                            )),
+                        child: Row(
+                          children: [
+                            const SizedBox(
+                              width: 3,
+                            ),
+                            Image.asset(
+                              "assets/pakistan.png",
+                              width: 30,
+                            ),
+                            const Icon(Icons.arrow_drop_down_outlined),
+                            const SizedBox(
+                              width: 2,
+                            ),
+                            const Text(
+                              "+92",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(
+                              width: 3,
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                          height: 80,
+                          width: 195,
+                          child: TextFormField(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter Full Name';
+                              }
+                              return null;
+                            },
+                            style: const TextStyle(
+                                fontSize: 20.0, color: Colors.black),
+                            decoration: const InputDecoration(
+                                border: OutlineInputBorder(),
+                                hintText: 'Mobile Number',
+                                hintStyle: TextStyle(
+                                    fontSize: 14, color: Color(0xffC8C7CC))),
+                          ))
+                    ],
+                  ), 
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      child: Text("Sign Up".toUpperCase(),
+                          style: const TextStyle(fontSize: 14)),
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              const Color(0xFF2F4D84)),
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(8)),
+                                side: BorderSide(color: Color(0xFF2F4D84))),
+                          )),
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                                
+                          // Navigator.pushReplacement(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) => const  ));
+                        } 
+                      },
+                    )),
+              ],
+            ),
+          ),
+    ); 
+                    } else {
+                      return const Text("Something went");
+                    }
+                  }),
+                ],
+              ),
+            ),
+          ),
+        Container(
+                // padding: const EdgeInsets.only(left: 30),
+                child: Row(
+                  children: const [
+                    Text(
+                      "By clicking signup, you agree to our  Terms and Conditions ",
+                      style: TextStyle(fontSize: 10),
+                    ),
+                    // Text(
+                    //   "Terms and Condition",
+                    //   style:
+                    //       TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                    // ),
+                  ],
+                ),
+              ),
+        ],
       ),
     ),
-        
-        
-        Loginin(),
-       
-      //  
-        
+      const   Loginin(),
       ],
       onChange: (index) => print(index),
     );
-
+ 
     return Scaffold(
      
       body:  SingleChildScrollView(
@@ -428,6 +459,7 @@ class  SignIn  extends StatelessWidget {
                 color: Colors.white,
                 child: Stack(
                   children: [
+
                     Positioned(
                       child: Container(
                         width: double.infinity,
@@ -467,14 +499,30 @@ class  SignIn  extends StatelessWidget {
                           ),
                         ),
                       ),
-                   
+
                   ],
                 ),
               ),
-            ]   
-      ),
+              const SizedBox(
+                height: 10,
+              ),
+            ],
+          ),
+        ),
+     
+
+
+
+    
+      )
+      );
       
-    )));
+     
+      
+    
+    
+    
+    
   }
 }
 
@@ -731,14 +779,16 @@ class Individual extends StatelessWidget {
     bool lo = false;
     return GestureDetector(
       onTap: () {
+
         context.read<LocaleProvider>().changeScreen(Screen.one);
       },
       child: Stack(
         children: [
           Column(
             children: [
-              Image.asset("assets/simple.png"),
-              const SizedBox(
+                 Container(child:  Screen.one  == true  ?   Image.asset("assets/simple.png") :Image.asset("assets/simple.png") ,
+ ), 
+          const SizedBox(
                 height: 10,
               ),
               const Text(
@@ -750,17 +800,7 @@ class Individual extends StatelessWidget {
               const Text(""),
             ],
           ),
-          Positioned(
-            left: 50,
-            child: Container(
-                alignment: Alignment.topRight,
-                child: lo
-                    ? Image.asset(
-                        "assets/Follow.png",
-                        width: 30,
-                      )
-                    : const Text("Aa")),
-          ),
+          
         ],
       ),
     );
@@ -768,27 +808,6 @@ class Individual extends StatelessWidget {
 }
 
 
-/*
- Container(
-                padding: const EdgeInsets.only(left: 30),
-                child: Row(
-                  children: const [
-                    Text(
-                      "By clicking signup, you agree to our ",
-                      style: TextStyle(fontSize: 12),
-                    ),
-                    Text(
-                      "Terms and Condition  ",
-                      style:
-                          TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-            ],
-          ),
-        ),
-        */
+
+
+      

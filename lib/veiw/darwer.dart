@@ -37,6 +37,7 @@ class _DarweState extends State<Darwe> {
                   child: Row(
                     children: [
                       InkWell(
+                        
                           onTap: () {
                             Navigator.pop(context);
                           },
@@ -58,11 +59,11 @@ class _DarweState extends State<Darwe> {
                             Text(
                               "  Get ",
                               style: TextStyle(
-                                fontSize: 20,
+                                fontSize: 15,
                               ),
                             ),
                             Text(
-                              "PRO  ",
+                              "PRO ",
                               style: TextStyle(
                                   fontSize: 17,
                                   color: Color(0xFf4CE5B1),
@@ -76,7 +77,7 @@ class _DarweState extends State<Darwe> {
                   ),
                 ),
                 currentAccountPicture: GFAvatar(
-                  // radius: 70.0,
+                
 
                   backgroundImage: AssetImage(
                     "assets/pic2.png",
@@ -87,13 +88,7 @@ class _DarweState extends State<Darwe> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    // SizedBox(
-                    //   height: 5,
-                    // ),
-
-                    // SizedBox(
-                    //   height: 5,
-                    // ),
+                   
                     Container(
                       child: Column(
                         children: [

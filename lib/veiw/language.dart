@@ -23,6 +23,7 @@ class _LanguageState extends State<Language> {
 
     return Scaffold(
       body: Container(
+        width: double.infinity,
         decoration: BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("assets/first.png"), fit: BoxFit.cover)),

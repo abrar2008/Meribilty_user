@@ -454,103 +454,6 @@ class _UnLoadingOptionState extends State<UnLoadingOption> {
 
 
 
-/*
-// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
-
-import 'package:flutter/material.dart';
-import 'package:getwidget/components/avatar/gf_avatar.dart';
-import 'package:getwidget/components/list_tile/gf_list_tile.dart';
-import 'package:getwidget/getwidget.dart';
-import 'package:meribilty/provider/provider.dart';
-import 'package:meribilty/veiw/unloading.dart';
-import 'package:provider/provider.dart';
-import 'package:sliding_up_panel/sliding_up_panel.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-class LoadingOption extends StatefulWidget {
-  const LoadingOption({Key? key}) : super(key: key);
-
-  @override
-  _LoadingOptionState createState() => _LoadingOptionState();
-}
-
-class _LoadingOptionState extends State<LoadingOption> {
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: SlidingUpPanel(
-          renderPanelSheet: false,
-          minHeight: 400,
-          maxHeight: 800,
-          panel:floating(),
-            body:Container(
-          color: const Color(0xffF8F8F8),
-        ), 
-    // 
-    // Container(
-    //           decoration: BoxDecoration(
-    //   color:Color(0xffF8F8F8),
-      
-    //   boxShadow: const [
-    //     BoxShadow(
-    //       blurRadius: 30.0,
-    //       color: Colors.grey,
-    //     ),
-    //   ]
-    // ),
-    // child: Container(
-    //     decoration: BoxDecoration(
-    //   color: Colors.white,
-      
-    //   boxShadow: const [
-    //     BoxShadow(
-    //       blurRadius: 30.0,
-    //       color: Colors.grey,
-    //     ),
-    //   ]
-    // ),
-    // ),
-    //         ),
-        
-       
-//       
-       
-        ),
-       
-        bottomNavigationBar: BottomAppBar(
-          child: Container(
-            height: 60,
-            padding: EdgeInsets.all(10),
-            child: Container(
-              padding: EdgeInsets.only(left: 20, right: 20),
-              child: GFButton(
-                size: 60,
-                color: Color(0xFF2F4D84),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => UnLoadingOption()),
-                  );
-                },
-                child: Text(
-                  AppLocalizations.of(context)!.next,
-                  style: TextStyle(fontSize: 17),
-                ),
-                type: GFButtonType.solid,
-                shape: GFButtonShape.standard,
-                blockButton: true,
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-*/
- 
-
 // ignore: camel_case_types
 class floating extends StatelessWidget {
   const floating({ Key? key }) : super(key: key);
@@ -664,7 +567,7 @@ class floating extends StatelessWidget {
                                 ),
                                 icon: Column(
                                   children: [
-                                    Row(
+                                    Row( 
                                       children: [
                                         Container(
                                           decoration: BoxDecoration(
@@ -713,8 +616,26 @@ class floating extends StatelessWidget {
                                       ],
                                     ),
                                     const Divider(
-                                      height: 30,
-                                    )
+                                      height: 5,
+                                    ),
+
+                                      Container(
+                                          child: e.count>=1 ? Text(" Rs 1000 " ,
+                                  style: TextStyle(
+                                    color: e.count>=1 ? Colors.white : Color(0xffC8C7CC),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  ),
+                                  
+                                  ) : Text("",
+                                  style: TextStyle(
+                                    color: e.count>=1 ? Colors.white : Color(0xffC8C7CC),
+                                  fontSize: 13,
+                                  
+                                  
+                                  ),
+                                  ),
+                                        )
                                   ],
                                 )),
                           );

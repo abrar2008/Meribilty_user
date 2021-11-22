@@ -23,7 +23,7 @@ enum Screen {
 class LocaleProvider extends ChangeNotifier {
 
 
-
+ final bool _isVisible = true;
 
 // place city movement
   GoogleMapController? controller1;
@@ -468,6 +468,7 @@ final _selectmatype = <Merterialtype>[
 
   void changeScreen(Screen screen) {
     _screen = screen;
+    
     notifyListeners();
   }
 }

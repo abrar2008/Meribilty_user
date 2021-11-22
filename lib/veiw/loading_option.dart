@@ -100,6 +100,7 @@ class floating extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var cot = 1000;
     return Scaffold(
   body:    Card(
 
@@ -118,7 +119,7 @@ class floating extends StatelessWidget {
    
                child: Column(
                  children: [
-                    SizedBox(height: 12,),
+                    SizedBox(height: 15,),
                   SizedBox(
                     width: double.infinity,
                     child: Row(
@@ -156,7 +157,7 @@ class floating extends StatelessWidget {
                       child: Column(
                         
                         children: [
-                          // SizedBox(height: 200,),
+                         
                           Column(
                             children: state.loadOption.map( (e) {
                             return Container(
@@ -189,7 +190,7 @@ class floating extends StatelessWidget {
                                     ],
                                   ),
                                   
-                                  subTitle:e.count>=1 ? Text(" Rs 1000 ",
+                                  subTitle:e.count>=1 ? Text(" Rs 1000 " ,
                                   style: TextStyle(
                                     color: e.count>=1 ? Colors.white : Color(0xffC8C7CC),
                                   fontSize: 16,
@@ -259,7 +260,25 @@ class floating extends StatelessWidget {
                                           ],
                                         ),
                                         Divider(
-                                          height: 30,
+                                          height: 5,
+                                        ),
+
+                                        Container(
+                                          child: e.count>=1 ? Text(" Rs 1000 " ,
+                                  style: TextStyle(
+                                    color: e.count>=1 ? Colors.white : Color(0xffC8C7CC),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  ),
+                                  
+                                  ) : Text("",
+                                  style: TextStyle(
+                                    color: e.count>=1 ? Colors.white : Color(0xffC8C7CC),
+                                  fontSize: 13,
+                                  
+                                  
+                                  ),
+                                  ),
                                         )
                                       ],
                                     ),

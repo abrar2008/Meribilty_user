@@ -34,10 +34,12 @@ class _OtpScrenState extends State<OtpScren> {
             color: Colors.white,
           ),
         ),
-        body: SizedBox(
+        body: 
+        SizedBox(
           width: double.infinity,
           child: Column(
             children: [
+              
               Container(
                 width: double.infinity,
                 color: Color(0xFF375E99),
@@ -92,6 +94,7 @@ class _OtpScrenState extends State<OtpScren> {
                 padding: EdgeInsets.only(left: 40),
                 width: double.infinity,
                 child: VerificationCode(
+            
                   isSecure: true,
                   textStyle: TextStyle(fontSize: 40.0, color: Colors.black),
                   underlineColor: Colors.amber,

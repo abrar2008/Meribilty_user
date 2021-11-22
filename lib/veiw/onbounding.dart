@@ -50,9 +50,10 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     return IntroductionScreen(
       key: introKey,
       globalBackgroundColor: Colors.white,
-
+freeze: false,
       pages: [
         PageViewModel(
+          useScrollView: false,
             titleWidget: Column(
               children: [
                 SizedBox(
@@ -75,6 +76,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                           style: TextStyle(
                             fontSize: 17,
                             color: Color(0xFF2F4D84),
+                            fontWeight: FontWeight.w500
                           ),
                         ),
                       ],
@@ -102,16 +104,17 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
               AppLocalizations.of(context)!.ridedetail,
               style: TextStyle(
                 fontSize: 17,
-                fontWeight: FontWeight.w300,
+             
+                color: Color(0xff707070)
               ),
             ),
             // image: Image.asset("assets/onbo1.png"),
             decoration: pageDecoration,
             footer: Column(
               children: [
-                SizedBox(
-                  height: 120,
-                ),
+                // SizedBox(
+                //   height: 120,
+                // ),
                 // Text(
                 //   AppLocalizations.of(context)!.skip,
                 //   style: TextStyle(
@@ -122,6 +125,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
               ],
             )),
         PageViewModel(
+          useScrollView: false,
             titleWidget: Column(
               children: [
                 SizedBox(
@@ -160,7 +164,10 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 ),
                 Text(
                   AppLocalizations.of(context)!.drive,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30,
+                  letterSpacing: 1
+                  
+                  ),
                 ),
                 SizedBox(
                   height: 20,
@@ -169,15 +176,13 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
             ),
             bodyWidget: Text(
               AppLocalizations.of(context)!.drivedetail,
-              style: TextStyle(fontSize: 17, fontWeight: FontWeight.w300),
+              style: TextStyle(fontSize: 17,  color: Color(0xff707070)),
             ),
             // image: Image.asset("assets/tast2.png"),
             decoration: pageDecoration,
             footer: Column(
               children: [
-                SizedBox(
-                  height: 120,
-                ),
+                
               ],
             )),
         PageViewModel(
@@ -225,7 +230,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           ),
           bodyWidget: Text(
             AppLocalizations.of(context)!.truckdetail,
-            style: TextStyle(fontSize: 17),
+            style: TextStyle(fontSize: 17 , color: Color(0xff707070)),
           ),
           // image: Image.asset("assets/map.png"),
           decoration: pageDecoration,
@@ -235,6 +240,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 height: 10,
               ),
               ElevatedButton(
+                
                 onPressed: () {
                   _onIntroEnd(context);
                 },
@@ -243,6 +249,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                   style: TextStyle(color: Colors.white),
                 ),
                 style: ElevatedButton.styleFrom(
+                  
                   primary: Color(0xFF2F4D84),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5.0),
@@ -268,7 +275,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           backgroundColor: Colors.orange,
         ),
       ),
-      curve: Curves.fastLinearToSlowEaseIn,
+      // curve: Curves.fastLinearToSlowEaseIn,
       controlsMargin: const EdgeInsets.all(16),
 
       dotsDecorator: const DotsDecorator(
