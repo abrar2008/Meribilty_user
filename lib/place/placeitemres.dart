@@ -1,3 +1,5 @@
+
+
 class PlaceItemRes {
   String name;
   String address;

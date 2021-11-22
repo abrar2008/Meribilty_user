@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, unused_field, file_names, unnecessary_const, unnecessary_new, dead_code
 
 import 'dart:async';
-import 'dart:ui';
+
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -13,11 +13,14 @@ import 'package:getwidget/getwidget.dart';
 import 'package:getwidget/shape/gf_button_shape.dart';
 import 'package:getwidget/types/gf_button_type.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:meribilty/place/placeItem.dart';
+import 'package:meribilty/provider/provider.dart';
 import 'package:meribilty/veiw/complete_process.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:meribilty/veiw/loading_port.dart';
 import 'package:meribilty/veiw/materialtype.dart';
 import 'package:meribilty/veiw/selectvehicleppl.dart';
+import 'package:provider/provider.dart';
 
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
@@ -45,80 +48,16 @@ class _PortlogisticsState extends State<Portlogistics> {
 
   @override
   Widget build(BuildContext context) {
+    var _addressFrom, _addressTo;
+
+  
     return Scaffold(
-        // extendBody: true,
-        // appBar: PreferredSize(
-        //   preferredSize: Size.fromHeight(180.0), // here the desired height
-        //   child: AppBar(                                           
-        //       shape: ContinuousRectangleBorder(
-        //           borderRadius: BorderRadius.only(
-        //               bottomLeft: Radius.circular(30),
-        //               bottomRight: Radius.circular(30))),
-        //       automaticallyImplyLeading: false,
-        //       backgroundColor: Colors.white,
-        //       elevation: 0,
-        //       flexibleSpace: SafeArea(
-        //         child: Container(   
-        //           padding: EdgeInsets.all(25),
-        //           decoration: BoxDecoration(
-        //               borderRadius: BorderRadius.only(
-        //                   topLeft: const Radius.circular(40.0),
-        //                   topRight: const Radius.circular(40.0))),
-        //           child: Column(
-        //             children: [
-        //               SizedBox(
-        //                 height: 10,
-        //               ),
-        //               Row(
-        //                 children: [
-        //                   Image.asset('assets/Ol.png'),
-        //                   SizedBox(
-        //                     width: 10,
-        //                   ),
-                          
-        //                 ],
-        //               ),
-        //               SizedBox(
-        //                 height: 15,
-        //               ),
-        //               Row(
-        //                 children: [
-        //                   Image.asset('assets/ma.png'),
-        //                   SizedBox(
-        //                     width: 10,
-        //                   ),
-        //                   Text(
-        //                     "Drop off location",
-        //                     style: TextStyle(
-        //                       fontSize: 20,
-        //                     ),
-        //                   ),
-        //                 ],
-        //               ),
-        //               SizedBox(
-        //                 height: 15,
-        //               ),
-        //               Row(
-        //                 children: [
-        //                   Image.asset('assets/Ol.png'),
-        //                   SizedBox(
-        //                     width: 10,
-        //                   ),
-        //                   Text(
-        //                     "Empty Container Return",
-        //                     style: TextStyle(
-        //                       fontSize: 20,
-        //                     ),
-        //                   ),
-        //                 ],
-        //               ),
-        //             ],
-        //           ),
-        //         ),
-        //       )),
-        // ),
-        body:Stack(
+      appBar: AppBar(
+         backgroundColor: Colors.transparent,
+      ),
+            body:Stack(
            children: [
+
           SlidingUpPanel(
             renderPanelSheet: false,
             minHeight: 200,
@@ -126,15 +65,336 @@ class _PortlogisticsState extends State<Portlogistics> {
             panel: _floatingPanel(context),
         
             // panelBuilder: (ScrollController sc) => _scrollingList(sc, context),
-            body: GoogleMap(
+            body: 
+            Consumer<LocaleProvider>(
+                    builder: (context ,state , child ){
+                    return Stack(
+          children: [
+            GoogleMap(
+              markers: Set<Marker>.of(state.markers.values),
               mapType: MapType.normal,
               initialCameraPosition: _kGooglePlex,
               onMapCreated: (GoogleMapController controller) {
                 _controller.complete(controller);
+                state.controller2=controller;
               },
             ),
+            SingleChildScrollView(
+              child: Align(
+              alignment: Alignment.topCenter,
+                child: Container(
+                  padding: EdgeInsets.all(4),
+                  width: MediaQuery.of(context).size.width / 1.0,
+                  child: Card(
+                    child: Column(
+                      children: <Widget>[
+
+                        Card(
+                          child: Container(
+                            width: MediaQuery.of(context).size.width / 1.0,
+                            
+                            color:Colors.white,
+                            child: new Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                new Expanded(
+                                  flex: 1,
+                                  child: new Column(
+                                    children: <Widget>[
+                                      new Icon(
+                                        Icons.my_location,
+                                        size: 20.0,
+                                        color: Colors.blue,
+                                      ),
+                                      new Icon(
+                                        Icons.more_vert,
+                                        size: 30.0,
+                                        color: Colors.grey,
+                                      ),
+                                      
+                                      new Icon(
+                                        Icons.location_on,
+                                        size: 20.0,
+                                        color: Colors.red,
+                                      ),
+                  
+                                      new Icon(
+                                        Icons.more_vert,
+                                        size: 30.0,
+                                        color: Colors.grey,
+                                      ),
+                                       new Icon(
+                                        Icons.my_location,
+                                        size: 20.0,
+                                        color: Colors.blue,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                new Expanded(
+                                  flex: 5,
+                                  child:
+                                  
+                                   Form(
+                                      child: Column( 
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: <Widget>[
+                                          // one textfeild
+                                          new Container(
+                                            height: 50.0,
+                                            width: MediaQuery.of(context).size.width -
+                                                 50,
+                                            color: Colors.white,
+                                            child: new Column(
+                                              mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                              children: <Widget>[
+                                                   TextField(
+                                                  style: TextStyle(fontSize: 15),
+                                                  decoration:
+                                                  InputDecoration.collapsed(
+                                                    fillColor:Colors.white,
+                                                    hintStyle: TextStyle(
+                                                        color: Colors.black),
+                                                    hintText: "PickUp Location",
+                                                  ),
+                                                  autofocus: false,
+                                                  focusNode: state.nodeFromport,
+                                                  controller: _addressFrom,
+                                                  onChanged: (String value) {
+                                                    state.placeBloc.searchPlace(value);
+                                                  },
+                                                  onTap: () {
+                                                    setState(() {
+                                                      state.inputFrom = true;
+                                                      state.inputTo = false;
+                                                    });
+                                                  },
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                  
+                                              // line 
+                                           Container(
+                                            width: MediaQuery.of(context).size.width -
+                                                50.0,
+                                            height: 1.0,
+                                            color: Colors.grey.withOpacity(0.4),
+                                          ),
+                                         
+                                         
+                                           // seond textfeild
+                     
+                                          new Container(
+                                            height: 50.0,
+                                            // width: MediaQuery.of(context).size.width,
+                                            color: Colors.white,
+                                            child: new Column(
+                                              mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                              children: <Widget>[
+                                                TextField(
+                                                  style:TextStyle(fontSize: 15),
+                                                  decoration:
+                                                  InputDecoration.collapsed(
+                                                    fillColor: Colors.white,
+                                                    hintStyle: TextStyle(
+                                                        color: Colors.black),
+                                                    hintText: "Dropoff Location",
+                                                  ),
+                                                  focusNode: state.nodeToport,
+                                                  autofocus: false,
+                                                  controller: _addressTo,
+                                                  onChanged: (String value) {
+                                                    state.placeBloc.searchPlace(value);
+                                                  },
+                                                  onTap: () {
+                                                    setState(() {
+                                                      state.inputTo = true;
+                                                      state.inputFrom = false;
+                                                      print(state.inputTo);
+                                                    });
+                                                  },
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                      // line 
+                                       Container(
+                                            width: MediaQuery.of(context).size.width -
+                                                50.0,
+                                            height: 1.0,
+                                            color: Colors.grey.withOpacity(0.4),
+                                          ),
+                                     // container 
+                                      new Container(
+                                            height: 50.0,
+                                            // width: MediaQuery.of(context).size.width,
+                                            color: Colors.white,
+                                            child: new Column(
+                                              mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                              children: <Widget>[
+                                                TextField(
+                                                  style:TextStyle(fontSize: 15),
+                                                  decoration:
+                                                  InputDecoration.collapsed(
+                                                    fillColor: Colors.white,
+                                                    hintStyle: TextStyle(
+                                                        color: Colors.black),
+                                                    hintText: "Empty Container Return ",
+                                                  ),
+                                                  focusNode: state.nodecontaport,
+                                                  autofocus: false,
+                                                  controller: _addressTo,
+                                                  onChanged: (String value) {
+                                                    state.placeBloc.searchPlace(value);
+                                                  },
+                                                  onTap: () {
+                                                    setState(() {
+                                                      state.inputTo = true;
+                                                      state.inputFrom = false;
+                                                      print(state.inputTo);
+                                                    });
+                                                  },
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                         
+                  
+                                     
+                                        ],
+                                      )),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        state.inputTo != true
+                            ? Container(
+                          color: Colors.white,
+                          child: StreamBuilder(
+                              stream: state.placeBloc.placeStream,
+                              builder: (context, snapshot) {
+                                if (snapshot.hasData) {
+                                  if (snapshot.data == "start") {
+                                    return Center(
+                                      child: CupertinoActivityIndicator(),
+                                    );
+                                  }
+                                 state.placesport = snapshot.data as List<PlaceItemRes>?;
+                                  return ListView.separated(
+                                    shrinkWrap: true,
+                                    itemCount: state.placesport!.length,
+                                    itemBuilder: (context, index) {
+                                      return ListTile(
+                                        title: Text(state.placesport!
+                                            .elementAt(index)
+                                            .name
+                                            .runtimeType ==
+                                            String
+                                            ? state.placesport!.elementAt(index).name
+                                            : ""),
+                                        subtitle: Text(state.placesport!
+                                            .elementAt(index)
+                                            .address
+                                            .runtimeType ==
+                                            String
+                                            ? state.placesport!
+                                            .elementAt(index)
+                                            .address
+                                            : ""),
+                                        onTap: () {
+                                         state.Fromdataport(index,context);
+                                        },
+                                      );
+                                    },
+                                    separatorBuilder: (context, index) =>
+                                        Divider(
+                                          height: 1,
+                                          color: Color(0xfff5f5f5),
+                                        ),
+                                  );
+                                } else {
+                                  return Container();
+                                }
+                              }),
+                        )
+                            : Container(
+                          color: Colors.white,
+                          child: StreamBuilder(
+                              stream: state.placeBloc.placeStream,
+                              builder: (context, snapshot) {
+                                if (snapshot.hasData) {
+                                  if (snapshot.data == "start") {
+                                    return Center(
+                                      child: CupertinoActivityIndicator(),
+                                    );
+                                  }
+                                 state.places2port = snapshot.data as List<PlaceItemRes>?;
+                                  return ListView.separated(
+                                    shrinkWrap: true,
+                                    itemCount: state.places2port!.length,
+                                    itemBuilder: (context, index) {
+                                      return ListTile(
+                                        title: Text( state.places2port!
+                                            .elementAt(index)
+                                            .name
+                                            .runtimeType ==
+                                            String
+                                            ? state.places2port!.elementAt(index).name
+                                            : ""),
+                                        subtitle: Text(state.places2port!
+                                            .elementAt(index)
+                                            .address
+                                            .runtimeType ==
+                                            String
+                                            ? state.places2port!
+                                            .elementAt(index)
+                                            .address
+                                            : ""),
+                                        onTap: () {
+                                          state.ToDataport(context,index);
+                                        },
+                                      );
+                                    },
+                                    separatorBuilder: (context, index) =>
+                                        Divider(
+                                          height: 1,
+                                          color: Color(0xfff5f5f5),
+                                        ),
+                                  );
+                                } else {
+                                  return Container();
+                                }
+                              }),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+                      ]); 
+                     } )
+                  
           ),
-           ]));
+           ])
+       );
+  
+  
+  
   }
 }
 

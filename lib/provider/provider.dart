@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:location/location.dart';
 import 'package:meribilty/L10n/l10n.dart';
 import 'package:meribilty/model/LoadOptionModels.dart';
 import 'package:meribilty/model/loadoptionport.dart';
@@ -7,6 +9,8 @@ import 'package:meribilty/model/meterial_model.dart';
 import 'package:meribilty/model/selectvichele.dart';
 import 'package:meribilty/model/unloadingoption.dart';
 import 'package:meribilty/model/unloadportop.dart';
+import 'package:meribilty/place/placeItem.dart';
+import 'package:meribilty/place/place_bloc.dart';
 
 enum Screen {
   zero,
@@ -18,6 +22,234 @@ enum Screen {
 
 class LocaleProvider extends ChangeNotifier {
 
+
+
+
+// place city movement
+  GoogleMapController? controller1;
+   GoogleMapController? controller2;
+  Location location = new Location();
+  Map<MarkerId, Marker> markers = <MarkerId, Marker>{};
+  bool? _serviceEnabled;
+  PermissionStatus? _permissionGranted;
+  LocationData? locationData;
+
+  FocusNode nodeFromcity = FocusNode();
+  FocusNode nodeTocity = FocusNode();
+  bool checkAutoFocus = false, inputFrom = false, inputTo = false;
+  List<Map<String, dynamic>> dataFromcity = [];
+  List<Map<String, dynamic>> dataTocity = [];
+  var _addressFrom, _addressTo;
+  var placeBloc = PlaceBloc();
+  
+  String? valueFromcity, valueTocity;
+
+  List<PlaceItemRes>? placescity;
+  List<PlaceItemRes>? places2city;
+
+
+FromDataCity(index,context){
+    dataFromcity.clear();
+    Map<String, dynamic> value = {
+      "name": placescity!
+          .elementAt(index)
+          .name,
+      "address": placescity!
+          .elementAt(index)
+          .address,
+      "lat":
+      placescity!.elementAt(index).lat,
+      "long":
+     placescity!.elementAt(index).lng
+    };
+    print('dataFrom: ' + value.toString());
+    placescity!.clear();
+    FocusScope.of(context).requestFocus(nodeTocity);
+    dataFromcity.add(value);
+    valueFromcity = placescity!.elementAt(index).name.toString();
+    _addressFrom = TextEditingController(text:valueFromcity);
+    inputTo = true;
+    notifyListeners();
+    print(dataFromcity);
+
+  }
+
+ ToDataCity(context,index){
+    dataTocity.clear();
+    Map<String, dynamic> value = {
+      "name": places2city!
+          .elementAt(index)
+          .name,
+      "address": places2city!
+          .elementAt(index)
+          .address,
+      "lat":
+      places2city!.elementAt(index).lat,
+      "long":
+      places2city!.elementAt(index).lng
+    };
+    print('dataTo: ' + value.toString());
+      valueTocity =places2city!
+          .elementAt(index)
+          .name
+          .toString();
+      _addressTo =
+          TextEditingController(
+              text: places2city!
+                  .elementAt(index)
+                  .name
+                  .toString());
+      FocusScope.of(context)
+          .requestFocus(
+          new FocusNode());
+      dataTocity.add(value);
+      print(dataTocity);
+    places2city!.clear();
+      notifyListeners();
+      //directions
+      // DrawRoute();
+
+  }
+/// place  city
+/// placr port 
+   
+   String? valueFromport, valueToport ,valontaport;
+  List<PlaceItemRes>? placesport;
+  List<PlaceItemRes>? places2port;
+  List<PlaceItemRes>? placconta2port;
+
+   List<Map<String, dynamic>> dataFromport = [];
+  List<Map<String, dynamic>> dataTocityport = [];
+  List<Map<String, dynamic>> datacontcityport = [];
+
+   FocusNode nodeFromport = FocusNode();
+   FocusNode nodeToport = FocusNode();
+   FocusNode nodecontaport = FocusNode();
+
+
+Contaport(index,context){
+    dataFromcity.clear();
+    Map<String, dynamic> value = {
+      "name": placconta2port!
+          .elementAt(index)
+          .name,
+      "address":placconta2port!
+          .elementAt(index)
+          .address,
+      "lat":
+     placconta2port!.elementAt(index).lat,
+      "long":
+     placconta2port!.elementAt(index).lng
+    };
+    print('dataFrom: ' + value.toString());
+    placconta2port!.clear();
+    FocusScope.of(context).requestFocus(nodecontaport);
+    datacontcityport.add(value);
+    valueFromport = placesport!.elementAt(index).name.toString();
+    _addressFrom = TextEditingController(text:valontaport);
+    inputTo = true;
+    notifyListeners();
+    print(datacontcityport);
+
+  }
+
+Fromdataport(index,context){
+    dataFromcity.clear();
+    Map<String, dynamic> value = {
+      "name": placesport!
+          .elementAt(index)
+          .name,
+      "address": placesport!
+          .elementAt(index)
+          .address,
+      "lat":
+     placesport!.elementAt(index).lat,
+      "long":
+     placesport!.elementAt(index).lng
+    };
+    print('dataFrom: ' + value.toString());
+    placesport!.clear();
+    FocusScope.of(context).requestFocus(nodeToport);
+    dataFromport.add(value);
+    valueFromport = placesport!.elementAt(index).name.toString();
+    _addressFrom = TextEditingController(text:valueFromport);
+    inputTo = true;
+    notifyListeners();
+    print(dataFromport);
+
+  }
+
+ ToDataport(context,index){
+    dataTocityport.clear();
+    Map<String, dynamic> value = {
+      "name": places2port!
+          .elementAt(index)
+          .name,
+      "address": places2port!
+          .elementAt(index)
+          .address,
+      "lat":
+      places2port!.elementAt(index).lat,
+      "long":
+      places2port!.elementAt(index).lng
+    };
+    print('dataTo: ' + value.toString());
+      valueToport =places2port!
+          .elementAt(index)
+          .name
+          .toString();
+      _addressTo =
+          TextEditingController(
+              text: places2port!
+                  .elementAt(index)
+                  .name
+                  .toString());
+      FocusScope.of(context)
+          .requestFocus(
+          new FocusNode());
+      dataTocityport.add(value);
+      print(dataTocityport);
+    places2port!.clear();
+      notifyListeners();
+      //directions
+      // DrawRoute();
+
+  }
+
+  getlocation(){
+    location.onLocationChanged.listen((LocationData currentLocation) {
+      print(currentLocation.toString());
+      controller1!.animateCamera(CameraUpdate.newCameraPosition(
+          new CameraPosition(
+              bearing: 192.8334901395799,
+              target: LatLng(currentLocation.latitude!.toDouble(), currentLocation.longitude!.toDouble()),
+              tilt: 0,
+              zoom: 18.00)));
+      updateMarkerAndCircle(currentLocation);
+      // Use current location
+    });
+  }
+ void updateMarkerAndCircle(LocationData newLocalData) {
+
+    final MarkerId markerIdFrom = MarkerId("My Location");
+    final Marker marker = Marker(
+        markerId: markerIdFrom,
+        //position: LatLng(_fromLocation.latitude, _fromLocation.longitude),
+        position: LatLng(newLocalData.latitude!.toDouble(), newLocalData.longitude!.toDouble()),
+        infoWindow: InfoWindow(title: "Current"),
+        icon:
+        // ? BitmapDescriptor.fromAsset("assets/currentmarker.png")
+        // : BitmapDescriptor.fromAsset("assets/currentmarker.png"),
+        BitmapDescriptor.defaultMarker
+
+    );
+      markers[markerIdFrom] = marker;
+       notifyListeners();
+    print(markers.toString());
+
+  }
+
+ 
 
 //locate  start
   Locale get locale => _locale;
@@ -187,6 +419,9 @@ void invechechle(SelectvicheleModels counterModels) {
   // Select vichele vichels end 
 
   
+
+
+
 //  Select Materail start
 final _selectmertail = <MerterialModels>[   
    

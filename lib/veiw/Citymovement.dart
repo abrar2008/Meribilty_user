@@ -1,16 +1,22 @@
 // ignore_for_file: camel_case_types, file_names, use_key_in_widget_constructors
+import 'dart:async';
 
+import 'package:location/location.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:meribilty/place/placeItem.dart';
+import 'package:meribilty/provider/provider.dart';
 import 'package:meribilty/veiw/loading_option.dart';
 import 'package:meribilty/veiw/selectvehiclecity.dart';
-
 import 'package:meribilty/veiw/timewait.dart';
+import 'package:provider/provider.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class Citymovement_screen extends StatefulWidget {
   const Citymovement_screen({Key? key}) : super(key: key);
@@ -20,667 +26,1610 @@ class Citymovement_screen extends StatefulWidget {
 }
 
 class _Citymovement_screenState extends State<Citymovement_screen> {
+  final Completer<GoogleMapController> _controller = Completer();
+
+  static const CameraPosition _kGooglePlex = const CameraPosition(
+    target: LatLng(37.42796133580664, -122.085749655962),  
+    zoom: 14.4746,
+   );
+
+
+@override
+  void initState() {
+  
+    super.initState();
+   
+
+  }
+
+
+  static final CameraPosition _kLake = const CameraPosition(
+      bearing: 192.8334901395799,
+      target: LatLng(37.43296265331129, -122.08832357078792),
+      tilt: 59.440717697143555,
+      zoom: 19.151926040649414
+      );
   @override
   Widget build(BuildContext context) {
+bool? _serviceEnabled;
+   PermissionStatus? _permissionGranted;
+    var _addressFrom, _addressTo;
     return Scaffold(
-      body: SlidingUpPanel(
-        minHeight: 300,
-        panelBuilder: (ScrollController sc) => _scrollingList(sc, context),
-        body: SafeArea(
-          child: Column(
-            // ignore: prefer_const_literals_to_create_immutables
-            children: [
-              const TextField(
-                style: TextStyle(fontSize: 15),
-                decoration: InputDecoration.collapsed(
-                  fillColor: Colors.white,
-                  hintStyle: TextStyle(color: Colors.black),
-                  hintText: "Enter Location for post",
+    appBar: AppBar(
+      backgroundColor: Colors.transparent,
+              elevation: 0.0,
+    // backgroundColor: Colors.,
+    iconTheme:  const IconThemeData(color: Colors.black),
+    
+  ),
+       body:
+       Stack(
+           children: [
+          SlidingUpPanel(
+            renderPanelSheet: false,
+            minHeight: 200,
+            maxHeight: 600,
+            panel: const Floating(),
+        
+            // panelBuilder: (ScrollController sc) => _scrollingList(sc, context),
+            body: 
+            Consumer<LocaleProvider>(
+                    builder: (context ,state , child ){
+                    
+                    return Stack(
+  children: [
+
+            GoogleMap(
+              markers: Set<Marker>.of(state.markers.values),
+              mapType: MapType.normal,
+              initialCameraPosition: _kGooglePlex,
+              onMapCreated: (GoogleMapController controller) {
+                //_controller.complete(controller);
+                state.controller1=controller;
+              },
+            ),
+            SingleChildScrollView(
+              child: Align(
+                alignment: Alignment.topCenter,
+
+                child: Card(
+                  child:   SizedBox(
+                    width: MediaQuery.of(context).size.width / 1.0,
+                    child: Column(
+                      children: <Widget>[
+
+                        Card(
+                          child: Container(
+                            width: MediaQuery.of(context).size.width / 1.0,
+                          
+                            color:Colors.white,
+                            child:  Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                new Expanded(
+                                  flex: 1,
+                                  child: new Column(
+                                    children: <Widget>[
+                                      new Icon(
+                                        Icons.my_location,
+                                        size: 20.0,
+                                        color: Colors.blue,
+                                      ),
+                                      const Icon(
+                                        Icons.more_vert,
+                                        size: 20.0,
+                                        color: Colors.grey,
+                                      ),
+                                      const Icon(
+                                        Icons.location_on,
+                                        size: 20.0,
+                                        color: Colors.red,
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                new Expanded(
+                                  flex: 5,
+                                  child:
+                                  
+                                   Form(
+                                      child: Column( 
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: <Widget>[
+                                          // one textfeild
+                                          new Container(
+                                            height: 50.0,
+                                            width: MediaQuery.of(context).size.width -
+                                                50,
+                                            color: Colors.white,
+                                            child: new Column(
+                                              mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                              children: <Widget>[
+                
+                                               // one
+                                                TextField(
+                                                  style: const TextStyle(fontSize: 15),
+                                                  decoration:
+                                                  const InputDecoration.collapsed(
+                                                    fillColor:Colors.white,
+                                                    hintStyle: TextStyle(
+                                                        color: Colors.black),
+                                                    hintText: "Enter the PickUp Location",
+                                                  ),
+                                                  autofocus: false,
+                                                  focusNode: state.nodeFromcity,
+                                                  controller: _addressFrom,
+                                                  onChanged: (String value) {
+                                                    state.placeBloc.searchPlace(value);
+                                                  },
+                                                  onTap: () {
+                                                    setState(() {
+                                                      state.inputFrom = true;
+                                                      state.inputTo = false;
+                                                    });
+                                                  },
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                
+                
+                                          // seond textfeild
+                                          Container(
+                                            width: MediaQuery.of(context).size.width -
+                                                50.0,
+                                            height: 1.0,
+                                            color: Colors.grey.withOpacity(0.4),
+                                          ),
+                                          new Container(
+                                            height: 50.0,
+                                            // width: MediaQuery.of(context).size.width,
+                                            color: Colors.white,
+                                            child: Column(
+                                              mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                              children: <Widget>[
+                                                TextField(
+                                                  style:const TextStyle(fontSize: 15),
+                                                  decoration:
+                                                  const InputDecoration.collapsed(
+                                                    fillColor: Colors.white,
+                                                    hintStyle: TextStyle(
+                                                        color: Colors.black),
+                                                    hintText: "Enter the Dropoff Location",
+                                                  ),
+                                                  focusNode: state.nodeTocity,
+                                                  autofocus: false,
+                                                  controller: _addressTo,
+                                                  onChanged: (String value) {
+                                                    state.placeBloc.searchPlace(value);
+                                                  },
+                                                  onTap: () {
+                                                    setState(() {
+                                                      state.inputTo = true;
+                                                      state.inputFrom = false;
+                                                      print(state.inputTo);
+                                                    });
+                                                  },
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      )),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        state.inputTo != true
+                            ? Container(
+                          color: Colors.white,
+                          child: StreamBuilder(
+                              stream: state.placeBloc.placeStream,
+                              builder: (context, snapshot) {
+                                if (snapshot.hasData) {
+                                  if (snapshot.data == "start") {
+                                    return const  Center(
+                                      child: CupertinoActivityIndicator(),
+                                    );
+                                  }
+                                 state.placescity = snapshot.data as List<PlaceItemRes>?;
+                                  return ListView.separated(
+                                    shrinkWrap: true,
+                                    itemCount: state.placescity!.length,
+                                    itemBuilder: (context, index) {
+                                      return ListTile(
+                                        title: Text(state.placescity!
+                                            .elementAt(index)
+                                            .name
+                                            .runtimeType ==
+                                            String
+                                            ? state.placescity!.elementAt(index).name
+                                            : ""),
+                                        subtitle: Text(state.placescity!
+                                            .elementAt(index)
+                                            .address
+                                            .runtimeType ==
+                                            String
+                                            ? state.placescity!
+                                            .elementAt(index)
+                                            .address
+                                            : ""),
+                                        onTap: () {
+                                         state.FromDataCity(index,context);
+                                        },
+                                      );
+                                    },
+                                    separatorBuilder: (context, index) =>
+                                        const Divider(
+                                          height: 1,
+                                          color: Color(0xfff5f5f5),
+                                        ),
+                                  );
+                                } else {
+                                  return Container();
+                                }
+                              }),
+                        )
+                            : Container(
+                          color: Colors.white,
+                          child: StreamBuilder(
+                              stream: state.placeBloc.placeStream,
+                              builder: (context, snapshot) {
+                                if (snapshot.hasData) {
+                                  if (snapshot.data == "start") {
+                                    return const Center(
+                                      child: CupertinoActivityIndicator(),
+                                    );
+                                  }
+                                 state.places2city = snapshot.data as List<PlaceItemRes>?;
+                                  return ListView.separated(
+                                    shrinkWrap: true,
+                                    itemCount: state.places2city!.length,
+                                    itemBuilder: (context, index) {
+                                      return ListTile(
+                                        title: Text( state.places2city!
+                                            .elementAt(index)
+                                            .name
+                                            .runtimeType ==
+                                            String
+                                            ? state.places2city!.elementAt(index).name
+                                            : ""),
+                                        subtitle: Text(state.places2city!
+                                            .elementAt(index)
+                                            .address
+                                            .runtimeType ==
+                                            String
+                                            ? state.places2city!
+                                            .elementAt(index)
+                                            .address
+                                            : ""),
+                                        onTap: () {
+                                          state.ToDataCity(context,index);
+                                        },
+                                      );
+                                    },
+                                    separatorBuilder: (context, index) =>
+                                        const Divider(
+                                          height: 1,
+                                          color: Color(0xfff5f5f5),
+                                        ),
+                                  );
+                                } else {
+                                  return Container();
+                                }
+                              }),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-                // focusNode: value1.nodeTo,
-                // autofocus: false,
-                // controller: value1.addressTo,
-                // onChanged: (String value) {
-                //   placeBloc.searchPlace(value);
-                // },
-                // onTap: () {
-                //   value1.inputTo = true;
-                //   value1.inputFrom = false;
-                //   print(value1.inputTo);
-                // },
               ),
-            ],
+            ),
+                      ]); 
+                     } )
+                  
           ),
-        ),
+           ])
+   
+    );
+  }
+}
+
+
+
+
+class Floating extends StatefulWidget {
+  const Floating({ Key? key }) : super(key: key);
+
+  @override
+  _FloatingState createState() => _FloatingState();
+}
+
+class _FloatingState extends State<Floating> {
+   bool isSwitched = false;
+  void toggleSwitch(bool value) {
+   
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(10.0),
+            topRight: Radius.circular(10.0),
+          ),
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 20.0,
+              color: Colors.grey,
+            ),
+          ]),
+      margin: const EdgeInsets.all(10.0),
+      
+      child: Container(
+      padding: const EdgeInsets.all(10),
+      child: Column( 
+        children: [
+
+
+          Container(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              children: [
+                const SizedBox(
+                  width: 10,
+                ),
+                Column(
+                  children: [
+                    Text(
+                      AppLocalizations.of(context)!.use,
+                      style: const TextStyle(
+                        color: Color(0xff707070),
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      AppLocalizations.of(context)!.bal,
+                      style: const TextStyle(
+                        color: Color(0xff707070),
+                        fontSize: 15,
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Switch(
+                      onChanged: toggleSwitch,
+                      value: isSwitched,
+                      activeColor: Colors.blue,
+                      activeTrackColor: Colors.yellow,
+                      inactiveThumbColor: Colors.white10,
+                      inactiveTrackColor: Colors.black12,
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      "Rs  :350",
+                      style: TextStyle(
+                        color: Colors.green[600],
+                        fontSize: 15,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  width: 50,
+                ),
+                Column(
+                  children: [
+                    Text(
+                      AppLocalizations.of(context)!.est,
+                      style: const TextStyle(
+                        color: Color(0xff707070),
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    const Text(
+                      "Rs  3528 - 3644",
+                      style: TextStyle(
+                        color: Colors.green,
+                        fontSize: 15,
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+          const Divider(
+            height: 10,
+            thickness: 2,
+          ),
+          GFButton(
+            size: 60,
+            color: const Color(0xFF2F4D84),
+            onPressed: () {
+    
+              Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Selectvehiclecity(),
+                      ));
+    
+              // showMaterialModalBottomSheet(
+              //   context: context,
+              //   builder: (context) => SingleChildScrollView(
+              //     child: Column(
+              //       children: [
+              //         const SizedBox(
+              //           height: 10,
+              //         ),
+              //         const Text(
+              //           "Select Vehicle",
+              //           style: TextStyle(
+              //               color: Color(0xFF2F4D84),
+              //               fontWeight: FontWeight.w500,
+              //               fontSize: 25),
+              //         ),
+    
+              //         GFListTile(
+              //           avatar: GFAvatar(
+              //             backgroundColor: Colors.white10,
+              //             shape: GFAvatarShape.square,
+              //             child: Image.asset(
+              //               "assets/Path.png",
+              //               // color: Colors.black
+              //             ),
+              //           ),
+              //           title: const Text(
+              //             "Truck",
+              //             style: TextStyle(
+              //               color: Colors.black,
+              //               fontSize: 20,
+              //             ),
+              //           ),
+              //           icon: Row(
+              //             children: [
+              //               Container(
+              //                 decoration: BoxDecoration(
+              //                     color: const Color(0xFF2F4D84),
+              //                     borderRadius: BorderRadius.circular(10)),
+              //                 height: 30,
+              //                 width: 30,
+              //                 child: const Icon(
+              //                   Icons.add,
+              //                   color: Colors.white,
+              //                 ),
+              //               ),
+              //               const SizedBox(
+              //                 width: 5,
+              //               ),
+              //               const Text(
+              //                 "0",
+              //                 style: TextStyle(fontSize: 25),
+              //               ),
+              //               const SizedBox(
+              //                 width: 5,
+              //               ),
+              //               Container(
+              //                 decoration: BoxDecoration(
+              //                     color: const Color(0xFF2F4D84),
+              //                     borderRadius: BorderRadius.circular(10)),
+              //                 height: 30,
+              //                 width: 30,
+              //                 child: const Icon(
+              //                   Icons.remove,
+              //                   color: Colors.white,
+              //                 ),
+              //               ),
+              //             ],
+              //           ),
+              //         ),
+                     
+              //        //
+              //         const Divider(
+              //           color: Colors.black54,
+              //         ),
+              //         GFListTile(
+              //           avatar: GFAvatar(
+              //             backgroundColor: Colors.white10,
+              //             shape: GFAvatarShape.square,
+              //             child:
+              //                 Image.asset("assets/Path.png", color: Colors.black),
+              //           ),
+              //           title: const Text(
+              //             "Truck",
+              //             style: TextStyle(
+              //               color: Colors.black,
+              //               fontSize: 20,
+              //             ),
+              //           ),
+              //           icon: Row(
+              //             children: [
+              //               Container(
+              //                 decoration: BoxDecoration(
+              //                     color: const Color(0xFF2F4D84),
+              //                     borderRadius: BorderRadius.circular(10)),
+              //                 height: 30,
+              //                 width: 30,
+              //                 child: const Icon(
+              //                   Icons.add,
+              //                   color: Colors.white,
+              //                 ),
+              //               ),
+              //               const SizedBox(
+              //                 width: 5,
+              //               ),
+              //               const Text(
+              //                 "0",
+              //                 style: TextStyle(fontSize: 25),
+              //               ),
+              //               const SizedBox(
+              //                 width: 5,
+              //               ),
+              //               Container(
+              //                 decoration: BoxDecoration(
+              //                     color: const Color(0xFF2F4D84),
+              //                     borderRadius: BorderRadius.circular(10)),
+              //                 height: 30,
+              //                 width: 30,
+              //                 child: const Icon(
+              //                   Icons.remove,
+              //                   color: Colors.white,
+              //                 ),
+              //               ),
+              //             ],
+              //           ),
+              //         ),
+              //         const Divider(
+              //           color: Colors.black54,
+              //         ),
+              //         GFListTile(
+              //           avatar: GFAvatar(
+              //             backgroundColor: Colors.white10,
+              //             shape: GFAvatarShape.square,
+              //             child:
+              //                 Image.asset("assets/Path.png", color: Colors.black),
+              //           ),
+              //           title: const Text(
+              //             "Truck",
+              //             style: TextStyle(
+              //               color: Colors.black,
+              //               fontSize: 20,
+              //             ),
+              //           ),
+              //           icon: Row(
+              //             children: [
+              //               Container(
+              //                 decoration: BoxDecoration(
+              //                     color: const Color(0xFF2F4D84),
+              //                     borderRadius: BorderRadius.circular(10)),
+              //                 height: 30,
+              //                 width: 30,
+              //                 child: const Icon(
+              //                   Icons.add,
+              //                   color: Colors.white,
+              //                 ),
+              //               ),
+              //               const SizedBox(
+              //                 width: 5,
+              //               ),
+              //               const Text(
+              //                 "0",
+              //                 style: TextStyle(fontSize: 25),
+              //               ),
+              //               const SizedBox(
+              //                 width: 5,
+              //               ),
+              //               Container(
+              //                 decoration: BoxDecoration(
+              //                     color: const Color(0xFF2F4D84),
+              //                     borderRadius: BorderRadius.circular(10)),
+              //                 height: 30,
+              //                 width: 30,
+              //                 child: const Icon(
+              //                   Icons.remove,
+              //                   color: Colors.white,
+              //                 ),
+              //               ),
+              //             ],
+              //           ),
+              //         ),
+              //         const Divider(
+              //           color: Colors.black54,
+              //         ),
+              //         GFListTile(
+              //           avatar: GFAvatar(
+              //             backgroundColor: Colors.white10,
+              //             shape: GFAvatarShape.square,
+              //             child: Image.asset("assets/Path.png",
+              //                 color: const Color(0xFF2F4D84)),
+              //           ),
+              //           title: const Text(
+              //             "40 FT Container",
+              //             style: TextStyle(
+              //               color: Colors.black,
+              //               fontSize: 20,
+              //             ),
+              //           ),
+              //           icon: Row(
+              //             children: [
+              //               Container(
+              //                 decoration: BoxDecoration(
+              //                     color: const Color(0xFF2F4D84),
+              //                     borderRadius: BorderRadius.circular(10)),
+              //                 height: 30,
+              //                 width: 30,
+              //                 child: const Icon(
+              //                   Icons.add,
+              //                   color: Colors.white,
+              //                 ),
+              //               ),
+              //               const SizedBox(
+              //                 width: 5,
+              //               ),
+              //               const Text(
+              //                 "0",
+              //                 style: TextStyle(fontSize: 25),
+              //               ),
+              //               const SizedBox(
+              //                 width: 5,
+              //               ),
+              //               Container(
+              //                 decoration: BoxDecoration(
+              //                     color: const Color(0xFF2F4D84),
+              //                     borderRadius: BorderRadius.circular(10)),
+              //                 height: 30,
+              //                 width: 30,
+              //                 child: const Icon(
+              //                   Icons.remove,
+              //                   color: Colors.white,
+              //                 ),
+              //               ),
+              //             ],
+              //           ),
+              //         ), //
+              //         const Divider(
+              //           color: Colors.black54,
+              //         ),
+              //         Container(
+              //           color: const Color(0xFF2F4D84),
+              //           child: GFListTile(
+              //             avatar: GFAvatar(
+              //               backgroundColor: Colors.white10,
+              //               shape: GFAvatarShape.square,
+              //               child: Image.asset("assets/Path.png",
+              //                   color: Colors.white),
+              //             ),
+              //             title: const Text(
+              //               "Truck 20 Wheels",
+              //               style: TextStyle(
+              //                 color: Colors.white,
+              //                 fontSize: 20,
+              //               ),
+              //             ),
+              //             icon: Row(
+              //               children: [
+              //                 Container(
+              //                   decoration: BoxDecoration(
+              //                       color: const Color(0xFF2F4D84),
+              //                       borderRadius: BorderRadius.circular(10)),
+              //                   height: 30,
+              //                   width: 30,
+              //                   child: const Icon(
+              //                     Icons.add,
+              //                     color: Colors.white,
+              //                   ),
+              //                 ),
+              //                 const SizedBox(
+              //                   width: 5,
+              //                 ),
+              //                 const Text(
+              //                   "0",
+              //                   style: TextStyle(fontSize: 25),
+              //                 ),
+              //                 const SizedBox(
+              //                   width: 5,
+              //                 ),
+              //                 Container(
+              //                   decoration: BoxDecoration(
+              //                       color: const Color(0xFF2F4D84),
+              //                       borderRadius: BorderRadius.circular(10)),
+              //                   height: 30,
+              //                   width: 30,
+              //                   child: const Icon(
+              //                     Icons.remove,
+              //                     color: Colors.white,
+              //                   ),
+              //                 ),
+              //               ],
+              //             ),
+              //           ),
+              //         ), //
+              //         ///
+              //         const Divider(
+              //           color: Colors.black54,
+              //         ),
+              //         GFListTile(
+              //           avatar: GFAvatar(
+              //             backgroundColor: Colors.white10,
+              //             shape: GFAvatarShape.square,
+              //             child:
+              //                 Image.asset("assets/Path.png", color: Colors.black),
+              //           ),
+              //           title: const Text(
+              //             "Truck",
+              //             style: TextStyle(
+              //               color: Colors.black,
+              //               fontSize: 20,
+              //             ),
+              //           ),
+              //           icon: Row(
+              //             children: [
+              //               Container(
+              //                 decoration: BoxDecoration(
+              //                     color: const Color(0xFF2F4D84),
+              //                     borderRadius: BorderRadius.circular(10)),
+              //                 height: 30,
+              //                 width: 30,
+              //                 child: const Icon(
+              //                   Icons.add,
+              //                   color: Colors.white,
+              //                 ),
+              //               ),
+              //               const SizedBox(
+              //                 width: 5,
+              //               ),
+              //               const Text(
+              //                 "0",
+              //                 style: TextStyle(fontSize: 25),
+              //               ),
+              //               const SizedBox(
+              //                 width: 5,
+              //               ),
+              //               Container(
+              //                 decoration: BoxDecoration(
+              //                     color: const Color(0xFF2F4D84),
+              //                     borderRadius: BorderRadius.circular(10)),
+              //                 height: 30,
+              //                 width: 30,
+              //                 child: const Icon(
+              //                   Icons.remove,
+              //                   color: Colors.white,
+              //                 ),
+              //               ),
+              //             ],
+              //           ),
+              //         ),
+              //         const Divider(
+              //           color: Colors.black54,
+              //         ),
+              //         GFListTile(
+              //           avatar: GFAvatar(
+              //             backgroundColor: Colors.white10,
+              //             shape: GFAvatarShape.square,
+              //             child:
+              //                 Image.asset("assets/Path.png", color: Colors.black),
+              //           ),
+              //           title: const Text(
+              //             "Truck",
+              //             style: TextStyle(
+              //               color: Colors.black,
+              //               fontSize: 20,
+              //             ),
+              //           ),
+              //           icon: Row(
+              //             children: [
+              //               Container(
+              //                 decoration: BoxDecoration(
+              //                     color: const Color(0xFF2F4D84),
+              //                     borderRadius: BorderRadius.circular(10)),
+              //                 height: 30,
+              //                 width: 30,
+              //                 child: const Icon(
+              //                   Icons.add,
+              //                   color: Colors.white,
+              //                 ),
+              //               ),
+              //               const SizedBox(
+              //                 width: 5,
+              //               ),
+              //               const Text(
+              //                 "0",
+              //                 style: TextStyle(fontSize: 25),
+              //               ),
+              //               const SizedBox(
+              //                 width: 5,
+              //               ),
+              //               Container(
+              //                 decoration: BoxDecoration(
+              //                     color: const Color(0xFF2F4D84),
+              //                     borderRadius: BorderRadius.circular(10)),
+              //                 height: 30,
+              //                 width: 30,
+              //                 child: const Icon(
+              //                   Icons.remove,
+              //                   color: Colors.white,
+              //                 ),
+              //               ),
+              //             ],
+              //           ),
+              //         ),
+              //         const Divider(
+              //           color: Colors.black54,
+              //         ),
+              //         GFButton(
+              //           size: 60,
+              //           color: const Color(0xFF2F4D84),
+              //           onPressed: () {
+              //             Navigator.push(
+              //               context,
+              //               MaterialPageRoute(
+              //                   builder: (context) =>
+              //                       const Citymovement_screen()),
+              //             );
+              //           },
+              //           text: "Save & Contine ",
+              //           textStyle:
+              //               const TextStyle(fontSize: 25, color: Colors.white),
+              //           type: GFButtonType.solid,
+              //           shape: GFButtonShape.standard,
+              //           blockButton: true,
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // );
+           //
+           
+            },
+            textStyle: const TextStyle(fontSize: 20, color: Colors.white),
+            text: AppLocalizations.of(context)!.sel,
+            type: GFButtonType.solid,
+            blockButton: true,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          GFButton(
+            size: 60,
+            color: const Color(0xFF2F4D84),
+            textStyle: const TextStyle(fontSize: 17, color: Colors.white),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const LoadingOption()),
+              );
+            },
+            text: AppLocalizations.of(context)!.load,
+            type: GFButtonType.solid,
+            shape: GFButtonShape.standard,
+            blockButton: true,
+          ),
+          Cargo(),
+          const SizedBox(
+            height: 10,
+          ),
+          SizedBox(
+            width: double.infinity,
+            child: Row(
+              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                GFButton(
+                  color: Colors.white,
+                  textStyle: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold),
+                  size: 60,
+                  onPressed: () {
+                    DatePicker.showDateTimePicker(context, showTitleActions: true,
+                        onChanged: (date) {
+                      // ignore: avoid_print
+                      print('change $date in time zone ' +
+                          date.timeZoneOffset.inHours.toString());
+                    }, onConfirm: (date) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Citymovement_screen(),
+                          ));
+                    }, currentTime: DateTime(2008, 12, 31, 23, 12, 34));
+                  },
+                  text: AppLocalizations.of(context)!.sche,
+                  type: GFButtonType.solid,
+                  borderSide:
+                      const BorderSide(color: Color(0xFF2F4D84), width: 2),
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                SizedBox(
+                  width: 235,
+                  // padding: const EdgeInsets.all(5),
+                  // width: 250,
+                  child: GFButton(
+                    fullWidthButton: true,
+                    color: const Color(0xFF2F4D84),
+                    textStyle: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold),
+                    size: 60,
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Timewait()),
+                      );
+                    },
+                    text: AppLocalizations.of(context)!.book,
+                    type: GFButtonType.solid,
+                  ),
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+              ],
+            ),
+        )
+
+
+        ],
+      ),
       ),
     );
   }
 }
 
-Widget _scrollingList(ScrollController sc, BuildContext context) {
-  bool isSwitched = false;
-  void toggleSwitch(bool value) {
-    // print("object");
-  }
 
-  return Container(
-    padding: const EdgeInsets.all(10),
-    child: Column( 
-      children: [
-        Container(
-          padding: const EdgeInsets.all(10),
-          child: Row(
-            children: [
-              const SizedBox(
-                width: 10,
-              ),
-              Column(
-                children: [
-                  Text(
-                    AppLocalizations.of(context)!.use,
-                    style: const TextStyle(
-                      color: Color(0xff707070),
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    AppLocalizations.of(context)!.bal,
-                    style: const TextStyle(
-                      color: Color(0xff707070),
-                      fontSize: 15,
-                    ),
-                  ),
-                ],
-              ),
-              Column(
-                children: [
-                  Switch(
-                    onChanged: toggleSwitch,
-                    value: isSwitched,
-                    activeColor: Colors.blue,
-                    activeTrackColor: Colors.yellow,
-                    inactiveThumbColor: Colors.white10,
-                    inactiveTrackColor: Colors.black12,
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                    "Rs  :350",
-                    style: TextStyle(
-                      color: Colors.green[600],
-                      fontSize: 15,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                width: 50,
-              ),
-              Column(
-                children: [
-                  Text(
-                    AppLocalizations.of(context)!.est,
-                    style: const TextStyle(
-                      color: Color(0xff707070),
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  const Text(
-                    "Rs  3528 - 3644",
-                    style: TextStyle(
-                      color: Colors.green,
-                      fontSize: 15,
-                    ),
-                  ),
-                ],
-              )
-            ],
-          ),
-        ),
-        const Divider(
-          height: 10,
-          thickness: 2,
-        ),
-        GFButton(
-          size: 60,
-          color: const Color(0xFF2F4D84),
-          onPressed: () {
 
-            Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Selectvehiclecity(),
-                    ));
+// Widget _scrollingList(ScrollController sc, BuildContext context) {
+//   bool isSwitched = false;
+//   void toggleSwitch(bool value) {
+//     // print("object");
+//   }
 
-            // showMaterialModalBottomSheet(
-            //   context: context,
-            //   builder: (context) => SingleChildScrollView(
-            //     child: Column(
-            //       children: [
-            //         const SizedBox(
-            //           height: 10,
-            //         ),
-            //         const Text(
-            //           "Select Vehicle",
-            //           style: TextStyle(
-            //               color: Color(0xFF2F4D84),
-            //               fontWeight: FontWeight.w500,
-            //               fontSize: 25),
-            //         ),
+//   return Container(
+//     padding: const EdgeInsets.all(10),
+//     child: Column( 
+//       children: [
+//         Container(
+//           padding: const EdgeInsets.all(10),
+//           child: Row(
+//             children: [
+//               const SizedBox(
+//                 width: 10,
+//               ),
+//               Column(
+//                 children: [
+//                   Text(
+//                     AppLocalizations.of(context)!.use,
+//                     style: const TextStyle(
+//                       color: Color(0xff707070),
+//                       fontSize: 15,
+//                       fontWeight: FontWeight.bold,
+//                     ),
+//                   ),
+//                   const SizedBox(
+//                     height: 20,
+//                   ),
+//                   Text(
+//                     AppLocalizations.of(context)!.bal,
+//                     style: const TextStyle(
+//                       color: Color(0xff707070),
+//                       fontSize: 15,
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//               Column(
+//                 children: [
+//                   Switch(
+//                     onChanged: toggleSwitch,
+//                     value: isSwitched,
+//                     activeColor: Colors.blue,
+//                     activeTrackColor: Colors.yellow,
+//                     inactiveThumbColor: Colors.white10,
+//                     inactiveTrackColor: Colors.black12,
+//                   ),
+//                   const SizedBox(
+//                     height: 5,
+//                   ),
+//                   Text(
+//                     "Rs  :350",
+//                     style: TextStyle(
+//                       color: Colors.green[600],
+//                       fontSize: 15,
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//               const SizedBox(
+//                 width: 50,
+//               ),
+//               Column(
+//                 children: [
+//                   Text(
+//                     AppLocalizations.of(context)!.est,
+//                     style: const TextStyle(
+//                       color: Color(0xff707070),
+//                       fontSize: 15,
+//                       fontWeight: FontWeight.bold,
+//                     ),
+//                   ),
+//                   const SizedBox(
+//                     height: 5,
+//                   ),
+//                   const Text(
+//                     "Rs  3528 - 3644",
+//                     style: TextStyle(
+//                       color: Colors.green,
+//                       fontSize: 15,
+//                     ),
+//                   ),
+//                 ],
+//               )
+//             ],
+//           ),
+//         ),
+//         const Divider(
+//           height: 10,
+//           thickness: 2,
+//         ),
+//         GFButton(
+//           size: 60,
+//           color: const Color(0xFF2F4D84),
+//           onPressed: () {
 
-            //         GFListTile(
-            //           avatar: GFAvatar(
-            //             backgroundColor: Colors.white10,
-            //             shape: GFAvatarShape.square,
-            //             child: Image.asset(
-            //               "assets/Path.png",
-            //               // color: Colors.black
-            //             ),
-            //           ),
-            //           title: const Text(
-            //             "Truck",
-            //             style: TextStyle(
-            //               color: Colors.black,
-            //               fontSize: 20,
-            //             ),
-            //           ),
-            //           icon: Row(
-            //             children: [
-            //               Container(
-            //                 decoration: BoxDecoration(
-            //                     color: const Color(0xFF2F4D84),
-            //                     borderRadius: BorderRadius.circular(10)),
-            //                 height: 30,
-            //                 width: 30,
-            //                 child: const Icon(
-            //                   Icons.add,
-            //                   color: Colors.white,
-            //                 ),
-            //               ),
-            //               const SizedBox(
-            //                 width: 5,
-            //               ),
-            //               const Text(
-            //                 "0",
-            //                 style: TextStyle(fontSize: 25),
-            //               ),
-            //               const SizedBox(
-            //                 width: 5,
-            //               ),
-            //               Container(
-            //                 decoration: BoxDecoration(
-            //                     color: const Color(0xFF2F4D84),
-            //                     borderRadius: BorderRadius.circular(10)),
-            //                 height: 30,
-            //                 width: 30,
-            //                 child: const Icon(
-            //                   Icons.remove,
-            //                   color: Colors.white,
-            //                 ),
-            //               ),
-            //             ],
-            //           ),
-            //         ),
+//             Navigator.push(
+//                     context,
+//                     MaterialPageRoute(
+//                       builder: (context) => const Selectvehiclecity(),
+//                     ));
+
+//             // showMaterialModalBottomSheet(
+//             //   context: context,
+//             //   builder: (context) => SingleChildScrollView(
+//             //     child: Column(
+//             //       children: [
+//             //         const SizedBox(
+//             //           height: 10,
+//             //         ),
+//             //         const Text(
+//             //           "Select Vehicle",
+//             //           style: TextStyle(
+//             //               color: Color(0xFF2F4D84),
+//             //               fontWeight: FontWeight.w500,
+//             //               fontSize: 25),
+//             //         ),
+
+//             //         GFListTile(
+//             //           avatar: GFAvatar(
+//             //             backgroundColor: Colors.white10,
+//             //             shape: GFAvatarShape.square,
+//             //             child: Image.asset(
+//             //               "assets/Path.png",
+//             //               // color: Colors.black
+//             //             ),
+//             //           ),
+//             //           title: const Text(
+//             //             "Truck",
+//             //             style: TextStyle(
+//             //               color: Colors.black,
+//             //               fontSize: 20,
+//             //             ),
+//             //           ),
+//             //           icon: Row(
+//             //             children: [
+//             //               Container(
+//             //                 decoration: BoxDecoration(
+//             //                     color: const Color(0xFF2F4D84),
+//             //                     borderRadius: BorderRadius.circular(10)),
+//             //                 height: 30,
+//             //                 width: 30,
+//             //                 child: const Icon(
+//             //                   Icons.add,
+//             //                   color: Colors.white,
+//             //                 ),
+//             //               ),
+//             //               const SizedBox(
+//             //                 width: 5,
+//             //               ),
+//             //               const Text(
+//             //                 "0",
+//             //                 style: TextStyle(fontSize: 25),
+//             //               ),
+//             //               const SizedBox(
+//             //                 width: 5,
+//             //               ),
+//             //               Container(
+//             //                 decoration: BoxDecoration(
+//             //                     color: const Color(0xFF2F4D84),
+//             //                     borderRadius: BorderRadius.circular(10)),
+//             //                 height: 30,
+//             //                 width: 30,
+//             //                 child: const Icon(
+//             //                   Icons.remove,
+//             //                   color: Colors.white,
+//             //                 ),
+//             //               ),
+//             //             ],
+//             //           ),
+//             //         ),
                    
-            //        //
-            //         const Divider(
-            //           color: Colors.black54,
-            //         ),
-            //         GFListTile(
-            //           avatar: GFAvatar(
-            //             backgroundColor: Colors.white10,
-            //             shape: GFAvatarShape.square,
-            //             child:
-            //                 Image.asset("assets/Path.png", color: Colors.black),
-            //           ),
-            //           title: const Text(
-            //             "Truck",
-            //             style: TextStyle(
-            //               color: Colors.black,
-            //               fontSize: 20,
-            //             ),
-            //           ),
-            //           icon: Row(
-            //             children: [
-            //               Container(
-            //                 decoration: BoxDecoration(
-            //                     color: const Color(0xFF2F4D84),
-            //                     borderRadius: BorderRadius.circular(10)),
-            //                 height: 30,
-            //                 width: 30,
-            //                 child: const Icon(
-            //                   Icons.add,
-            //                   color: Colors.white,
-            //                 ),
-            //               ),
-            //               const SizedBox(
-            //                 width: 5,
-            //               ),
-            //               const Text(
-            //                 "0",
-            //                 style: TextStyle(fontSize: 25),
-            //               ),
-            //               const SizedBox(
-            //                 width: 5,
-            //               ),
-            //               Container(
-            //                 decoration: BoxDecoration(
-            //                     color: const Color(0xFF2F4D84),
-            //                     borderRadius: BorderRadius.circular(10)),
-            //                 height: 30,
-            //                 width: 30,
-            //                 child: const Icon(
-            //                   Icons.remove,
-            //                   color: Colors.white,
-            //                 ),
-            //               ),
-            //             ],
-            //           ),
-            //         ),
-            //         const Divider(
-            //           color: Colors.black54,
-            //         ),
-            //         GFListTile(
-            //           avatar: GFAvatar(
-            //             backgroundColor: Colors.white10,
-            //             shape: GFAvatarShape.square,
-            //             child:
-            //                 Image.asset("assets/Path.png", color: Colors.black),
-            //           ),
-            //           title: const Text(
-            //             "Truck",
-            //             style: TextStyle(
-            //               color: Colors.black,
-            //               fontSize: 20,
-            //             ),
-            //           ),
-            //           icon: Row(
-            //             children: [
-            //               Container(
-            //                 decoration: BoxDecoration(
-            //                     color: const Color(0xFF2F4D84),
-            //                     borderRadius: BorderRadius.circular(10)),
-            //                 height: 30,
-            //                 width: 30,
-            //                 child: const Icon(
-            //                   Icons.add,
-            //                   color: Colors.white,
-            //                 ),
-            //               ),
-            //               const SizedBox(
-            //                 width: 5,
-            //               ),
-            //               const Text(
-            //                 "0",
-            //                 style: TextStyle(fontSize: 25),
-            //               ),
-            //               const SizedBox(
-            //                 width: 5,
-            //               ),
-            //               Container(
-            //                 decoration: BoxDecoration(
-            //                     color: const Color(0xFF2F4D84),
-            //                     borderRadius: BorderRadius.circular(10)),
-            //                 height: 30,
-            //                 width: 30,
-            //                 child: const Icon(
-            //                   Icons.remove,
-            //                   color: Colors.white,
-            //                 ),
-            //               ),
-            //             ],
-            //           ),
-            //         ),
-            //         const Divider(
-            //           color: Colors.black54,
-            //         ),
-            //         GFListTile(
-            //           avatar: GFAvatar(
-            //             backgroundColor: Colors.white10,
-            //             shape: GFAvatarShape.square,
-            //             child: Image.asset("assets/Path.png",
-            //                 color: const Color(0xFF2F4D84)),
-            //           ),
-            //           title: const Text(
-            //             "40 FT Container",
-            //             style: TextStyle(
-            //               color: Colors.black,
-            //               fontSize: 20,
-            //             ),
-            //           ),
-            //           icon: Row(
-            //             children: [
-            //               Container(
-            //                 decoration: BoxDecoration(
-            //                     color: const Color(0xFF2F4D84),
-            //                     borderRadius: BorderRadius.circular(10)),
-            //                 height: 30,
-            //                 width: 30,
-            //                 child: const Icon(
-            //                   Icons.add,
-            //                   color: Colors.white,
-            //                 ),
-            //               ),
-            //               const SizedBox(
-            //                 width: 5,
-            //               ),
-            //               const Text(
-            //                 "0",
-            //                 style: TextStyle(fontSize: 25),
-            //               ),
-            //               const SizedBox(
-            //                 width: 5,
-            //               ),
-            //               Container(
-            //                 decoration: BoxDecoration(
-            //                     color: const Color(0xFF2F4D84),
-            //                     borderRadius: BorderRadius.circular(10)),
-            //                 height: 30,
-            //                 width: 30,
-            //                 child: const Icon(
-            //                   Icons.remove,
-            //                   color: Colors.white,
-            //                 ),
-            //               ),
-            //             ],
-            //           ),
-            //         ), //
-            //         const Divider(
-            //           color: Colors.black54,
-            //         ),
-            //         Container(
-            //           color: const Color(0xFF2F4D84),
-            //           child: GFListTile(
-            //             avatar: GFAvatar(
-            //               backgroundColor: Colors.white10,
-            //               shape: GFAvatarShape.square,
-            //               child: Image.asset("assets/Path.png",
-            //                   color: Colors.white),
-            //             ),
-            //             title: const Text(
-            //               "Truck 20 Wheels",
-            //               style: TextStyle(
-            //                 color: Colors.white,
-            //                 fontSize: 20,
-            //               ),
-            //             ),
-            //             icon: Row(
-            //               children: [
-            //                 Container(
-            //                   decoration: BoxDecoration(
-            //                       color: const Color(0xFF2F4D84),
-            //                       borderRadius: BorderRadius.circular(10)),
-            //                   height: 30,
-            //                   width: 30,
-            //                   child: const Icon(
-            //                     Icons.add,
-            //                     color: Colors.white,
-            //                   ),
-            //                 ),
-            //                 const SizedBox(
-            //                   width: 5,
-            //                 ),
-            //                 const Text(
-            //                   "0",
-            //                   style: TextStyle(fontSize: 25),
-            //                 ),
-            //                 const SizedBox(
-            //                   width: 5,
-            //                 ),
-            //                 Container(
-            //                   decoration: BoxDecoration(
-            //                       color: const Color(0xFF2F4D84),
-            //                       borderRadius: BorderRadius.circular(10)),
-            //                   height: 30,
-            //                   width: 30,
-            //                   child: const Icon(
-            //                     Icons.remove,
-            //                     color: Colors.white,
-            //                   ),
-            //                 ),
-            //               ],
-            //             ),
-            //           ),
-            //         ), //
-            //         ///
-            //         const Divider(
-            //           color: Colors.black54,
-            //         ),
-            //         GFListTile(
-            //           avatar: GFAvatar(
-            //             backgroundColor: Colors.white10,
-            //             shape: GFAvatarShape.square,
-            //             child:
-            //                 Image.asset("assets/Path.png", color: Colors.black),
-            //           ),
-            //           title: const Text(
-            //             "Truck",
-            //             style: TextStyle(
-            //               color: Colors.black,
-            //               fontSize: 20,
-            //             ),
-            //           ),
-            //           icon: Row(
-            //             children: [
-            //               Container(
-            //                 decoration: BoxDecoration(
-            //                     color: const Color(0xFF2F4D84),
-            //                     borderRadius: BorderRadius.circular(10)),
-            //                 height: 30,
-            //                 width: 30,
-            //                 child: const Icon(
-            //                   Icons.add,
-            //                   color: Colors.white,
-            //                 ),
-            //               ),
-            //               const SizedBox(
-            //                 width: 5,
-            //               ),
-            //               const Text(
-            //                 "0",
-            //                 style: TextStyle(fontSize: 25),
-            //               ),
-            //               const SizedBox(
-            //                 width: 5,
-            //               ),
-            //               Container(
-            //                 decoration: BoxDecoration(
-            //                     color: const Color(0xFF2F4D84),
-            //                     borderRadius: BorderRadius.circular(10)),
-            //                 height: 30,
-            //                 width: 30,
-            //                 child: const Icon(
-            //                   Icons.remove,
-            //                   color: Colors.white,
-            //                 ),
-            //               ),
-            //             ],
-            //           ),
-            //         ),
-            //         const Divider(
-            //           color: Colors.black54,
-            //         ),
-            //         GFListTile(
-            //           avatar: GFAvatar(
-            //             backgroundColor: Colors.white10,
-            //             shape: GFAvatarShape.square,
-            //             child:
-            //                 Image.asset("assets/Path.png", color: Colors.black),
-            //           ),
-            //           title: const Text(
-            //             "Truck",
-            //             style: TextStyle(
-            //               color: Colors.black,
-            //               fontSize: 20,
-            //             ),
-            //           ),
-            //           icon: Row(
-            //             children: [
-            //               Container(
-            //                 decoration: BoxDecoration(
-            //                     color: const Color(0xFF2F4D84),
-            //                     borderRadius: BorderRadius.circular(10)),
-            //                 height: 30,
-            //                 width: 30,
-            //                 child: const Icon(
-            //                   Icons.add,
-            //                   color: Colors.white,
-            //                 ),
-            //               ),
-            //               const SizedBox(
-            //                 width: 5,
-            //               ),
-            //               const Text(
-            //                 "0",
-            //                 style: TextStyle(fontSize: 25),
-            //               ),
-            //               const SizedBox(
-            //                 width: 5,
-            //               ),
-            //               Container(
-            //                 decoration: BoxDecoration(
-            //                     color: const Color(0xFF2F4D84),
-            //                     borderRadius: BorderRadius.circular(10)),
-            //                 height: 30,
-            //                 width: 30,
-            //                 child: const Icon(
-            //                   Icons.remove,
-            //                   color: Colors.white,
-            //                 ),
-            //               ),
-            //             ],
-            //           ),
-            //         ),
-            //         const Divider(
-            //           color: Colors.black54,
-            //         ),
-            //         GFButton(
-            //           size: 60,
-            //           color: const Color(0xFF2F4D84),
-            //           onPressed: () {
-            //             Navigator.push(
-            //               context,
-            //               MaterialPageRoute(
-            //                   builder: (context) =>
-            //                       const Citymovement_screen()),
-            //             );
-            //           },
-            //           text: "Save & Contine ",
-            //           textStyle:
-            //               const TextStyle(fontSize: 25, color: Colors.white),
-            //           type: GFButtonType.solid,
-            //           shape: GFButtonShape.standard,
-            //           blockButton: true,
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // );
-         //
+//             //        //
+//             //         const Divider(
+//             //           color: Colors.black54,
+//             //         ),
+//             //         GFListTile(
+//             //           avatar: GFAvatar(
+//             //             backgroundColor: Colors.white10,
+//             //             shape: GFAvatarShape.square,
+//             //             child:
+//             //                 Image.asset("assets/Path.png", color: Colors.black),
+//             //           ),
+//             //           title: const Text(
+//             //             "Truck",
+//             //             style: TextStyle(
+//             //               color: Colors.black,
+//             //               fontSize: 20,
+//             //             ),
+//             //           ),
+//             //           icon: Row(
+//             //             children: [
+//             //               Container(
+//             //                 decoration: BoxDecoration(
+//             //                     color: const Color(0xFF2F4D84),
+//             //                     borderRadius: BorderRadius.circular(10)),
+//             //                 height: 30,
+//             //                 width: 30,
+//             //                 child: const Icon(
+//             //                   Icons.add,
+//             //                   color: Colors.white,
+//             //                 ),
+//             //               ),
+//             //               const SizedBox(
+//             //                 width: 5,
+//             //               ),
+//             //               const Text(
+//             //                 "0",
+//             //                 style: TextStyle(fontSize: 25),
+//             //               ),
+//             //               const SizedBox(
+//             //                 width: 5,
+//             //               ),
+//             //               Container(
+//             //                 decoration: BoxDecoration(
+//             //                     color: const Color(0xFF2F4D84),
+//             //                     borderRadius: BorderRadius.circular(10)),
+//             //                 height: 30,
+//             //                 width: 30,
+//             //                 child: const Icon(
+//             //                   Icons.remove,
+//             //                   color: Colors.white,
+//             //                 ),
+//             //               ),
+//             //             ],
+//             //           ),
+//             //         ),
+//             //         const Divider(
+//             //           color: Colors.black54,
+//             //         ),
+//             //         GFListTile(
+//             //           avatar: GFAvatar(
+//             //             backgroundColor: Colors.white10,
+//             //             shape: GFAvatarShape.square,
+//             //             child:
+//             //                 Image.asset("assets/Path.png", color: Colors.black),
+//             //           ),
+//             //           title: const Text(
+//             //             "Truck",
+//             //             style: TextStyle(
+//             //               color: Colors.black,
+//             //               fontSize: 20,
+//             //             ),
+//             //           ),
+//             //           icon: Row(
+//             //             children: [
+//             //               Container(
+//             //                 decoration: BoxDecoration(
+//             //                     color: const Color(0xFF2F4D84),
+//             //                     borderRadius: BorderRadius.circular(10)),
+//             //                 height: 30,
+//             //                 width: 30,
+//             //                 child: const Icon(
+//             //                   Icons.add,
+//             //                   color: Colors.white,
+//             //                 ),
+//             //               ),
+//             //               const SizedBox(
+//             //                 width: 5,
+//             //               ),
+//             //               const Text(
+//             //                 "0",
+//             //                 style: TextStyle(fontSize: 25),
+//             //               ),
+//             //               const SizedBox(
+//             //                 width: 5,
+//             //               ),
+//             //               Container(
+//             //                 decoration: BoxDecoration(
+//             //                     color: const Color(0xFF2F4D84),
+//             //                     borderRadius: BorderRadius.circular(10)),
+//             //                 height: 30,
+//             //                 width: 30,
+//             //                 child: const Icon(
+//             //                   Icons.remove,
+//             //                   color: Colors.white,
+//             //                 ),
+//             //               ),
+//             //             ],
+//             //           ),
+//             //         ),
+//             //         const Divider(
+//             //           color: Colors.black54,
+//             //         ),
+//             //         GFListTile(
+//             //           avatar: GFAvatar(
+//             //             backgroundColor: Colors.white10,
+//             //             shape: GFAvatarShape.square,
+//             //             child: Image.asset("assets/Path.png",
+//             //                 color: const Color(0xFF2F4D84)),
+//             //           ),
+//             //           title: const Text(
+//             //             "40 FT Container",
+//             //             style: TextStyle(
+//             //               color: Colors.black,
+//             //               fontSize: 20,
+//             //             ),
+//             //           ),
+//             //           icon: Row(
+//             //             children: [
+//             //               Container(
+//             //                 decoration: BoxDecoration(
+//             //                     color: const Color(0xFF2F4D84),
+//             //                     borderRadius: BorderRadius.circular(10)),
+//             //                 height: 30,
+//             //                 width: 30,
+//             //                 child: const Icon(
+//             //                   Icons.add,
+//             //                   color: Colors.white,
+//             //                 ),
+//             //               ),
+//             //               const SizedBox(
+//             //                 width: 5,
+//             //               ),
+//             //               const Text(
+//             //                 "0",
+//             //                 style: TextStyle(fontSize: 25),
+//             //               ),
+//             //               const SizedBox(
+//             //                 width: 5,
+//             //               ),
+//             //               Container(
+//             //                 decoration: BoxDecoration(
+//             //                     color: const Color(0xFF2F4D84),
+//             //                     borderRadius: BorderRadius.circular(10)),
+//             //                 height: 30,
+//             //                 width: 30,
+//             //                 child: const Icon(
+//             //                   Icons.remove,
+//             //                   color: Colors.white,
+//             //                 ),
+//             //               ),
+//             //             ],
+//             //           ),
+//             //         ), //
+//             //         const Divider(
+//             //           color: Colors.black54,
+//             //         ),
+//             //         Container(
+//             //           color: const Color(0xFF2F4D84),
+//             //           child: GFListTile(
+//             //             avatar: GFAvatar(
+//             //               backgroundColor: Colors.white10,
+//             //               shape: GFAvatarShape.square,
+//             //               child: Image.asset("assets/Path.png",
+//             //                   color: Colors.white),
+//             //             ),
+//             //             title: const Text(
+//             //               "Truck 20 Wheels",
+//             //               style: TextStyle(
+//             //                 color: Colors.white,
+//             //                 fontSize: 20,
+//             //               ),
+//             //             ),
+//             //             icon: Row(
+//             //               children: [
+//             //                 Container(
+//             //                   decoration: BoxDecoration(
+//             //                       color: const Color(0xFF2F4D84),
+//             //                       borderRadius: BorderRadius.circular(10)),
+//             //                   height: 30,
+//             //                   width: 30,
+//             //                   child: const Icon(
+//             //                     Icons.add,
+//             //                     color: Colors.white,
+//             //                   ),
+//             //                 ),
+//             //                 const SizedBox(
+//             //                   width: 5,
+//             //                 ),
+//             //                 const Text(
+//             //                   "0",
+//             //                   style: TextStyle(fontSize: 25),
+//             //                 ),
+//             //                 const SizedBox(
+//             //                   width: 5,
+//             //                 ),
+//             //                 Container(
+//             //                   decoration: BoxDecoration(
+//             //                       color: const Color(0xFF2F4D84),
+//             //                       borderRadius: BorderRadius.circular(10)),
+//             //                   height: 30,
+//             //                   width: 30,
+//             //                   child: const Icon(
+//             //                     Icons.remove,
+//             //                     color: Colors.white,
+//             //                   ),
+//             //                 ),
+//             //               ],
+//             //             ),
+//             //           ),
+//             //         ), //
+//             //         ///
+//             //         const Divider(
+//             //           color: Colors.black54,
+//             //         ),
+//             //         GFListTile(
+//             //           avatar: GFAvatar(
+//             //             backgroundColor: Colors.white10,
+//             //             shape: GFAvatarShape.square,
+//             //             child:
+//             //                 Image.asset("assets/Path.png", color: Colors.black),
+//             //           ),
+//             //           title: const Text(
+//             //             "Truck",
+//             //             style: TextStyle(
+//             //               color: Colors.black,
+//             //               fontSize: 20,
+//             //             ),
+//             //           ),
+//             //           icon: Row(
+//             //             children: [
+//             //               Container(
+//             //                 decoration: BoxDecoration(
+//             //                     color: const Color(0xFF2F4D84),
+//             //                     borderRadius: BorderRadius.circular(10)),
+//             //                 height: 30,
+//             //                 width: 30,
+//             //                 child: const Icon(
+//             //                   Icons.add,
+//             //                   color: Colors.white,
+//             //                 ),
+//             //               ),
+//             //               const SizedBox(
+//             //                 width: 5,
+//             //               ),
+//             //               const Text(
+//             //                 "0",
+//             //                 style: TextStyle(fontSize: 25),
+//             //               ),
+//             //               const SizedBox(
+//             //                 width: 5,
+//             //               ),
+//             //               Container(
+//             //                 decoration: BoxDecoration(
+//             //                     color: const Color(0xFF2F4D84),
+//             //                     borderRadius: BorderRadius.circular(10)),
+//             //                 height: 30,
+//             //                 width: 30,
+//             //                 child: const Icon(
+//             //                   Icons.remove,
+//             //                   color: Colors.white,
+//             //                 ),
+//             //               ),
+//             //             ],
+//             //           ),
+//             //         ),
+//             //         const Divider(
+//             //           color: Colors.black54,
+//             //         ),
+//             //         GFListTile(
+//             //           avatar: GFAvatar(
+//             //             backgroundColor: Colors.white10,
+//             //             shape: GFAvatarShape.square,
+//             //             child:
+//             //                 Image.asset("assets/Path.png", color: Colors.black),
+//             //           ),
+//             //           title: const Text(
+//             //             "Truck",
+//             //             style: TextStyle(
+//             //               color: Colors.black,
+//             //               fontSize: 20,
+//             //             ),
+//             //           ),
+//             //           icon: Row(
+//             //             children: [
+//             //               Container(
+//             //                 decoration: BoxDecoration(
+//             //                     color: const Color(0xFF2F4D84),
+//             //                     borderRadius: BorderRadius.circular(10)),
+//             //                 height: 30,
+//             //                 width: 30,
+//             //                 child: const Icon(
+//             //                   Icons.add,
+//             //                   color: Colors.white,
+//             //                 ),
+//             //               ),
+//             //               const SizedBox(
+//             //                 width: 5,
+//             //               ),
+//             //               const Text(
+//             //                 "0",
+//             //                 style: TextStyle(fontSize: 25),
+//             //               ),
+//             //               const SizedBox(
+//             //                 width: 5,
+//             //               ),
+//             //               Container(
+//             //                 decoration: BoxDecoration(
+//             //                     color: const Color(0xFF2F4D84),
+//             //                     borderRadius: BorderRadius.circular(10)),
+//             //                 height: 30,
+//             //                 width: 30,
+//             //                 child: const Icon(
+//             //                   Icons.remove,
+//             //                   color: Colors.white,
+//             //                 ),
+//             //               ),
+//             //             ],
+//             //           ),
+//             //         ),
+//             //         const Divider(
+//             //           color: Colors.black54,
+//             //         ),
+//             //         GFButton(
+//             //           size: 60,
+//             //           color: const Color(0xFF2F4D84),
+//             //           onPressed: () {
+//             //             Navigator.push(
+//             //               context,
+//             //               MaterialPageRoute(
+//             //                   builder: (context) =>
+//             //                       const Citymovement_screen()),
+//             //             );
+//             //           },
+//             //           text: "Save & Contine ",
+//             //           textStyle:
+//             //               const TextStyle(fontSize: 25, color: Colors.white),
+//             //           type: GFButtonType.solid,
+//             //           shape: GFButtonShape.standard,
+//             //           blockButton: true,
+//             //         ),
+//             //       ],
+//             //     ),
+//             //   ),
+//             // );
+//          //
          
-          },
-          textStyle: const TextStyle(fontSize: 20, color: Colors.white),
-          text: AppLocalizations.of(context)!.sel,
-          type: GFButtonType.solid,
-          blockButton: true,
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        GFButton(
-          size: 60,
-          color: const Color(0xFF2F4D84),
-          textStyle: const TextStyle(fontSize: 17, color: Colors.white),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const LoadingOption()),
-            );
-          },
-          text: AppLocalizations.of(context)!.load,
-          type: GFButtonType.solid,
-          shape: GFButtonShape.standard,
-          blockButton: true,
-        ),
-        Cargo(),
-        const SizedBox(
-          height: 10,
-        ),
-        SizedBox(
-          width: double.infinity,
-          child: Row(
-            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              GFButton(
-                color: Colors.white,
-                textStyle: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold),
-                size: 60,
-                onPressed: () {
-                  DatePicker.showDateTimePicker(context, showTitleActions: true,
-                      onChanged: (date) {
-                    // ignore: avoid_print
-                    print('change $date in time zone ' +
-                        date.timeZoneOffset.inHours.toString());
-                  }, onConfirm: (date) {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const Citymovement_screen(),
-                        ));
-                  }, currentTime: DateTime(2008, 12, 31, 23, 12, 34));
-                },
-                text: AppLocalizations.of(context)!.sche,
-                type: GFButtonType.solid,
-                borderSide:
-                    const BorderSide(color: Color(0xFF2F4D84), width: 2),
-              ),
-              const SizedBox(
-                width: 5,
-              ),
-              SizedBox(
-                width: 235,
-                // padding: const EdgeInsets.all(5),
-                // width: 250,
-                child: GFButton(
-                  fullWidthButton: true,
-                  color: const Color(0xFF2F4D84),
-                  textStyle: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold),
-                  size: 60,
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Timewait()),
-                    );
-                  },
-                  text: AppLocalizations.of(context)!.book,
-                  type: GFButtonType.solid,
-                ),
-              ),
-              const SizedBox(
-                width: 5,
-              ),
-            ],
-          ),
-        )
-      ],
-    ),
-  );
-}
+//           },
+//           textStyle: const TextStyle(fontSize: 20, color: Colors.white),
+//           text: AppLocalizations.of(context)!.sel,
+//           type: GFButtonType.solid,
+//           blockButton: true,
+//         ),
+//         const SizedBox(
+//           height: 20,
+//         ),
+//         GFButton(
+//           size: 60,
+//           color: const Color(0xFF2F4D84),
+//           textStyle: const TextStyle(fontSize: 17, color: Colors.white),
+//           onPressed: () {
+//             Navigator.push(
+//               context,
+//               MaterialPageRoute(builder: (context) => const LoadingOption()),
+//             );
+//           },
+//           text: AppLocalizations.of(context)!.load,
+//           type: GFButtonType.solid,
+//           shape: GFButtonShape.standard,
+//           blockButton: true,
+//         ),
+//         Cargo(),
+//         const SizedBox(
+//           height: 10,
+//         ),
+//         SizedBox(
+//           width: double.infinity,
+//           child: Row(
+//             // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//             children: [
+//               GFButton(
+//                 color: Colors.white,
+//                 textStyle: const TextStyle(
+//                     color: Colors.black,
+//                     fontSize: 15,
+//                     fontWeight: FontWeight.bold),
+//                 size: 60,
+//                 onPressed: () {
+//                   DatePicker.showDateTimePicker(context, showTitleActions: true,
+//                       onChanged: (date) {
+//                     // ignore: avoid_print
+//                     print('change $date in time zone ' +
+//                         date.timeZoneOffset.inHours.toString());
+//                   }, onConfirm: (date) {
+//                     Navigator.push(
+//                         context,
+//                         MaterialPageRoute(
+//                           builder: (context) => const Citymovement_screen(),
+//                         ));
+//                   }, currentTime: DateTime(2008, 12, 31, 23, 12, 34));
+//                 },
+//                 text: AppLocalizations.of(context)!.sche,
+//                 type: GFButtonType.solid,
+//                 borderSide:
+//                     const BorderSide(color: Color(0xFF2F4D84), width: 2),
+//               ),
+//               const SizedBox(
+//                 width: 5,
+//               ),
+//               SizedBox(
+//                 width: 235,
+//                 // padding: const EdgeInsets.all(5),
+//                 // width: 250,
+//                 child: GFButton(
+//                   fullWidthButton: true,
+//                   color: const Color(0xFF2F4D84),
+//                   textStyle: const TextStyle(
+//                       color: Colors.white,
+//                       fontSize: 17,
+//                       fontWeight: FontWeight.bold),
+//                   size: 60,
+//                   onPressed: () {
+//                     Navigator.push(
+//                       context,
+//                       MaterialPageRoute(builder: (context) => const Timewait()),
+//                     );
+//                   },
+//                   text: AppLocalizations.of(context)!.book,
+//                   type: GFButtonType.solid,
+//                 ),
+//               ),
+//               const SizedBox(
+//                 width: 5,
+//               ),
+//             ],
+//           ),
+//         )
+//       ],
+//     ),
+//   );
+
+// //
+// }
 
 class Cargo extends StatefulWidget {
   @override
