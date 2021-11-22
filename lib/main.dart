@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:meribilty/L10n/l10n.dart';
 import 'package:meribilty/provider/provider.dart';
-import 'package:meribilty/veiw/SignIn.dart';
 import 'package:meribilty/veiw/splashscreen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
@@ -34,9 +33,8 @@ class MyApp extends StatelessWidget {
               GlobalCupertinoLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
             ],
-            home: const SignIn(),
+            home: const SplashScreen(),
           );
-        }
-        );
+        });
   }
 }
