@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, unused_field, file_names, unnecessary_const, unnecessary_new, dead_code
+// ignore_for_file: prefer_const_constructors, unused_field, file_names, unnecessary_const, unnecessary_new, dead_code, avoid_print, prefer_typing_uninitialized_variables, duplicate_ignore
 
 import 'dart:async';
 
@@ -48,7 +48,7 @@ class _PortlogisticsState extends State<Portlogistics> {
 
   @override
   Widget build(BuildContext context) {
-    var _addressFrom, _addressTo;
+   
 
   
     return Scaffold(
@@ -64,13 +64,17 @@ class _PortlogisticsState extends State<Portlogistics> {
             maxHeight: 600,
             panel: _floatingPanel(context),
         
-            // panelBuilder: (ScrollController sc) => _scrollingList(sc, context),
+            
             body: 
             Consumer<LocaleProvider>(
                     builder: (context ,state , child ){
                     return Stack(
           children: [
             GoogleMap(
+              padding: EdgeInsets.only(top: 200),
+              myLocationEnabled: true,
+              myLocationButtonEnabled: true,
+              polylines: state.polylineport,
               markers: Set<Marker>.of(state.markers.values),
               mapType: MapType.normal,
               initialCameraPosition: _kGooglePlex,
@@ -79,6 +83,7 @@ class _PortlogisticsState extends State<Portlogistics> {
                 state.controller2=controller;
               },
             ),
+          
             SingleChildScrollView(
               child: Align(
               alignment: Alignment.topCenter,
@@ -165,7 +170,7 @@ class _PortlogisticsState extends State<Portlogistics> {
                                                   ),
                                                   autofocus: false,
                                                   focusNode: state.nodeFromport,
-                                                  controller: _addressFrom,
+                                                  controller: state.addressFromport,
                                                   onChanged: (String value) {
                                                     state.placeBloc.searchPlace(value);
                                                   },
@@ -212,7 +217,7 @@ class _PortlogisticsState extends State<Portlogistics> {
                                                   ),
                                                   focusNode: state.nodeToport,
                                                   autofocus: false,
-                                                  controller: _addressTo,
+                                                  controller: state.addressToport,
                                                   onChanged: (String value) {
                                                     state.placeBloc.searchPlace(value);
                                                   },
@@ -256,7 +261,7 @@ class _PortlogisticsState extends State<Portlogistics> {
                                                   ),
                                                   focusNode: state.nodecontaport,
                                                   autofocus: false,
-                                                  controller: _addressTo,
+                                                  controller: state.addconstToport,
                                                   onChanged: (String value) {
                                                     state.placeBloc.searchPlace(value);
                                                   },
@@ -365,7 +370,12 @@ class _PortlogisticsState extends State<Portlogistics> {
                                             .address
                                             : ""),
                                         onTap: () {
-                                          state.ToDataport(context,index);
+
+                                       state.ToDataport(context,index);
+                                       var  _toLocation = LatLng(state.dataTocityport[0]['lat'], state.dataTocityport[0]['long']);
+                                       var _fromLocation = LatLng(state.dataFromport[0]['lat'], state.dataFromport[0]['long']);
+                                       state.setPolylinesport(_fromLocation, _toLocation);
+                                       
                                         },
                                       );
                                     },
@@ -1111,7 +1121,7 @@ Cargo(),
               onPressed: () {
                 DatePicker.showDateTimePicker(context, showTitleActions: true,
                     onChanged: (date) {
-                  // ignore: avoid_print
+               
                   print('change $date in time zone ' +
                       date.timeZoneOffset.inHours.toString());
                 }, onConfirm: (date) {

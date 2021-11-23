@@ -229,14 +229,14 @@ class Floating extends StatelessWidget {
                                       Container(
                                           child: e.count>=1 ? Text(" Rs 1000 " ,
                                   style: TextStyle(
-                                    color: e.count>=1 ? Colors.white : Color(0xffC8C7CC),
+                                    color: e.count>=1 ? Colors.white : const Color(0xffC8C7CC),
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                   ),
                                   
                                   ) : Text("",
                                   style: TextStyle(
-                                    color: e.count>=1 ? Colors.white : Color(0xffC8C7CC),
+                                    color: e.count>=1 ? Colors.white : const Color(0xffC8C7CC),
                                   fontSize: 13,
                                   
                                   

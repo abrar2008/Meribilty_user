@@ -100,7 +100,6 @@ class floating extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var cot = 1000;
     return Scaffold(
   body:    Card(
 

@@ -1,7 +1,5 @@
-// ignore_for_file: camel_case_types, file_names, use_key_in_widget_constructors
-import 'dart:async';
+// ignore_for_file: camel_case_types, file_names, use_key_in_widget_constructors, prefer_typing_uninitialized_variables
 
-import 'package:location/location.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -26,9 +24,8 @@ class Citymovement_screen extends StatefulWidget {
 }
 
 class _Citymovement_screenState extends State<Citymovement_screen> {
-  final Completer<GoogleMapController> _controller = Completer();
 
-  static const CameraPosition _kGooglePlex = const CameraPosition(
+  static const CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(37.42796133580664, -122.085749655962),  
     zoom: 14.4746,
    );
@@ -43,17 +40,9 @@ class _Citymovement_screenState extends State<Citymovement_screen> {
   }
 
 
-  static final CameraPosition _kLake = const CameraPosition(
-      bearing: 192.8334901395799,
-      target: LatLng(37.43296265331129, -122.08832357078792),
-      tilt: 59.440717697143555,
-      zoom: 19.151926040649414
-      );
   @override
   Widget build(BuildContext context) {
-bool? _serviceEnabled;
-   PermissionStatus? _permissionGranted;
-    var _addressFrom, _addressTo;
+
     return Scaffold(
     appBar: AppBar(
       
@@ -81,6 +70,10 @@ bool? _serviceEnabled;
   children: [
 
             GoogleMap(
+              padding: const EdgeInsets.only(top: 200),
+              myLocationEnabled: true,
+              myLocationButtonEnabled: true,
+              polylines: state.polylinecity,
               markers: Set<Marker>.of(state.markers.values),
               mapType: MapType.normal,
               initialCameraPosition: _kGooglePlex,
@@ -108,21 +101,21 @@ bool? _serviceEnabled;
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
-                                new Expanded(
+                                Expanded(
                                   flex: 1,
-                                  child: new Column(
-                                    children: <Widget>[
-                                      new Icon(
+                                  child: Column(
+                                    children: const <Widget>[
+                                      Icon(
                                         Icons.my_location,
                                         size: 20.0,
                                         color: Colors.blue,
                                       ),
-                                      const Icon(
+                                      Icon(
                                         Icons.more_vert,
                                         size: 20.0,
                                         color: Colors.grey,
                                       ),
-                                      const Icon(
+                                      Icon(
                                         Icons.location_on,
                                         size: 20.0,
                                         color: Colors.red,
@@ -130,7 +123,7 @@ bool? _serviceEnabled;
                                     ],
                                   ),
                                 ),
-                                new Expanded(
+                                Expanded(
                                   flex: 5,
                                   child:
                                   
@@ -141,12 +134,12 @@ bool? _serviceEnabled;
                                         mainAxisSize: MainAxisSize.max,
                                         children: <Widget>[
                                           // one textfeild
-                                          new Container(
+                                          Container(
                                             height: 50.0,
                                             width: MediaQuery.of(context).size.width -
                                                 50,
                                             color: Colors.white,
-                                            child: new Column(
+                                            child: Column(
                                               mainAxisAlignment:
                                               MainAxisAlignment.center,
                                               crossAxisAlignment:
@@ -161,11 +154,11 @@ bool? _serviceEnabled;
                                                     fillColor:Colors.white,
                                                     hintStyle: TextStyle(
                                                         color: Colors.black),
-                                                    hintText: "Enter the PickUp Location",
+                                                    hintText: "PickUp Location",
                                                   ),
                                                   autofocus: false,
                                                   focusNode: state.nodeFromcity,
-                                                  controller: _addressFrom,
+                                                  controller:  state.addressFromcity,
                                                   onChanged: (String value) {
                                                     state.placeBloc.searchPlace(value);
                                                   },
@@ -188,7 +181,7 @@ bool? _serviceEnabled;
                                             height: 1.0,
                                             color: Colors.grey.withOpacity(0.4),
                                           ),
-                                          new Container(
+                                          Container(
                                             height: 50.0,
                                             // width: MediaQuery.of(context).size.width,
                                             color: Colors.white,
@@ -205,11 +198,11 @@ bool? _serviceEnabled;
                                                     fillColor: Colors.white,
                                                     hintStyle: TextStyle(
                                                         color: Colors.black),
-                                                    hintText: "Enter the Dropoff Location",
+                                                    hintText: "Dropoff Location",
                                                   ),
                                                   focusNode: state.nodeTocity,
                                                   autofocus: false,
-                                                  controller: _addressTo,
+                                                  controller: state.addressTocity,
                                                   onChanged: (String value) {
                                                     state.placeBloc.searchPlace(value);
                                                   },
@@ -217,6 +210,7 @@ bool? _serviceEnabled;
                                                     setState(() {
                                                       state.inputTo = true;
                                                       state.inputFrom = false;
+                                                      // ignore: avoid_print
                                                       print(state.inputTo);
                                                     });
                                                   },
@@ -316,6 +310,9 @@ bool? _serviceEnabled;
                                             : ""),
                                         onTap: () {
                                           state.ToDataCity(context,index);
+                                          var  _toLocation = LatLng(state.dataTocity[0]['lat'], state.dataTocity[0]['long']);
+                                       var _fromLocation = LatLng(state.dataFromcity[0]['lat'], state.dataFromcity[0]['long']);
+                                        state.setPolylinescity(_fromLocation, _toLocation);
                                         },
                                       );
                                     },

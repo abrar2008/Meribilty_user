@@ -1,3 +1,6 @@
+// ignore_for_file: prefer_typing_uninitialized_variables, non_constant_identifier_names, avoid_print, curly_braces_in_flow_control_structures
+
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
@@ -11,45 +14,164 @@ import 'package:meribilty/model/unloadingoption.dart';
 import 'package:meribilty/model/unloadportop.dart';
 import 'package:meribilty/place/placeItem.dart';
 import 'package:meribilty/place/place_bloc.dart';
+import 'package:http/http.dart' as http;
+
 
 enum Screen {
   zero,
   one,
   two,
 }
-
-
-
 class LocaleProvider extends ChangeNotifier {
 
 
- final bool _isVisible = true;
 
 // place city movement
   GoogleMapController? controller1;
-   GoogleMapController? controller2;
-  Location location = new Location();
-  Map<MarkerId, Marker> markers = <MarkerId, Marker>{};
-  bool? _serviceEnabled;
-  PermissionStatus? _permissionGranted;
+  GoogleMapController? controller2;
+  Location location = Location();
+  Map<MarkerId, Marker> markers = <MarkerId, Marker>{}; 
   LocationData? locationData;
-
   FocusNode nodeFromcity = FocusNode();
   FocusNode nodeTocity = FocusNode();
   bool checkAutoFocus = false, inputFrom = false, inputTo = false;
   List<Map<String, dynamic>> dataFromcity = [];
   List<Map<String, dynamic>> dataTocity = [];
-  var _addressFrom, _addressTo;
+  var addressFromcity, addressTocity;
   var placeBloc = PlaceBloc();
-  
+  String? pointcity;
+  String? durationcity;
+  String? distancecity;
+  final Set<Polyline> polylinecity = {};
   String? valueFromcity, valueTocity;
-
   List<PlaceItemRes>? placescity;
   List<PlaceItemRes>? places2city;
 
 
+ setPolylinescity(LatLng A, LatLng B) async {
+    //flag = false;
+    String url = "https://maps.googleapis.com/maps/api/directions/json?origin=${A.latitude},${A.longitude}&destination=${B.latitude},${B.longitude}&key=AIzaSyBR7rrSUi4o118-vGLhDI_f6buJOnZr900";
+    http.Response response = await http.get(Uri.parse(url));
+    Map values = jsonDecode(response.body);
+    pointcity = values["routes"][0]["overview_polyline"]["points"];
+    distancecity = values["routes"][0]["legs"][0]["distance"]["text"];
+    durationcity = values["routes"][0]["legs"][0]["duration"]["text"];
+    //secondsD = values["routes"][0]["legs"][0]["duration"]["value"];
+      polylinecity.add(Polyline(
+          polylineId: const PolylineId('route1'),
+          visible: true,
+          points: convertToLatLngcity(decodePolycity(pointcity.toString())),
+          width: 6,
+          color: const Color(0xff2a2e36),
+          startCap: Cap.roundCap,
+          endCap: Cap.buttCap));
+      notifyListeners();
+     addMakerscity(A,B);
+
+
+    return values["routes"][0]["overview_polyline"]["points"];
+  }
+
+ addMakerscity(var a,var b) {
+    const MarkerId markerIdFrom = MarkerId("from_address");
+    const MarkerId markerIdTo = MarkerId("to_address");
+    
+
+    final Marker marker = Marker(
+      markerId: markerIdFrom,
+      position: LatLng(a.latitude, a.longitude),
+      // position: LatLng(from_l.latitude, from_l.longitude),
+      infoWindow: const InfoWindow(title: "Current"),
+      icon: BitmapDescriptor.defaultMarker,
+      onTap: () {
+        // _onMarkerTapped(markerId);
+      },
+    );
+
+    final Marker markerTo = Marker(
+        markerId: markerIdTo,
+        //position: LatLng(to_l.latitude, to_l.longitude),
+        position: LatLng(b.latitude, b.longitude),
+        infoWindow: const InfoWindow(
+            title: "dropout" ),
+        icon: BitmapDescriptor.defaultMarker);
+
+      markers[markerIdFrom] = marker;
+      markers[markerIdTo] = markerTo;
+   controller1!.animateCamera(CameraUpdate.newCameraPosition(
+        CameraPosition(
+            bearing: 192.8334901395799,
+            target: LatLng(b.latitude!.toDouble(), b.longitude!.toDouble()),
+            tilt: 0,
+            zoom: 18.00)));
+      notifyListeners();
+  }
+  static List<LatLng> convertToLatLngcity(List points) {
+    List<LatLng> result = <LatLng>[];
+    for (int i = 0; i < points.length; i++) {
+      if (i % 2 != 0) {
+        result.add(LatLng(points[i - 1], points[i]));
+      }
+    }
+    return result;
+  }
+static List decodePolycity(String poly) {
+    var list = poly.codeUnits;
+    var lList = [];
+    int index = 0;
+    int len = poly.length;
+    int c = 0;
+    // repeating until all attributes are decoded
+    do {
+      var shift = 0;
+      int result = 0;
+
+      // for decoding value of one attribute
+      do {
+        c = list[index] - 63;
+        result |= (c & 0x1F) << (shift * 5);
+        index++;
+        shift++;
+      } while (c >= 32);
+      /* if value is negative then bitwise not the value */
+      if (result & 1 == 1) {
+        result = ~result;
+      }
+      var result1 = (result >> 1) * 0.00001;
+      lList.add(result1);
+    } while (index < len);
+
+    /*adding to previous value as done in encoding */
+    for (var i = 2; i < lList.length; i++) lList[i] += lList[i - 2];
+
+    print(lList.toString());
+
+    return lList;
+  }
+
+void updateMarkercity(LocationData newLocalData) {
+
+    const MarkerId markerIdFrom = MarkerId("My Location");
+    final Marker marker = Marker(
+        markerId: markerIdFrom,
+        //position: LatLng(_fromLocation.latitude, _fromLocation.longitude),
+        position: LatLng(newLocalData.latitude!.toDouble(), newLocalData.longitude!.toDouble()),
+        infoWindow: const InfoWindow(title: "Current"),
+        icon:
+        // ? BitmapDescriptor.fromAsset("assets/currentmarker.png")
+        // : BitmapDescriptor.fromAsset("assets/currentmarker.png"),
+        BitmapDescriptor.defaultMarker
+
+    );
+      markers[markerIdFrom] = marker;
+      notifyListeners();
+
+    print(markers.toString());
+
+  }
+
 FromDataCity(index,context){
-    dataFromcity.clear();
+    // dataFromcity.clear();
     Map<String, dynamic> value = {
       "name": placescity!
           .elementAt(index)
@@ -67,7 +189,7 @@ FromDataCity(index,context){
     FocusScope.of(context).requestFocus(nodeTocity);
     dataFromcity.add(value);
     valueFromcity = placescity!.elementAt(index).name.toString();
-    _addressFrom = TextEditingController(text:valueFromcity);
+    addressFromcity = TextEditingController(text:valueFromcity);
     inputTo = true;
     notifyListeners();
     print(dataFromcity);
@@ -75,7 +197,7 @@ FromDataCity(index,context){
   }
 
  ToDataCity(context,index){
-    dataTocity.clear();
+    // dataTocity.clear();
     Map<String, dynamic> value = {
       "name": places2city!
           .elementAt(index)
@@ -93,7 +215,7 @@ FromDataCity(index,context){
           .elementAt(index)
           .name
           .toString();
-      _addressTo =
+      addressTocity =
           TextEditingController(
               text: places2city!
                   .elementAt(index)
@@ -101,30 +223,159 @@ FromDataCity(index,context){
                   .toString());
       FocusScope.of(context)
           .requestFocus(
-          new FocusNode());
+          FocusNode());
       dataTocity.add(value);
       print(dataTocity);
-    places2city!.clear();
+    // places2city!.clear();
       notifyListeners();
       //directions
       // DrawRoute();
 
   }
-/// place  city
+/// place  city end
+ 
+
+
+
+
+
+
+
+
 /// placr port 
-   
-   String? valueFromport, valueToport ,valontaport;
+   var addressFromport, addressToport ,  addconstToport;
+  String? valueFromport, valueToport ,valontaport;
   List<PlaceItemRes>? placesport;
   List<PlaceItemRes>? places2port;
   List<PlaceItemRes>? placconta2port;
 
-   List<Map<String, dynamic>> dataFromport = [];
+  List<Map<String, dynamic>> dataFromport = [];
   List<Map<String, dynamic>> dataTocityport = [];
   List<Map<String, dynamic>> datacontcityport = [];
 
-   FocusNode nodeFromport = FocusNode();
-   FocusNode nodeToport = FocusNode();
-   FocusNode nodecontaport = FocusNode();
+  FocusNode nodeFromport = FocusNode();
+  FocusNode nodeToport = FocusNode();
+  FocusNode nodecontaport = FocusNode();
+ String? pointport;
+  String? durationport;
+  String? distanceport;
+  final Set<Polyline> polylineport = {};
+
+
+  setPolylinesport(LatLng A, LatLng B) async {
+    //flag = false;
+    String url = "https://maps.googleapis.com/maps/api/directions/json?origin=${A.latitude},${A.longitude}&destination=${B.latitude},${B.longitude}&key=AIzaSyBR7rrSUi4o118-vGLhDI_f6buJOnZr900";
+    http.Response response = await http.get(Uri.parse(url));
+    Map values = jsonDecode(response.body);
+    pointport = values["routes"][0]["overview_polyline"]["points"];
+    distanceport = values["routes"][0]["legs"][0]["distance"]["text"];
+    durationport = values["routes"][0]["legs"][0]["duration"]["text"];
+    //secondsD = values["routes"][0]["legs"][0]["duration"]["value"];
+      polylineport.add(Polyline(
+          polylineId: const PolylineId('route1'),
+          visible: true,
+          points: convertToLatLngport(decodePolyport(pointport.toString())),
+          width: 6,
+          color: const Color(0xff2a2e36),
+          startCap: Cap.roundCap,
+          endCap: Cap.buttCap));
+      notifyListeners();
+     addMakersport(A,B);
+
+
+    return values["routes"][0]["overview_polyline"]["points"];
+  }
+  
+  //addmarker
+  addMakersport(var a,var b) {
+    const MarkerId markerIdFrom = MarkerId("from_address");
+    const MarkerId markerIdTo = MarkerId("to_address");
+    // var _dataFrom = dataFrom;
+
+    final Marker marker = Marker(
+      markerId: markerIdFrom,
+      position: LatLng(a.latitude, a.longitude),
+      // position: LatLng(from_l.latitude, from_l.longitude),
+      infoWindow: const InfoWindow(title: "Current"),
+      icon: BitmapDescriptor.defaultMarker,
+      onTap: () {
+        // _onMarkerTapped(markerId);
+      },
+    );
+
+    final Marker markerTo = Marker(
+        markerId: markerIdTo,
+        //position: LatLng(to_l.latitude, to_l.longitude),
+        position: LatLng(b.latitude, b.longitude),
+        infoWindow: const InfoWindow(
+            title: "dropout" ),
+        icon: BitmapDescriptor.defaultMarker);
+
+      markers[markerIdFrom] = marker;
+      markers[markerIdTo] = markerTo;
+    controller2!.animateCamera(CameraUpdate.newCameraPosition(
+        CameraPosition(
+            bearing: 192.8334901395799,
+            target: LatLng(b.latitude!.toDouble(), b.longitude!.toDouble()),
+            tilt: 0,
+            zoom: 18.00)));
+       notifyListeners();
+  }
+
+
+
+  static List<LatLng> convertToLatLngport(List points) {
+    List<LatLng> result = <LatLng>[];
+    for (int i = 0; i < points.length; i++) {
+      if (i % 2 != 0) {
+        result.add(LatLng(points[i - 1], points[i]));
+      }
+    }
+    return result;
+  }
+
+  static List decodePolyport(String poly) {
+    var list = poly.codeUnits;
+    var lList = [];
+    int index = 0;
+    int len = poly.length;
+    int c = 0;
+    // repeating until all attributes are decoded
+    do {
+      var shift = 0;
+      int result = 0;
+
+      // for decoding value of one attribute
+      do {
+        c = list[index] - 63;
+        result |= (c & 0x1F) << (shift * 5);
+        index++;
+        shift++;
+      } while (c >= 32);
+      /* if value is negative then bitwise not the value */
+      if (result & 1 == 1) {
+        result = ~result;
+      }
+      var result1 = (result >> 1) * 0.00001;
+      lList.add(result1);
+    } while (index < len);
+
+    /*adding to previous value as done in encoding */
+    for (var i = 2; i < lList.length; i++) lList[i] += lList[i - 2];
+
+    print(lList.toString());
+
+    return lList;
+  }
+
+
+
+
+
+
+
+
+
 
 
 Contaport(index,context){
@@ -146,7 +397,7 @@ Contaport(index,context){
     FocusScope.of(context).requestFocus(nodecontaport);
     datacontcityport.add(value);
     valueFromport = placesport!.elementAt(index).name.toString();
-    _addressFrom = TextEditingController(text:valontaport);
+    addconstToport= TextEditingController(text:valontaport);
     inputTo = true;
     notifyListeners();
     print(datacontcityport);
@@ -154,7 +405,7 @@ Contaport(index,context){
   }
 
 Fromdataport(index,context){
-    dataFromcity.clear();
+    // dataFromcity.clear();
     Map<String, dynamic> value = {
       "name": placesport!
           .elementAt(index)
@@ -168,19 +419,19 @@ Fromdataport(index,context){
      placesport!.elementAt(index).lng
     };
     print('dataFrom: ' + value.toString());
-    placesport!.clear();
     FocusScope.of(context).requestFocus(nodeToport);
     dataFromport.add(value);
     valueFromport = placesport!.elementAt(index).name.toString();
-    _addressFrom = TextEditingController(text:valueFromport);
+    addressFromport = TextEditingController(text:valueFromport);
     inputTo = true;
+    placesport!.clear();
     notifyListeners();
     print(dataFromport);
 
   }
 
  ToDataport(context,index){
-    dataTocityport.clear();
+    // dataTocityport.clear();
     Map<String, dynamic> value = {
       "name": places2port!
           .elementAt(index)
@@ -193,12 +444,13 @@ Fromdataport(index,context){
       "long":
       places2port!.elementAt(index).lng
     };
+    
     print('dataTo: ' + value.toString());
       valueToport =places2port!
           .elementAt(index)
           .name
           .toString();
-      _addressTo =
+      addressToport =
           TextEditingController(
               text: places2port!
                   .elementAt(index)
@@ -206,7 +458,7 @@ Fromdataport(index,context){
                   .toString());
       FocusScope.of(context)
           .requestFocus(
-          new FocusNode());
+          FocusNode());
       dataTocityport.add(value);
       print(dataTocityport);
     places2port!.clear();
@@ -220,23 +472,23 @@ Fromdataport(index,context){
     location.onLocationChanged.listen((LocationData currentLocation) {
       print(currentLocation.toString());
       controller1!.animateCamera(CameraUpdate.newCameraPosition(
-          new CameraPosition(
+          CameraPosition(
               bearing: 192.8334901395799,
               target: LatLng(currentLocation.latitude!.toDouble(), currentLocation.longitude!.toDouble()),
               tilt: 0,
               zoom: 18.00)));
-      updateMarkerAndCircle(currentLocation);
+      updateMarkerport(currentLocation);
       // Use current location
     });
   }
- void updateMarkerAndCircle(LocationData newLocalData) {
+ void updateMarkerport(LocationData newLocalData) {
 
-    final MarkerId markerIdFrom = MarkerId("My Location");
+    const MarkerId markerIdFrom = MarkerId("My Location");
     final Marker marker = Marker(
         markerId: markerIdFrom,
         //position: LatLng(_fromLocation.latitude, _fromLocation.longitude),
         position: LatLng(newLocalData.latitude!.toDouble(), newLocalData.longitude!.toDouble()),
-        infoWindow: InfoWindow(title: "Current"),
+        infoWindow: const InfoWindow(title: "Current"),
         icon:
         // ? BitmapDescriptor.fromAsset("assets/currentmarker.png")
         // : BitmapDescriptor.fromAsset("assets/currentmarker.png"),

@@ -27,13 +27,11 @@ class _DarweState extends State<Darwe> {
         child: Container(
           // height: 500,
           child: ListView(
-            // padding: EdgeInsets.zero,
+     
             children: <Widget>[
               GFDrawerHeader(
                 closeButton: Container(
-                  // alignment: Alignment.topRight,
-                  // width: 30,
-                  // color: Colors.white,
+                 
                   child: Row(
                     children: [
                       InkWell(

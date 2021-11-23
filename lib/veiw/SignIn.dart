@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print, sized_box_for_whitespace, file_names, dead_code
+// ignore_for_file: avoid_print, sized_box_for_whitespace, file_names, dead_code, unrelated_type_equality_checks, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
 import 'package:contained_tab_bar_view/contained_tab_bar_view.dart';
@@ -9,12 +9,12 @@ import 'package:meribilty/veiw/otp_screen.dart';
 import 'package:provider/provider.dart';
 
 class  SignIn  extends StatelessWidget {
-  GlobalKey<ContainedTabBarViewState> _key = GlobalKey();
+  final GlobalKey<ContainedTabBarViewState> _key = GlobalKey();
   @override
   Widget build(BuildContext context) {
  ContainedTabBarView containedTabBarView = ContainedTabBarView(
       key: _key,
-      tabs: [
+      tabs: const [
       Text('Sign Up',
                                 style: TextStyle(color: Colors.black),
                               ),
@@ -423,22 +423,19 @@ Text('Sign In',
               ),
             ),
           ),
-        Container(
-                // padding: const EdgeInsets.only(left: 30),
-                child: Row(
-                  children: const [
-                    Text(
-                      "By clicking signup, you agree to our  Terms and Conditions ",
-                      style: TextStyle(fontSize: 10),
-                    ),
-                    // Text(
-                    //   "Terms and Condition",
-                    //   style:
-                    //       TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
-                    // ),
-                  ],
-                ),
-              ),
+        Row(
+          children: const [
+            Text(
+              "By clicking signup, you agree to our  Terms and Conditions ",
+              style: TextStyle(fontSize: 10),
+            ),
+            // Text(
+            //   "Terms and Condition",
+            //   style:
+            //       TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+            // ),
+          ],
+        ),
         ],
       ),
     ),
@@ -776,7 +773,6 @@ class Individual extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool lo = false;
     return GestureDetector(
       onTap: () {
 
