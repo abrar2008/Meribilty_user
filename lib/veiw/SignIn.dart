@@ -14,12 +14,26 @@ class  SignIn  extends StatelessWidget {
   Widget build(BuildContext context) {
  ContainedTabBarView containedTabBarView = ContainedTabBarView(
       key: _key,
+  tabBarProperties: const TabBarProperties(
+    labelColor: Color(0xff262628),
+    indicatorSize: TabBarIndicatorSize.label,
+    unselectedLabelColor:Color(0xffC8C7CC) ,
+    labelStyle:  TextStyle(
+           fontWeight:FontWeight.w500,
+       fontSize: 24
+    ),
+    indicatorWeight: 5.0,
+    indicatorColor: Color(0xff375E99),
+    
+  ),
       tabs: const [
       Text('Sign Up',
-                                style: TextStyle(color: Colors.black),
-                              ),
-Text('Sign In',
-                                  style: TextStyle(color: Colors.black)),
+                               
+                              ), 
+   Text('Sign In',
+                                 
+                                  
+                                  ),
       ],
       views: [
 
@@ -113,7 +127,9 @@ Text('Sign In',
                   },
                   cursorColor: Colors.black,
                   decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
+                      border: OutlineInputBorder(
+                        
+                      ),
                       contentPadding:
                           EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
                       hintText: "Full Name",
@@ -242,10 +258,7 @@ Text('Sign In',
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                                _key.currentState?.next();
-                          // Navigator.pushReplacement(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) => const Loginin() ));
+                          
                         }
                       },
                     )),
@@ -427,7 +440,11 @@ Text('Sign In',
           children: const [
             Text(
               "By clicking signup, you agree to our  Terms and Conditions ",
-              style: TextStyle(fontSize: 10),
+              style: TextStyle(fontSize: 10,
+              fontWeight: FontWeight.w400
+              ),
+            
+              
             ),
             // Text(
             //   "Terms and Condition",
@@ -487,10 +504,6 @@ Text('Sign In',
                           width: 300,
                           height: 590,
                           child: containedTabBarView,
-                         
-                          
-                            
-                            
                             //veiow end 
                            
                           ),
@@ -506,20 +519,10 @@ Text('Sign In',
             ],
           ),
         ),
-     
-
-
-
     
       )
       );
-      
-     
-      
-    
-    
-    
-    
+
   }
 }
 
@@ -557,6 +560,7 @@ class Loginin extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 17,
                       color: Color(0xff707070),
+                      fontWeight: FontWeight.w500
                     ),
                   )),
               const SizedBox(
@@ -612,7 +616,9 @@ class Loginin extends StatelessWidget {
                                     style: const TextStyle(
                                         fontSize: 20.0, color: Colors.black),
                                     decoration: const InputDecoration(
-                                        border: OutlineInputBorder(),
+                                        border: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Colors.grey, width: 0.0),
+                                        ),
                                         labelText: 'Mobile Number',
                                         labelStyle: TextStyle(fontSize: 14)),
                                   ))
@@ -640,7 +646,9 @@ class Loginin extends StatelessWidget {
                   },
                   cursorColor: Colors.black,
                   decoration: InputDecoration(
+                    
                     border: OutlineInputBorder(
+               
                       borderRadius: BorderRadius.circular(8),
                     ),
                     contentPadding: const EdgeInsets.only(
@@ -744,7 +752,11 @@ class Businesspro extends StatelessWidget {
           Image.asset("assets/business.png"),
           const Text(
             "Business Pro",
-            style: TextStyle(fontSize: 17, color: Color(0xffFFCC00)),
+            style: TextStyle(fontSize: 17,color: Color(0xff355B95),
+            fontWeight: FontWeight.w500
+            
+            
+            ),
           ),
           const Text(
             "Credit Facility ",

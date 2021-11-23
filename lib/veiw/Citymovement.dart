@@ -1,4 +1,4 @@
-// ignore_for_file: camel_case_types, file_names, use_key_in_widget_constructors, prefer_typing_uninitialized_variables
+
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -35,8 +35,6 @@ class _Citymovement_screenState extends State<Citymovement_screen> {
   void initState() {
   
     super.initState();
-   
-
   }
 
 
@@ -944,7 +942,7 @@ class _FloatingState extends State<Floating> {
                   onPressed: () {
                     DatePicker.showDateTimePicker(context, showTitleActions: true,
                         onChanged: (date) {
-                      // ignore: avoid_print
+                     
                       print('change $date in time zone ' +
                           date.timeZoneOffset.inHours.toString());
                     }, onConfirm: (date) {
