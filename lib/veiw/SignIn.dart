@@ -744,12 +744,23 @@ class Businesspro extends StatelessWidget {
       onTap: () {
         context.read<LocaleProvider>().changeScreen(Screen.two);
       },
-      child: Column(
+      child:
+      
+      
+       Consumer<LocaleProvider>(
+                      builder: (context, state, child) {
+                  
+            return Column(
         children: [
-          const SizedBox(
-            height: 10,
-          ),
-          Image.asset("assets/business.png"),
+          
+          // const SizedBox(
+          //   height: 10,
+          // ),
+            
+     Container(
+       child:  state.loadscren == Screen.two ? Image.asset("assets/bussi.png") :Image.asset("assets/business.png"
+       ),
+     ),
           const Text(
             "Business Pro",
             style: TextStyle(fontSize: 17,color: Color(0xff355B95),
@@ -762,17 +773,17 @@ class Businesspro extends StatelessWidget {
             "Credit Facility ",
             style: TextStyle(fontSize: 10),
           ),
-          const Text(
+        Text(
             "Counter Offers ",
             style: TextStyle(fontSize: 10),
           ),
-          const Text(
+          Text(
             "Requires Verfication",
             style: TextStyle(fontSize: 10),
           ),
-        ],
-      ),
-    );
+       ],
+      );
+                      }));
   }
 }
 
@@ -792,23 +803,27 @@ class Individual extends StatelessWidget {
       },
       child: Stack(
         children: [
-          Column(
-            children: [
-                 Container(child:  Screen.one  == true  ?   Image.asset("assets/simple.png") :Image.asset("assets/simple.png") ,
- ), 
-          const SizedBox(
-                height: 10,
-              ),
-              const Text(
-                "Individual",
-                style: TextStyle(fontSize: 20),
-              ),
-              const Text(""),
-              const Text(""),
-              const Text(""),
-            ],
-          ),
-          
+           Consumer<LocaleProvider>(
+                      builder: (context, state, child) {
+                  
+            return Column(
+              children: [
+                   Container(child:  state.loadscren == Screen.one  ? Image.asset("assets/indiv.png")    :Image.asset("assets/simple.png") ,
+           ), 
+            const SizedBox(
+                  height: 10,
+                ),
+                const Text(
+                  "Individual",
+                  style: TextStyle(fontSize: 20),
+                ),
+                const Text(""),
+                const Text(""),
+                const Text(""),
+              ],
+            );
+           },
+      ) 
         ],
       ),
     );

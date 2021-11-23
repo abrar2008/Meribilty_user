@@ -112,7 +112,7 @@ class _floatingpanelState extends State<floatingpanel> {
              GFListTile(
                
                onTap: (){
-                  _hasBeenPressed = !_hasBeenPressed;
+                 
                },
               color: _hasBeenPressed ? Colors.blue : Colors.white,
               title: Center(
