@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:getwidget/components/button/gf_button.dart';
+import 'package:getwidget/getwidget.dart';
 import 'package:meribilty/veiw/sendinvite.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -30,16 +31,17 @@ class _InviteFriendState extends State<InviteFriend> {
               child: Center(
                 child: Column(
                   children: [
+                    
                     Image.asset("assets/Art.png"),
                     Text(
                       AppLocalizations.of(context)!.invite,
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: 25,
+                          fontSize:30,
                           fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
-                      height: 30,
+                      height: 20,
                     ),
                     Text(
                       AppLocalizations.of(context)!.coupons,
@@ -49,7 +51,7 @@ class _InviteFriendState extends State<InviteFriend> {
                           fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
-                      height: 30,
+                      height: 20,
                     ),
                     Text(
                       AppLocalizations.of(context)!.sign,
@@ -99,6 +101,8 @@ class _InviteFriendState extends State<InviteFriend> {
                   Container(
                     padding: EdgeInsets.all(1),
                     child: GFButton(
+                      
+                      size: 60,
                       onPressed: () {
                         Navigator.pushReplacement(
                             context,

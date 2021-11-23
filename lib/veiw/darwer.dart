@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:meribilty/veiw/Message.dart';
 import 'package:meribilty/veiw/signIn.dart';
@@ -25,18 +26,15 @@ class _DarweState extends State<Darwe> {
     return Scaffold(
       body: GFDrawer(
         child: Container(
-          // height: 500,
+       
           child: ListView(
-     
-            children: <Widget>[
+       children: <Widget>[
               GFDrawerHeader(
                 closeButton: Container(
-                 
                   child: Row(
                     children: [
                       InkWell(
-                        
-                          onTap: () {
+                         onTap: () {
                             Navigator.pop(context);
                           },
                           child: Icon(Icons.close)),
@@ -74,19 +72,21 @@ class _DarweState extends State<Darwe> {
                     ],
                   ),
                 ),
-                currentAccountPicture: GFAvatar(
-                
-
-                  backgroundImage: AssetImage(
-                    "assets/pic2.png",
-                  ),
-                ),
-                otherAccountsPictures: <Widget>[],
+                // 
+              
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                   
+                  GFAvatar(
+                size: 50,
+
+                  backgroundImage: AssetImage(
+                    "assets/pic2.png",
+                 
+                  ),
+                ),
+                SizedBox(height: 10,),
                     Container(
                       child: Column(
                         children: [
@@ -95,14 +95,16 @@ class _DarweState extends State<Darwe> {
                             child: Text(
                               'Larry Davis',
                               style:
-                                  TextStyle(color: Colors.white, fontSize: 15),
+                                  TextStyle(color: Colors.white, fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  ),
                             ),
                           ),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               Container(
-                                width: 110,
+                                width: 130,
                                 decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.only(
@@ -119,7 +121,7 @@ class _DarweState extends State<Darwe> {
                                     Text(
                                       AppLocalizations.of(context)!.cah,
                                       style: TextStyle(
-                                        fontSize: 10,
+                                        fontSize: 15,
                                       ),
                                     ),
                                     SizedBox(
@@ -128,13 +130,13 @@ class _DarweState extends State<Darwe> {
                                     Text(
                                       "2500 ",
                                       style: TextStyle(
-                                          fontSize: 15,
+                                          fontSize: 17,
                                           color: Color(0xFf4CE5B1),
                                           fontWeight: FontWeight.bold),
                                     ),
                                     Icon(
                                       Icons.arrow_forward_ios,
-                                      size: 8,
+                                      size: 10,
                                     ),
                                   ],
                                 ),
@@ -162,12 +164,12 @@ class _DarweState extends State<Darwe> {
                                 width: 55,
                               ),
                               Image.asset(
-                                "assets/Noti.png",
+                                "assets/nor.png",
                               ),
                               SizedBox(
                                 width: 15,
                               ),
-                              Image.asset("assets/mes.png"),
+                              Image.asset("assets/notifr.png"),
                             ],
                           ),
                         ],

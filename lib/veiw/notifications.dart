@@ -22,6 +22,7 @@ class _NotifcationState extends State<Notifcation> {
       ),
       body: Column(
         children: [
+          
           Container(
             height: 50,
             color: Color(0xFF2F4D84),
@@ -38,7 +39,7 @@ class _NotifcationState extends State<Notifcation> {
                 SizedBox(
                   width: 20,
                 ),
-                Image.asset("assets/not.png")
+                Image.asset("assets/notific.png")
               ],
             ),
           ),
@@ -92,6 +93,8 @@ class _NotifcationState extends State<Notifcation> {
             titleText: 'System',
             subTitleText: 'Your booking #1205 has been cancelled',
           ),
+       
+       
         ],
       ),
     );

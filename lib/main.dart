@@ -1,11 +1,13 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:meribilty/L10n/l10n.dart';
 import 'package:meribilty/provider/provider.dart';
-import 'package:meribilty/veiw/splashscreen.dart';
+import 'package:meribilty/veiw/language.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:meribilty/veiw/splashscreen.dart';
 import 'package:provider/provider.dart';
-
+// import 'package:custom_splash/custom_splash.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -15,6 +17,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    Function duringSplash = () {
+    print('Something background process');
+    int a = 123 + 23;
+    print(a);
+
+    if (a > 100)
+      return 1;
+    else
+      return 2;
+  };
+
+  Map<int, Widget> op = {1: MyApp(), 2: MyApp()};
     return ChangeNotifierProvider(
         create: (_) => LocaleProvider(),
         builder: (context, child) {
@@ -33,8 +48,18 @@ class MyApp extends StatelessWidget {
               GlobalCupertinoLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
             ],
-            home: const SplashScreen(),
-          );
-        });
+            home: const SplashScreen());
+            // CustomSplash(
+            // imagePath: 'assets/Logo.png',
+            // backGroundColor: Colors.white,
+            // animationEffect: 'zoom-in',
+            // home: const Language(),
+            // customFunction: duringSplash,
+            // duration: 5500,
+            // type: CustomSplashType.StaticDuration ,
+            // outputAndHome: op,
+            //   ),
+          // );
+        }); 
   }
-}
+} 

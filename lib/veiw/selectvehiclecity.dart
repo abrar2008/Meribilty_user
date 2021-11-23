@@ -26,9 +26,9 @@ class _SelectvehiclecityState extends State<Selectvehiclecity> {
 
               
               children: [
-                  const SizedBox(height: 30,),
+                 const SizedBox(height: 30,),
                  const Text(
-                        "Select Vehicle",
+                        "Sele Vehicle",
                         style: TextStyle(
                             color: Color(0xFF2F4D84),
                             fontWeight: FontWeight.w500,
@@ -45,10 +45,10 @@ class _SelectvehiclecityState extends State<Selectvehiclecity> {
                             shape: GFAvatarShape.square,
                             child: e.count >=1 ? Image.asset(
                               "assets/twhite.png",
-                              // color: Colors.black
+                            
                             ):Image.asset(
                               "assets/Shape.png",
-                              // color: Colors.black
+                              
                             ),
                             
                             

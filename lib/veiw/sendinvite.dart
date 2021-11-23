@@ -39,6 +39,7 @@ class _SendinviteState extends State<Sendinvite> {
             width: double.infinity,
             height: 90,
             child: GFSearchBar(
+              
               searchList: list,
               searchQueryBuilder: (query, list) {
                 return list.toList();
@@ -68,6 +69,7 @@ class _SendinviteState extends State<Sendinvite> {
               icon: Column(
                 children: [
                   GFCheckbox(
+                    
                     activeIcon: const Icon(
                       Icons.check,
                       color: Colors.white,
