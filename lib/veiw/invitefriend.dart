@@ -102,7 +102,7 @@ class _InviteFriendState extends State<InviteFriend> {
                     padding: EdgeInsets.all(1),
                     child: GFButton(
                       
-                      size: 60,
+                      size: 40,
                       onPressed: () {
                         Navigator.pushReplacement(
                             context,
@@ -111,7 +111,7 @@ class _InviteFriendState extends State<InviteFriend> {
                       },
                       text: AppLocalizations.of(context)!.invite,
                       textStyle:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                       fullWidthButton: true,
                       color: Color(0xFF2F4D84),
                     ),

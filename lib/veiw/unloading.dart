@@ -48,7 +48,7 @@ class _UnLoadingOptionState extends State<UnLoadingOption> {
               },
               child: Text(
                 AppLocalizations.of(context)!.save,
-                style: const TextStyle(fontSize: 17),
+                style: const TextStyle(fontSize: 17 ,fontWeight: FontWeight.bold ,),
               ),
               type: GFButtonType.solid,
               shape: GFButtonShape.standard,

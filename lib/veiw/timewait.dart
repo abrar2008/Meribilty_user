@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:getwidget/components/list_tile/gf_list_tile.dart';
 import 'package:meribilty/veiw/mainProfile.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:timer_count_down/timer_controller.dart';
 import 'package:timer_count_down/timer_count_down.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -44,6 +46,7 @@ class TimewaitState extends State<Timewait> {
         body: Stack(
           fit: StackFit.expand,
           children: <Widget>[
+            
             Container(
               decoration: const BoxDecoration(
                 color: Color(0xFF2F4D84),
@@ -63,7 +66,9 @@ class TimewaitState extends State<Timewait> {
                             height: 30,
                           ),
                           InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              _oncancel(context);
+                            },
                             child: const Text(
                               "Cancel Request",
                               style: TextStyle(
@@ -127,4 +132,134 @@ class TimewaitState extends State<Timewait> {
       ),
     );
   }
+}
+_oncancel(context) {
+  Alert(
+    content: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+
+
+         Text("Cancellation Reason",
+         style: TextStyle(
+           color: Colors.black,
+           fontWeight: FontWeight.bold,
+           fontSize: 18
+         ),
+        ),
+         
+          SizedBox(height: 10,),     
+        
+         Text("Price is too high",
+         style: TextStyle(
+           color: Colors.black,
+           fontSize: 18
+         ),
+        ),
+         SizedBox(height: 5,),
+         Divider(height: 10,color:  Colors.black38,),
+         
+          Text("Driver was impolite",
+         style: TextStyle(
+           color: Colors.black,
+           fontSize: 18
+         ),
+        ),
+
+        SizedBox(height: 5,),
+         Divider(height: 10,color:  Colors.black38,),
+                 
+         Text("Driver is Cancel the request ",
+         style: TextStyle(
+           color: Colors.black,
+           fontSize: 18
+         ),
+        ),
+         SizedBox(height: 5,),
+         Divider(height: 10,color: Colors.black26,),
+
+
+          Text("I waited to long ",
+         style: TextStyle(
+           color: Colors.black,
+           fontSize: 18
+         ),
+        ),
+         SizedBox(height: 5,),
+         Divider(height: 10,color: Colors.black38,),
+
+           Text("Driver is not showing  ",
+         style: TextStyle(
+           color: Colors.black,
+           fontSize: 18
+         ),
+        ),
+         SizedBox(height: 5,),
+         Divider(height: 10,color: Colors.black38,),
+
+
+      Text("Couldnt contact the driver ",
+         style: TextStyle(
+           color: Colors.black,
+           fontSize: 18
+         ),
+        ),
+         SizedBox(height: 5,),
+         Divider(height: 10,color: Colors.black38,),
+
+         
+            Text("Difficult to communicate with the Driver ",
+         style: TextStyle(
+           color: Colors.black,
+           fontSize: 18
+         ),
+        ),
+         SizedBox(height: 5,),
+         Divider(height: 10,color: Colors.black38,),
+
+         
+            Text("Driver is too far away  ",
+         style: TextStyle(
+           color: Colors.black,
+           fontSize: 18
+         ),
+        ),
+         SizedBox(height: 5,),
+         Divider(height: 10,color: Colors.black38,),
+           
+
+       
+            Text("it took too long to find a driver  ",
+         style: TextStyle(
+           color: Colors.black,
+           fontSize: 18
+         ),
+        ),
+         SizedBox(height: 5,),
+         Divider(height: 10,color: Colors.black38,),
+ 
+
+
+      ],
+    ),
+    // buttons: [
+    //   DialogButton(
+    //     child: const Text(
+    //       "Reject ",
+    //       style: TextStyle(color: Colors.red, fontSize: 20),
+    //     ),
+    //     onPressed: () => Navigator.pop(context),
+    //     color: Colors.white,
+    //   ),
+    //   DialogButton(
+    //     child: const Text(
+    //       "Accept",
+    //       style: TextStyle(color: Color(0xFF2F4D84), fontSize: 20),
+    //     ),
+    //     onPressed: () => Navigator.pop(context),
+    //     color: Colors.white,
+    //   )
+    // ],
+    context: context,
+  ).show();
 }

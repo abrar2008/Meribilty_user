@@ -54,6 +54,7 @@ Widget decision(BuildContext context) {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
+
               Text(
                 "Order No .00214 ",
                 style: TextStyle(
@@ -64,6 +65,7 @@ Widget decision(BuildContext context) {
                 style: TextStyle(
                     color: Color(0xFF2F4D84), fontWeight: FontWeight.w600),
               ),
+         
             ],
           ),
           SizedBox(
@@ -80,6 +82,7 @@ Widget decision(BuildContext context) {
                   ),
                   Column(
                     children: const [
+
                       SizedBox(
                         height: 10,
                       ),
@@ -137,6 +140,7 @@ Widget decision(BuildContext context) {
                   ),
                   Column(
                     children: const [
+
                       SizedBox(
                         height: 10,
                       ),
@@ -150,6 +154,7 @@ Widget decision(BuildContext context) {
                         style:
                             TextStyle(fontSize: 20, color: Color(0xffC8C7CC)),
                       )
+                    
                     ],
                   ),
                   SizedBox(
@@ -212,9 +217,9 @@ Widget decision(BuildContext context) {
                   width: 10,
                 ),
                 GFButton(
-                  color: Colors.black12,
+                  color: Color(0xffF7F7F7),
                   onPressed: () {},
-                  text: "Rs :200,000",
+                  text: " Rs :200,000 ",
                   shape: GFButtonShape.pills,
                   textStyle: TextStyle(fontSize: 20, color: Colors.black),
                 ),
@@ -561,9 +566,9 @@ Widget inprocess(BuildContext context) {
                   width: 10,
                 ),
                 GFButton(
-                  color: Colors.black12,
+                 color: Color(0xffF7F7F7),
                   onPressed: () {},
-                  text: "Rs :200,000",
+                  text: " Rs :200,000 ",
                   shape: GFButtonShape.pills,
                   textStyle: TextStyle(fontSize: 20, color: Colors.black),
                 ),
@@ -747,9 +752,9 @@ Widget cancelled(BuildContext context) {
                   width: 10,
                 ),
                 GFButton(
-                  color: Colors.black12,
+                  color: Color(0xffF7F7F7),
                   onPressed: () {},
-                  text: "Rs :200,000",
+                  text: " Rs :200,000 ",
                   shape: GFButtonShape.pills,
                   textStyle: TextStyle(fontSize: 20, color: Colors.black),
                 ),
@@ -931,9 +936,9 @@ Widget complete(BuildContext context) {
                   width: 10,
                 ),
                 GFButton(
-                  color: Colors.black12,
+                 color: Color(0xffF7F7F7),
                   onPressed: () {},
-                  text: "Rs :200,000",
+                  text: " Rs :200,000 ",
                   shape: GFButtonShape.pills,
                   textStyle: TextStyle(fontSize: 20, color: Colors.black),
                 ),

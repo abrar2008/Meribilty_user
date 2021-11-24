@@ -43,17 +43,24 @@ class _AddTeamState extends State<AddTeam> {
                       const Text(
                         "Add Team",
                         style: TextStyle(
-                            fontSize: 30,
+                            fontSize: 34,
                             color: Colors.white,
                             fontWeight: FontWeight.bold),
                       ),
                       GFIconButton(
+                        size: 280,
+                   
                         color: Colors.white,
-                        shape: GFIconButtonShape.circle,
+                        shape: GFIconButtonShape.pills,
                         onPressed: () {},
-                        icon: const Icon(
-                          Icons.add,
-                          color: Colors.black,
+                        icon: Row(
+                          children: const [
+                            // SizedBox(width: 5,),
+                            Icon(
+                              Icons.add,
+                              color: Colors.black,
+                            ),
+                          ],
                         ),
                       ),
                       const SizedBox(
@@ -62,17 +69,17 @@ class _AddTeamState extends State<AddTeam> {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                // const SizedBox(
+                //   height: 10,
+                // ),
                 Column(
                   children: [
                     TextFormField(
                       autofocus: false,
                       obscureText: true,
                       decoration: const InputDecoration(
-                          labelText: 'First Name',
-                          labelStyle: TextStyle(color: Colors.black),
+                        
+                          hintText: 'First Name',
                           suffixIcon: Icon(
                             Icons.arrow_forward_ios_outlined,
                             size: 20.0,
@@ -81,14 +88,16 @@ class _AddTeamState extends State<AddTeam> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(0.0)),
                           ),
-                          hintText: 'First Name',
-                          contentPadding: EdgeInsets.only(left: 20, right: 20)),
+                    
+                          // contentPadding: EdgeInsets.only(left: 20, right: 20)
+                          
+                          ),
                     ),
                     TextFormField(
                       autofocus: false,
                       obscureText: true,
                       decoration: const InputDecoration(
-                        labelText: 'Last Name',
+                       
                         labelStyle: TextStyle(color: Colors.black),
                         suffixIcon: Icon(
                           Icons.arrow_forward_ios_outlined,
@@ -97,7 +106,7 @@ class _AddTeamState extends State<AddTeam> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(0.0)),
                         ),
-                        hintText: 'Mobile Number',
+                        hintText: 'Last Name',
                         contentPadding: EdgeInsets.all(10.0),
                       ),
                     ),
@@ -105,7 +114,7 @@ class _AddTeamState extends State<AddTeam> {
                       autofocus: false,
                       obscureText: true,
                       decoration: const InputDecoration(
-                        labelText: 'Email',
+                         hintText: 'Email',
                         labelStyle: TextStyle(color: Colors.black),
                         suffixIcon: Icon(
                           Icons.arrow_forward_ios_outlined,
@@ -114,7 +123,7 @@ class _AddTeamState extends State<AddTeam> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(0.0)),
                         ),
-                        hintText: 'Give Limited app Access',
+                       
                         contentPadding: EdgeInsets.all(10.0),
                       ),
                     ),
@@ -122,7 +131,7 @@ class _AddTeamState extends State<AddTeam> {
                       autofocus: false,
                       obscureText: true,
                       decoration: const InputDecoration(
-                        labelText: 'Give limited app access',
+                       
                         labelStyle: TextStyle(color: Colors.black),
                         suffixIcon: Icon(
                           Icons.arrow_forward_ios_outlined,

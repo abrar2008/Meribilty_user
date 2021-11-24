@@ -42,7 +42,7 @@ class _BidsState extends State<Bids> {
         padding: const EdgeInsets.all(20),
         child: Center(
           child: Container(
-              height: 400,
+              height: 320,
               width: double.infinity,
               padding: const EdgeInsets.all(30),
               decoration: BoxDecoration(
@@ -64,6 +64,7 @@ class _BidsState extends State<Bids> {
                 children: [
                   Text(
                     AppLocalizations.of(context)!.contact,
+                    textAlign: TextAlign.center,
                     style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w600,
@@ -178,7 +179,7 @@ class _BidsState extends State<Bids> {
                     child: Text(
                       AppLocalizations.of(context)!.existing,
                       style: const TextStyle(
-                          color: Color(0xFF2F4D84),
+                          color: Color(0xFF446394),
                           fontSize: 17,
                           fontWeight: FontWeight.bold),
                     ),
@@ -203,13 +204,20 @@ class _BidsState extends State<Bids> {
                     child: Text(
                       AppLocalizations.of(context)!.addnew,
                       style: const TextStyle(
-                          color: Color(0xFF2F4D84), fontSize: 20),
+                          color: Color(0xFF2F4D84), fontSize: 17,
+                          fontWeight: FontWeight.bold
+
+
+                          
+                          ),
                     ),
                   ),
                   const SizedBox(
                     height: 10,
                   ),
-                  Text(AppLocalizations.of(context)!.tranfe),
+                  Text(AppLocalizations.of(context)!.tranfe,
+                  
+                  ),
                   const Divider(
                     height: 10,
                   ),
@@ -223,7 +231,10 @@ class _BidsState extends State<Bids> {
                     child: Text(
                       AppLocalizations.of(context)!.manage,
                       style: const TextStyle(
-                          color: Color(0xFF2F4D84), fontSize: 20),
+                          color: Color(0xFF2F4D84), fontSize: 17,
+                          fontWeight: FontWeight.w600
+                          
+                          ),
                     ),
                   ),
                   const SizedBox(

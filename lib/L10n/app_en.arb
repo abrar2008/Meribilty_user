@@ -377,7 +377,7 @@
      "@bank": {
          "description":"bank"
      },
-      "bankupload":"You have to upload transfer slip to Procced   ",
+      "bankupload":" Upload transfer slip  ",
      "@bankupload": {
          "description":"bankupload"
      },
@@ -426,7 +426,7 @@
 
 
 
-    "contact":"Select Contact Person \n   or Clearing Agent",
+    "contact":"Select Contact Person  or \n Clearing Agent",
      "@contact": {
          "description":"contact"
      },
@@ -490,7 +490,7 @@
          "description":"noto"
      },
 
-      "se":"Settings ",
+      "se":"Security ",
      "@se": {
          "description":"se"
      },

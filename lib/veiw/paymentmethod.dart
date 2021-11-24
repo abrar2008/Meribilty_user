@@ -26,7 +26,7 @@ class _PaymentState extends State<Payment> {
         width: double.infinity,
         height: double.infinity,
         color: Color(0xffF8F8F8),
-        // padding: EdgeInsets.all(10),
+      
         child: Column(
           children: [
             SizedBox(
@@ -76,6 +76,7 @@ class _PaymentState extends State<Payment> {
                             ]),
                         child: Row(
                           children: [
+                            SizedBox(width: 10,),
                             Image.asset("assets/bank.png"),
                             SizedBox(
                               width: 10,
@@ -95,6 +96,8 @@ class _PaymentState extends State<Payment> {
                                     style: TextStyle(
                                       fontSize: 17,
                                       color: Color(0xFF2F4D84),
+                                      fontWeight:FontWeight.bold
+                                    
                                     ),
                                   ),
                                   SizedBox(
@@ -123,7 +126,7 @@ class _PaymentState extends State<Payment> {
               ),
             ),
 
-            //
+            
             Container(
               width: double.infinity,
               padding: EdgeInsets.only(left: 20, right: 20),
@@ -163,6 +166,7 @@ class _PaymentState extends State<Payment> {
                           style: TextStyle(
                             color: Color(0xFF2F4D84),
                             fontSize: 20,
+                             fontWeight: FontWeight.w500,
                           ),
                         ),
                         SizedBox(
@@ -224,6 +228,7 @@ class _PaymentState extends State<Payment> {
                           style: const TextStyle(
                             color: Color(0xFF2F4D84),
                             fontSize: 17,
+                             fontWeight: FontWeight.w500,
                           ),
                         ),
                         const SizedBox(
@@ -248,10 +253,10 @@ class _PaymentState extends State<Payment> {
             ),
             InkWell(
               onTap: () {
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const Paymentcard()));
+                // Navigator.pushReplacement(
+                //     context,
+                //     MaterialPageRoute(
+                //         builder: (context) => const Paymentcard()));
               },
               child: Container(
                 width: double.infinity,
@@ -295,6 +300,7 @@ class _PaymentState extends State<Payment> {
                               textAlign: TextAlign.start,
                               style: const TextStyle(
                                 color: Color(0xFF2F4D84),
+                                fontWeight: FontWeight.w500,
                                 fontSize: 17,
                               ),
                             ),
@@ -321,6 +327,7 @@ class _PaymentState extends State<Payment> {
                 ),
               ),
             ),
+         
           ],
         ),
       ),
@@ -329,13 +336,16 @@ class _PaymentState extends State<Payment> {
 }
 
 _onBankdetail(context) {
+ 
   Alert(
     content: Column(
       children: <Widget>[
         Text(
           AppLocalizations.of(context)!.merbank,
+           textAlign: TextAlign.center,
           style: const TextStyle(
               fontSize: 20,
+              
               fontWeight: FontWeight.bold,
               color: Color(0xff242E42)),
         ),
@@ -344,6 +354,7 @@ _onBankdetail(context) {
         ),
         Text(
           AppLocalizations.of(context)!.bankaddress,
+           textAlign: TextAlign.center,
           style: const TextStyle(color: Color(0xff8A8A8F)),
         ),
         const SizedBox(
@@ -360,6 +371,7 @@ _onBankdetail(context) {
           },
           child: Text(
             AppLocalizations.of(context)!.bankupload,
+            textAlign: TextAlign.center,
             style: const TextStyle(
                 fontWeight: FontWeight.bold, color: Color(0xff5AC8FA)),
           ),

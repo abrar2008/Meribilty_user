@@ -36,7 +36,7 @@ class _WeightmaterialState extends State<Weightmaterial> {
         padding:
             const EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 20),
         child: GFButton(
-          size: 60,
+          size: 50,
           color: const Color(0xFF2F4D84),
           onPressed: () {
             Navigator.push(
@@ -47,7 +47,7 @@ class _WeightmaterialState extends State<Weightmaterial> {
           },
           text: "Save & Continue",
           type: GFButtonType.solid,
-          textStyle: const TextStyle(fontSize: 20),
+          textStyle: const TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),
           shape: GFButtonShape.standard,
           blockButton: true,
         ),

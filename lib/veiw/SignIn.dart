@@ -12,6 +12,8 @@ class  SignIn  extends StatelessWidget {
   final GlobalKey<ContainedTabBarViewState> _key = GlobalKey();
   @override
   Widget build(BuildContext context) {
+     bool isChecked = false;
+  bool isVisiable = false;
  ContainedTabBarView containedTabBarView = ContainedTabBarView(
       key: _key,
   tabBarProperties: const TabBarProperties(
@@ -534,14 +536,21 @@ class  SignIn  extends StatelessWidget {
 
 
 
-class Loginin extends StatelessWidget {
+class Loginin extends StatefulWidget {
   const Loginin({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<Loginin> createState() => _LogininState();
+}
+
+class _LogininState extends State<Loginin> {
+  @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
+     bool isChecked = false;
+  bool isVisiable = false;
     return Card(
       child: Container(
         color: Colors.white,
@@ -664,22 +673,46 @@ class Loginin extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                          color: const Color(0xFFE2E1E8),
-                          borderRadius: BorderRadius.circular(15)),
-                      height: 30,
-                      width: 40,
-                      child: const Checkbox(
-                        tristate: false,
-                        // fillColor: Color(0xFFE2E1E8),
-                        // activeColor: Colors.white,
-                        // fillColor: Color(0xFF2F4D84),
+                
 
-                        value: true,
-                        onChanged: null,
-                      ),
-                    ),
+                   Container(
+                  decoration: BoxDecoration(
+                      color: const Color(0xFFE2E1E8),
+                      borderRadius: BorderRadius.circular(15)),
+                  height: 30,
+                  width: 40,
+                  child: Checkbox(
+                  
+                    activeColor: const Color(0xFFE2E1E8),
+                    checkColor: Colors.white,
+                    value: isChecked,
+                    onChanged: (value) {
+                      setState(() {
+                         isChecked = value!;
+                        isVisiable = value;
+                      });
+                    },
+                  ),
+                ),
+
+
+                    // Container(
+                    //   decoration: BoxDecoration(
+                    //       color: const Color(0xFFE2E1E8),
+                    //       borderRadius: BorderRadius.circular(15)),
+                    //   height: 30,
+                    //   width: 40,
+                    //   child: const Checkbox(
+                    //     tristate: false,
+                    //     // fillColor: Color(0xFFE2E1E8),
+                    //     // activeColor: Colors.white,
+                    //     // fillColor: Color(0xFF2F4D84),
+
+                    //     value: true,
+                    //     onChanged: null,
+                    //   ),
+                    // ),
+                    
                     const Text(
                       "Remember me ",
                       style: TextStyle(fontSize: 14, color: Color(0xffC8C7CC)),

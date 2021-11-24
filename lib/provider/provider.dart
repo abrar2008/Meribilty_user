@@ -24,6 +24,11 @@ enum Screen {
 }
 class LocaleProvider extends ChangeNotifier {
 
+// checkbox
+ bool isChecked = false;
+  bool isVisiable = false;
+  //checkbox
+
 
 
 // place city movement

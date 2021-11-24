@@ -34,7 +34,7 @@ class _UpdateTeamState extends State<UpdateTeam> {
                   Text(
                     "Ashfaq Alam",
                     style: TextStyle(
-                        fontSize: 30,
+                        fontSize: 34,
                         color: Colors.white,
                         fontWeight: FontWeight.bold),
                   ),
@@ -52,14 +52,14 @@ class _UpdateTeamState extends State<UpdateTeam> {
               ),
             ),
             Container(
-              padding: const EdgeInsets.all(10),
+              // padding: const EdgeInsets.all(10),
               child: Column(
                 children: [
                   TextFormField(
                     autofocus: false,
                     obscureText: true,
                     decoration: const InputDecoration(
-                      labelText: 'First Name',
+                    
                       labelStyle: TextStyle(color: Colors.black),
                       suffixIcon: Icon(
                         Icons.clear,
@@ -76,7 +76,7 @@ class _UpdateTeamState extends State<UpdateTeam> {
                     autofocus: false,
                     obscureText: true,
                     decoration: const InputDecoration(
-                      labelText: 'Last Name',
+                     
                       labelStyle: TextStyle(color: Colors.black),
                       suffixIcon: Icon(
                         Icons.clear,
@@ -93,7 +93,7 @@ class _UpdateTeamState extends State<UpdateTeam> {
                     autofocus: false,
                     obscureText: true,
                     decoration: const InputDecoration(
-                      labelText: 'Email',
+                      
                       labelStyle: TextStyle(color: Colors.black),
                       suffixIcon: Icon(
                         Icons.clear,
@@ -110,7 +110,7 @@ class _UpdateTeamState extends State<UpdateTeam> {
                     autofocus: false,
                     obscureText: true,
                     decoration: const InputDecoration(
-                      labelText: 'Give limited app access',
+                      
                       labelStyle: TextStyle(color: Colors.black),
                       suffixIcon: Icon(
                         Icons.clear,
@@ -126,6 +126,8 @@ class _UpdateTeamState extends State<UpdateTeam> {
                 ],
               ),
             ),
+
+            SizedBox(height: 40,),
             Container(
               padding: const EdgeInsets.all(30),
               child: GFButton(

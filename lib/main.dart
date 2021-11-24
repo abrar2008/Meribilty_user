@@ -1,4 +1,6 @@
 
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:meribilty/L10n/l10n.dart';
@@ -29,7 +31,7 @@ class MyApp extends StatelessWidget {
       return 2;
   };
 
-  Map<int, Widget> op = {1: MyApp(), 2: MyApp()};
+  Map<int, Widget> op = {1: const MyApp(), 2: const MyApp()};
     return ChangeNotifierProvider(
         create: (_) => LocaleProvider(),
         builder: (context, child) {

@@ -47,7 +47,7 @@ class _UnLoadingportState extends State<UnLoadingport> {
               },
               child: Text(
                 AppLocalizations.of(context)!.save,
-                style: const TextStyle(fontSize: 17),
+                style: const TextStyle(fontSize: 17 , fontWeight: FontWeight.bold),
               ),
               type: GFButtonType.solid,
               shape: GFButtonShape.standard,
@@ -147,7 +147,6 @@ class Floating extends StatelessWidget {
                                       color: e.count>=1 ? Colors.white : Colors.black,
                                       fontSize: 17,
                                       fontWeight: FontWeight.bold
-                                    
                                     ),
                                     ),
                                  const SizedBox(height: 10,),
@@ -172,7 +171,8 @@ class Floating extends StatelessWidget {
                                 
                                 ),
                                 ),
-                                icon: Column(
+                                icon: 
+                                Column(
                                   children: [
                                     Row(
                                       children: [

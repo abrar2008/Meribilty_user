@@ -39,13 +39,15 @@ class _VeiwBirdsState extends State<VeiwBirds> {
       body: SafeArea(
         child: Column(
           children: [
+            SizedBox(height: 10,),  
             Center(
               child: Text(
-                AppLocalizations.of(context)!.book,
-                style: const TextStyle(color: Colors.red, fontSize: 20),
+                AppLocalizations.of(context)!.bookv,
+                style: const TextStyle(color: Color(0xffC8C7CC), fontSize: 15),
               ),
             ),
             decision(context),
+              SizedBox(height: 10,),  
           ],
         ),
       ),
@@ -255,7 +257,7 @@ Widget decision(BuildContext context) {
                 ],
               ),
               GFButton(
-                color: Colors.black26,
+              color: const Color(0xffF7F7F7),   
                 onPressed: () {},
                 text: "Rs :200,000",
                 shape: GFButtonShape.pills,
@@ -634,11 +636,11 @@ _onVendorcounter(context) {
     content: Column(
       children: <Widget>[
         Text(
-          AppLocalizations.of(context)!.venderoffer,
+          AppLocalizations.of(context)!.countof,
           style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: Color(0xff242E42)),
+              color: Color(0xff446394)),
         ),
         const SizedBox(
           height: 20,
@@ -647,7 +649,7 @@ _onVendorcounter(context) {
           AppLocalizations.of(context)!.countoffer,
           style: const TextStyle(color: Color(0xff8A8A8F)),
         ),
-        const Divider(
+      const Divider(
           height: 2,
           color: Colors.black38,
         ),
@@ -671,15 +673,17 @@ _onVendorcounter(context) {
     buttons: [
       DialogButton(
         child: const Text(
-          "Reject ",
-          style: TextStyle(color: Colors.red, fontSize: 20),
+          "Cancel",
+          style: TextStyle(color: Color(0xffC8C7CC), fontSize: 20),
         ),
         onPressed: () => Navigator.pop(context),
         color: Colors.white,
       ),
+     
+   
       DialogButton(
         child: const Text(
-          "Accept",
+          "Send",
           style: TextStyle(color: Color(0xFF2F4D84), fontSize: 20),
         ),
         onPressed: () => Navigator.pop(context),
@@ -692,9 +696,12 @@ _onVendorcounter(context) {
 
 _onOfferreject(context) {
   Alert(
-    type: AlertType.error,
+    
     content: Column(
-      children: const <Widget>[
+      children:  <Widget>[
+
+        Image.asset("assets/reject.png"),
+        SizedBox(height: 10,),
         Text(
           "Offer Rejected",
           style: TextStyle(

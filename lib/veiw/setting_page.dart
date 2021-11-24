@@ -62,19 +62,37 @@ class _SettingState extends State<Setting> {
                     )),
               ),
               GFListTile(
-                  titleText: AppLocalizations.of(context)!.noto,
+                  title: Text(AppLocalizations.of(context)!.noto,
+                  style: TextStyle(
+                    fontSize: 17,
+
+                  ),
+                  ),
+                
                   icon: const Icon(
                     Icons.arrow_forward_ios,
                     color: Colors.black38,
                   )),
               GFListTile(
-                  titleText: AppLocalizations.of(context)!.se,
+                  title: Text(AppLocalizations.of(context)!.se ,
+                   style: TextStyle(
+                    fontSize: 17,
+
+                  ),
+                  
+                  ),
                   icon: const Icon(
                     Icons.arrow_forward_ios,
                     color: Colors.black38,
                   )),
               GFListTile(
-                  titleText: AppLocalizations.of(context)!.la,
+                  title: Text(AppLocalizations.of(context)!.la ,
+                   style: TextStyle(
+                    fontSize: 17,
+
+                  ),
+                  
+                  ),
                   icon: const Icon(
                     Icons.arrow_forward_ios,
                     color: Colors.black38,
@@ -83,19 +101,41 @@ class _SettingState extends State<Setting> {
                 height: 20,
               ),
               GFListTile(
-                  titleText: AppLocalizations.of(context)!.cac,
+
+                  title: Text(AppLocalizations.of(context)!.cac ,
+                   style: TextStyle(
+                    fontSize: 17,
+
+                  ),
+                  
+                  ),
+                  
                   icon: const Icon(
                     Icons.arrow_forward_ios,
                     color: Colors.black38,
                   )),
               GFListTile(
-                  titleText: AppLocalizations.of(context)!.te,
+                title: Text(AppLocalizations.of(context)!.te ,
+                   style: TextStyle(
+                    fontSize: 17,
+
+                  ),
+                  
+                  ),
+                  
                   icon: const Icon(
                     Icons.arrow_forward_ios,
                     color: Colors.black38,
                   )),
               GFListTile(
-                  titleText: AppLocalizations.of(context)!.con,
+                 title: Text(AppLocalizations.of(context)!.con ,
+                   style: TextStyle(
+                    fontSize: 17,
+
+                  ),
+                  
+                  ),
+                
                   icon: const Icon(
                     Icons.arrow_forward_ios,
                     color: Colors.black38,
@@ -109,8 +149,8 @@ class _SettingState extends State<Setting> {
                   onPressed: () {},
                   text: AppLocalizations.of(context)!.log,
                   textStyle: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                    
                       color: Colors.black26),
                   fullWidthButton: true,
                   color: Colors.white,

@@ -9,6 +9,7 @@ import 'package:getwidget/position/gf_position.dart';
 import 'package:getwidget/shape/gf_avatar_shape.dart';
 import 'package:getwidget/shape/gf_button_shape.dart';
 import 'package:getwidget/types/gf_button_type.dart';
+import 'package:meribilty/veiw/homedetail.dart';
 import 'package:meribilty/veiw/mainProfile.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
@@ -68,7 +69,7 @@ class _MydeliverypageState extends State<Mydeliverypage> {
             ),
             boxShadow: [
               BoxShadow(
-                blurRadius: 20.0,
+                blurRadius: 5.0,
                 color: Colors.grey,
               ),
             ]),
@@ -606,7 +607,7 @@ Widget complete(BuildContext context) {
                 //   width: 10,
                 // ),
                 GFButton(
-                  color: Colors.black12,
+                  color: Color(0xffF7F7F7),
                   onPressed: () {},
                   text: "  Rs:200,000  ",
                   shape: GFButtonShape.pills,
@@ -619,7 +620,7 @@ Widget complete(BuildContext context) {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MainProfile()),
+                      MaterialPageRoute(builder: (context) => Homedetail()),
                     );
                   },
                   child: Text(

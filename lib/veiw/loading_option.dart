@@ -68,7 +68,7 @@ class _LoadingOptionState extends State<LoadingOption> {
             child: Container(
               padding: EdgeInsets.only(left: 20, right: 20),
               child: GFButton(
-                size: 60,
+                size: 70,
                 color: Color(0xFF2F4D84),
                 onPressed: () {
                   Navigator.push(
@@ -78,7 +78,7 @@ class _LoadingOptionState extends State<LoadingOption> {
                 },
                 child: Text(
                   AppLocalizations.of(context)!.next,
-                  style: TextStyle(fontSize: 17),
+                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                 ),
                 type: GFButtonType.solid,
                 shape: GFButtonShape.standard,

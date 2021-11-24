@@ -1,5 +1,7 @@
 
 
+// ignore_for_file: avoid_print
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -422,7 +424,7 @@ class _FloatingState extends State<Floating> {
                       height: 5,
                     ),
                     Text(
-                      "Rs  :350",
+                      "Rs  :0",
                       style: TextStyle(
                         color: Colors.green[600],
                         fontSize: 15,
@@ -900,7 +902,7 @@ class _FloatingState extends State<Floating> {
            //
            
             },
-            textStyle: const TextStyle(fontSize: 20, color: Colors.white),
+            textStyle: const TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
             text: AppLocalizations.of(context)!.sel,
             type: GFButtonType.solid,
             blockButton: true,
@@ -911,7 +913,7 @@ class _FloatingState extends State<Floating> {
           GFButton(
             size: 60,
             color: const Color(0xFF2F4D84),
-            textStyle: const TextStyle(fontSize: 17, color: Colors.white),
+            textStyle: const TextStyle(fontSize: 17, color: Colors.white, fontWeight: FontWeight.bold),
             onPressed: () {
               Navigator.push(
                 context,
@@ -920,6 +922,7 @@ class _FloatingState extends State<Floating> {
             },
             text: AppLocalizations.of(context)!.load,
             type: GFButtonType.solid,
+          
             shape: GFButtonShape.standard,
             blockButton: true,
           ),
@@ -932,6 +935,7 @@ class _FloatingState extends State<Floating> {
             child: Row(
               // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+           
                 GFButton(
                   color: Colors.white,
                   textStyle: const TextStyle(
@@ -1648,6 +1652,7 @@ class _CargoState extends State<Cargo> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(AppLocalizations.of(context)!.insure),
+             
                 Container(
                   decoration: BoxDecoration(
                       color: const Color(0xFF2F4D84),
@@ -1666,6 +1671,7 @@ class _CargoState extends State<Cargo> {
                     },
                   ),
                 ),
+
               ],
             ),
           ),

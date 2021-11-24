@@ -48,7 +48,7 @@ class _LoadingportState extends State<Loadingport> {
                 },
                 child: Text(
                   AppLocalizations.of(context)!.next,
-                  style: TextStyle(fontSize: 17),
+                  style: TextStyle(fontSize: 17 , fontWeight: FontWeight.bold  ),
                 ),
                 type: GFButtonType.solid,
                 shape: GFButtonShape.standard,
@@ -114,7 +114,8 @@ class Floating extends StatelessWidget {
    
                child: Column(
                  children: [
-                    SizedBox(height: 12,),
+
+                  SizedBox(height: 12,),
                   SizedBox(
                     width: double.infinity,
                     child: Row(
@@ -127,25 +128,25 @@ class Floating extends StatelessWidget {
                         },  
                           child: Icon(Icons.arrow_back_ios )),
                          SizedBox(width: 30,),
-                       Text("Select Loading Options " ,
+                       Text("Select Loading Options" ,
                                             style: TextStyle(
                         fontSize: 20,
                          fontWeight: FontWeight.bold,
-                       letterSpacing: 1,
-                        color:  Color(0xFF2F4D84),
+                           letterSpacing: 1,
 
-                        
-                                            ),
+                      
+                        color:  Color(0xFF39568A), ),
                        
                        )
                       ],
                     ),
                   ), 
                   SizedBox(height: 10,),
-              Container(
+                  Container(
                 color: Colors.white,
                 child: Center(child: Image.asset("assets/arrow.png"))),
                    SizedBox(height: 10,),
+                    
                    Consumer<LocaleProvider>(
                     builder: (context ,state , child ){
                     return Container(
@@ -208,10 +209,11 @@ class Floating extends StatelessWidget {
                                       children: [
                                         Row(
                                           children: [
+
                                             Container(
                                               decoration: BoxDecoration(
-                                                  color: e.count>=1 ? Colors.white : Color(0xFF2F4D84),
-                                                  borderRadius: BorderRadius.circular(10)),
+                                              color: e.count>=1 ? Colors.white : Color(0xFF2F4D84),
+                                              borderRadius: BorderRadius.circular(10)),
                                               height: 25,
                                               width: 30,
                                               child: GestureDetector(
@@ -238,7 +240,7 @@ class Floating extends StatelessWidget {
                                             ),
                                             Container(
                                               decoration: BoxDecoration(
-                                                  color:  e.count>=1 ? Colors.white : Color(0xFF2F4D84),
+                                              color:  e.count>=1 ? Colors.white : Color(0xFF2F4D84),
                                                   borderRadius: BorderRadius.circular(10)),
                                               height: 25,
                                               width: 30,
@@ -252,6 +254,7 @@ class Floating extends StatelessWidget {
                                                 ),
                                               ),
                                             ),
+                                          
                                           ],
                                         ),
                                         Divider(
@@ -292,6 +295,7 @@ class Floating extends StatelessWidget {
                         
                     }
                     ),
+                 
                  ],
                ),
              ),
