@@ -44,7 +44,7 @@ class _MainProfileState extends State<MainProfile> {
           elevation: 0,
         ),
         body: SlidingUpPanel(
-          minHeight: 600,
+          minHeight: 500,
           panelBuilder: (ScrollController sc) => _scrollingList(sc, context),
           body: GoogleMap(
             mapType: MapType.normal,

@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, unused_field
 
 import 'dart:async';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -53,8 +53,9 @@ class _HomedetailState extends State<Homedetail> {
           elevation: 0,
         ),
         body: SlidingUpPanel(
-          minHeight: 400,
-          maxHeight: 800,
+          minHeight: 500,
+          
+          
           panelBuilder: (ScrollController sc) => _scrollingList(sc, context),
           body: Container(
             child: GoogleMap(
@@ -77,10 +78,16 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
         children: [
           Container(
             child: GFListTile(
-                avatar: GFAvatar(
-                  backgroundImage: AssetImage("assets/truk.png"),
-                  shape: GFAvatarShape.circle,
-                  size: 40,
+                avatar: 
+                Column(
+                  children: [
+                    GFAvatar(
+                      backgroundImage: AssetImage("assets/truk.png"),
+                      shape: GFAvatarShape.circle,
+                      size: 40,
+                    ),
+                    SizedBox(height: 50,),
+                  ],
                 ),
                 title: Text(
                   "MUHAMMAD \nAKHTAR",
@@ -170,10 +177,10 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
               children: [
                 InkWell(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => MyDeliveries()),
-                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(builder: (context) => MyDeliveries()),
+                    // );
                   },
                   child: Container(
                     child: Row(
@@ -553,40 +560,187 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                   )
                 ],
               )),
-
-          Container(
-            padding: EdgeInsets.all(0),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: const [
-                        Icon(Icons.not_listed_location),
-                        Text(
-                          "B-292 Block 15 Block13 \n Gulshan-e-Johar",
-                          style: TextStyle(fontSize: 13),
-                        )
-                      ],
-                    ),
-                    Row(
-                      children: const [
-                        Icon(Icons.not_listed_location),
-                        Text(
-                          "B-292 Block 15 Block13 \n Gulshan-e-Johar",
-                          style: TextStyle(fontSize: 13),
-                        )
-                      ],
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: 50,
-                ),
-              ],
+ Container(
+   padding: EdgeInsets.only(left: 10, right: 10),
+   child: Card(
+     
+     elevation:5,
+     shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+     child:   Container(
+       
+       width: MediaQuery.of(context).size.width * 0.98,
+       child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: <Widget>[
+                                    new Expanded(
+                                      flex: 1,
+                                      child: new Column(
+                                        children: <Widget>[
+                                          new Icon(
+                                            Icons.my_location,
+                                            size: 20.0,
+                                            color: Colors.blue,
+                                          ),
+                                          new Icon(
+                                            Icons.more_vert,
+                                            size: 30.0,
+                                            color: Colors.grey,
+                                          ),
+                                          
+                                          new Icon(
+                                            Icons.location_on,
+                                            size: 20.0,
+                                            color: Colors.red,
+                                          ),
+                      
+                                          new Icon(
+                                            Icons.more_vert,
+                                            size: 30.0,
+                                            color: Colors.grey,
+                                          ),
+                                           new Icon(
+                                            Icons.my_location,
+                                            size: 20.0,
+                                            color: Colors.blue,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    
+                                    
+                                      new Expanded(
+                                      flex: 5,
+                                      child:
+                                      
+                                       Form(
+                                          child: Column( 
+                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: <Widget>[
+                                              // one textfeild
+                                              new Container(
+                                                height: 50.0,
+                                                width: MediaQuery.of(context).size.width -
+                                                     50,
+                                                color: Colors.white,
+                                                child: new Column(
+                                                  mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                                  children: <Widget>[
+                                                       Text("Karachi , Port Qasim Savual Office")
+                                                  ],
+                                                ),
+                                              ),
+                                      
+                                                  // line 
+                                               Container(
+                                                width: MediaQuery.of(context).size.width -
+                                                    50.0,
+                                                height: 1.0,
+                                                color: Colors.grey.withOpacity(0.4),
+                                              ),
+                                             
+                                             
+                                               // seond textfeild
+                         
+                                              new Container(
+                                                height: 50.0,
+                                                // width: MediaQuery.of(context).size.width,
+                                                color: Colors.white,
+                                                child: new Column(
+                                                  mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                                  children: <Widget>[
+                                                    Text("Baba bazar , Peshawar")
+                                                  ],
+                                                ),
+                                              ),
+                                          // line 
+                                           Container(
+                                                width: MediaQuery.of(context).size.width -
+                                                    50.0,
+                                                height: 1.0,
+                                                color: Colors.grey.withOpacity(0.4),
+                                              ),
+                                         // container 
+                                          new Container(
+                                                height: 50.0,
+                                                // width: MediaQuery.of(context).size.width,
+                                                color: Colors.white,
+                                                child: new Column(
+                                                  mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                                  children: <Widget>[
+                                                    Text("Port Qasim, Karachi")
+                                                  ],
+                                                ),
+                                              ),
+                                             
+                    
+                                         
+                                            ],
+                                          )),
+                                    ),
+                                  ],
+                                ),
+     ),
+   ),
+ ),
+            Container(
+              color: Color(0xffF2F2F2),
+              padding: EdgeInsets.only(left: 20,top: 10,right: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        AppLocalizations.of(context)!.dis,
+                        style: TextStyle(
+                            color: Color(0xFF2F4D84),
+                            fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        "2000 km",
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: const [
+                      Text(
+                        "Time",
+                        style: TextStyle(
+                            color: Color(0xFF2F4D84),
+                            fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        "200 min",
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
         ],
       ),
     ),

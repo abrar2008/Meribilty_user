@@ -6,7 +6,7 @@ import 'package:getwidget/shape/gf_avatar_shape.dart';
 import 'package:getwidget/shape/gf_button_shape.dart';
 import 'package:getwidget/types/gf_button_type.dart';
 import 'package:meribilty/provider/provider.dart';
-import 'package:meribilty/veiw/Citymovement.dart';
+import 'package:meribilty/veiw/citymovement.dart';
 import 'package:provider/provider.dart';
 
 class Selectvehiclecity extends StatefulWidget {
@@ -133,9 +133,7 @@ class _SelectvehiclecityState extends State<Selectvehiclecity> {
                                 )
                    
                     ));
-                   
-                   
-                   
+                 
                     }
                     ).toList(),
                   ),

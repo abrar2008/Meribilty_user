@@ -191,12 +191,13 @@ FromDataCity(index,context){
      placescity!.elementAt(index).lng
     };
     print('dataFrom: ' + value.toString());
-    placescity!.clear();
+    
     FocusScope.of(context).requestFocus(nodeTocity);
     dataFromcity.add(value);
     valueFromcity = placescity!.elementAt(index).name.toString();
     addressFromcity = TextEditingController(text:valueFromcity);
     inputTo = true;
+    placescity!.clear();
     notifyListeners();
     print(dataFromcity);
 
@@ -232,7 +233,7 @@ FromDataCity(index,context){
           FocusNode());
       dataTocity.add(value);
       print(dataTocity);
-    // places2city!.clear();
+    places2city!.clear();
       notifyListeners();
       //directions
       // DrawRoute();

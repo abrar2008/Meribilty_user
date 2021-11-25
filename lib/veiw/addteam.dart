@@ -47,22 +47,20 @@ class _AddTeamState extends State<AddTeam> {
                             color: Colors.white,
                             fontWeight: FontWeight.bold),
                       ),
-                      GFIconButton(
-                        size: 280,
+                       Image.asset("assets/Follow.png"),
+                      // GFIconButton(
+                      //   size: 280,
                    
-                        color: Colors.white,
-                        shape: GFIconButtonShape.pills,
-                        onPressed: () {},
-                        icon: Row(
-                          children: const [
-                            // SizedBox(width: 5,),
-                            Icon(
-                              Icons.add,
-                              color: Colors.black,
-                            ),
-                          ],
-                        ),
-                      ),
+                      //   color: Colors.white,
+                      //   shape: GFIconButtonShape.pills,
+                      //   onPressed: () {},
+                      //   icon: Row(
+                      //     children:  [
+                      //       // SizedBox(width: 5,),
+                           
+                      //     ],
+                      //   ),
+                      // ),
                       const SizedBox(
                         width: 9,
                       ),
@@ -159,7 +157,7 @@ class _AddTeamState extends State<AddTeam> {
                     },
                     text: "Add Team",
                     textStyle: const TextStyle(
-                        fontSize: 20, fontWeight: FontWeight.bold),
+                        fontSize: 21, fontWeight: FontWeight.bold),
                     blockButton: true,
                     color: const Color(0xFF2F4D84),
                     child: Column(

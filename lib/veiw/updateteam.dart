@@ -127,7 +127,7 @@ class _UpdateTeamState extends State<UpdateTeam> {
               ),
             ),
 
-            SizedBox(height: 40,),
+          const  SizedBox(height: 40,),
             Container(
               padding: const EdgeInsets.all(30),
               child: GFButton(

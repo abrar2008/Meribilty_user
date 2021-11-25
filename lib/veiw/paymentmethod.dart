@@ -56,7 +56,7 @@ class _PaymentState extends State<Payment> {
                       },
                       child: Container(
                         height: 100,
-                        width: double.infinity,
+                         width: MediaQuery.of(context).size.width,
                         padding: EdgeInsets.all(10),
                         decoration: BoxDecoration(
                             color: Colors.white,
@@ -74,50 +74,59 @@ class _PaymentState extends State<Payment> {
                                     Offset(0, 3), // changes position of shadow
                               ),
                             ]),
-                        child: Row(
-                          children: [
-                            SizedBox(width: 10,),
-                            Image.asset("assets/bank.png"),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Container(
-                              padding: EdgeInsets.only(left: 10, top: 10),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: const [
-                                  SizedBox(
-                                    height: 6,
-                                  ),
-                                  Text(
-                                    "Bank Transfer                             ",
-                                    textAlign: TextAlign.start,
-                                    // AppLocalizations.of(context)!.bank,
-                                    style: TextStyle(
-                                      fontSize: 17,
-                                      color: Color(0xFF2F4D84),
-                                      fontWeight:FontWeight.bold
-                                    
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Text(
-                                    "You have yo upload tranfer slip to procced",
-                                    textAlign: TextAlign.start,
-                                    style: TextStyle(
-                                        color: Color(0xffC8C7CC),
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.bold),
-                                  )
-                                ],
+                        child: Expanded(
+                          child: Row(
+                            children: [
+                              SizedBox(width: 8,),
+                              Image.asset("assets/bank.png"),
+                              SizedBox(
+                                width: 5,
                               ),
-                            ),
-                            SizedBox(
-                              width: 1,
-                            ),
-                          ],
+                              Container(
+                                padding: EdgeInsets.only(left: 7, top: 10),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                 
+                                  children: const [
+                                    SizedBox(
+                                      height: 6,
+                                    ),
+                                    Expanded(
+                                      child: Text(
+                                        "Bank Transfer                   ",
+                                        textAlign: TextAlign.start,
+                                        // AppLocalizations.of(context)!.bank,
+                                        style: TextStyle(
+                                          fontSize: 17,
+                                          color: Color(0xFF2F4D84),
+                                          fontWeight:FontWeight.bold
+                                        
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 3,
+                                    ),
+                                    Expanded(
+                                      child: Text(
+                                        "You have yo upload tranfer slip to procced",
+                                        textAlign: TextAlign.start,
+                                        style: TextStyle(
+                                            color: Color(0xffC8C7CC),
+                                            fontSize: 10,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              // Expanded(
+                              //   child: SizedBox(
+                              //     width: 1,
+                              //   ),
+                              // ),
+                            ],
+                          ),
                         ),
                       ),
                     ),

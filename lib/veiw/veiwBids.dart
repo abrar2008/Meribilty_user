@@ -57,6 +57,7 @@ class _VeiwBirdsState extends State<VeiwBirds> {
 
 Widget decision(BuildContext context) {
   return Container(
+     width: MediaQuery.of(context).size.width,
     padding: const EdgeInsets.all(10),
     decoration: const BoxDecoration(
         color: Colors.white,
@@ -67,7 +68,7 @@ Widget decision(BuildContext context) {
     child: Column(
       children: [
         Container(
-          width: double.infinity,
+           width: MediaQuery.of(context).size.width,
           height: 20,
           decoration: const BoxDecoration(
               color: Color(0xff666666),
@@ -84,20 +85,26 @@ Widget decision(BuildContext context) {
             ),
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-            Text(
-              "Order No .00214 ",
-              style: TextStyle(
-                  color: Color(0xFF2F4D84), fontWeight: FontWeight.bold),
-            ),
-            Text(
-              "09 Sep, 21 05:51 Pm",
-              style: TextStyle(
-                  color: Color(0xFF2F4D84), fontWeight: FontWeight.bold),
-            ),
-          ],
+        Container(
+          padding: EdgeInsets.only(left: 15, right: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              Text(
+                "Order No .00214 ",
+                style: TextStyle(
+                  fontSize: 15,
+                    color: Color(0xFF2F4D84), fontWeight: FontWeight.bold),
+              ),
+              Text(
+                "09 Sep, 21 05:51 Pm",
+                style: TextStyle(
+                    fontSize: 15,
+                    color: Color(0xFF2F4D84), fontWeight: FontWeight.bold),
+              ),
+              // SizedBox(width:9,),
+            ],
+          ),
         ),
         const SizedBox(
           height: 10,
@@ -216,7 +223,8 @@ Widget decision(BuildContext context) {
         ),
         expand(context),
         Container(
-          width: double.infinity,
+          padding: EdgeInsets.only(left: 15),
+            width: MediaQuery.of(context).size.width,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -234,7 +242,7 @@ Widget decision(BuildContext context) {
                   text: "COD",
                   shape: GFButtonShape.pills,
                   textStyle: const TextStyle(
-                    fontSize: 20,
+                    fontSize: 17,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -251,7 +259,7 @@ Widget decision(BuildContext context) {
                   Text(
                     "4.9",
                     style: TextStyle(
-                      fontSize: 25,
+                      fontSize: 15,
                     ),
                   ),
                 ],
@@ -259,9 +267,9 @@ Widget decision(BuildContext context) {
               GFButton(
               color: const Color(0xffF7F7F7),   
                 onPressed: () {},
-                text: "Rs :200,000",
+                text: "  Rs :200,000  ",
                 shape: GFButtonShape.pills,
-                textStyle: const TextStyle(fontSize: 20, color: Colors.black),
+                textStyle: const TextStyle(fontSize: 17, color: Colors.black),
               ),
               const SizedBox(
                 width: 20,
@@ -270,7 +278,7 @@ Widget decision(BuildContext context) {
           ),
         ),
         Container(
-          width: double.infinity,
+          
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -283,29 +291,34 @@ Widget decision(BuildContext context) {
                 },
                 text: AppLocalizations.of(context)!.reject,
                 textStyle:
-                    const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
               ),
-              GFButton(
-                color: const Color(0xff5AC8FA),
-                onPressed: () {
-                  _onVendorcounter(context);
-                },
-                text: AppLocalizations.of(context)!.count,
-                size: 50,
-                shape: GFButtonShape.square,
-                textStyle:
-                    const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              Expanded(
+                child: GFButton(
+                  fullWidthButton: true,
+                  color: const Color(0xff5AC8FA),
+                  onPressed: () {
+                    _onVendorcounter(context);
+                  },
+                  text: AppLocalizations.of(context)!.count,
+                  size: 50,
+                  shape: GFButtonShape.square,
+                  textStyle:
+                      const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                ),
               ),
-              GFButton(
-                onPressed: () {
-                  _onSendCounterAccept(context);
-                },
-                color: const Color(0xFF2F4D84),
-                text: AppLocalizations.of(context)!.acept,
-                size: 50,
-                shape: GFButtonShape.square,
-                textStyle:
-                    const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+              Expanded(
+                child: GFButton(
+                  onPressed: () {
+                    _onSendCounterAccept(context);
+                  },
+                  color: const Color(0xFF2F4D84),
+                  text: AppLocalizations.of(context)!.acept,
+                  size: 50,
+                  shape: GFButtonShape.square,
+                  textStyle:
+                      const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                ),
               ),
             ],
           ),

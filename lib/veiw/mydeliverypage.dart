@@ -44,15 +44,17 @@ class _MydeliverypageState extends State<Mydeliverypage> {
         ),
         body: SlidingUpPanel(
           renderPanelSheet: false,
-          minHeight: 200,
-          maxHeight: 600,
+          minHeight: 100,
+         
           panel: _floatingPanel(context),
           // panelBuilder: (ScrollController sc) => _scrollingList(sc),
           body: SafeArea(
             child: Container(
               color: Colors.white,
               child: Column(
-                children: [complete(context)],
+                children: [
+                  SizedBox(height: 10,),
+                  complete(context)],
               ),
             ),
           ),
@@ -447,25 +449,32 @@ class _MydeliverypageState extends State<Mydeliverypage> {
 
 Widget complete(BuildContext context) {
   return Card(
+     elevation:5,
+     shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
     child: Container(
       width: double.infinity,
       padding: EdgeInsets.all(5),
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text(
-                "Order No .00214 ",
-                style: TextStyle(
-                    color: Color(0xFF2F4D84), fontWeight: FontWeight.w600),
-              ),
-              Text(
-                "09 Sep, 21 05:51 Pm",
-                style: TextStyle(
-                    color: Color(0xFF2F4D84), fontWeight: FontWeight.w600),
-              ),
-            ],
+          Container(
+            padding: EdgeInsets.only(left: 10,right: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                Text(
+                  "Order No .00214 ",
+                  style: TextStyle(
+                      color: Color(0xFF2F4D84), fontWeight: FontWeight.w800),
+                ),
+                Text(
+                  "09 Sep, 21 05:51 Pm",
+                  style: TextStyle(
+                      color: Color(0xFF2F4D84), fontWeight: FontWeight.w800),
+                ),
+              ],
+            ),
           ),
           SizedBox(
             height: 10,
@@ -585,6 +594,7 @@ Widget complete(BuildContext context) {
             blockButton: true,
           ),
           expand(context),
+          SizedBox(height: 10,),
           SizedBox(
             width: double.infinity,
             child: Row(
@@ -596,10 +606,10 @@ Widget complete(BuildContext context) {
                 GFButton(
                   color: Color(0xff435E8F),
                   onPressed: () {},
-                  text: "  COD  ",
+                  text: " COD ",
                   shape: GFButtonShape.pills,
                   textStyle: TextStyle(
-                    fontSize: 20,
+                    fontSize: 17,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -611,7 +621,9 @@ Widget complete(BuildContext context) {
                   onPressed: () {},
                   text: "  Rs:200,000  ",
                   shape: GFButtonShape.pills,
-                  textStyle: TextStyle(fontSize: 17, color: Colors.black),
+                  textStyle: TextStyle(fontSize: 17, color: Colors.black ,
+                  fontWeight: FontWeight.bold,
+                  ),
                 ),
                 // SizedBox(
                 //   width: 20,
@@ -628,7 +640,7 @@ Widget complete(BuildContext context) {
                     style: TextStyle(
                         color: Color(0xFF2F4D84),
                         fontSize: 15,
-                        fontWeight: FontWeight.w500),
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
                 SizedBox(
@@ -644,185 +656,247 @@ Widget complete(BuildContext context) {
 }
 
 Widget expand(BuildContext context) {
-  bool isChecked = false;
-  return ExpandableNotifier(
-      child: Padding(
-    padding: const EdgeInsets.all(10),
-    child: Card(
-      clipBehavior: Clip.antiAlias,
-      child: Column(
-        children: <Widget>[
-          ScrollOnExpand(
-            scrollOnExpand: true,
-            scrollOnCollapse: false,
-            child: ExpandablePanel(
-              theme: const ExpandableThemeData(
-                headerAlignment: ExpandablePanelHeaderAlignment.center,
-                tapBodyToCollapse: true,
-              ),
-              header: Padding(
-                  padding: EdgeInsets.all(10),
-                  child: Center(
-                    child: Text(
-                      "Click to expand",
-                      style: TextStyle(
-                        color: Color(0xFF2F4D84),
-                      ),
-                    ),
-                  )),
-              collapsed: Text(
-                "  ",
-                softWrap: true,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              ),
-              expanded: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      Image.asset('assets/Ol.png'),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        "Pick Up location",
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    children: [
-                      Image.asset('assets/ma.png'),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        "Drop off location",
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    children: [
-                      Image.asset('assets/Ol.png'),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        "Empty Container Return",
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      GFButton(
-                        size: 20,
-                        color: Color(0xFF2F4D84),
-                        onPressed: () {},
-                        text: "Load",
-                        shape: GFButtonShape.pills,
-                      ),
-                      Text("1 x Fork Lifter Rs. 3000  "),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      GFButton(
-                        size: 20,
-                        color: Color(0xFF2F4D84),
-                        onPressed: () {},
-                        text: "Load",
-                        shape: GFButtonShape.pills,
-                      ),
-                      Text("1 x Fork Lifter Rs. 3000  "),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
+  
+  return Card(
+    child: Container(
+     width: MediaQuery.of(context).size.width * 0.89,
+      color: Color(0xffF7F7F7),
+      padding: EdgeInsets.only(left: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              new Expanded(
+                                flex: 1,
+                                child: new Column(
+                                  children: <Widget>[
+                                    new Icon(
+                                      Icons.my_location,
+                                      size: 20.0,
+                                      color: Colors.blue,
+                                    ),
+                                    new Icon(
+                                      Icons.more_vert,
+                                      size: 30.0,
+                                      color: Colors.grey,
+                                    ),
+                                    
+                                    new Icon(
+                                      Icons.location_on,
+                                      size: 20.0,
+                                      color: Colors.red,
+                                    ),
+                
+                                    new Icon(
+                                      Icons.more_vert,
+                                      size: 30.0,
+                                      color: Colors.grey,
+                                    ),
+                                     new Icon(
+                                      Icons.my_location,
+                                      size: 20.0,
+                                      color: Colors.blue,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              
+                              
+                                new Expanded(
+                                flex: 5,
+                                child:
+                                
+                                 Form(
+                                    child: Column( 
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: <Widget>[
+                                        // one textfeild
+                                        new Container(
+                                          height: 50.0,
+                                          width: MediaQuery.of(context).size.width -
+                                               50,
+                                          color:Color(0xffF7F7F7),
+                                          child: new Column(
+                                            mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                            children: <Widget>[
+                                                 Text("Pick Up location")
+                                            ],
+                                          ),
+                                        ),
+                                
+                                            // line 
+                                         Container(
+                                          width: MediaQuery.of(context).size.width -
+                                              50.0,
+                                          height: 1.0,
+                                          color: Colors.grey.withOpacity(0.4),
+                                        ),
+                                       
+                                       
+                                         // seond textfeild
+                   
+                                        new Container(
+                                          height: 50.0,
+                                          // width: MediaQuery.of(context).size.width,
+                                          color:Color(0xffF7F7F7),
+                                          child: new Column(
+                                            mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                            children: <Widget>[
+                                              Text("Drop off location")
+                                            ],
+                                          ),
+                                        ),
+                                    // line 
+                                     Container(
+                                          width: MediaQuery.of(context).size.width -
+                                              50.0,
+                                          height: 1.0,
+                                          color: Colors.grey.withOpacity(0.4),
+                                        ),
+                                   // container 
+                                    new Container(
+                                          height: 50.0,
+                                          // width: MediaQuery.of(context).size.width,
+                                          color: Color(0xffF7F7F7),
+                                          child: new Column(
+                                            mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                            children: <Widget>[
+                                              Text("Empty Container Return")
+                                            ],
+                                          ),
+                                        ),
+                                       
+                
+                                   
+                                      ],
+                                    )),
+                              ),
+                            ],
+                          ),
+
+
+                     
+  ////
                       Container(
-                        child: Row(
-                          children: const [
-                            Text(
-                              "DISTANCE",
-                              style: TextStyle(
-                                  color: Color(0xFF2F4D84),
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              "2000 km",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold),
-                            ),
+                        
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                                Row(
+                       
+                        children: [
+                          
+                          GFButton(
+                            size: 20,
+                            color: Color(0xFF2F4D84),
+                            onPressed: () {},
+                            text: "Load",
+                            shape: GFButtonShape.pills,
+                          ),
+  
+                          SizedBox(width:5,),
+                          Text("1 x Fork Lifter Rs. 3000"),
+                          SizedBox(width: 8,),
+                          Image.asset('assets/ok.png')
+                        ],
+                      ),
+                           Row(
+                      
+                        children: [
+                          GFButton(
+                            size: 20,
+                            color: Color(0xFF2F4D84),
+                            onPressed: () {},
+                            text: "UnLoad",
+                            shape: GFButtonShape.pills,
+                          ),
+                          SizedBox(width:5,),
+                          Text("2 x Crance Rs. 3000"),
+                          SizedBox(width:8,),
+                          Image.asset('assets/ok.png')
+                        ],
+                      ),
+                          
                           ],
                         ),
                       ),
+  
+                     SizedBox(height: 5,),
+                      
                       Container(
-                          child: Row(
-                        children: const [
-                          Text(
-                            "Time",
-                            style: TextStyle(
-                                color: Color(0xFF2F4D84),
-                                fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            "200 min",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      )),
+  padding: EdgeInsets.only(left: 5, right: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              child: Row(
+                                children: const [
+                                  Text(
+                                    "DISTANCE",
+                                    style: TextStyle(
+                                        color: Color(0xFF2F4D84),
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    "2000 km",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                                child: Row(
+                              children: const [
+                                Text(
+                                  "Time",
+                                  style: TextStyle(
+                                      color: Color(0xFF2F4D84),
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  "200 min",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            )),
+                          ],
+                        ),
+                      ),
+   SizedBox(height: 5,),
+  
                     ],
                   ),
-                ],
-              ),
-              builder: (_, collapsed, expanded) {
-                return Padding(
-                  padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
-                  child: Expandable(
-                    collapsed: collapsed,
-                    expanded: expanded,
-                    theme: const ExpandableThemeData(crossFadePoint: 0),
-                  ),
-                );
-              },
-            ),
-          ),
-        ],
-      ),
-    ),
-  ));
+                ),
+  );
 }
 
 void setState(Null Function() param0) {}
+
+
+
+
+

@@ -5,6 +5,7 @@ import 'package:getwidget/components/avatar/gf_avatar.dart';
 import 'package:getwidget/components/list_tile/gf_list_tile.dart';
 import 'package:contained_tab_bar_view/contained_tab_bar_view.dart';
 import 'package:meribilty/veiw/Bilitychat.dart';
+import 'package:meribilty/veiw/notifications.dart';
 import 'package:meribilty/veiw/orderchat.dart';
 
 class Message extends StatefulWidget {
@@ -51,9 +52,16 @@ Image.asset('assets/search.png'),
               SizedBox(
                 width: 10,
               ),
-             Image.asset('assets/Notifica.png'),
+             InkWell(
+               onTap: (){
+                 Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Notifcation()));
+               },
+               child: Image.asset('assets/Notifica.png')),
               SizedBox(
-                width: 10,
+                width: 15,
               ),
              ],
            )

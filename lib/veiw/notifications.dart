@@ -19,6 +19,7 @@ class _NotifcationState extends State<Notifcation> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Color(0xFF2F4D84),
+        
       ),
       body: Column(
         children: [

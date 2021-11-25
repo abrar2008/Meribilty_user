@@ -41,7 +41,7 @@ class  SignIn  extends StatelessWidget {
 
     SingleChildScrollView(
       child: Container(
-        width: MediaQuery.of(context).size.width *0.5,
+       
         child: Column(
           children: [
             Card(
@@ -131,9 +131,7 @@ class  SignIn  extends StatelessWidget {
                     },
                     cursorColor: Colors.black,
                     decoration: const InputDecoration(
-                        border: OutlineInputBorder(
-                          
-                        ),
+                        
                         contentPadding:
                             EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
                         hintText: "Full Name",
@@ -227,12 +225,12 @@ class  SignIn  extends StatelessWidget {
                               height: 80,
                               width: MediaQuery.of(context).size.width *0.69,
                               child: TextFormField(
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter Full Name';
-                                  }
-                                  return null;
-                                },
+                               validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter Full Name';
+                      }
+                      return null;
+                    },
                                 style: const TextStyle(
                                     fontSize: 20.0, color: Colors.black),
                                 decoration: const InputDecoration(
@@ -388,12 +386,12 @@ class  SignIn  extends StatelessWidget {
                               height: 80,
                              width: MediaQuery.of(context).size.width *0.69,
                               child: TextFormField(
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter Full Name';
-                                  }
-                                  return null;
-                                },
+                               validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter Full Name';
+                      }
+                      return null;
+                    },
                                 style: const TextStyle(
                                     fontSize: 20.0, color: Colors.black),
                                 decoration: const InputDecoration(
@@ -447,13 +445,17 @@ class  SignIn  extends StatelessWidget {
           Row(
             children: const [
               Text(
-                "By clicking signup, you agree to our  Terms and Conditions ",
-                style: TextStyle(fontSize: 10,
+                "By clicking signup, you agree to our ",
+                style: TextStyle(fontSize: 12,
                 fontWeight: FontWeight.w400
                 ),
-              
-                
               ),
+               Text(
+                 "Terms and Conditions",
+                 style: TextStyle(fontSize: 12,
+                 fontWeight: FontWeight.bold
+                 ),
+               ),
               // Text(
               //   "Terms and Condition",
               //   style:
@@ -624,12 +626,12 @@ class _LogininState extends State<Loginin> {
                                   height: 80,
                                   width:  MediaQuery.of(context).size.width *0.55,
                                   child: TextFormField(
-                                    validator: (value) {
-                                      if (value == null || value.isEmpty) {
-                                        return 'Please enter Mobile Number';
-                                      }
-                                      return null;
-                                    },
+                                   validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter Full Name';
+                      }
+                      return null;
+                    },
                                     style: const TextStyle(
                                         fontSize: 20.0, color: Colors.black),
                                     decoration: const InputDecoration(

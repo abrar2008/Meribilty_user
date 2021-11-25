@@ -29,6 +29,8 @@ class _MyDeliverportState extends State<MyDeliverport> {
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
+              width: MediaQuery.of(context).size.width,
+
               padding: EdgeInsets.all(10),
               child: Column(
                 children: [
@@ -47,7 +49,8 @@ class _MyDeliverportState extends State<MyDeliverport> {
 Widget decision(BuildContext context) {
   return Card(
     child: Container(
-      width: double.infinity,
+       width: MediaQuery.of(context).size.width,
+         
       padding: EdgeInsets.all(7),
       child: Column(
         children: [
@@ -208,7 +211,7 @@ Widget decision(BuildContext context) {
                     text: "Reqoute",
                     shape: GFButtonShape.pills,
                     textStyle: TextStyle(
-                      fontSize: 20,
+                      fontSize: 17,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -219,19 +222,21 @@ Widget decision(BuildContext context) {
                 GFButton(
                   color: Color(0xffF7F7F7),
                   onPressed: () {},
-                  text: " Rs :200,000 ",
+                  text: " Rs :200,000   ",
                   shape: GFButtonShape.pills,
-                  textStyle: TextStyle(fontSize: 20, color: Colors.black),
+                  textStyle: TextStyle(fontSize: 17, color: Colors.black),
                 ),
                 SizedBox(
                   width: 20,
                 ),
-                Text(
-                  "Descision \nPending \n  30:00",
-                  style: TextStyle(
-                      color: Colors.red,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold),
+                Expanded(
+                  child: Text(
+                    "Descision \nPending \n  30:00",
+                    style: TextStyle(
+                        color: Colors.red,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold),
+                  ),
                 )
               ],
             ),
@@ -274,63 +279,140 @@ Widget expand(BuildContext context) {
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
-              expanded: Column(
+              expanded: 
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   SizedBox(
                     height: 10,
                   ),
-                  Row(
-                    children: [
-                      Image.asset('assets/Ol.png'),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        "Pick Up location",
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
-                      ),
-                    ],
+                  Container(
+                    
+                    width: MediaQuery.of(context).size.width ,
+                    child: Row(
+                                               mainAxisAlignment: MainAxisAlignment.start,
+                                               crossAxisAlignment: CrossAxisAlignment.center,
+                                               children: <Widget>[
+                                                 new Expanded(
+                                                   flex: 1,
+                                                   child: new Column(
+                                                     children: <Widget>[
+                                                       new Icon(
+                                                         Icons.my_location,
+                                                         size: 20.0,
+                                                         color: Colors.blue,
+                                                       ),
+                                                       new Icon(
+                                                         Icons.more_vert,
+                                                         size: 30.0,
+                                                         color: Colors.grey,
+                                                       ),
+                                                       
+                                                       new Icon(
+                                                         Icons.location_on,
+                                                         size: 20.0,
+                                                         color: Colors.red,
+                                                       ),
+                                   
+                                                       new Icon(
+                                                         Icons.more_vert,
+                                                         size: 30.0,
+                                                         color: Colors.grey,
+                                                       ),
+                                                        new Icon(
+                                                         Icons.my_location,
+                                                         size: 20.0,
+                                                         color: Colors.blue,
+                                                       ),
+                                                     ],
+                                                   ),
+                                                 ),
+                                                 
+                                                 
+                                                   new Expanded(
+                                                   flex: 5,
+                                                   child:
+                                                   
+                                                    Form(
+                                                       child: Column( 
+                                                         mainAxisAlignment: MainAxisAlignment.center,
+                                                         crossAxisAlignment: CrossAxisAlignment.start,
+                                                         mainAxisSize: MainAxisSize.max,
+                                                         children: <Widget>[
+                                                           // one textfeild
+                                                           new Container(
+                                                             height: 50.0,
+                                                             width: MediaQuery.of(context).size.width -
+                                                                  50,
+                                                             color: Colors.white,
+                                                             child: new Column(
+                                                               mainAxisAlignment:
+                                                               MainAxisAlignment.center,
+                                                               crossAxisAlignment:
+                                                               CrossAxisAlignment.start,
+                                                               children: <Widget>[
+                                                                    Text("Karachi , Port Qasim Savual Office")
+                                                               ],
+                                                             ),
+                                                           ),
+                                                   
+                                                               // line 
+                                                            Container(
+                                                             width: MediaQuery.of(context).size.width -
+                                                                 50.0,
+                                                             height: 1.0,
+                                                             color: Colors.grey.withOpacity(0.4),
+                                                           ),
+                                                          
+                                                          
+                                                            // seond textfeild
+                                      
+                                                           new Container(
+                                                             height: 50.0,
+                                                             // width: MediaQuery.of(context).size.width,
+                                                             color: Colors.white,
+                                                             child: new Column(
+                                                               mainAxisAlignment:
+                                                               MainAxisAlignment.center,
+                                                               crossAxisAlignment:
+                                                               CrossAxisAlignment.start,
+                                                               children: <Widget>[
+                                                                 Text("Baba bazar , Peshawar")
+                                                               ],
+                                                             ),
+                                                           ),
+                                                       // line 
+                                                        Container(
+                                                             width: MediaQuery.of(context).size.width -
+                                                                 50.0,
+                                                             height: 1.0,
+                                                             color: Colors.grey.withOpacity(0.4),
+                                                           ),
+                                                      // container 
+                                                       new Container(
+                                                             height: 50.0,
+                                                             // width: MediaQuery.of(context).size.width,
+                                                             color: Colors.white,
+                                                             child: new Column(
+                                                               mainAxisAlignment:
+                                                               MainAxisAlignment.center,
+                                                               crossAxisAlignment:
+                                                               CrossAxisAlignment.start,
+                                                               children: <Widget>[
+                                                                 Text("Port Qasim, Karachi")
+                                                               ],
+                                                             ),
+                                                           ),
+                                                          
+                                 
+                                                      
+                                                         ],
+                                                       )),
+                                                 ),
+                                               ],
+                                             ),
                   ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    children: [
-                      Image.asset('assets/ma.png'),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        "Drop off location",
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    children: [
-                      Image.asset('assets/Ol.png'),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        "Empty Container Return",
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -386,8 +468,11 @@ Widget expand(BuildContext context) {
                       ),
                     ],
                   ),
+                
+                
                 ],
               ),
+            
               builder: (_, collapsed, expanded) {
                 return Padding(
                   padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
@@ -409,7 +494,7 @@ Widget expand(BuildContext context) {
 Widget inprocess(BuildContext context) {
   return Card(
     child: Container(
-      width: double.infinity,
+      width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.all(7),
       child: Column(
         children: [
@@ -555,10 +640,10 @@ Widget inprocess(BuildContext context) {
                 GFButton(
                   color: Color(0xff435E8F),
                   onPressed: () {},
-                  text: "Reqoute",
+                  text: "COD",
                   shape: GFButtonShape.pills,
                   textStyle: TextStyle(
-                    fontSize: 20,
+                    fontSize: 17,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -568,19 +653,21 @@ Widget inprocess(BuildContext context) {
                 GFButton(
                  color: Color(0xffF7F7F7),
                   onPressed: () {},
-                  text: " Rs :200,000 ",
+                  text: "  Rs :200,000  ",
                   shape: GFButtonShape.pills,
-                  textStyle: TextStyle(fontSize: 20, color: Colors.black),
+                  textStyle: TextStyle(fontSize: 17, color: Colors.black),
                 ),
                 SizedBox(
                   width: 20,
                 ),
-                Text(
-                  "In process",
-                  style: TextStyle(
-                      color: Colors.orange,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold),
+                Expanded(
+                  child: Text(
+                    "In process",
+                    style: TextStyle(
+                        color: Colors.orange,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold),
+                  ),
                 )
               ],
             ),
@@ -594,7 +681,7 @@ Widget inprocess(BuildContext context) {
 Widget cancelled(BuildContext context) {
   return Card(
     child: Container(
-      width: double.infinity,
+   width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.all(5),
       child: Column(
         children: [
@@ -744,7 +831,7 @@ Widget cancelled(BuildContext context) {
                   text: "Reqoute",
                   shape: GFButtonShape.pills,
                   textStyle: TextStyle(
-                    fontSize: 20,
+                    fontSize: 17,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -754,19 +841,21 @@ Widget cancelled(BuildContext context) {
                 GFButton(
                   color: Color(0xffF7F7F7),
                   onPressed: () {},
-                  text: " Rs :200,000 ",
+                  text: " Rs :200,000  ",
                   shape: GFButtonShape.pills,
-                  textStyle: TextStyle(fontSize: 20, color: Colors.black),
+                  textStyle: TextStyle(fontSize: 17, color: Colors.black),
                 ),
                 SizedBox(
                   width: 20,
                 ),
-                Text(
-                  "Cancelled",
-                  style: TextStyle(
-                      color: Colors.red,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold),
+                Expanded(
+                  child: Text(
+                    "Cancelled",
+                    style: TextStyle(
+                        color: Colors.red,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold),
+                  ),
                 )
               ],
             ),
@@ -780,7 +869,7 @@ Widget cancelled(BuildContext context) {
 Widget complete(BuildContext context) {
   return Card(
     child: Container(
-      width: double.infinity,
+      width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.all(5),
       child: Column(
         children: [
@@ -922,13 +1011,14 @@ Widget complete(BuildContext context) {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+
                 GFButton(
                   color: Color(0xff435E8F),
                   onPressed: () {},
                   text: "Reqoute",
                   shape: GFButtonShape.pills,
                   textStyle: TextStyle(
-                    fontSize: 20,
+                    fontSize: 17,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -940,18 +1030,21 @@ Widget complete(BuildContext context) {
                   onPressed: () {},
                   text: " Rs :200,000 ",
                   shape: GFButtonShape.pills,
-                  textStyle: TextStyle(fontSize: 20, color: Colors.black),
+                  textStyle: TextStyle(fontSize: 17, color: Colors.black),
                 ),
                 SizedBox(
                   width: 20,
                 ),
-                Text(
-                  "Completed",
-                  style: TextStyle(
-                      color: Color(0xFF2F4D84),
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold),
+                Expanded(
+                  child: Text(
+                    "Completed",
+                    style: TextStyle(
+                        color: Color(0xFF2F4D84),
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold),
+                  ),
                 )
+             
               ],
             ),
           ),

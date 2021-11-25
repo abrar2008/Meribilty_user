@@ -32,11 +32,12 @@ class _WeightmaterialState extends State<Weightmaterial> {
         ),
       ),
       bottomNavigationBar: Container(
+    
         color: Colors.white,
         padding:
-            const EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 20),
+            const EdgeInsets.only(top: 23, left: 23, right: 20, bottom: 20),
         child: GFButton(
-          size: 50,
+          size: 30,
           color: const Color(0xFF2F4D84),
           onPressed: () {
             Navigator.push(
@@ -45,9 +46,9 @@ class _WeightmaterialState extends State<Weightmaterial> {
                   builder: (context) => const Portlogistics(),
                 ));
           },
-          text: "Save & Continue",
+          text: "Save & Continue", 
           type: GFButtonType.solid,
-          textStyle: const TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),
+          textStyle: const TextStyle(fontSize: 17 , fontWeight: FontWeight.bold),
           shape: GFButtonShape.standard,
           blockButton: true,
         ),

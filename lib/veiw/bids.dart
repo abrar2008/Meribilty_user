@@ -42,8 +42,9 @@ class _BidsState extends State<Bids> {
         padding: const EdgeInsets.all(20),
         child: Center(
           child: Container(
-              height: 320,
-              width: double.infinity,
+              // height: 320,
+               height: MediaQuery.of(context).size.height * 0.41,
+              width: MediaQuery.of(context).size.width,
               padding: const EdgeInsets.all(30),
               decoration: BoxDecoration(
                   color: Colors.white,
@@ -205,7 +206,7 @@ class _BidsState extends State<Bids> {
                       AppLocalizations.of(context)!.addnew,
                       style: const TextStyle(
                           color: Color(0xFF2F4D84), fontSize: 17,
-                          fontWeight: FontWeight.bold
+                          fontWeight: FontWeight.w500
 
 
                           
@@ -216,7 +217,10 @@ class _BidsState extends State<Bids> {
                     height: 10,
                   ),
                   Text(AppLocalizations.of(context)!.tranfe,
-                  
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 10
+                  ),
                   ),
                   const Divider(
                     height: 10,
@@ -240,7 +244,12 @@ class _BidsState extends State<Bids> {
                   const SizedBox(
                     height: 10,
                   ),
-                  Text(AppLocalizations.of(context)!.tranfe)
+                  Text(AppLocalizations.of(context)!.tranfe,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 10
+                  ),
+                  )
                 ],
               )),
         ),

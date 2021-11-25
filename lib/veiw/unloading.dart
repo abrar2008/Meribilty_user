@@ -489,7 +489,7 @@ class floating extends StatelessWidget {
                              Navigator.pop(context);
                           },
                           child: const  Icon(Icons.arrow_back_ios )),
-                        const  SizedBox(width: 30,),
+                        const  SizedBox(width: 10,),
                       const  Text("Select  UnLoading Options " ,
                                             style: TextStyle(
                         fontSize: 20,

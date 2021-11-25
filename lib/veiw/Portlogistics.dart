@@ -52,355 +52,366 @@ class _PortlogisticsState extends State<Portlogistics> {
 
   
     return Scaffold(
-      appBar: AppBar(
-         backgroundColor: Colors.transparent,
-      ),
-            body:Stack(
-           children: [
-
-          SlidingUpPanel(
+     
+     extendBodyBehindAppBar: true,
+  appBar: AppBar(
+    
+    backgroundColor: Colors.transparent,
+    iconTheme: IconThemeData(color: Colors.black),
+    elevation: 0.0,
+  ),
+            body:
+            SlidingUpPanel(
             renderPanelSheet: false,
             minHeight: 200,
             maxHeight: 600,
             panel: _floatingPanel(context),
-        
+              
             
             body: 
-            Consumer<LocaleProvider>(
-                    builder: (context ,state , child ){
-                    return Stack(
-          children: [
-            GoogleMap(
-              padding: EdgeInsets.only(top: 200),
-              myLocationEnabled: true,
-              myLocationButtonEnabled: true,
-              polylines: state.polylineport,
-              markers: Set<Marker>.of(state.markers.values),
-              mapType: MapType.normal,
-              initialCameraPosition: _kGooglePlex,
-              onMapCreated: (GoogleMapController controller) {
-                _controller.complete(controller);
-                state.controller2=controller;
-              },
-            ),
-          
-            SingleChildScrollView(
-              child: Align(
-              alignment: Alignment.topCenter,
-                child: Container(
-                  padding: EdgeInsets.all(4),
-                  width: MediaQuery.of(context).size.width / 1.0,
-                  child: Card(
-                    child: Column(
-                      children: <Widget>[
-
-                        Card(
-                          child: Container(
-                            width: MediaQuery.of(context).size.width / 1.0,
-                            
-                            color:Colors.white,
-                            child: new Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                new Expanded(
-                                  flex: 1,
-                                  child: new Column(
-                                    children: <Widget>[
-                                      new Icon(
-                                        Icons.my_location,
-                                        size: 20.0,
-                                        color: Colors.blue,
-                                      ),
-                                      new Icon(
-                                        Icons.more_vert,
-                                        size: 30.0,
-                                        color: Colors.grey,
-                                      ),
-                                      
-                                      new Icon(
-                                        Icons.location_on,
-                                        size: 20.0,
-                                        color: Colors.red,
-                                      ),
+            SafeArea(
+              child: Consumer<LocaleProvider>(
+                  builder: (context ,state , child ){
+                  return Stack(
+                  children: [
+              GoogleMap(
+            padding: EdgeInsets.only(top: 200),
+            myLocationEnabled: true,
+            myLocationButtonEnabled: true,
+            polylines: state.polylineport,
+            markers: Set<Marker>.of(state.markers.values),
+            mapType: MapType.normal,
+            initialCameraPosition: _kGooglePlex,
+            onMapCreated: (GoogleMapController controller) {
+              _controller.complete(controller);
+              state.controller2=controller;
+            },
+              ),
                   
-                                      new Icon(
-                                        Icons.more_vert,
-                                        size: 30.0,
-                                        color: Colors.grey,
-                                      ),
-                                       new Icon(
-                                        Icons.my_location,
-                                        size: 20.0,
-                                        color: Colors.blue,
-                                      ),
-                                    ],
-                                  ),
+              SingleChildScrollView(
+            child: Align(
+            alignment: Alignment.topCenter,
+              child: Container(
+                padding: EdgeInsets.all(4),
+                width: MediaQuery.of(context).size.width / 1.0,
+                child: Card(
+                  child: Column(
+                    children: <Widget>[
+                    
+                      Card(
+                        child: Container(
+                          width: MediaQuery.of(context).size.width / 1.0,
+                          
+                          color:Colors.white,
+                          child: new 
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              new Expanded(
+                                flex: 1,
+                                child: new Column(
+                                  children: <Widget>[
+                                    new Icon(
+                                      Icons.my_location,
+                                      size: 20.0,
+                                      color: Colors.blue,
+                                    ),
+                                    new Icon(
+                                      Icons.more_vert,
+                                      size: 30.0,
+                                      color: Colors.grey,
+                                    ),
+                                    
+                                    new Icon(
+                                      Icons.location_on,
+                                      size: 20.0,
+                                      color: Colors.red,
+                                    ),
+                
+                                    new Icon(
+                                      Icons.more_vert,
+                                      size: 30.0,
+                                      color: Colors.grey,
+                                    ),
+                                     new Icon(
+                                      Icons.my_location,
+                                      size: 20.0,
+                                      color: Colors.blue,
+                                    ),
+                                  ],
                                 ),
-                                new Expanded(
-                                  flex: 5,
-                                  child:
-                                  
-                                   Form(
-                                      child: Column( 
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: <Widget>[
-                                          // one textfeild
-                                          new Container(
-                                            height: 50.0,
-                                            width: MediaQuery.of(context).size.width -
-                                                 50,
-                                            color: Colors.white,
-                                            child: new Column(
-                                              mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                              crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                              children: <Widget>[
-                                                   TextField(
-                                                  style: TextStyle(fontSize: 15),
-                                                  decoration:
-                                                  InputDecoration.collapsed(
-                                                    fillColor:Colors.white,
-                                                    hintStyle: TextStyle(
-                                                        color: Colors.black),
-                                                    hintText: "PickUp Location",
-                                                  ),
-                                                  autofocus: false,
-                                                  focusNode: state.nodeFromport,
-                                                  controller: state.addressFromport,
-                                                  onChanged: (String value) {
-                                                    state.placeBloc.searchPlace(value);
-                                                  },
-                                                  onTap: () {
-                                                    setState(() {
-                                                      state.inputFrom = true;
-                                                      state.inputTo = false;
-                                                    });
-                                                  },
+                              ),
+                              
+                              
+                              new Expanded(
+                                flex: 5,
+                                child:
+                                
+                                 Form(
+                                    child: Column( 
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: <Widget>[
+                                        // one textfeild
+                                        new Container(
+                                          height: 50.0,
+                                          width: MediaQuery.of(context).size.width -
+                                               50,
+                                          color: Colors.white,
+                                          child: new Column(
+                                            mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                            children: <Widget>[
+                                                 TextField(
+                                                style: TextStyle(fontSize: 15),
+                                                decoration:
+                                                InputDecoration.collapsed(
+                                                  fillColor:Colors.white,
+                                                  hintStyle: TextStyle(
+                                                      color: Colors.black),
+                                                  hintText: "PickUp Location",
                                                 ),
-                                              ],
-                                            ),
+                                                autofocus: false,
+                                                focusNode: state.nodeFromport,
+                                                controller: state.addressFromport,
+                                                onChanged: (String value) {
+                                                  state.placeBloc.searchPlace(value);
+                                                },
+                                                onTap: () {
+                                                  setState(() {
+                                                    state.inputFrom = true;
+                                                    state.inputTo = false;
+                                                  });
+                                                },
+                                              ),
+                                            ],
                                           ),
-                                  
-                                              // line 
-                                           Container(
-                                            width: MediaQuery.of(context).size.width -
-                                                50.0,
-                                            height: 1.0,
-                                            color: Colors.grey.withOpacity(0.4),
-                                          ),
-                                         
-                                         
-                                           // seond textfeild
-                     
-                                          new Container(
-                                            height: 50.0,
-                                            // width: MediaQuery.of(context).size.width,
-                                            color: Colors.white,
-                                            child: new Column(
-                                              mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                              crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                              children: <Widget>[
-                                                TextField(
-                                                  style:TextStyle(fontSize: 15),
-                                                  decoration:
-                                                  InputDecoration.collapsed(
-                                                    fillColor: Colors.white,
-                                                    hintStyle: TextStyle(
-                                                        color: Colors.black),
-                                                    hintText: "Dropoff Location",
-                                                  ),
-                                                  focusNode: state.nodeToport,
-                                                  autofocus: false,
-                                                  controller: state.addressToport,
-                                                  onChanged: (String value) {
-                                                    state.placeBloc.searchPlace(value);
-                                                  },
-                                                  onTap: () {
-                                                    setState(() {
-                                                      state.inputTo = true;
-                                                      state.inputFrom = false;
-                                                      print(state.inputTo);
-                                                    });
-                                                  },
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                      // line 
-                                       Container(
-                                            width: MediaQuery.of(context).size.width -
-                                                50.0,
-                                            height: 1.0,
-                                            color: Colors.grey.withOpacity(0.4),
-                                          ),
-                                     // container 
-                                      new Container(
-                                            height: 50.0,
-                                            // width: MediaQuery.of(context).size.width,
-                                            color: Colors.white,
-                                            child: new Column(
-                                              mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                              crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                              children: <Widget>[
-                                                TextField(
-                                                  style:TextStyle(fontSize: 15),
-                                                  decoration:
-                                                  InputDecoration.collapsed(
-                                                    fillColor: Colors.white,
-                                                    hintStyle: TextStyle(
-                                                        color: Colors.black),
-                                                    hintText: "Empty Container Return ",
-                                                  ),
-                                                  focusNode: state.nodecontaport,
-                                                  autofocus: false,
-                                                  controller: state.addconstToport,
-                                                  onChanged: (String value) {
-                                                    state.placeBloc.searchPlace(value);
-                                                  },
-                                                  onTap: () {
-                                                    setState(() {
-                                                      state.inputTo = true;
-                                                      state.inputFrom = false;
-                                                      print(state.inputTo);
-                                                    });
-                                                  },
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                         
-                  
-                                     
-                                        ],
-                                      )),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        state.inputTo != true
-                            ? Container(
-                          color: Colors.white,
-                          child: StreamBuilder(
-                              stream: state.placeBloc.placeStream,
-                              builder: (context, snapshot) {
-                                if (snapshot.hasData) {
-                                  if (snapshot.data == "start") {
-                                    return Center(
-                                      child: CupertinoActivityIndicator(),
-                                    );
-                                  }
-                                 state.placesport = snapshot.data as List<PlaceItemRes>?;
-                                  return ListView.separated(
-                                    shrinkWrap: true,
-                                    itemCount: state.placesport!.length,
-                                    itemBuilder: (context, index) {
-                                      return ListTile(
-                                        title: Text(state.placesport!
-                                            .elementAt(index)
-                                            .name
-                                            .runtimeType ==
-                                            String
-                                            ? state.placesport!.elementAt(index).name
-                                            : ""),
-                                        subtitle: Text(state.placesport!
-                                            .elementAt(index)
-                                            .address
-                                            .runtimeType ==
-                                            String
-                                            ? state.placesport!
-                                            .elementAt(index)
-                                            .address
-                                            : ""),
-                                        onTap: () {
-                                         state.Fromdataport(index,context);
-                                        },
-                                      );
-                                    },
-                                    separatorBuilder: (context, index) =>
-                                        Divider(
-                                          height: 1,
-                                          color: Color(0xfff5f5f5),
                                         ),
-                                  );
-                                } else {
-                                  return Container();
-                                }
-                              }),
-                        )
-                            : Container(
-                          color: Colors.white,
-                          child: StreamBuilder(
-                              stream: state.placeBloc.placeStream,
-                              builder: (context, snapshot) {
-                                if (snapshot.hasData) {
-                                  if (snapshot.data == "start") {
-                                    return Center(
-                                      child: CupertinoActivityIndicator(),
-                                    );
-                                  }
-                                 state.places2port = snapshot.data as List<PlaceItemRes>?;
-                                  return ListView.separated(
-                                    shrinkWrap: true,
-                                    itemCount: state.places2port!.length,
-                                    itemBuilder: (context, index) {
-                                      return ListTile(
-                                        title: Text( state.places2port!
-                                            .elementAt(index)
-                                            .name
-                                            .runtimeType ==
-                                            String
-                                            ? state.places2port!.elementAt(index).name
-                                            : ""),
-                                        subtitle: Text(state.places2port!
-                                            .elementAt(index)
-                                            .address
-                                            .runtimeType ==
-                                            String
-                                            ? state.places2port!
-                                            .elementAt(index)
-                                            .address
-                                            : ""),
-                                        onTap: () {
-
-                                       state.ToDataport(context,index);
-                                       var  _toLocation = LatLng(state.dataTocityport[0]['lat'], state.dataTocityport[0]['long']);
-                                       var _fromLocation = LatLng(state.dataFromport[0]['lat'], state.dataFromport[0]['long']);
-                                       state.setPolylinesport(_fromLocation, _toLocation);
+                                
+                                            // line 
+                                         Container(
+                                          width: MediaQuery.of(context).size.width -
+                                              50.0,
+                                          height: 1.0,
+                                          color: Colors.grey.withOpacity(0.4),
+                                        ),
                                        
-                                        },
-                                      );
-                                    },
-                                    separatorBuilder: (context, index) =>
-                                        Divider(
-                                          height: 1,
-                                          color: Color(0xfff5f5f5),
+                                       
+                                         // seond textfeild
+                   
+                                        new Container(
+                                          height: 50.0,
+                                          // width: MediaQuery.of(context).size.width,
+                                          color: Colors.white,
+                                          child: new Column(
+                                            mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                            children: <Widget>[
+                                              TextField(
+                                                style:TextStyle(fontSize: 15),
+                                                decoration:
+                                                InputDecoration.collapsed(
+                                                  fillColor: Colors.white,
+                                                  hintStyle: TextStyle(
+                                                      color: Colors.black),
+                                                  hintText: "Dropoff Location",
+                                                ),
+                                                focusNode: state.nodeToport,
+                                                autofocus: false,
+                                                controller: state.addressToport,
+                                                onChanged: (String value) {
+                                                  state.placeBloc.searchPlace(value);
+                                                },
+                                                onTap: () {
+                                                  setState(() {
+                                                    state.inputTo = true;
+                                                    state.inputFrom = false;
+                                                    print(state.inputTo);
+                                                  });
+                                                },
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                  );
-                                } else {
-                                  return Container();
-                                }
-                              }),
+                                    // line 
+                                     Container(
+                                          width: MediaQuery.of(context).size.width -
+                                              50.0,
+                                          height: 1.0,
+                                          color: Colors.grey.withOpacity(0.4),
+                                        ),
+                                   // container 
+                                    new Container(
+                                          height: 50.0,
+                                          // width: MediaQuery.of(context).size.width,
+                                          color: Colors.white,
+                                          child: new Column(
+                                            mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                            children: <Widget>[
+                                              TextField(
+                                                style:TextStyle(fontSize: 15),
+                                                decoration:
+                                                InputDecoration.collapsed(
+                                                  fillColor: Colors.white,
+                                                  hintStyle: TextStyle(
+                                                      color: Colors.black),
+                                                  hintText: "Empty Container Return ",
+                                                ),
+                                                focusNode: state.nodecontaport,
+                                                autofocus: false,
+                                                controller: state.addconstToport,
+                                                onChanged: (String value) {
+                                                  state.placeBloc.searchPlace(value);
+                                                },
+                                                onTap: () {
+                                                  setState(() {
+                                                    state.inputTo = true;
+                                                    state.inputFrom = false;
+                                                    print(state.inputTo);
+                                                  });
+                                                },
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                       
+                
+                                   
+                                      ],
+                                    )),
+                              ),
+                            ],
+                          ),
+                       //
                         ),
-                      ],
-                    ),
+                      ),
+                     
+                     
+                     //
+                      state.inputTo != true
+                          ? Container(
+                        color: Colors.white,
+                        child: StreamBuilder(
+                            stream: state.placeBloc.placeStream,
+                            builder: (context, snapshot) {
+                              if (snapshot.hasData) {
+                                if (snapshot.data == "start") {
+                                  return Center(
+                                    child: CupertinoActivityIndicator(),
+                                  );
+                                }
+                               state.placesport = snapshot.data as List<PlaceItemRes>?;
+                                return ListView.separated(
+                                  shrinkWrap: true,
+                                  itemCount: state.placesport!.length,
+                                  itemBuilder: (context, index) {
+                                    return ListTile(
+                                      title: Text(state.placesport!
+                                          .elementAt(index)
+                                          .name
+                                          .runtimeType ==
+                                          String
+                                          ? state.placesport!.elementAt(index).name
+                                          : ""),
+                                      subtitle: Text(state.placesport!
+                                          .elementAt(index)
+                                          .address
+                                          .runtimeType ==
+                                          String
+                                          ? state.placesport!
+                                          .elementAt(index)
+                                          .address
+                                          : ""),
+                                      onTap: () {
+                                       state.Fromdataport(index,context);
+                                      },
+                                    );
+                                  },
+                                  separatorBuilder: (context, index) =>
+                                      Divider(
+                                        height: 1,
+                                        color: Color(0xfff5f5f5),
+                                      ),
+                                );
+                              } else {
+                                return Container();
+                              }
+                            }),
+                      )
+                          : Container(
+                        color: Colors.white,
+                        child: StreamBuilder(
+                            stream: state.placeBloc.placeStream,
+                            builder: (context, snapshot) {
+                              if (snapshot.hasData) {
+                                if (snapshot.data == "start") {
+                                  return Center(
+                                    child: CupertinoActivityIndicator(),
+                                  );
+                                }
+                               state.places2port = snapshot.data as List<PlaceItemRes>?;
+                                return ListView.separated(
+                                  shrinkWrap: true,
+                                  itemCount: state.places2port!.length,
+                                  itemBuilder: (context, index) {
+                                    return ListTile(
+                                      title: Text( state.places2port!
+                                          .elementAt(index)
+                                          .name
+                                          .runtimeType ==
+                                          String
+                                          ? state.places2port!.elementAt(index).name
+                                          : ""),
+                                      subtitle: Text(state.places2port!
+                                          .elementAt(index)
+                                          .address
+                                          .runtimeType ==
+                                          String
+                                          ? state.places2port!
+                                          .elementAt(index)
+                                          .address
+                                          : ""),
+                                      onTap: () {
+                    
+                                     state.ToDataport(context,index);
+                                     var  _toLocation = LatLng(state.dataTocityport[0]['lat'], state.dataTocityport[0]['long']);
+                                     var _fromLocation = LatLng(state.dataFromport[0]['lat'], state.dataFromport[0]['long']);
+                                     state.setPolylinesport(_fromLocation, _toLocation);
+                                     
+                                      },
+                                    );
+                                  },
+                                  separatorBuilder: (context, index) =>
+                                      Divider(
+                                        height: 1,
+                                        color: Color(0xfff5f5f5),
+                                      ),
+                                );
+                              } else {
+                                return Container();
+                              }
+                            }),
+                      ),
+                    ],
                   ),
                 ),
               ),
             ),
-                      ]); 
-                     } )
-                  
-          ),
-           ])
+              ),
+                    ]); 
+                   } ),
+            )
+              
+                )
        );
   
   
@@ -479,6 +490,7 @@ Widget _floatingPanel(context) {
                 ],
               ),
             ),
+           //
             SizedBox(
               height: 10,
             ),
