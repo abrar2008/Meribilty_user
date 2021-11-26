@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:meribilty/veiw/bids.dart';
-import 'package:meribilty/veiw/payment.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -353,10 +352,10 @@ _onBankdetail(context) {
           AppLocalizations.of(context)!.merbank,
            textAlign: TextAlign.center,
           style: const TextStyle(
-              fontSize: 20,
+              fontSize: 18,
               
               fontWeight: FontWeight.bold,
-              color: Color(0xff242E42)),
+              color: Color(0xff426191)),
         ),
         const SizedBox(
           height: 20,
@@ -364,10 +363,12 @@ _onBankdetail(context) {
         Text(
           AppLocalizations.of(context)!.bankaddress,
            textAlign: TextAlign.center,
-          style: const TextStyle(color: Color(0xff8A8A8F)),
+          style: const TextStyle(color: Color(0xff8A8A8F),
+          fontSize: 15
+          ),
         ),
         const SizedBox(
-          height: 10,
+          height: 20,
         ),
         InkWell(
           onTap: () async {
@@ -379,19 +380,24 @@ _onBankdetail(context) {
             }
           },
           child: Text(
-            AppLocalizations.of(context)!.bankupload,
+            AppLocalizations.of(context)!.bankuplad,
             textAlign: TextAlign.center,
             style: const TextStyle(
-                fontWeight: FontWeight.bold, color: Color(0xff5AC8FA)),
+              fontSize: 17,
+                fontWeight: FontWeight.bold, color: Color(0xff426191)),
           ),
         ),
+       const SizedBox(
+          height: 20,
+        ),
+      Divider(),
       ],
-    ),
+    ), 
     buttons: [
       DialogButton(
         child: const Text(
           "Cancel ",
-          style: TextStyle(color: Color(0xffC8C7CC), fontSize: 20),
+          style: TextStyle(color: Color(0xffC8C7CC), fontSize: 17),
         ),
         onPressed: () => Navigator.pop(context),
         color: Colors.white,
@@ -399,7 +405,7 @@ _onBankdetail(context) {
       DialogButton(
         child: const Text(
           "Done",
-          style: TextStyle(color: Color(0xFF2F4D84), fontSize: 20),
+          style: TextStyle(color: Color(0xFF2F4D84), fontSize: 17),
         ),
         onPressed: () => Navigator.push(
             context,

@@ -39,7 +39,7 @@ class _VeiwBirdsState extends State<VeiwBirds> {
       body: SafeArea(
         child: Column(
           children: [
-            SizedBox(height: 10,),  
+           const SizedBox(height: 10,),  
             Center(
               child: Text(
                 AppLocalizations.of(context)!.bookv,
@@ -47,7 +47,7 @@ class _VeiwBirdsState extends State<VeiwBirds> {
               ),
             ),
             decision(context),
-              SizedBox(height: 10,),  
+             const  SizedBox(height: 10,),  
           ],
         ),
       ),
@@ -86,7 +86,7 @@ Widget decision(BuildContext context) {
           ),
         ),
         Container(
-          padding: EdgeInsets.only(left: 15, right: 10),
+          padding: const EdgeInsets.only(left: 15, right: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
@@ -223,7 +223,7 @@ Widget decision(BuildContext context) {
         ),
         expand(context),
         Container(
-          padding: EdgeInsets.only(left: 15),
+          padding: const EdgeInsets.only(left: 15),
             width: MediaQuery.of(context).size.width,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -277,51 +277,48 @@ Widget decision(BuildContext context) {
             ],
           ),
         ),
-        Container(
-          
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              GFButton(
-                shape: GFButtonShape.standard,
-                color: const Color(0xffFF2D55),
-                size: 50,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            GFButton(
+              shape: GFButtonShape.standard,
+              color: const Color(0xffFF2D55),
+              size: 50,
+              onPressed: () {
+                _onOfferreject(context);
+              },
+              text: AppLocalizations.of(context)!.reject,
+              textStyle:
+                  const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+            ),
+            Expanded(
+              child: GFButton(
+                fullWidthButton: true,
+                color: const Color(0xff5AC8FA),
                 onPressed: () {
-                  _onOfferreject(context);
+                  _onVendorcounter(context);
                 },
-                text: AppLocalizations.of(context)!.reject,
+                text: AppLocalizations.of(context)!.count,
+                size: 50,
+                shape: GFButtonShape.square,
                 textStyle:
                     const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
               ),
-              Expanded(
-                child: GFButton(
-                  fullWidthButton: true,
-                  color: const Color(0xff5AC8FA),
-                  onPressed: () {
-                    _onVendorcounter(context);
-                  },
-                  text: AppLocalizations.of(context)!.count,
-                  size: 50,
-                  shape: GFButtonShape.square,
-                  textStyle:
-                      const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                ),
+            ),
+            Expanded(
+              child: GFButton(
+                onPressed: () {
+                  _onSendCounterAccept(context);
+                },
+                color: const Color(0xFF2F4D84),
+                text: AppLocalizations.of(context)!.acept,
+                size: 50,
+                shape: GFButtonShape.square,
+                textStyle:
+                    const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
               ),
-              Expanded(
-                child: GFButton(
-                  onPressed: () {
-                    _onSendCounterAccept(context);
-                  },
-                  color: const Color(0xFF2F4D84),
-                  text: AppLocalizations.of(context)!.acept,
-                  size: 50,
-                  shape: GFButtonShape.square,
-                  textStyle:
-                      const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         )
       ],
     ),
@@ -545,8 +542,9 @@ _onSendCounterAccept(context) {
       children: <Widget>[
         Text(
           AppLocalizations.of(context)!.deal,
+          textAlign: TextAlign.center,
           style: const TextStyle(
-              fontSize: 20,
+              fontSize: 17,
               fontWeight: FontWeight.bold,
               color: Color(0xff242E42)),
         ),
@@ -555,7 +553,11 @@ _onSendCounterAccept(context) {
         ),
         Text(
           AppLocalizations.of(context)!.preparing,
-          style: const TextStyle(color: Color(0xff8A8A8F)),
+          textAlign: TextAlign.center,
+          style: const TextStyle(color: Color(0xff8A8A8F),
+          fontSize: 15,
+
+          ),
         ),
         const SizedBox(
           height: 20,
@@ -570,7 +572,9 @@ _onSendCounterAccept(context) {
         const Text(
           "Rs 40.0000 ",
           style:
-              TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF2F4D84)),
+              TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF2F4D84),
+              fontSize: 17,
+              ),
         ),
         const SizedBox(
           height: 10,
@@ -585,7 +589,9 @@ _onSendCounterAccept(context) {
       DialogButton(
         child: const Text(
           "Reject ",
-          style: TextStyle(color: Colors.red, fontSize: 20),
+          style: TextStyle(color: Colors.red, fontSize: 17,
+          fontWeight: FontWeight.w500
+          ),
         ),
         onPressed: () => Navigator.pop(context),
         color: Colors.white,
@@ -593,7 +599,9 @@ _onSendCounterAccept(context) {
       DialogButton(
         child: const Text(
           "Proceed",
-          style: TextStyle(color: Color(0xFF2F4D84), fontSize: 20),
+          style: TextStyle(color: Color(0xFF2F4D84), fontSize: 17,
+          fontWeight: FontWeight.w500
+          ),
         ),
         onPressed: () => Navigator.push(
             context,
@@ -660,7 +668,11 @@ _onVendorcounter(context) {
         ),
         Text(
           AppLocalizations.of(context)!.countoffer,
-          style: const TextStyle(color: Color(0xff8A8A8F)),
+          textAlign: TextAlign.center,
+
+          style: const TextStyle(color: Color(0xff8A8A8F),
+          fontSize: 15
+          ),
         ),
       const Divider(
           height: 2,
@@ -672,7 +684,9 @@ _onVendorcounter(context) {
         const Text(
           "Rs 450.0000 ",
           style:
-              TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF2F4D84)),
+              TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF2F4D84),
+              fontSize: 19
+              ),
         ),
         const SizedBox(
           height: 20,
@@ -687,7 +701,10 @@ _onVendorcounter(context) {
       DialogButton(
         child: const Text(
           "Cancel",
-          style: TextStyle(color: Color(0xffC8C7CC), fontSize: 20),
+          style: TextStyle(color: Color(0xffC8C7CC), fontSize: 17,
+          fontWeight: FontWeight.w500
+          ),
+          
         ),
         onPressed: () => Navigator.pop(context),
         color: Colors.white,
@@ -697,7 +714,10 @@ _onVendorcounter(context) {
       DialogButton(
         child: const Text(
           "Send",
-          style: TextStyle(color: Color(0xFF2F4D84), fontSize: 20),
+          style: TextStyle(color: Color(0xFF2F4D84), fontSize: 17,
+          fontWeight: FontWeight.bold
+          
+          ),
         ),
         onPressed: () => Navigator.pop(context),
         color: Colors.white,
@@ -714,25 +734,30 @@ _onOfferreject(context) {
       children:  <Widget>[
 
         Image.asset("assets/reject.png"),
-        SizedBox(height: 10,),
-        Text(
+        const SizedBox(height: 10,),
+        const Text(
           "Offer Rejected",
           style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: Color(0xff242E42)),
+              color: Color(0xff446394)),
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
-        Text(
-          "You have rejected the offer your order detail are saved in your Profile",
-          style: TextStyle(color: Color(0xff8A8A8F)),
+        const Text(
+          
+          "You have rejected the offer \nYour order detail are saved in your profile",
+          textAlign: TextAlign.center,
+          
+          style: TextStyle(color: Color(0xff8A8A8F),
+          fontSize: 15
+          ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
-        Divider(
+        const Divider(
           height: 10,
           color: Colors.black38,
         ),
@@ -742,7 +767,7 @@ _onOfferreject(context) {
       DialogButton(
         child: const Text(
           "Done",
-          style: TextStyle(color: Color(0xFF2F4D84), fontSize: 20),
+          style: TextStyle(color: Color(0xFF2F4D84), fontSize: 17,fontWeight: FontWeight.bold),
         ),
         onPressed: () => Navigator.pop(context),
         color: Colors.white,
@@ -796,3 +821,4 @@ _onOfferrejectConform(context) {
     context: context,
   ).show();
 }
+      

@@ -1,7 +1,8 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:getwidget/components/list_tile/gf_list_tile.dart';
 import 'package:meribilty/veiw/mainProfile.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:timer_count_down/timer_controller.dart';
@@ -137,7 +138,7 @@ _oncancel(context) {
   Alert(
     content: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
+      children: const <Widget>[
 
 
          Text("Cancellation Reason",

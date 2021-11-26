@@ -209,7 +209,7 @@ class _HomeState extends State<Home> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              const Citymovement_screen()),
+                                              const Citymovement()),
                                     );
                                   },
                                   child: Column(
@@ -219,7 +219,7 @@ class _HomeState extends State<Home> {
                                       ),
                                       Container(
                                         padding: const EdgeInsets.all(10),
-                                        height: 160,
+                                        height: 173,
                                         width: 130,
                                         decoration: const BoxDecoration(
                                             color: Colors.white,

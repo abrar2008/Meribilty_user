@@ -218,7 +218,7 @@ class _BidsState extends State<Bids> {
                   ),
                   Text(AppLocalizations.of(context)!.tranfe,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 10
                   ),
                   ),
@@ -246,7 +246,7 @@ class _BidsState extends State<Bids> {
                   ),
                   Text(AppLocalizations.of(context)!.tranfe,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 10
                   ),
                   )
@@ -362,7 +362,7 @@ _biltyaccepted(context) {
           style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: Color(0xff242E42)),
+              color: Color(0xff4C6A97)),
         ),
         const SizedBox(
           height: 20,
@@ -373,6 +373,7 @@ _biltyaccepted(context) {
             alignment: Alignment.center,
             child: Text(
               AppLocalizations.of(context)!.track,
+              textAlign: TextAlign.center,
               style: const TextStyle(fontSize: 15, color: Colors.black26),
             ),
           ),
@@ -386,7 +387,11 @@ _biltyaccepted(context) {
       DialogButton(
         child: const Text(
           "Cancel ",
-          style: TextStyle(color: Color(0xffC8C7CC), fontSize: 20),
+          style: TextStyle(color: Color(0xffC8C7CC), fontSize: 17 ,
+          
+             fontWeight: FontWeight.w500
+          ),
+       
         ),
         onPressed: () => Navigator.pop(context),
         color: Colors.white,
@@ -394,7 +399,9 @@ _biltyaccepted(context) {
       DialogButton(
         child: const Text(
           "Done",
-          style: TextStyle(color: Color(0xFF2F4D84), fontSize: 20),
+          style: TextStyle(color: Color(0xFF2F4D84), fontSize: 17,
+          fontWeight: FontWeight.w500
+          ),
         ),
         onPressed: () => {
           Navigator.pushReplacement(context,

@@ -45,27 +45,25 @@ class _MessageState extends State<Message> {
                   fontWeight: FontWeight.bold),
             ),
 
-         Container(
-           child:Row(
-             children: [
-Image.asset('assets/search.png'),
-              SizedBox(
-                width: 10,
-              ),
-             InkWell(
-               onTap: (){
-                 Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Notifcation()));
-               },
-               child: Image.asset('assets/Notifica.png')),
-              SizedBox(
-                width: 15,
-              ),
-             ],
-           )
-           ),
+         Row(
+           children: [
+            Image.asset('assets/search.png'),
+            SizedBox(
+              width: 10,
+            ),
+           InkWell(
+             onTap: (){
+               Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Notifcation()));
+             },
+             child: Image.asset('assets/Notifica.png')),
+            SizedBox(
+              width: 15,
+            ),
+           ],
+         ),
              
                   ],
                 ),
@@ -77,6 +75,7 @@ Image.asset('assets/search.png'),
               ),
               SizedBox(
                 height: 600,
+              
                 child: ContainedTabBarView(
                
                   tabs: [
@@ -126,7 +125,7 @@ Image.asset('assets/search.png'),
             radius: BorderRadius.circular(16.0),
             color: Color(0xff4C6A97),
             borderWidth: 2.0,
-            borderColor: Colors.black,    
+            borderColor: Color(0xff4C6A97),    
           ),
                     unselectedLabelColor: Colors.grey[400],
                     
@@ -165,6 +164,7 @@ Image.asset('assets/search.png'),
                         ],
                       ),
                     ),
+                   
                     Container(
                       color: Colors.white,
                       child: Column(
@@ -198,6 +198,7 @@ Image.asset('assets/search.png'),
                         ],
                       ),
                     ),
+                  
                   ],
                 ),
               ),

@@ -1,4 +1,6 @@
-// ignore_for_file: avoid_print, sized_box_for_whitespace, file_names, dead_code, unrelated_type_equality_checks, use_key_in_widget_constructors
+// ignore_for_file: avoid_print, sized_box_for_whitespace, file_names, dead_code, unrelated_type_equality_checks, use_key_in_widget_constructors, prefer_const_constructors
+
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:contained_tab_bar_view/contained_tab_bar_view.dart';
@@ -12,8 +14,6 @@ class  SignIn  extends StatelessWidget {
   final GlobalKey<ContainedTabBarViewState> _key = GlobalKey();
   @override
   Widget build(BuildContext context) {
-     bool isChecked = false;
-  bool isVisiable = false;
  ContainedTabBarView containedTabBarView = ContainedTabBarView(
       key: _key,
   tabBarProperties: const TabBarProperties(
@@ -40,153 +40,154 @@ class  SignIn  extends StatelessWidget {
       views: [
 
     SingleChildScrollView(
-      child: Container(
-       
-        child: Column(
-          children: [
-            Card(
-              child: Container(
-                color: Colors.white,
-                child: Column(
-                  children: [
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(7),
-                      child: Consumer<LocaleProvider>(
-                          builder: (context, state, child) {
-                        return Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment:
-                                  MainAxisAlignment
-                                      .spaceBetween,
-                              children: [
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                Individual(
-                                    screen:
-                                        state.loadscren),
-                                const SizedBox(
-                                  width: 20,
-                                ),
-                                Businesspro(
-                                  screen: state.loadscren,
-                                ),
-                                const SizedBox(
-                                  width: 6,
-                                ),
-                              ],
-                            ),
-               
-                                ],
-                        );
-                      }),
-                    ),
-
-                    Consumer<LocaleProvider>(
-                        builder: (context, state, child) {
-                      if (state.loadscren == Screen.zero) {
-                        return SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        child: Text("Sign Up".toUpperCase(),
-                            style: const TextStyle(fontSize: 14)),
-                        style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(
-                                const Color(0xFF2F4D84)),
-                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                              const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(8)),
-                                  side: BorderSide(color: Color(0xFF2F4D84))),
-                            )),
-                        onPressed: () {
-
-                            _key.currentState?.next();
-                          
-                        },
-                      ));
-                      }
-
-                      if (state.loadscren == Screen.one) {
-
-                        final _formKey = GlobalKey<FormState>();
-                        // individual
-                        return  
-                          SingleChildScrollView(
-                        child: Form(
-              
-              key: _formKey,
+      child: Column(
+        children: [
+          Card(
+            child: Container(
+              color: Colors.white,
               child: Column(
                 children: [
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(7),
+                    child: Consumer<LocaleProvider>(
+                        builder: (context, state, child) {
+                      return Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment:
+                                MainAxisAlignment
+                                    .spaceBetween,
+                            children: [
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              Individual(
+                                  screen:
+                                      state.loadscren),
+                              const SizedBox(
+                                width: 20,
+                              ),
+                              Businesspro(
+                                screen: state.loadscren,
+                              ),
+                              const SizedBox(
+                                width: 6,
+                              ),
+                            ],
+                          ),
+             
+                              ],
+                      );
+                    }),
+                  ),
 
-                  TextFormField(
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
+                  Consumer<LocaleProvider>(
+                      builder: (context, state, child) {
+                    if (state.loadscren == Screen.zero) {
+                      return Container(
+                        padding: EdgeInsets.only(left: 20,right: 20),
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      child: Text("Sign Up",
+                          style: const TextStyle(fontSize: 14)),
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              const Color(0xFF2F4D84)),
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(8)),
+                                side: BorderSide(color: Color(0xFF2F4D84))),
+                          )),
+                      onPressed: () {
+
+                          _key.currentState?.next();
+                        
+                      },
+                    ));
+                    }
+
+                    if (state.loadscren == Screen.one) {
+
+                      final _formKey = GlobalKey<FormState>();
+                      // individual
+                      return  
+                        SingleChildScrollView(
+                      child: Container(
+                       padding: EdgeInsets.only(left: 20,right: 20),
+                        child: Form(
+            
+            key: _formKey,
+            child: Column(
+              children: [
+
+                TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
                         return 'Please enter Full Name';
-                      }
-                      return null;
-                    },
-                    cursorColor: Colors.black,
-                    decoration: const InputDecoration(
+                    }
+                    return null;
+                  },
+                  cursorColor: Colors.black,
+                  decoration: const InputDecoration(
                         
                         contentPadding:
                             EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
                         hintText: "Full Name",
                         hintStyle: TextStyle(color: Color(0xffC8C7CC))),
-                  ),
-                  const SizedBox(
-                    height: 6,
-                  ),
-                  TextFormField(
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
+                ),
+                const SizedBox(
+                  height: 6,
+                ),
+                TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
                         return 'Please enter Email Address';
-                      }
-                      return null;
-                    },
-                    cursorColor: Colors.black,
-                    decoration: const InputDecoration(
+                    }
+                    return null;
+                  },
+                  cursorColor: Colors.black,
+                  decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         contentPadding:
                             EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
                         hintText: "name@example.com",
                         hintStyle: TextStyle(color: Color(0xffC8C7CC))),
-                  ),
-                  const SizedBox(
-                    height: 6,
-                  ),
-                  TextFormField(
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
+                ),
+                const SizedBox(
+                  height: 6,
+                ),
+                TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
                         return 'Please enter Password';
-                      }
-                      return null;
-                    },
-                    cursorColor: Colors.black,
-                    decoration: const InputDecoration(
+                    }
+                    return null;
+                  },
+                  cursorColor: Colors.black,
+                  decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         contentPadding:
                             EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
                         hintText: "Password",
                         hintStyle: TextStyle(color: Color(0xffC8C7CC))),
-                  ),
-                  const SizedBox(
-                    height: 6,
-                  ),
-                  Container(
-                    // padding:
-                    //     const EdgeInsets.only(
-                    //   left: 10,
-                    // ),
-                    height: 50,
-                    width: MediaQuery.of(context).size.width,
-                    color: Colors.white,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
+                ),
+                const SizedBox(
+                  height: 6,
+                ),
+                Container(
+                  // padding:
+                  //     const EdgeInsets.only(
+                  //   left: 10,
+                  // ),
+                  height: 50,
+                  width: MediaQuery.of(context).size.width,
+                  color: Colors.white,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
                         Container(
                           height: 50,
                           decoration: BoxDecoration(
@@ -226,11 +227,11 @@ class  SignIn  extends StatelessWidget {
                               width: MediaQuery.of(context).size.width *0.69,
                               child: TextFormField(
                                validator: (value) {
-                      if (value == null || value.isEmpty) {
+                    if (value == null || value.isEmpty) {
                         return 'Please enter Full Name';
-                      }
-                      return null;
-                    },
+                    }
+                    return null;
+                  },
                                 style: const TextStyle(
                                     fontSize: 20.0, color: Colors.black),
                                 decoration: const InputDecoration(
@@ -240,15 +241,15 @@ class  SignIn  extends StatelessWidget {
                                         fontSize: 14, color: Color(0xffC8C7CC))),
                               )),
                         )
-                      ],
-                    ), 
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
+                    ],
+                  ), 
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
                         child: Text("Sign Up".toUpperCase(),
                             style: const TextStyle(fontSize: 14)),
                         style: ButtonStyle(
@@ -265,18 +266,21 @@ class  SignIn  extends StatelessWidget {
                             
                           }
                         },
-                      )),
-                ],
-              ),
+                    )),
+              ],
             ),
+          ),
+                      ),
     );
-                     
-                      }
+                   
+                    }
 
-                      if (state.loadscren == Screen.two) { 
-                          final _formKey = GlobalKey<FormState>();    
-                          //business bro        
-                        return  SingleChildScrollView(
+                    if (state.loadscren == Screen.two) { 
+                        final _formKey = GlobalKey<FormState>();    
+                        //business bro        
+                      return  SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.only(left: 20,right: 20),
             child: Form(
               
               key: _formKey,
@@ -433,38 +437,38 @@ class  SignIn  extends StatelessWidget {
                 ],
               ),
             ),
+          ),
     ); 
-                      } else {
-                        return const Text("Something went");
-                      }
-                    }),
-                  ],
-                ),
+                    } else {
+                      return const Text("Something went");
+                    }
+                  }),
+                ],
               ),
             ),
-          Row(
-            children: const [
-              Text(
-                "By clicking signup, you agree to our ",
-                style: TextStyle(fontSize: 12,
-                fontWeight: FontWeight.w400
-                ),
-              ),
-               Text(
-                 "Terms and Conditions",
-                 style: TextStyle(fontSize: 12,
-                 fontWeight: FontWeight.bold
-                 ),
-               ),
-              // Text(
-              //   "Terms and Condition",
-              //   style:
-              //       TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
-              // ),
-            ],
           ),
+        Row(
+          children: const [
+            Text(
+              "By clicking signup, you agree to our ",
+              style: TextStyle(fontSize: 12,
+              fontWeight: FontWeight.w400
+              ),
+            ),
+             Text(
+               "Terms and Conditions",
+               style: TextStyle(fontSize: 12,
+               fontWeight: FontWeight.bold
+               ),
+             ),
+            // Text(
+            //   "Terms and Condition",
+            //   style:
+            //       TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+            // ),
           ],
         ),
+        ],
       ),
     ),
       const   Loginin(),
@@ -558,8 +562,6 @@ class _LogininState extends State<Loginin> {
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
-     bool isChecked = false;
-  bool isVisiable = false;
     return Card(
       child: Container(
         color: Colors.white,
@@ -686,24 +688,24 @@ class _LogininState extends State<Loginin> {
                   children: [
                 
 
-                   Container(
+                   Container( 
                   decoration: BoxDecoration(
                       color: const Color(0xFFE2E1E8),
                       borderRadius: BorderRadius.circular(15)),
                   height: 30,
                   width: 40,
-                  child: Checkbox(
+                  // child: Checkbox(
                   
-                    activeColor: const Color(0xFFE2E1E8),
-                    checkColor: Colors.white,
-                    value: isChecked,
-                    onChanged: (value) {
-                      setState(() {
-                         isChecked = value!;
-                        isVisiable = value;
-                      });
-                    },
-                  ),
+                  //   activeColor: const Color(0xFFE2E1E8),
+                  //   checkColor: Colors.white,
+                  //   value: isChecked,
+                  //   onChanged: (value) {
+                  //     setState(() {
+                  //        isChecked = value!;
+                  //       isVisiable = value;
+                  //     });
+                  //   },
+                  // ),
                 ),
 
 
@@ -813,18 +815,24 @@ class Businesspro extends StatelessWidget {
             
             ),
           ),
-          const Text(
+         state.loadscren == Screen.two ?  Text(
             "Credit Facility ",
             style: TextStyle(fontSize: 10),
+          ) :  Text("Requires verification"  ,
+          
+          style: TextStyle(
+            fontSize: 10,
+           
           ),
-        Text(
+          ), 
+       state.loadscren == Screen.two ?  const Text(
             "Counter Offers ",
             style: TextStyle(fontSize: 10),
-          ),
-          Text(
+          ): const Text(" "),
+          state.loadscren == Screen.two ?const Text(
             "Requires Verfication",
             style: TextStyle(fontSize: 10),
-          ),
+          ) : const Text(" "),
        ],
       );
                       }));
@@ -855,13 +863,24 @@ class Individual extends StatelessWidget {
                    Container(child:  state.loadscren == Screen.one  ? Image.asset("assets/indiv.png")    :Image.asset("assets/simple.png") ,
            ), 
             const SizedBox(
-                  height: 10,
+                  height: 5,
                 ),
                 const Text(
-                  "Individual",
-                  style: TextStyle(fontSize: 20),
+                  "Business Starter",
+                  style: TextStyle(fontSize: 17,color: Color(0xff355B95),
+            fontWeight: FontWeight.w500
+            
+            
+            ),
                 ),
-                const Text(""),
+            state.loadscren == Screen.one ? const Text("Individual" ,
+            style: TextStyle(
+              color: Color(0xffC8C7CC),
+            ),
+            
+            ) :const Text("Easy Signup" ,
+             style: TextStyle(fontSize: 10),
+             ) ,
                 const Text(""),
                 const Text(""),
               ],

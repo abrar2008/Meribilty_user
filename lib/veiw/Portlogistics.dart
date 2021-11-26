@@ -420,6 +420,7 @@ class _PortlogisticsState extends State<Portlogistics> {
 }
 
 Widget _floatingPanel(context) {
+  List<bool> _selections = List.generate(2, (_)=> false);
   return Container(
       decoration: BoxDecoration(
           color: Colors.white,
@@ -494,8 +495,16 @@ Widget _floatingPanel(context) {
             SizedBox(
               height: 10,
             ),
+
+  // CustomeButton(),
+              
+ 
+
+
+            
             Container(
-              width: 200,
+              width: 220,
+              height: 50,
               decoration: BoxDecoration(
                 color: Color(0xffF2F2F2),
                 borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -503,33 +512,41 @@ Widget _floatingPanel(context) {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Color(0xffF2F2F2),
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
-                    ),
-                    child: Row(
-                      children: [
-                        GFButton(
-                          color: Color(0xFF2F4D84),
-                          onPressed: () {},
-                          text: "Transit Cargo",
-                          shape: GFButtonShape.pills,
-                        ),
-                        GFButton(
-                          color: Color(0xffF2F2F2),
-                          onPressed: () {},
-                          text: "Upcountry & \n   Local",
-                          textStyle:
-                              TextStyle(color: Colors.black45, fontSize: 10),
-                          shape: GFButtonShape.pills,
-                        ),
-                      ],
-                    ),
-                  ),
+
+            ToggleButtons(
+              // borderColor: Colors.black,
+                fillColor: Color(0xFF2F4D84),
+                
+                // selectedBorderColor: Colors.black,
+                selectedColor: Color(0xFF2F4D84),
+                borderRadius: BorderRadius.circular(0),
+              children: const [
+
+                Text("Transit Cargo"),
+                Text("Upcountry & \nLocal"),
+                // GFButton(
+                //   color: Color(0xFF2F4D84),
+                //   onPressed: () {},
+                //   text: "",
+                //   shape: GFButtonShape.pills,
+                // ),
+                // GFButton(
+                //   color: Color(0xffF2F2F2),
+                //   onPressed: () {},
+                //   text: "",
+                //   textStyle:
+                //       TextStyle(color: Colors.black45, fontSize: 10),
+                //   shape: GFButtonShape.pills,
+                // ),
+              
+               ],
+            isSelected: _selections,
+                   ),
                 ],
               ),
             ),
+           
+           
             SizedBox(
               height: 10,
             ),
@@ -1147,7 +1164,9 @@ Cargo(),
               
               },
               text: AppLocalizations.of(context)!.quote,
-              textStyle: const TextStyle(fontSize: 25),
+              textStyle: const TextStyle(fontSize: 17,
+              fontWeight: FontWeight.w500
+              ),
               type: GFButtonType.solid,
               shape: GFButtonShape.standard,
               blockButton: true,
@@ -1329,3 +1348,4 @@ class _CargoState extends State<Cargo> {
 //             currentLeftIndex(), currentMiddleIndex(), currentRightIndex());
 //   }
 // }
+

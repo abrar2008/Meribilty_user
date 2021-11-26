@@ -52,7 +52,7 @@ class _MaterialtypeState extends State<Materialtype> {
           },
           text: "Save & Continue",
           type: GFButtonType.solid,
-          textStyle: const TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),
+          textStyle: const TextStyle(fontSize: 17 , fontWeight: FontWeight.bold),
           shape: GFButtonShape.standard,
           blockButton: true,
         ),
@@ -99,7 +99,7 @@ class _floatingpanelState extends State<floatingpanel> {
                                   AppLocalizations.of(context)!.material,
                                   style: const TextStyle(
                                       color: Color(0xFF2F4D84),
-                                      fontSize: 25,
+                                      fontSize: 20,
                                       fontWeight: FontWeight.bold),
                                 ),
             

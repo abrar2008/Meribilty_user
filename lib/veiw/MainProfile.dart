@@ -353,6 +353,7 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
           "Item Photos",
           style: TextStyle(
             fontSize: 18,
+            fontWeight: FontWeight.w500
           ),
         ),
         Container(
@@ -377,8 +378,9 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                                   width: 6,
                                 ),
                                 const Text(
-                                  "B-292 Block 15 Block13 \n Gulshan-e-Johar",
-                                  style: TextStyle(fontSize: 10),
+                                  "B-292 Block 15 Block13 \nGulshan-e-Johar",
+                                  style: TextStyle(fontSize: 10,
+                                  ),
                                 )
                               ],
                             ),
@@ -391,8 +393,12 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                               width: 5,
                             ),
                             const Text(
-                              "B-292 Block 15 Block13 \n Gulshan-e-Johar",
-                              style: TextStyle(fontSize: 10),
+
+                              "B-292 Block 15 Block13 \nGulshan-e-Johar",
+                             textAlign: TextAlign.start,
+                              style: TextStyle(fontSize: 10,
+                              fontWeight: FontWeight.w500
+                              ),
                             )
                           ],
                         )
@@ -417,13 +423,16 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                         Image.asset(
                           "assets/distance.png",
                           width: 30,
+                          
                         ),
                         const SizedBox(
-                          width: 10,
+                          width: 5,
                         ),
                         const Text(
                           "EST.DISTANCE : 24.1",
-                          style: TextStyle(fontSize: 10),
+                          style: TextStyle(fontSize: 10,
+                          fontWeight: FontWeight.w500
+                          ),
                         )
                       ],
                     ),
@@ -435,14 +444,16 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                           width: 30,
                         ),
                         const SizedBox(
-                          width: 10,
+                          width: 6,
                         ),
                         const Text(
                           "EST.TIME:35 mins",
-                          style: TextStyle(fontSize: 10),
+                          style: TextStyle(fontSize: 10,
+                          fontWeight: FontWeight.w500
+                          ),
                         ),
                         const SizedBox(
-                          width: 20,
+                          width: 24,
                         ),
                       ],
                     )
@@ -477,7 +488,9 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                           ),
                           const Text(
                             "LABOUS :1",
-                            style: TextStyle(fontSize: 13),
+                            style: TextStyle(fontSize: 13,
+                            fontWeight: FontWeight.w500
+                            ),
                           )
                         ],
                       ),
@@ -491,7 +504,9 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                         ),
                         const Text(
                           "Flocrs:2",
-                          style: TextStyle(fontSize: 10),
+                          style: TextStyle(fontSize: 10,
+                          fontWeight: FontWeight.w500
+                          ),
                         ),
                         const SizedBox(
                           width: 70,

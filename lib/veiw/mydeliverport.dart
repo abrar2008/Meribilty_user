@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, unnecessary_new
 
 import 'package:flutter/material.dart';
 import 'package:getwidget/components/button/gf_button.dart';
@@ -286,7 +286,7 @@ Widget expand(BuildContext context) {
                   SizedBox(
                     height: 10,
                   ),
-                  Container(
+                  SizedBox(
                     
                     width: MediaQuery.of(context).size.width ,
                     child: Row(
@@ -350,7 +350,7 @@ Widget expand(BuildContext context) {
                                                                MainAxisAlignment.center,
                                                                crossAxisAlignment:
                                                                CrossAxisAlignment.start,
-                                                               children: <Widget>[
+                                                               children: const <Widget>[
                                                                     Text("Karachi , Port Qasim Savual Office")
                                                                ],
                                                              ),
@@ -376,7 +376,7 @@ Widget expand(BuildContext context) {
                                                                MainAxisAlignment.center,
                                                                crossAxisAlignment:
                                                                CrossAxisAlignment.start,
-                                                               children: <Widget>[
+                                                               children: const <Widget>[
                                                                  Text("Baba bazar , Peshawar")
                                                                ],
                                                              ),
@@ -398,7 +398,7 @@ Widget expand(BuildContext context) {
                                                                MainAxisAlignment.center,
                                                                crossAxisAlignment:
                                                                CrossAxisAlignment.start,
-                                                               children: <Widget>[
+                                                               children: const <Widget>[
                                                                  Text("Port Qasim, Karachi")
                                                                ],
                                                              ),

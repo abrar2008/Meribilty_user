@@ -55,8 +55,9 @@ class _InviteFriendState extends State<InviteFriend> {
                     ),
                     Text(
                       AppLocalizations.of(context)!.sign,
+                      textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 17,
                         color: Colors.white,
                       ),
                     ),
@@ -90,7 +91,9 @@ class _InviteFriendState extends State<InviteFriend> {
                   TextFormField(
                     autofocus: false,
                     decoration: InputDecoration(
-                      suffix: Image.asset("assets/share.png"),
+                      suffix: Image.asset("assets/share.png",
+                      color: Color(0xFF2F4D84),
+                      ),
                       border: OutlineInputBorder(),
                       contentPadding: EdgeInsets.all(10.0),
                     ),

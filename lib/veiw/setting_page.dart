@@ -63,7 +63,7 @@ class _SettingState extends State<Setting> {
               ),
               GFListTile(
                   title: Text(AppLocalizations.of(context)!.noto,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 17,
 
                   ),
@@ -75,7 +75,7 @@ class _SettingState extends State<Setting> {
                   )),
               GFListTile(
                   title: Text(AppLocalizations.of(context)!.se ,
-                   style: TextStyle(
+                   style: const TextStyle(
                     fontSize: 17,
 
                   ),
@@ -87,7 +87,7 @@ class _SettingState extends State<Setting> {
                   )),
               GFListTile(
                   title: Text(AppLocalizations.of(context)!.la ,
-                   style: TextStyle(
+                   style: const TextStyle(
                     fontSize: 17,
 
                   ),
@@ -103,7 +103,7 @@ class _SettingState extends State<Setting> {
               GFListTile(
 
                   title: Text(AppLocalizations.of(context)!.cac ,
-                   style: TextStyle(
+                   style: const TextStyle(
                     fontSize: 17,
 
                   ),
@@ -116,7 +116,7 @@ class _SettingState extends State<Setting> {
                   )),
               GFListTile(
                 title: Text(AppLocalizations.of(context)!.te ,
-                   style: TextStyle(
+                   style: const TextStyle(
                     fontSize: 17,
 
                   ),
@@ -129,7 +129,7 @@ class _SettingState extends State<Setting> {
                   )),
               GFListTile(
                  title: Text(AppLocalizations.of(context)!.con ,
-                   style: TextStyle(
+                   style: const TextStyle(
                     fontSize: 17,
 
                   ),

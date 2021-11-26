@@ -18,14 +18,14 @@ import 'package:getwidget/getwidget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
-class Citymovement_screen extends StatefulWidget {
-  const Citymovement_screen({Key? key}) : super(key: key);
+class Citymovement extends StatefulWidget {
+  const Citymovement({Key? key}) : super(key: key);
 
   @override
-  _Citymovement_screenState createState() => _Citymovement_screenState();
+  _CitymovementState createState() => _CitymovementState();
 }
 
-class _Citymovement_screenState extends State<Citymovement_screen> {
+class _CitymovementState extends State<Citymovement> {
 
   static const CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(37.42796133580664, -122.085749655962),  
@@ -210,10 +210,11 @@ class _Citymovement_screenState extends State<Citymovement_screen> {
                                                       state.placeBloc.searchPlace(value);
                                                     },
                                                     onTap: () {
+                                                     
                                                       setState(() {
                                                         state.inputTo = true;
                                                         state.inputFrom = false;
-                                                        // ignore: avoid_print
+                                                       
                                                         print(state.inputTo);
                                                       });
                                                     },
@@ -470,7 +471,7 @@ class _FloatingState extends State<Floating> {
             thickness: 2,
           ),
          Container(
-            padding: EdgeInsets.only(left: 10,right: 10),
+            padding: const EdgeInsets.only(left: 10,right: 10),
             child: GFButton(
               size: 60,
               color: const Color(0xFF2F4D84),
@@ -919,7 +920,7 @@ class _FloatingState extends State<Floating> {
             height: 20,
           ),
           Container(
-            padding: EdgeInsets.only(left: 10,right: 10),
+            padding: const EdgeInsets.only(left: 10,right: 10),
             child: GFButton(
               size: 60,
               color: const Color(0xFF2F4D84),
@@ -937,7 +938,7 @@ class _FloatingState extends State<Floating> {
               blockButton: true,
             ),
           ),
-          Cargo(),
+          const Cargo(),
           const SizedBox(
             height: 10,
           ),
@@ -964,7 +965,7 @@ class _FloatingState extends State<Floating> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const Citymovement_screen(),
+                            builder: (context) => const Citymovement(),
                           ));
                     }, currentTime: DateTime(2008, 12, 31, 23, 12, 34));
                   },
@@ -1643,6 +1644,8 @@ class _FloatingState extends State<Floating> {
 // }
 
 class Cargo extends StatefulWidget {
+  const Cargo({Key? key}) : super(key: key);
+
   @override
   _CargoState createState() => _CargoState();
 }
@@ -1663,7 +1666,7 @@ class _CargoState extends State<Cargo> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(AppLocalizations.of(context)!.insure,
-                style: TextStyle(fontSize: 14,
+                style: const TextStyle(fontSize: 14,
                 color: Colors.black,
                 fontWeight: FontWeight.w500,
                 ),

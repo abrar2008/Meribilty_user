@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:meribilty/L10n/l10n.dart';
 import 'package:meribilty/provider/provider.dart';
-import 'package:meribilty/veiw/language.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:meribilty/veiw/splashscreen.dart';
 import 'package:provider/provider.dart';
@@ -20,18 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    Function duringSplash = () {
-    print('Something background process');
-    int a = 123 + 23;
-    print(a);
 
-    if (a > 100)
-      return 1;
-    else
-      return 2;
-  };
-
-  Map<int, Widget> op = {1: const MyApp(), 2: const MyApp()};
     return ChangeNotifierProvider(
         create: (_) => LocaleProvider(),
         builder: (context, child) {

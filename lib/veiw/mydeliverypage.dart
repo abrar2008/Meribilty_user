@@ -1,6 +1,5 @@
-// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, unused_local_variable
+// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, unused_local_variable, unnecessary_new
 
-import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/components/avatar/gf_avatar.dart';
 import 'package:getwidget/components/button/gf_button.dart';
@@ -10,7 +9,6 @@ import 'package:getwidget/shape/gf_avatar_shape.dart';
 import 'package:getwidget/shape/gf_button_shape.dart';
 import 'package:getwidget/types/gf_button_type.dart';
 import 'package:meribilty/veiw/homedetail.dart';
-import 'package:meribilty/veiw/mainProfile.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class Mydeliverypage extends StatefulWidget {
@@ -726,7 +724,7 @@ Widget expand(BuildContext context) {
                                             MainAxisAlignment.center,
                                             crossAxisAlignment:
                                             CrossAxisAlignment.start,
-                                            children: <Widget>[
+                                            children: const <Widget>[
                                                  Text("Pick Up location")
                                             ],
                                           ),
@@ -752,7 +750,7 @@ Widget expand(BuildContext context) {
                                             MainAxisAlignment.center,
                                             crossAxisAlignment:
                                             CrossAxisAlignment.start,
-                                            children: <Widget>[
+                                            children: const <Widget>[
                                               Text("Drop off location")
                                             ],
                                           ),
@@ -774,7 +772,7 @@ Widget expand(BuildContext context) {
                                             MainAxisAlignment.center,
                                             crossAxisAlignment:
                                             CrossAxisAlignment.start,
-                                            children: <Widget>[
+                                            children: const <Widget>[
                                               Text("Empty Container Return")
                                             ],
                                           ),

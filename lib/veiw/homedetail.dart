@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, unused_field
+// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, unused_field, unnecessary_new
 
 import 'dart:async';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -17,7 +17,6 @@ import 'package:getwidget/types/gf_button_type.dart';
 import 'package:getwidget/types/gf_checkbox_type.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:meribilty/veiw/Message.dart';
-import 'package:meribilty/veiw/myDeliveries.dart';
 
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
@@ -80,7 +79,7 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
             child: GFListTile(
                 avatar: 
                 Column(
-                  children: [
+                  children: const [
                     GFAvatar(
                       backgroundImage: AssetImage("assets/truk.png"),
                       shape: GFAvatarShape.circle,
@@ -568,7 +567,7 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
      shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0),
                         ),
-     child:   Container(
+     child:   SizedBox(
        
        width: MediaQuery.of(context).size.width * 0.98,
        child: Row(
@@ -632,7 +631,7 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                                                   MainAxisAlignment.center,
                                                   crossAxisAlignment:
                                                   CrossAxisAlignment.start,
-                                                  children: <Widget>[
+                                                  children: const <Widget>[
                                                        Text("Karachi , Port Qasim Savual Office")
                                                   ],
                                                 ),
@@ -658,7 +657,7 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                                                   MainAxisAlignment.center,
                                                   crossAxisAlignment:
                                                   CrossAxisAlignment.start,
-                                                  children: <Widget>[
+                                                  children: const <Widget>[
                                                     Text("Baba bazar , Peshawar")
                                                   ],
                                                 ),
@@ -680,7 +679,7 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                                                   MainAxisAlignment.center,
                                                   crossAxisAlignment:
                                                   CrossAxisAlignment.start,
-                                                  children: <Widget>[
+                                                  children: const <Widget>[
                                                     Text("Port Qasim, Karachi")
                                                   ],
                                                 ),

@@ -37,7 +37,7 @@ class _WeightmaterialState extends State<Weightmaterial> {
         padding:
             const EdgeInsets.only(top: 23, left: 23, right: 20, bottom: 20),
         child: GFButton(
-          size: 30,
+          size: 40,
           color: const Color(0xFF2F4D84),
           onPressed: () {
             Navigator.push(

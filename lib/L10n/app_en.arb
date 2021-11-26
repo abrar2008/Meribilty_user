@@ -97,7 +97,7 @@
      "@small": {
          "description":"Same City"
      },
-      "delivsmall":"Small deiveries Home\n shifting and commercial \n vehicles ",
+      "delivsmall":"Small deiveries Home\nshifting and commercial \nvehicles ",
       "@delivsmall": {
          "description":"Small"
      },
@@ -214,7 +214,7 @@
      "@book": {
          "description":"book"
      },
-     "sche":"SCHEDULE",
+     "sche":"Schedule",
      "@sche": {
          "description":"sche"
      },
@@ -336,7 +336,7 @@
      },
 
      
-       "deal":" You have got the Best deal! \n Counter offer accept",
+       "deal":" You have got the Best deal! \n Counter offer accepted",
      "@deal": {
          "description":"deal"
      },
@@ -410,11 +410,11 @@
 
 
 
-     "merbank":"MERIBILITY BANK DETAILS    ",
+     "merbank":"MERIBILITY BANK DETAILS",
      "@merbank": {
          "description":"merbank"
      },
-     "bankaddress":"MEEZAN BANK 465465465132  II CHUNDRIGAR ROAD KARACHI  ",
+     "bankaddress":"MEEZAN BANK \n465465465132  \nII CHUNDRIGAR ROAD KARACHI  ",
      "@bankaddress": {
          "description":"bankaddress"
      },

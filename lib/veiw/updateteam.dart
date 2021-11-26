@@ -51,80 +51,77 @@ class _UpdateTeamState extends State<UpdateTeam> {
                 ],
               ),
             ),
-            Container(
-              // padding: const EdgeInsets.all(10),
-              child: Column(
-                children: [
-                  TextFormField(
-                    autofocus: false,
-                    obscureText: true,
-                    decoration: const InputDecoration(
+            Column(
+              children: [
+                TextFormField(
+                  autofocus: false,
+                  obscureText: true,
+                  decoration: const InputDecoration(
+                  
+                    labelStyle: TextStyle(color: Colors.black),
+                    suffixIcon: Icon(
+                      Icons.clear,
+                      size: 20.0,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(0.0)),
+                    ),
+                    hintText: 'First Name',
+                    contentPadding: EdgeInsets.all(10.0),
+                  ),
+                ),
+                TextFormField(
+                  autofocus: false,
+                  obscureText: true,
+                  decoration: const InputDecoration(
+                   
+                    labelStyle: TextStyle(color: Colors.black),
+                    suffixIcon: Icon(
+                      Icons.clear,
+                      size: 20.0,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(0.0)),
+                    ),
+                    hintText: 'Mobile Number',
+                    contentPadding: EdgeInsets.all(10.0),
+                  ),
+                ),
+                TextFormField(
+                  autofocus: false,
+                  obscureText: true,
+                  decoration: const InputDecoration(
                     
-                      labelStyle: TextStyle(color: Colors.black),
-                      suffixIcon: Icon(
-                        Icons.clear,
-                        size: 20.0,
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(0.0)),
-                      ),
-                      hintText: 'First Name',
-                      contentPadding: EdgeInsets.all(10.0),
+                    labelStyle: TextStyle(color: Colors.black),
+                    suffixIcon: Icon(
+                      Icons.clear,
+                      size: 20.0,
                     ),
-                  ),
-                  TextFormField(
-                    autofocus: false,
-                    obscureText: true,
-                    decoration: const InputDecoration(
-                     
-                      labelStyle: TextStyle(color: Colors.black),
-                      suffixIcon: Icon(
-                        Icons.clear,
-                        size: 20.0,
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(0.0)),
-                      ),
-                      hintText: 'Mobile Number',
-                      contentPadding: EdgeInsets.all(10.0),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(0.0)),
                     ),
+                    hintText: 'Give Limited app Access',
+                    contentPadding: EdgeInsets.all(10.0),
                   ),
-                  TextFormField(
-                    autofocus: false,
-                    obscureText: true,
-                    decoration: const InputDecoration(
-                      
-                      labelStyle: TextStyle(color: Colors.black),
-                      suffixIcon: Icon(
-                        Icons.clear,
-                        size: 20.0,
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(0.0)),
-                      ),
-                      hintText: 'Give Limited app Access',
-                      contentPadding: EdgeInsets.all(10.0),
+                ),
+                TextFormField(
+                  autofocus: false,
+                  obscureText: true,
+                  decoration: const InputDecoration(
+                    
+                    labelStyle: TextStyle(color: Colors.black),
+                    suffixIcon: Icon(
+                      Icons.clear,
+                      size: 20.0,
                     ),
-                  ),
-                  TextFormField(
-                    autofocus: false,
-                    obscureText: true,
-                    decoration: const InputDecoration(
-                      
-                      labelStyle: TextStyle(color: Colors.black),
-                      suffixIcon: Icon(
-                        Icons.clear,
-                        size: 20.0,
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(0.0)),
-                      ),
-                      hintText: 'Give limited app access',
-                      contentPadding: EdgeInsets.all(10.0),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(0.0)),
                     ),
+                    hintText: 'Give limited app access',
+                    contentPadding: EdgeInsets.all(10.0),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
 
           const  SizedBox(height: 40,),
