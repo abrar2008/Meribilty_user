@@ -55,7 +55,7 @@ class _PaymentState extends State<Payment> {
                       },
                       child: Container(
                         height: 100,
-                         width: MediaQuery.of(context).size.width,
+                         
                         padding: EdgeInsets.all(10),
                         decoration: BoxDecoration(
                             color: Colors.white,
@@ -119,11 +119,7 @@ class _PaymentState extends State<Payment> {
                                   ],
                                 ),
                               ),
-                              // Expanded(
-                              //   child: SizedBox(
-                              //     width: 1,
-                              //   ),
-                              // ),
+                              
                             ],
                           ),
                         ),

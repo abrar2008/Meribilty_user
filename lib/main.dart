@@ -2,6 +2,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:meribilty/L10n/l10n.dart';
 import 'package:meribilty/provider/provider.dart';
@@ -18,7 +19,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+ SystemChrome.setPreferredOrientations([
+        DeviceOrientation.portraitUp,
+      ]);
 
     return ChangeNotifierProvider(
         create: (_) => LocaleProvider(),

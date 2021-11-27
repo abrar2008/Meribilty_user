@@ -136,6 +136,7 @@ class TimewaitState extends State<Timewait> {
 }
 _oncancel(context) {
   Alert(
+    
     content: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: const <Widget>[
@@ -243,24 +244,17 @@ _oncancel(context) {
 
       ],
     ),
-    // buttons: [
-    //   DialogButton(
-    //     child: const Text(
-    //       "Reject ",
-    //       style: TextStyle(color: Colors.red, fontSize: 20),
-    //     ),
-    //     onPressed: () => Navigator.pop(context),
-    //     color: Colors.white,
-    //   ),
-    //   DialogButton(
-    //     child: const Text(
-    //       "Accept",
-    //       style: TextStyle(color: Color(0xFF2F4D84), fontSize: 20),
-    //     ),
-    //     onPressed: () => Navigator.pop(context),
-    //     color: Colors.white,
-    //   )
-    // ],
+    buttons: [
+      DialogButton(
+        child: const Text(
+          "Cancel ",
+          style: TextStyle(color: Colors.red, fontSize: 20),
+        ),
+        onPressed: () => Navigator.pop(context),
+        color: Colors.white,
+      ),
+      
+    ],
     context: context,
   ).show();
 }

@@ -20,6 +20,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:meribilty/veiw/loading_port.dart';
 import 'package:meribilty/veiw/materialtype.dart';
 import 'package:meribilty/veiw/selectvehicleppl.dart';
+import 'package:meribilty/widget/animatedtoggle.dart';
 import 'package:provider/provider.dart';
 
 import 'package:sliding_up_panel/sliding_up_panel.dart';
@@ -65,7 +66,7 @@ class _PortlogisticsState extends State<Portlogistics> {
             renderPanelSheet: false,
             minHeight: 200,
             maxHeight: 600,
-            panel: _floatingPanel(context),
+            panel: Floatng(),
               
             
             body: 
@@ -419,9 +420,17 @@ class _PortlogisticsState extends State<Portlogistics> {
   }
 }
 
-Widget _floatingPanel(context) {
-  List<bool> _selections = List.generate(2, (_)=> false);
-  return Container(
+class Floatng extends StatefulWidget {
+  const Floatng({ Key? key }) : super(key: key);
+
+  @override
+  _FloatngState createState() => _FloatngState();
+}
+
+class _FloatngState extends State<Floatng> {
+  @override
+  Widget build(BuildContext context) {
+    return  Container(
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
@@ -491,59 +500,21 @@ Widget _floatingPanel(context) {
                 ],
               ),
             ),
-           //
-            SizedBox(
-              height: 10,
-            ),
-
-  // CustomeButton(),
-              
+          
  
-
+  SizedBox(height: 10,),
 
             
-            Container(
-              width: 220,
-              height: 50,
-              decoration: BoxDecoration(
-                color: Color(0xffF2F2F2),
-                borderRadius: BorderRadius.all(Radius.circular(20)),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+            AnimatedToggle(
 
-            ToggleButtons(
-              // borderColor: Colors.black,
-                fillColor: Color(0xFF2F4D84),
-                
-                // selectedBorderColor: Colors.black,
-                selectedColor: Color(0xFF2F4D84),
-                borderRadius: BorderRadius.circular(0),
-              children: const [
-
-                Text("Transit Cargo"),
-                Text("Upcountry & \nLocal"),
-                // GFButton(
-                //   color: Color(0xFF2F4D84),
-                //   onPressed: () {},
-                //   text: "",
-                //   shape: GFButtonShape.pills,
-                // ),
-                // GFButton(
-                //   color: Color(0xffF2F2F2),
-                //   onPressed: () {},
-                //   text: "",
-                //   textStyle:
-                //       TextStyle(color: Colors.black45, fontSize: 10),
-                //   shape: GFButtonShape.pills,
-                // ),
-              
-               ],
-            isSelected: _selections,
-                   ),
-                ],
-              ),
+            values: const ['Transit Cargo', 'Upcountry &\nLocal'],
+            onToggleCallback: (value) {
+              setState(() {
+              });
+            },
+            buttonColor: const Color(0xFF0A3157),
+            backgroundColor: const Color(0xFFB5C1CC),
+            textColor: const Color(0xFFFFFFFF),
             ),
            
            
@@ -1173,8 +1144,21 @@ Cargo(),
             ),
           ],
         ),
-      )));
+      )
+    )
+      );
+    
+     
+
+  }
 }
+
+// Widget _floatingPanel(context) {
+//   List<bool> _selections = List.generate(2, (_)=> false);
+//   return 
+ 
+// //
+// }
 
 
 class Cargo extends StatefulWidget {
@@ -1210,11 +1194,16 @@ class _CargoState extends State<Cargo> {
               ),
               Container(
                 decoration: BoxDecoration(
+                   border: Border.all(
                     color: const Color(0xFF2F4D84),
+                    width: 6,
+                  ),
+                    color: isChecked ? const Color(0xFF2F4D84) :Colors.white,
                     borderRadius: BorderRadius.circular(15)),
-                height: 30,
-                width: 40,
+                height: 25,
+                width: 36,
                 child: Checkbox(
+             
                   activeColor: const Color(0xFF2F4D84),
                   checkColor: Colors.white,
                   value: isChecked,

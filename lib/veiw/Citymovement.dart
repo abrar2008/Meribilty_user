@@ -942,7 +942,8 @@ class _FloatingState extends State<Floating> {
           const SizedBox(
             height: 10,
           ),
-          SizedBox(
+          Container(
+            padding: const EdgeInsets.only(left: 10, right: 10),
            width: MediaQuery.of(context).size.width,
             child: Row(
               // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -1657,7 +1658,7 @@ class _CargoState extends State<Cargo> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(top: 10,),
+      padding: const EdgeInsets.only(top: 10,right: 10,left: 1),
       child: Column(
         children: [
           Container(
@@ -1674,11 +1675,16 @@ class _CargoState extends State<Cargo> {
              
                 Container(
                   decoration: BoxDecoration(
-                      color: const Color(0xFF2F4D84),
+                     border: Border.all(
+                    color: const Color(0xFF2F4D84),
+                    width: 6,
+                  ),
+                      color: isChecked ? const Color(0xFF2F4D84) :Colors.white,
                       borderRadius: BorderRadius.circular(15)),
                   height: 30,
                   width: 40,
                   child: Checkbox(
+                   
                     activeColor: const Color(0xFF2F4D84),
                     checkColor: Colors.white,
                     value: isChecked,

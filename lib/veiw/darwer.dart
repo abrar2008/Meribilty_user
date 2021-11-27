@@ -37,9 +37,11 @@ class _DarweState extends State<Darwe> {
                          onTap: () {
                             Navigator.pop(context);
                           },
-                          child: Icon(Icons.close)),
+                          child: Icon(Icons.close,
+                          color: Colors.white,
+                          )),
                       SizedBox(
-                        width: 120,
+                        width: 150,
                       ),
                       Container(
                         decoration: BoxDecoration(
