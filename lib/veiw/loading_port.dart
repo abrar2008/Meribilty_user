@@ -38,6 +38,8 @@ class _LoadingportState extends State<Loadingport> {
             child: Container(
               padding: EdgeInsets.only(left: 20, right: 20),
               child: GFButton(
+             borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide.none, borderRadius:  BorderRadius.circular(10.0)), RoundedRectangleBorder(side: BorderSide.none, borderRadius:  BorderRadius.circular(10.0)), 0.5),
+
                 size: 60,
                 color: Color(0xFF2F4D84),
                 onPressed: () {

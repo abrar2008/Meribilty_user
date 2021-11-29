@@ -94,12 +94,13 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                 ),
                 description: Container(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
-                      Text("REFFERED              "),
+                      Text("REFFERED"),
                       Text("CONTAINER 20 FT"),
-                      Text("PNG-978                "),
+                      Text("PNG-978"),
                       Text("1 Labor + 1 Crane"),
-                      Text("4 tons                  "),
+                      Text("4 tons"),
                     ],
                   ),
                 ),

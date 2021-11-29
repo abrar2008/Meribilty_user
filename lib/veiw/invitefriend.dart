@@ -85,9 +85,9 @@ class _InviteFriendState extends State<InviteFriend> {
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.w500),
                       )),
-                  SizedBox(
+                  SizedBox(                          
                     height: 20,
-                  ),
+                  ),                
                   TextFormField(
                     autofocus: false,
                     decoration: InputDecoration(
@@ -104,7 +104,8 @@ class _InviteFriendState extends State<InviteFriend> {
                   Container(
                     padding: EdgeInsets.all(1),
                     child: GFButton(
-                      
+             borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide.none, borderRadius:  BorderRadius.circular(10.0)), RoundedRectangleBorder(side: BorderSide.none, borderRadius: BorderRadius.circular(10.0)), 0.5),
+                                    
                       size: 40,
                       onPressed: () {
                         Navigator.pushReplacement(

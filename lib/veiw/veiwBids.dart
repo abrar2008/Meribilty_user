@@ -110,6 +110,8 @@ Widget decision(BuildContext context) {
           height: 10,
         ),
         GFButton(
+             borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide.none, borderRadius:  BorderRadius.circular(10.0)), RoundedRectangleBorder(side: BorderSide.none, borderRadius: BorderRadius.circular(0.0)), 0.5),
+          
           child: Container(
             color: const Color(0xff242E42),
             child: Row(
@@ -166,6 +168,8 @@ Widget decision(BuildContext context) {
           blockButton: true,
         ),
         GFButton(
+             borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide.none, borderRadius:  BorderRadius.circular(0.0)), RoundedRectangleBorder(side: BorderSide.none, borderRadius: BorderRadius.circular(10.0)), 0.5),
+
           child: Container(
             color: const Color(0xff242E42),
             child: Row(
@@ -281,6 +285,8 @@ Widget decision(BuildContext context) {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             GFButton(
+             borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide.none, borderRadius:  BorderRadius.circular(0.0)), RoundedRectangleBorder(side: BorderSide.none, borderRadius: BorderRadius.circular(10.0)), 0.5),
+
               shape: GFButtonShape.standard,
               color: const Color(0xffFF2D55),
               size: 50,
@@ -307,6 +313,8 @@ Widget decision(BuildContext context) {
             ),
             Expanded(
               child: GFButton(
+             borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide.none, borderRadius:  BorderRadius.circular(0.0)), RoundedRectangleBorder(side: BorderSide.none, borderRadius: BorderRadius.circular(10.0)), 0.5),
+
                 onPressed: () {
                   _onSendCounterAccept(context);
                 },

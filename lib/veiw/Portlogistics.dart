@@ -530,7 +530,9 @@ class _FloatngState extends State<Floatng> {
               height: 10,
             ),
             GFButton(
-              // borderShape: ShapeBorder.lerp(,20 ,3 ),
+             borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide.none, borderRadius: new BorderRadius.circular(10.0)), RoundedRectangleBorder(side: BorderSide.none, borderRadius: new BorderRadius.circular(10.0)), 0.5),
+
+             
               size: 60,
               color: Color(0xFF242E42),
               textStyle: TextStyle(
@@ -1020,6 +1022,8 @@ class _FloatngState extends State<Floatng> {
             ),
             //material
             GFButton(
+             borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide.none, borderRadius: new BorderRadius.circular(10.0)), RoundedRectangleBorder(side: BorderSide.none, borderRadius: new BorderRadius.circular(10.0)), 0.5),
+         
               size: 60,
               color: const Color(0xFF242E42),
               textStyle: const TextStyle(
@@ -1047,6 +1051,8 @@ class _FloatngState extends State<Floatng> {
             ),
             //load
             GFButton(
+             borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide.none, borderRadius: new BorderRadius.circular(10.0)), RoundedRectangleBorder(side: BorderSide.none, borderRadius: new BorderRadius.circular(10.0)), 0.5),
+
               size: 60,
               color: const Color(0xFF242E42),
               onPressed: () {
@@ -1125,7 +1131,8 @@ Cargo(),
               height: 10,
             ),
             GFButton(
-              size: 60,
+             borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide.none, borderRadius: new BorderRadius.circular(10.0)), RoundedRectangleBorder(side: BorderSide.none, borderRadius: new BorderRadius.circular(10.0)), 0.5),
+              size: 50,
               color: const Color(0xFF2F4D84),
                onPressed: () {
 
@@ -1145,7 +1152,7 @@ Cargo(),
               },
               text: AppLocalizations.of(context)!.quote,
               textStyle: const TextStyle(fontSize: 17,
-              fontWeight: FontWeight.w500
+              fontWeight: FontWeight.bold
               ),
               type: GFButtonType.solid,
               shape: GFButtonShape.standard,
@@ -1179,7 +1186,7 @@ class _CargoState extends State<Cargo> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(top: 20,left: 10, right: 10),
+      padding: const EdgeInsets.only(top: 20,left: 15, right: 15),
       child: Column(
         children: [
           
@@ -1225,9 +1232,10 @@ class _CargoState extends State<Cargo> {
           Visibility(
             visible: isVisiable,
             child: Container(
-              padding: const EdgeInsets.only(top: 20),
+              padding: const EdgeInsets.only(top: 20,left: 10,right: 10),
               child: GFButton(
-                
+             borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide(color: Colors.black, width: 2), borderRadius: new BorderRadius.circular(10.0)), RoundedRectangleBorder(side: BorderSide(color: Colors.black, width: 2), borderRadius: new BorderRadius.circular(10.0)), 0.5),
+               
                 color: Colors.white,
                 textStyle: const TextStyle(
                     color: Colors.black,
