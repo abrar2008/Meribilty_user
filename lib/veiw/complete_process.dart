@@ -18,7 +18,7 @@ class CompleteProcessState extends State<CompleteProcess> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 10), () {
+    Future.delayed(const Duration(seconds:20), () {
       Navigator.pushReplacement(context,
           MaterialPageRoute(builder: (context) => const MyDeliverport()));
     });
@@ -62,6 +62,7 @@ class CompleteProcessState extends State<CompleteProcess> {
                           children: [
                             Text(
                               AppLocalizations.of(context)!.deliver,
+                              textAlign: TextAlign.end,
                               style: const TextStyle(
                                 color: Color(0xFF2F4D84),
                                 fontWeight: FontWeight.bold,
@@ -91,34 +92,42 @@ class CompleteProcessState extends State<CompleteProcess> {
                 ),
               ),
               const SizedBox(
-                height: 10,
+                height: 15,
               ),
               Align(
                 alignment: Alignment.center,
                 child: Text(
                   AppLocalizations.of(context)!.base,
+                  textAlign: TextAlign.center,
                   style:
-                      const TextStyle(color: Color(0xff8A8A8F), fontSize: 15),
+                      const TextStyle(color: Color(0xff8A8A8F), fontSize: 15,
+                      fontWeight: FontWeight.bold
+                      ),
                 ),
               ),
               Image.asset("assets/load.PNG"),
               Text(
                 AppLocalizations.of(context)!.wait,
+                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                    fontSize: 20,
+                    fontSize: 15,
                     color: Color(0xFF2F4D84),
-                    fontWeight: FontWeight.bold),
+                    fontWeight: FontWeight.bold
+                    ),
               ),
               const SizedBox(
                 height: 30,
               ),
               Text(
                 AppLocalizations.of(context)!.bare,
+                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   color: Color(0xff8A8A8F),
-                  fontSize: 18,
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold
                 ),
               ),
+           
             ],
           ),
         ),

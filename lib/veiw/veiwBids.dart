@@ -494,6 +494,7 @@ _onSendCounter(context) {
   Alert(
     content: Column(
       children: <Widget>[
+         const SizedBox(height: 10,),
         Text(
           AppLocalizations.of(context)!.countoffer,
           style: const TextStyle(
@@ -540,6 +541,7 @@ _onSendCounterAccept(context) {
   Alert(
     content: Column(
       children: <Widget>[
+        const SizedBox(height: 10,),
         Text(
           AppLocalizations.of(context)!.deal,
           textAlign: TextAlign.center,
@@ -732,7 +734,7 @@ _onOfferreject(context) {
     
     content: Column(
       children:  <Widget>[
-
+            const SizedBox(height: 10,),
         Image.asset("assets/reject.png"),
         const SizedBox(height: 10,),
         const Text(

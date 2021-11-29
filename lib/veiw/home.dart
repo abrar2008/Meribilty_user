@@ -79,11 +79,18 @@ class _HomeState extends State<Home> {
                     // const SizedBox(
                     //   width: 280,
                     // ),
-                    Image.asset("assets/Noti.png"),
+                    Column(
+                      children: [
+                        Image.asset("assets/Noti.png"),
+                        const SizedBox(height: 3,),
+                      ],
+                    ),
                     const SizedBox(
                       width: 10,
                     ),
-                    Image.asset("assets/mes.png"),
+                    Image.asset("assets/mes.png",
+                    
+                    ),
                   ],
                 ),
                 SizedBox(

@@ -47,19 +47,7 @@ class _AddTeamState extends State<AddTeam> {
                             fontWeight: FontWeight.bold),
                       ),
                        Image.asset("assets/Follow.png"),
-                      // GFIconButton(
-                      //   size: 280,
-                   
-                      //   color: Colors.white,
-                      //   shape: GFIconButtonShape.pills,
-                      //   onPressed: () {},
-                      //   icon: Row(
-                      //     children:  [
-                      //       // SizedBox(width: 5,),
-                           
-                      //     ],
-                      //   ),
-                      // ),
+                     
                       const SizedBox(
                         width: 9,
                       ),
@@ -71,9 +59,10 @@ class _AddTeamState extends State<AddTeam> {
                 // ),
                 Column(
                   children: [
+                    
                     TextFormField(
                       autofocus: false,
-                      obscureText: true,
+                    
                       decoration: const InputDecoration(
                         
                           hintText: 'First Name',
@@ -86,13 +75,13 @@ class _AddTeamState extends State<AddTeam> {
                                 BorderRadius.all(Radius.circular(0.0)),
                           ),
                     
-                          // contentPadding: EdgeInsets.only(left: 20, right: 20)
+                       
                           
                           ),
                     ),
                     TextFormField(
                       autofocus: false,
-                      obscureText: true,
+                     
                       decoration: const InputDecoration(
                        
                         labelStyle: TextStyle(color: Colors.black),
@@ -109,7 +98,7 @@ class _AddTeamState extends State<AddTeam> {
                     ),
                     TextFormField(
                       autofocus: false,
-                      obscureText: true,
+                     
                       decoration: const InputDecoration(
                          hintText: 'Email',
                         labelStyle: TextStyle(color: Colors.black),
@@ -126,7 +115,7 @@ class _AddTeamState extends State<AddTeam> {
                     ),
                     TextFormField(
                       autofocus: false,
-                      obscureText: true,
+                     
                       decoration: const InputDecoration(
                        
                         labelStyle: TextStyle(color: Colors.black),

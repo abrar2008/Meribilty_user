@@ -446,7 +446,7 @@ class _FloatngState extends State<Floatng> {
       margin: const EdgeInsets.all(10.0),
       child: SingleChildScrollView(
           child: Container(
-        padding: const EdgeInsets.all(12.0),
+        padding: const EdgeInsets.only(top: 3),
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
@@ -456,7 +456,15 @@ class _FloatngState extends State<Floatng> {
         child: Column(
           children: [
             Container(
-              color: Color(0xffF2F2F2),
+              decoration: BoxDecoration(
+            color: Color(0xffF2F2F2),
+            borderRadius: BorderRadius.only(
+              topLeft: const Radius.circular(10.0),
+              topRight: const Radius.circular(10.0),
+            )),
+              
+              height: 40,
+              width:  MediaQuery.of(context).size.width ,
               padding: EdgeInsets.all(10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -522,6 +530,7 @@ class _FloatngState extends State<Floatng> {
               height: 10,
             ),
             GFButton(
+              // borderShape: ShapeBorder.lerp(,20 ,3 ),
               size: 60,
               color: Color(0xFF242E42),
               textStyle: TextStyle(
@@ -1153,12 +1162,7 @@ Cargo(),
   }
 }
 
-// Widget _floatingPanel(context) {
-//   List<bool> _selections = List.generate(2, (_)=> false);
-//   return 
- 
-// //
-// }
+
 
 
 class Cargo extends StatefulWidget {
@@ -1175,7 +1179,7 @@ class _CargoState extends State<Cargo> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(top: 20),
+      padding: const EdgeInsets.only(top: 20,left: 10, right: 10),
       child: Column(
         children: [
           
@@ -1192,14 +1196,15 @@ class _CargoState extends State<Cargo> {
                 ),
                 ),
               ),
-              Container(
-                decoration: BoxDecoration(
-                   border: Border.all(
-                    color: const Color(0xFF2F4D84),
-                    width: 6,
-                  ),
-                    color: isChecked ? const Color(0xFF2F4D84) :Colors.white,
-                    borderRadius: BorderRadius.circular(15)),
+              SizedBox(
+                // decoration: BoxDecoration(
+                //    border: Border.all(
+                //     color: const Color(0xFF2F4D84),
+                //     width: 6,
+                //   ),
+                    
+                    
+                    // ),
                 height: 25,
                 width: 36,
                 child: Checkbox(

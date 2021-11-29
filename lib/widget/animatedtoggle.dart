@@ -63,7 +63,7 @@ class _AnimatedToggleState extends State<AnimatedToggle> {
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         fontFamily: 'Rubik',
-                        fontSize: 10,
+                        fontSize: 11,
                         fontWeight: FontWeight.bold,
                       
                         color: Color(0xAA000000),
@@ -90,6 +90,7 @@ class _AnimatedToggleState extends State<AnimatedToggle> {
               ),
               child: Text(
                 initialPosition ? widget.values[0] : widget.values[1],
+                 textAlign: TextAlign.center, 
                 style: TextStyle(
                   fontFamily: 'Rubik',
                   fontSize: 10,

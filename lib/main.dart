@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
               AppLocalizations.delegate,
               GlobalMaterialLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,  
             ],
             home: const SplashScreen());
             // CustomSplash(

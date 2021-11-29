@@ -252,7 +252,7 @@ Widget expand(BuildContext context) {
       child: Padding(
     padding: const EdgeInsets.all(10),
     child: Card(
-      clipBehavior: Clip.antiAlias,
+      // clipBehavior: Clip.antiAlias,
       child: Column(
         children: <Widget>[
           ScrollOnExpand(
@@ -262,23 +262,28 @@ Widget expand(BuildContext context) {
               theme: const ExpandableThemeData(
                 headerAlignment: ExpandablePanelHeaderAlignment.center,
                 tapBodyToCollapse: true,
+                
               ),
-              header: Padding(
+              
+
+
+              header: Container(
+                // color: Color(0xffF7F7F7),
                   padding: EdgeInsets.all(10),
                   child: Center(
                     child: Text(
                       "Click to expand",
                       style: TextStyle(
                         color: Color(0xFF2F4D84),
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold
+                    
+
                       ),
                     ),
                   )),
-              collapsed: Text(
-                "  ",
-                softWrap: true,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              ),
+                
+              collapsed: Text(" "),
               expanded: 
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -477,9 +482,10 @@ Widget expand(BuildContext context) {
                 return Padding(
                   padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
                   child: Expandable(
+
                     collapsed: collapsed,
                     expanded: expanded,
-                    theme: const ExpandableThemeData(crossFadePoint: 0),
+                    theme: const ExpandableThemeData(crossFadePoint: 0,  ),
                   ),
                 );
               },

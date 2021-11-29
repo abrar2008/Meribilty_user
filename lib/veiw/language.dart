@@ -106,9 +106,9 @@ class _LanguageState extends State<Language> {
                                       )),
                                 )),
                             onPressed: () {
-                              final provide = context
-                                  .read<LocaleProvider>()
-                                  .setLocale(const Locale('hi'));
+                              // final provide = context
+                              //     .read<LocaleProvider>()
+                              //     .setLocale(const Locale('hi'));
                               Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(

@@ -124,7 +124,7 @@ class  SignIn  extends StatelessWidget {
 
 
 
-   TextFormField(
+             TextFormField(
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Enter full name  ';
@@ -245,6 +245,7 @@ class  SignIn  extends StatelessWidget {
                                 height: 80,
                                 width: MediaQuery.of(context).size.width *0.69,
                                 child: TextFormField(
+                                  keyboardType: TextInputType.number,
                                  validator: (value) {
                     if (value == null || value.isEmpty) {
                           return 'Please enter Full Name';
@@ -255,6 +256,7 @@ class  SignIn  extends StatelessWidget {
                                       fontSize: 20.0, color: Colors.black),
                                   decoration: const InputDecoration(
                                       border: OutlineInputBorder(),
+                                      
                                       hintText: 'Mobile Number',
                                       hintStyle: TextStyle(
                                           fontSize: 14, color: Color(0xffC8C7CC))),
@@ -289,6 +291,7 @@ class  SignIn  extends StatelessWidget {
                             },
                       )),
                 ),
+             
               ],
             ),
           ),
@@ -493,17 +496,18 @@ class  SignIn  extends StatelessWidget {
               ),
             ),
           ),
+          SizedBox(height: 10,),
         Row(
           children: const [
             Text(
               "By clicking signup, you agree to our ",
-              style: TextStyle(fontSize: 12,
+              style: TextStyle(fontSize: 11,
               fontWeight: FontWeight.w400
               ),
             ),
              Text(
                "Terms and Conditions",
-               style: TextStyle(fontSize: 12,
+               style: TextStyle(fontSize: 13,
                fontWeight: FontWeight.bold
                ),
              ),
@@ -527,6 +531,7 @@ class  SignIn  extends StatelessWidget {
       body:  SingleChildScrollView(
         child: Container(
           width:  MediaQuery.of(context).size.width,
+          
           child: Column(
             children: [
               Container(
@@ -556,6 +561,7 @@ class  SignIn  extends StatelessWidget {
                       left: 20,
                       child: Container(
                         padding: const EdgeInsets.all(5),
+                        
                         child: Container(
                           decoration: const BoxDecoration(
                               color: Colors.white,
@@ -575,7 +581,7 @@ class  SignIn  extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 10,
+                height: 50,
               ),
             ],
           ),
@@ -671,30 +677,38 @@ class _LogininState extends State<Loginin> {
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               const SizedBox(
-                                width: 3,
+                                width: 5,
                               ),
-                              Container(
-                                  height: 80,
-                                  width:  MediaQuery.of(context).size.width *0.48,
-                                  child: TextFormField(
-                                   validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter Full Name';
-                      }
-                      return null;
-                    },
-                                    style: const TextStyle(
-                                        fontSize: 20.0, color: Colors.black),
-                                    decoration: const InputDecoration(
-                                        border: OutlineInputBorder(
-                                          borderSide: BorderSide(color: Colors.grey, width: 0.0),
-                                        ),
-                                        labelText: 'Mobile Number',
-                                        labelStyle: TextStyle(fontSize: 14)),
-                                  ))
+                             
                             ],
                           ),
                         ),
+                         Container(
+                 width: MediaQuery.of(context).size.width *0.5 ,
+                padding: const EdgeInsets.all(10),
+                child: 
+                TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter Password ';
+                    }
+                    return null;
+                  },
+                  cursorColor: Colors.black,
+                  decoration: InputDecoration(
+                    
+                    border: OutlineInputBorder(
+               
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    contentPadding: const EdgeInsets.only(
+                        left: 15, bottom: 11, top: 11, right: 15),
+                    hintText: "Password",
+                    hintStyle:
+                        const TextStyle(fontSize: 15, color: Color(0xffC8C7CC)),
+                  ),
+                ),
+              ),
                       ],
                     ),
                   ),
@@ -739,13 +753,13 @@ class _LogininState extends State<Loginin> {
                 
 
                     Container(
-                  decoration: BoxDecoration(
-                     border: Border.all(
-                    color: const Color(0xFFE2E1E8),
-                    width: 6,
-                  ),
-                      color: isChecked ? const Color(0xFFE2E1E8) :Colors.white,
-                      borderRadius: BorderRadius.circular(15)),
+                  // decoration: BoxDecoration(
+                  //    border: Border.all(
+                  //   color: const Color(0xFFE2E1E8),
+                  //   width: 6,
+                  // ),
+                  //     color: isChecked ? const Color(0xFFE2E1E8) :Colors.white,
+                  //     borderRadius: BorderRadius.circular(15)),
                   height: 30,
                   width: 40,
                   child: Checkbox(
@@ -801,7 +815,8 @@ class _LogininState extends State<Loginin> {
               Container(
                 padding: EdgeInsets.only(left: 10, right: 10),
                   width: double.infinity,
-                  child: ElevatedButton(
+                  child: 
+                  ElevatedButton(
                     child: Text("Next".toUpperCase(),
                         style: const TextStyle(fontSize: 14)),
                     style: ButtonStyle(

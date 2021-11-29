@@ -1673,14 +1673,14 @@ class _CargoState extends State<Cargo> {
                 ),
                 ),
              
-                Container(
-                  decoration: BoxDecoration(
-                     border: Border.all(
-                    color: const Color(0xFF2F4D84),
-                    width: 6,
-                  ),
-                      color: isChecked ? const Color(0xFF2F4D84) :Colors.white,
-                      borderRadius: BorderRadius.circular(15)),
+                SizedBox(
+                  // decoration: BoxDecoration(
+                  //    border: Border.all(
+                  //   color: const Color(0xFF2F4D84),
+                  //   width: 6,
+                  // ),
+                  //     color: isChecked ? const Color(0xFF2F4D84) :Colors.white,
+                  //     borderRadius: BorderRadius.circular(15)),
                   height: 30,
                   width: 40,
                   child: Checkbox(

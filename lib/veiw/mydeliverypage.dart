@@ -73,9 +73,10 @@ class _MydeliverypageState extends State<Mydeliverypage> {
                 color: Colors.grey,
               ),
             ]),
-        margin: const EdgeInsets.all(6.0),
+        margin: const EdgeInsets.all(4.0),
         child: SingleChildScrollView(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
           children: [
             const SizedBox(
               height: 10,
@@ -120,9 +121,18 @@ class _MydeliverypageState extends State<Mydeliverypage> {
                       ],
                     ),
                   ),
-                  titleText: 'BT145857',
+                  // titleText: '',
+
+                  title: Text("BT145857",
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  ),
                   description: Container(
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
                           height: 4,
@@ -139,11 +149,12 @@ class _MydeliverypageState extends State<Mydeliverypage> {
                         ),
                         Container(
                           child: Text(
-                            "Status          ",
+                            "Status:",
+                            textAlign: TextAlign.start,
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 18,
-                                fontWeight: FontWeight.w300),
+                                fontWeight: FontWeight.bold),
                           ),
                         ),
                       ],
@@ -151,10 +162,13 @@ class _MydeliverypageState extends State<Mydeliverypage> {
                   ),
                   icon: Container(
                     child: Column(
+                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: const [
                         Text(
                           "09 Sept, 2021",
-                          style: TextStyle(color: Color(0xffC8C7CC)),
+                          style: TextStyle(color: Color(0xffC8C7CC) ,
+                          fontSize: 15,
+                          ),
                         ),
                         SizedBox(
                           height: 10,
@@ -163,6 +177,7 @@ class _MydeliverypageState extends State<Mydeliverypage> {
                           "Pending",
                           style: TextStyle(
                             color: Colors.red,
+                             fontSize: 15,
                           ),
                         ),
                         SizedBox(
@@ -170,13 +185,16 @@ class _MydeliverypageState extends State<Mydeliverypage> {
                         ),
                         Text(
                           "In Process",
-                          style: TextStyle(color: Color(0xffC8C7CC)),
+                          style: TextStyle(color: Color(0xffC8C7CC),
+                           fontSize: 15,
+                          ),
                         ),
                       ],
                     ),
                   )),
             ),
-            Container(
+            SizedBox(
+              width: MediaQuery.of(context).size.width, 
               child: GFListTile(
                   avatar: GFAvatar(
                     size: 60,
@@ -206,6 +224,8 @@ class _MydeliverypageState extends State<Mydeliverypage> {
                   titleText: 'BT145857',
                   description: Container(
                     child: Column(
+                         mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
                           height: 4,
@@ -213,7 +233,7 @@ class _MydeliverypageState extends State<Mydeliverypage> {
                         Text(
                           "Ahmed Bashir",
                           style: TextStyle(
-                              color: Colors.black38,
+                              color: Colors.black,
                               fontSize: 18,
                               fontWeight: FontWeight.bold),
                         ),
@@ -222,11 +242,11 @@ class _MydeliverypageState extends State<Mydeliverypage> {
                         ),
                         Container(
                           child: Text(
-                            "Status          ",
+                            "Status:",
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 18,
-                                fontWeight: FontWeight.w300),
+                                fontWeight: FontWeight.bold),
                           ),
                         ),
                       ],
@@ -234,30 +254,41 @@ class _MydeliverypageState extends State<Mydeliverypage> {
                   ),
                   icon: Container(
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
                       children: const [
                         Text(
                           "09 Sept, 2021",
-                          style: TextStyle(color: Color(0xffC8C7CC)),
+                          textAlign: TextAlign.end,
+                          style: TextStyle(color: Color(0xffC8C7CC) ,
+                           fontSize: 15,
+                          ),
                         ),
                         SizedBox(
                           height: 10,
                         ),
                         Text(
                           "032233230882",
-                          style: TextStyle(color: Color(0xffC8C7CC)),
+                           textAlign: TextAlign.end,
+                          style: TextStyle(color: Color(0xffC8C7CC),
+                          fontSize: 15,
+                          ),
                         ),
                         SizedBox(
                           height: 10,
                         ),
                         Text(
-                          "In Process",
-                          style: TextStyle(color: Color(0xffC8C7CC)),
+                          "Delivered",
+                            textAlign: TextAlign.start,
+                          style: TextStyle(color: Color(0xffC8C7CC) ,
+                          fontSize:13,
+                          ),
                         ),
                       ],
                     ),
                   )),
             ),
-            Container(
+            SizedBox(
+               width: MediaQuery.of(context).size.width, 
               child: GFListTile(
                   avatar: GFAvatar(
                     size: 60,
@@ -284,9 +315,20 @@ class _MydeliverypageState extends State<Mydeliverypage> {
                       ],
                     ),
                   ),
-                  titleText: 'BT145857',
+                  title: Text("BT145857" ,
+                  style: TextStyle(
+                  color: Colors.black,
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold
+                  
+                  ),
+                  
+                  ),
+                  
                   description: Container(
                     child: Column(
+                        
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
                           height: 4,
@@ -294,8 +336,8 @@ class _MydeliverypageState extends State<Mydeliverypage> {
                         Text(
                           "Ahmed Bashir",
                           style: TextStyle(
-                              color: Colors.black38,
-                              fontSize: 18,
+                              color: Colors.black,
+                              fontSize: 15,
                               fontWeight: FontWeight.bold),
                         ),
                         SizedBox(
@@ -303,11 +345,11 @@ class _MydeliverypageState extends State<Mydeliverypage> {
                         ),
                         Container(
                           child: Text(
-                            "Status          ",
+                            "Status",
                             style: TextStyle(
                                 color: Colors.black,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w300),
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold),
                           ),
                         ),
                       ],
@@ -315,24 +357,35 @@ class _MydeliverypageState extends State<Mydeliverypage> {
                   ),
                   icon: Container(
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
                       children: const [
                         Text(
                           "09 Sept, 2021",
-                          style: TextStyle(color: Color(0xffC8C7CC)),
+                            textAlign: TextAlign.end,
+                          style: TextStyle(color: Color(0xffC8C7CC),
+                          fontSize: 15
+                          ),
                         ),
                         SizedBox(
                           height: 10,
                         ),
                         Text(
                           "032233230882",
-                          style: TextStyle(color: Color(0xffC8C7CC)),
+                            textAlign: TextAlign.end,
+                          style: TextStyle(color: Color(0xffC8C7CC),
+                          fontSize: 15
+                          
+                          ),
                         ),
                         SizedBox(
                           height: 10,
                         ),
                         Text(
-                          "In Process",
-                          style: TextStyle(color: Color(0xffC8C7CC)),
+                          "Emptying Container",
+                          textAlign: TextAlign.end,
+                          style: TextStyle(color: Color(0xffC8C7CC),
+                          fontSize: 15
+                          ),
                         ),
                       ],
                     ),

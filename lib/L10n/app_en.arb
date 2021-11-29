@@ -281,11 +281,11 @@
      "@base": {
          "description":"base"
      },
-     "wait":"              Lets wait    \n           10:00 Minutes    \n while we negotiate the\n    best rates for you  ",
+     "wait":"Lets wait\n10:00 Minutes\n while we negotiate the\nbest rates for you  ",
      "@wait": {
          "description":"wait"
      },
-      "bare":"               Please bare with us \n while we Continue to find best rates \n                  for your cargo \n                  15:00 Minutes ",
+      "bare":"Please bare with us \nwhile we Continue to find best rates \nfor your cargo \n15:00 Minutes",
      "@bare": {
          "description":"bare"
      },
