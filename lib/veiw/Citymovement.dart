@@ -1,6 +1,6 @@
 
 
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, unnecessary_new
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -470,10 +470,13 @@ class _FloatingState extends State<Floating> {
             height: 10,
             thickness: 2,
           ),
+          const SizedBox(height: 15,),
          Container(
             padding: const EdgeInsets.only(left: 10,right: 10),
             child: GFButton(
-              size: 60,
+             borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide.none, borderRadius:  BorderRadius.circular(10.0)), RoundedRectangleBorder(side: BorderSide.none, borderRadius: BorderRadius.circular(10.0)), 0.5),
+
+              size: 50,
               color: const Color(0xFF2F4D84),
               onPressed: () {
               
@@ -922,7 +925,9 @@ class _FloatingState extends State<Floating> {
           Container(
             padding: const EdgeInsets.only(left: 10,right: 10),
             child: GFButton(
-              size: 60,
+             borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide.none, borderRadius:  BorderRadius.circular(10.0)), RoundedRectangleBorder(side: BorderSide.none, borderRadius: BorderRadius.circular(10.0)), 0.5),
+
+              size: 50,
               color: const Color(0xFF2F4D84),
               textStyle: const TextStyle(fontSize: 17, color: Colors.white, fontWeight: FontWeight.bold),
               onPressed: () {
@@ -950,12 +955,14 @@ class _FloatingState extends State<Floating> {
               children: [
            
                 GFButton(
+             borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: const BorderSide(color: Colors.black, width: 2), borderRadius: new BorderRadius.circular(10.0)), RoundedRectangleBorder(side: const BorderSide(color: Colors.black, width: 2), borderRadius: new BorderRadius.circular(10.0)), 0.5),
+                  
                   color: Colors.white,
                   textStyle: const TextStyle(
                       color: Colors.black,
                       fontSize: 15,
                       fontWeight: FontWeight.bold),
-                  size: 60,
+                  size: 50,
                   onPressed: () {
                     DatePicker.showDateTimePicker(context, showTitleActions: true,
                         onChanged: (date) {
@@ -984,13 +991,15 @@ class _FloatingState extends State<Floating> {
                     // padding: const EdgeInsets.all(5),
                     // width: 250,
                     child: GFButton(
+             borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide.none, borderRadius:  BorderRadius.circular(10.0)), RoundedRectangleBorder(side: BorderSide.none, borderRadius: BorderRadius.circular(10.0)), 0.5),
+
                       fullWidthButton: true,
                       color: const Color(0xFF2F4D84),
                       textStyle: const TextStyle(
                           color: Colors.white,
                           fontSize: 17,
                           fontWeight: FontWeight.bold),
-                      size: 60,
+                      size: 50,
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -1705,12 +1714,14 @@ class _CargoState extends State<Cargo> {
             child: Container(
               padding: const EdgeInsets.all(10),
               child: GFButton(
+             borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: const BorderSide(color: Colors.black, width: 2), borderRadius: new BorderRadius.circular(10.0)), RoundedRectangleBorder(side: const BorderSide(color: Colors.black, width: 2), borderRadius: new BorderRadius.circular(10.0)), 0.5),
+
                 color: Colors.white,
                 textStyle: const TextStyle(
                     color: Colors.black,
                     fontSize: 20,
                     fontWeight: FontWeight.bold),
-                size: 60,
+                size: 50,
                 onPressed: () {},
                 text: AppLocalizations.of(context)!.cargov,
                 type: GFButtonType.solid,

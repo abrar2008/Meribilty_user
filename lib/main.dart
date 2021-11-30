@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
 
     return ChangeNotifierProvider(
         create: (_) => LocaleProvider(),
-        builder: (context, child) {
+        builder: (context, child) {    
           final provider = context.watch<LocaleProvider>();
           return MaterialApp(
             title: 'Meribilty',

@@ -215,12 +215,12 @@ class  SignIn  extends StatelessWidget {
                                   bottomLeft: Radius.circular(10.0),
                                 ),
                                 border: Border.all(
-                                  color: Colors.black12,
+                                  color: Colors.black38,
                                 )),
                             child: Row(
                               children: [
                                 const SizedBox(
-                                  width: 3,
+                                  width: 10,
                                 ),
                                 Image.asset(
                                   "assets/pakistan.png",
@@ -228,15 +228,10 @@ class  SignIn  extends StatelessWidget {
                                 ),
                                 const Icon(Icons.arrow_drop_down_outlined),
                                 const SizedBox(
-                                  width: 2,
+                                  width: 8,
                                 ),
-                                const Text(
-                                  "+92",
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                                const SizedBox(
-                                  width: 3,
-                                ),
+                                
+                               
                               ],
                             ),
                           ),
@@ -255,7 +250,13 @@ class  SignIn  extends StatelessWidget {
                                   style: const TextStyle(
                                       fontSize: 20.0, color: Colors.black),
                                   decoration: const InputDecoration(
-                                      border: OutlineInputBorder(),
+                                    
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(10),
+                        bottomRight: Radius.circular(10),
+                      ),
+                                      ),
                                       
                                       hintText: 'Mobile Number',
                                       hintStyle: TextStyle(
@@ -266,7 +267,7 @@ class  SignIn  extends StatelessWidget {
                   ), 
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 6,
                 ),
                 Padding(
                  padding:MediaQuery.of(context).viewInsets,
@@ -407,12 +408,12 @@ class  SignIn  extends StatelessWidget {
                                 bottomLeft: Radius.circular(10.0),
                               ),
                               border: Border.all(
-                                color: Colors.black12,
+                                color: Colors.black38,
                               )),
                           child: Row(
                             children: [
                               const SizedBox(
-                                width: 3,
+                                width: 14,
                               ),
                               Image.asset(
                                 "assets/pakistan.png",
@@ -422,10 +423,7 @@ class  SignIn  extends StatelessWidget {
                               const SizedBox(
                                 width: 2,
                               ),
-                              const Text(
-                                "+92",
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
+                             
                               const SizedBox(
                                 width: 3,
                               ),
@@ -446,7 +444,12 @@ class  SignIn  extends StatelessWidget {
                                 style: const TextStyle(
                                     fontSize: 20.0, color: Colors.black),
                                 decoration: const InputDecoration(
-                                    border: OutlineInputBorder(),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(10),
+                        bottomRight: Radius.circular(10),
+                      ),
+                                    ),
                                     hintText: 'Mobile Number',
                                     hintStyle: TextStyle(
                                         fontSize: 14, color: Color(0xffC8C7CC))),
@@ -456,12 +459,12 @@ class  SignIn  extends StatelessWidget {
                     ), 
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                        child: Text("Sign Up".toUpperCase(),
+                        child: Text("Sign Up",
                             style: const TextStyle(fontSize: 14)),
                         style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all<Color>(
@@ -641,78 +644,86 @@ class _LogininState extends State<Loginin> {
               const SizedBox(
                 height: 10,
               ),
-              Row(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.only(left: 11),
-                    color: Colors.white,
-                    child: Row(
-                      children: [
-                        Container(
-                          
-                          height: 50,
-                          decoration: BoxDecoration(
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(10.0),
-                                bottomLeft: Radius.circular(10.0),
+              Container(
+                width: MediaQuery.of(context).size.width, 
+                child: Expanded(
+                  child: Row(
+                    children: [
+                      Container(
+                        // padding: const EdgeInsets.only(left: 11),
+                        color: Colors.white,
+                        child: Row(
+                        
+                          children: [
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Container(
+                              
+                              height: 50,
+                              decoration: BoxDecoration(
+                                  borderRadius: const BorderRadius.only(
+                                    topLeft: Radius.circular(10.0),
+                                    bottomLeft: Radius.circular(10.0),
+                                  ),
+                                  border: Border.all(
+                                    color: Colors.black26, // red as border color
+                                  )),
+                              child: Row(
+                                children: [
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  Image.asset(
+                                    "assets/pakistan.png",
+                                    width: 30,
+                                  ),
+                                  const Icon(Icons.arrow_drop_down_outlined),
+                                  const SizedBox(
+                                    width: 2,
+                                  ),
+                                  // const Text(
+                                  //   "+92",
+                                  //   style: TextStyle(fontWeight: FontWeight.bold),
+                                  // ),
+                                  // const SizedBox(
+                                  //   width: 5,
+                                  // ),
+                                 
+                                ],
                               ),
-                              border: Border.all(
-                                color: Colors.black26, // red as border color
-                              )),
-                          child: Row(
-                            children: [
-                              const SizedBox(
-                                width: 6,
-                              ),
-                              Image.asset(
-                                "assets/pakistan.png",
-                                width: 30,
-                              ),
-                              const Icon(Icons.arrow_drop_down_outlined),
-                              const SizedBox(
-                                width: 2,
-                              ),
-                              const Text(
-                                "+92",
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
-                              const SizedBox(
-                                width: 5,
-                              ),
-                             
-                            ],
-                          ),
+                            ),
+                            // SizedBox(width: 2,),
+                             Container(
+                     width: MediaQuery.of(context).size.width *0.55 ,
+                    // padding: const EdgeInsets.all(10),
+                    child: 
+                    TextFormField(
+                      keyboardType: TextInputType.number,
+                      cursorColor: Colors.black,
+                      decoration: InputDecoration(
+                        
+                        border: OutlineInputBorder(
+                   
+                         borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(10),
+                        bottomRight: Radius.circular(10),
+                      ),
                         ),
-                         Container(
-                 width: MediaQuery.of(context).size.width *0.5 ,
-                padding: const EdgeInsets.all(10),
-                child: 
-                TextFormField(
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter Password ';
-                    }
-                    return null;
-                  },
-                  cursorColor: Colors.black,
-                  decoration: InputDecoration(
-                    
-                    border: OutlineInputBorder(
-               
-                      borderRadius: BorderRadius.circular(8),
+                        contentPadding: const EdgeInsets.only(
+                            left: 15, bottom: 11, top: 11, right: 15),
+                        hintText: "Phone Number",
+                        hintStyle:
+                            const TextStyle(fontSize: 15, color: Color(0xffC8C7CC)),
+                      ),
                     ),
-                    contentPadding: const EdgeInsets.only(
-                        left: 15, bottom: 11, top: 11, right: 15),
-                    hintText: "Password",
-                    hintStyle:
-                        const TextStyle(fontSize: 15, color: Color(0xffC8C7CC)),
+                  ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              ),
-                      ],
-                    ),
-                  ),
-                ],
               ),
 
               //
@@ -746,7 +757,7 @@ class _LogininState extends State<Loginin> {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.all(10),
+                padding: EdgeInsets.only(left: 10, right: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -761,7 +772,7 @@ class _LogininState extends State<Loginin> {
                   //     color: isChecked ? const Color(0xFFE2E1E8) :Colors.white,
                   //     borderRadius: BorderRadius.circular(15)),
                   height: 30,
-                  width: 40,
+                  width: 30,
                   child: Checkbox(
                    
                     activeColor: const Color(0xFFE2E1E8),
@@ -796,22 +807,28 @@ class _LogininState extends State<Loginin> {
                     
                     const Text(
                       "Remember me ",
-                      style: TextStyle(fontSize: 14, color: Color(0xffC8C7CC)),
+                      style: TextStyle(fontSize: 15, color: Color(0xffC8C7CC),
+                      fontWeight: FontWeight.bold
+                      ),
                     ),
                     const SizedBox(
-                      width: 5,
+                      width:10,
                     ),
                     const Align(
                       alignment: Alignment.bottomRight,
                       child: Text(
                         "Forget Password ",
                         style:
-                            TextStyle(fontSize: 14, color: Color(0xffC8C7CC)),
+                            TextStyle(fontSize: 14, color: Color(0xffC8C7CC),
+ fontWeight: FontWeight.bold
+                            
+                            ),
                       ),
                     ),
                   ],
                 ),
               ),
+              SizedBox(height: 10,),
               Container(
                 padding: EdgeInsets.only(left: 10, right: 10),
                   width: double.infinity,

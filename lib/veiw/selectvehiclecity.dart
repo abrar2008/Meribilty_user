@@ -140,6 +140,8 @@ class _SelectvehiclecityState extends State<Selectvehiclecity> {
               
                
                    GFButton(
+             borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide.none, borderRadius:  BorderRadius.circular(10.0)), RoundedRectangleBorder(side: BorderSide.none, borderRadius: BorderRadius.circular(10.0)), 0.5),
+                     
                           size: 50,
                           color: const Color(0xFF2F4D84),
                           onPressed: () {

@@ -26,49 +26,60 @@ class _HomeState extends State<Home> {
             padding: const EdgeInsets.all(20),
             child: Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Darwe()),
-                        );
-                      },
-                      child: Align(
-                        alignment: Alignment.topLeft,
-                        child: Image.asset(
-                          'assets/menu.png',
-                          fit: BoxFit.fill,
+                Container(
+                  width:MediaQuery.of(context).size.width , 
+                  child: Row(
+                    
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Darwe()),
+                          );
+                        },
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Image.asset(
+                            'assets/menu.png',
+                            fit: BoxFit.fill,
+                          ),
                         ),
                       ),
-                    ),
-                    const Align(
-                      alignment: Alignment.topRight,
-                      child: Text(
-                        "Hi Ahmed,",
-                        style: TextStyle(
-                          color: Color(0xFF2F4D84),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25,
-                        ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          SizedBox(height: 10,),
+                           Text(
+                             "Hi Ahmed,",
+                             textAlign: TextAlign.end,
+                             style: TextStyle(
+                               color: Color(0xFF2F4D84),
+                               fontWeight: FontWeight.bold,
+                               fontSize: 24,
+                             ),
+                           ),
+                          SizedBox(height: 5,),
+                       Align(
+                    alignment: Alignment.bottomRight,
+                    child: Text(
+                      AppLocalizations.of(context)!.market,
+                      style: const TextStyle(
+                        color: Color(0xFF2F4D84),
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
                       ),
-                    ),
-                  ],
-                ),
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: Text(
-                    AppLocalizations.of(context)!.market,
-                    style: const TextStyle(
-                      color: Color(0xFF2F4D84),
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
                     ),
                   ),
+                      
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
+               
                 const SizedBox(
                   height: 10,
                 ),
@@ -225,7 +236,7 @@ class _HomeState extends State<Home> {
                                         height: 10,
                                       ),
                                       Container(
-                                        padding: const EdgeInsets.all(10),
+                                        padding: const EdgeInsets.only(left: 10),
                                         height: 173,
                                         width: 130,
                                         decoration: const BoxDecoration(
@@ -303,7 +314,7 @@ class _HomeState extends State<Home> {
                             Container(
                               padding: const EdgeInsets.all(10),
                               height: 140,
-                              width: 150,
+                              width: 140,
                               decoration: BoxDecoration(
                                   color: Colors.white,
                                   border: Border.all(
@@ -341,7 +352,7 @@ class _HomeState extends State<Home> {
                             Container(
                               padding: const EdgeInsets.all(10),
                               height: 140,
-                              width: 150,
+                              width: 140,
                               decoration: BoxDecoration(
                                   color: Colors.white,
                                   border: Border.all(
