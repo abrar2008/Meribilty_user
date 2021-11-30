@@ -109,10 +109,10 @@ class _LanguageState extends State<Language> {
                               // final provide = context
                               //     .read<LocaleProvider>()
                               //     .setLocale(const Locale('hi'));
-                              Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => OnBoardingPage()));
+                              // Navigator.pushReplacement(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) => OnBoardingPage()));
                             }),
                       )),
                   //

@@ -90,6 +90,7 @@ class  SignIn  extends StatelessWidget {
                       return Container(
                         padding: EdgeInsets.only(left: 20,right: 20),
                     width: double.infinity,
+                    height: 45,
                     child: ElevatedButton(
                       child: Text("Sign Up",
                           style: const TextStyle(fontSize: 14)),
@@ -188,7 +189,7 @@ class  SignIn  extends StatelessWidget {
                     ),
                     contentPadding: const EdgeInsets.only(
                         left: 15, bottom: 11, top: 11, right: 15),
-                    hintText: "Paswword",
+                    hintText: "Password",
                     hintStyle:
                         const TextStyle(fontSize: 15, color: Color(0xffC8C7CC)),
                   ),
@@ -267,11 +268,12 @@ class  SignIn  extends StatelessWidget {
                   ), 
                 ),
                 const SizedBox(
-                  height: 6,
+                  height:10,
                 ),
                 Padding(
                  padding:MediaQuery.of(context).viewInsets,
                   child: Container(
+                      height: 45,
                     width: MediaQuery.of(context).size.width,
                       child: ElevatedButton(
                             child: Text("Sign Up",
@@ -463,6 +465,7 @@ class  SignIn  extends StatelessWidget {
                   ),
                   SizedBox(
                       width: double.infinity,
+                      height: 45,
                       child: ElevatedButton(
                         child: Text("Sign Up",
                             style: const TextStyle(fontSize: 14)),
@@ -628,7 +631,7 @@ class _LogininState extends State<Loginin> {
           child: Column(
             children: [
               const SizedBox(
-                height: 15,
+                height: 30,
               ),
               Container(
                   padding: const EdgeInsets.only(left: 15,right: 10),
@@ -642,7 +645,7 @@ class _LogininState extends State<Loginin> {
                     ),
                   )),
               const SizedBox(
-                height: 10,
+                height: 30,
               ),
               Container(
                 width: MediaQuery.of(context).size.width, 
@@ -728,7 +731,7 @@ class _LogininState extends State<Loginin> {
 
               //
               const SizedBox(
-                height: 5,
+                height: 3,
               ),
               Container(
                  width: MediaQuery.of(context).size.width ,
@@ -756,6 +759,7 @@ class _LogininState extends State<Loginin> {
                   ),
                 ),
               ),
+              SizedBox(height: 10,),
               Container(
                 padding: EdgeInsets.only(left: 10, right: 10),
                 child: Row(
@@ -828,14 +832,19 @@ class _LogininState extends State<Loginin> {
                   ],
                 ),
               ),
-              SizedBox(height: 10,),
+              SizedBox(height: 20,),
               Container(
                 padding: EdgeInsets.only(left: 10, right: 10),
                   width: double.infinity,
+                   height: 45,
                   child: 
                   ElevatedButton(
-                    child: Text("Next".toUpperCase(),
-                        style: const TextStyle(fontSize: 14)),
+                    child: Text("Next",
+                        style: const TextStyle(fontSize: 17,
+                        fontWeight: FontWeight.bold
+                        ) ,
+                          
+                        ),
                     style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
                             const Color(0xFF2F4D84)),

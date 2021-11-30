@@ -39,7 +39,7 @@ dependencies:
    #custom_splash: ^0.0.2
   cupertino_icons: ^1.0.2
   introduction_screen:
- 
+  dots_indicator:
   flutter_verification_code:
   contained_tab_bar_view:
   intl_phone_number_input:

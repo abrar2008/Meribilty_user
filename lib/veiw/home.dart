@@ -7,7 +7,7 @@ import 'package:meribilty/veiw/darwer.dart';
 import 'package:meribilty/veiw/citymovement.dart';
 import 'package:meribilty/veiw/portlogistics.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
+import 'package:dots_indicator/dots_indicator.dart';
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -18,7 +18,11 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+  const _totalDots = 3;
+  double _currentPosition = 0.0;
+
     return Scaffold(
+      
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
@@ -26,7 +30,7 @@ class _HomeState extends State<Home> {
             padding: const EdgeInsets.all(20),
             child: Column(
               children: [
-                Container(
+                SizedBox(
                   width:MediaQuery.of(context).size.width , 
                   child: Row(
                     
@@ -51,8 +55,8 @@ class _HomeState extends State<Home> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          SizedBox(height: 10,),
-                           Text(
+                          const SizedBox(height: 10,),
+                           const Text(
                              "Hi Ahmed,",
                              textAlign: TextAlign.end,
                              style: TextStyle(
@@ -61,7 +65,7 @@ class _HomeState extends State<Home> {
                                fontSize: 24,
                              ),
                            ),
-                          SizedBox(height: 5,),
+                          const SizedBox(height: 5,),
                        Align(
                     alignment: Alignment.bottomRight,
                     child: Text(
@@ -236,7 +240,7 @@ class _HomeState extends State<Home> {
                                         height: 10,
                                       ),
                                       Container(
-                                        padding: const EdgeInsets.only(left: 10),
+                                        padding: const EdgeInsets.all(10),
                                         height: 173,
                                         width: 130,
                                         decoration: const BoxDecoration(
@@ -312,7 +316,7 @@ class _HomeState extends State<Home> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                              padding: const EdgeInsets.all(10),
+                              padding: const EdgeInsets.only(left: 10),
                               height: 140,
                               width: 140,
                               decoration: BoxDecoration(
@@ -347,10 +351,10 @@ class _HomeState extends State<Home> {
                               ),
                             ),
                             const SizedBox(
-                              width: 20,
+                              width: 10,
                             ),
                             Container(
-                              padding: const EdgeInsets.all(10),
+                                  padding: const EdgeInsets.only(left: 10),
                               height: 140,
                               width: 140,
                               decoration: BoxDecoration(
@@ -385,12 +389,12 @@ class _HomeState extends State<Home> {
                               ),
                             ),
                             const SizedBox(
-                              width: 20,
+                              width: 10,
                             ),
                             Container(
-                              padding: const EdgeInsets.all(10),
+                                padding: const EdgeInsets.only(left: 10),
                               height: 140,
-                              width: 150,
+                              width: 140,
                               decoration: BoxDecoration(
                                   color: Colors.white,
                                   border: Border.all(
@@ -423,14 +427,14 @@ class _HomeState extends State<Home> {
                               ),
                             ),
                             const SizedBox(
-                              width: 20,
+                              width: 10,
                             ),
                             //
 
                             Container(
-                              padding: const EdgeInsets.all(5),
+                              padding: const EdgeInsets.only(left: 10),
                               height: 140,
-                              width: 150,
+                              width: 140,
                               decoration: BoxDecoration(
                                   color: Colors.white,
                                   border: Border.all(
@@ -466,13 +470,13 @@ class _HomeState extends State<Home> {
                               ),
                             ),
                             const SizedBox(
-                              width: 20,
+                              width: 10,
                             ),
 
                             Container(
-                              padding: const EdgeInsets.all(10),
+                               padding: const EdgeInsets.only(left: 10),
                               height: 140,
-                              width: 150,
+                              width: 140,
                               decoration: BoxDecoration(
                                   color: Colors.white,
                                   border: Border.all(
@@ -518,7 +522,8 @@ class _HomeState extends State<Home> {
                       const SizedBox(
                         height: 10,
                       ),
-                      CarouselSlider(
+                       CarouselSlider(
+
                         items: [
                           //1st Image of Slider
                           Container(
@@ -562,14 +567,27 @@ class _HomeState extends State<Home> {
                           autoPlayAnimationDuration:
                               const Duration(milliseconds: 1800),
                           viewportFraction: 1,
+                          
                         ),
+                        
                       ),
+                      DotsIndicator(
+                        
+  dotsCount:_totalDots,
+  position:_currentPosition,
+  decorator: const DotsDecorator(
+    activeColor: Color(0xFF2F4D84),
+    spacing: EdgeInsets.all(10.0),
+  ),
+),
+                     const SizedBox(height: 10,),
+                      //
                       SizedBox(
                         width: double.infinity,
                         child: Text(
                           AppLocalizations.of(context)!.need,
                           style: const TextStyle(
-                              fontSize: 20,
+                              fontSize: 18,
                               fontWeight: FontWeight.bold,
                               color: Color(0xFF2F4D84)),
                         ),
@@ -588,7 +606,7 @@ class _HomeState extends State<Home> {
                       Container(
                         padding: const EdgeInsets.all(10),
                         height: 200,
-                        width: 150,
+                        width: 140,
                         decoration: BoxDecoration(
                             color: Colors.white,
                             border: Border.all(color: Colors.black12, width: 3),
@@ -612,7 +630,7 @@ class _HomeState extends State<Home> {
                               Text(
                                 AppLocalizations.of(context)!.access,
                                 style: const TextStyle(
-                                  color: Color(0xffB8B8D2),
+                                  color: Color(0xff38385E),
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18,
                                 ),
@@ -622,12 +640,12 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                       const SizedBox(
-                        width: 20,
+                        width: 10,
                       ),
                       Container(
                         padding: const EdgeInsets.all(10),
                         height: 200,
-                        width: 150,
+                        width: 140,
                         decoration: BoxDecoration(
                             color: Colors.white,
                             border: Border.all(color: Colors.black12, width: 3),
@@ -651,7 +669,7 @@ class _HomeState extends State<Home> {
                               Text(
                                 AppLocalizations.of(context)!.tyres,
                                 style: const TextStyle(
-                                  color: Color(0xffB8B8D2),
+                                  color: Color(0xff38385E),
                                   fontWeight: FontWeight.bold,
                                   fontSize: 15,
                                 ),
@@ -661,14 +679,14 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                       const SizedBox(
-                        width: 20,
+                        width: 10,
                       ),
 
                       //
                       Container(
                         padding: const EdgeInsets.all(10),
                         height: 200,
-                        width: 150,
+                        width: 140,
                         decoration: BoxDecoration(
                             color: Colors.white,
                             border: Border.all(color: Colors.black12, width: 3),
@@ -691,6 +709,7 @@ class _HomeState extends State<Home> {
                               ),
                               Text(
                                 AppLocalizations.of(context)!.braker,
+                                textAlign: TextAlign.center,
                                 style: const TextStyle(
                                   color: Color(0xff38385E),
                                   fontWeight: FontWeight.bold,
@@ -702,12 +721,12 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                       const SizedBox(
-                        width: 20,
+                        width: 10,
                       ),
                       Container(
                         padding: const EdgeInsets.all(10),
                         height: 200,
-                        width: 150,
+                        width: 140,
                         decoration: BoxDecoration(
                             color: Colors.white,
                             border: Border.all(color: Colors.black12, width: 3),
@@ -742,12 +761,12 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                       const SizedBox(
-                        width: 20,
+                        width: 10,
                       ),
                       Container(
                         padding: const EdgeInsets.all(10),
                         height: 200,
-                        width: 150,
+                        width: 140,
                         decoration: BoxDecoration(
                             color: Colors.white,
                             border: Border.all(color: Colors.black12, width: 3),
@@ -783,12 +802,12 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                       const SizedBox(
-                        width: 20,
+                        width: 10,
                       ),
                       Container(
                         padding: const EdgeInsets.all(10),
                         height: 200,
-                        width: 150,
+                        width: 140,
                         decoration: BoxDecoration(
                             color: Colors.white,
                             border: Border.all(color: Colors.black12, width: 3),
@@ -823,12 +842,12 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                       const SizedBox(
-                        width: 20,
+                        width: 10,
                       ),
                       Container(
                         padding: const EdgeInsets.all(10),
                         height: 200,
-                        width: 150,
+                        width: 140,
                         decoration: BoxDecoration(
                             color: Colors.white,
                             border: Border.all(color: Colors.black12, width: 3),
@@ -863,7 +882,7 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                       const SizedBox(
-                        width: 20,
+                        width: 10,
                       ),
                       InkWell(
                         onTap: () {
@@ -872,7 +891,7 @@ class _HomeState extends State<Home> {
                         child: Container(
                           padding: const EdgeInsets.all(10),
                           height: 200,
-                          width: 150,
+                          width: 140,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               border:

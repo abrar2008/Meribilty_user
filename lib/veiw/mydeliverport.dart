@@ -231,7 +231,7 @@ Widget decision(BuildContext context) {
                 ),
                 Expanded(
                   child: Text(
-                    "Descision \nPending \n  30:00",
+                    "Decision \nPending \n  30:00",
                     style: TextStyle(
                         color: Colors.red,
                         fontSize: 15,

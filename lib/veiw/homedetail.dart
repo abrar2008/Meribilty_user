@@ -209,7 +209,9 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Order Time"),
+                              Text("Order Time",
+                              textAlign: TextAlign.start,
+                              ),
                               Row(
                                 children: const [
                                   Text("22 Aug 2019 04:47:41 PM"),
@@ -252,10 +254,12 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Offer Receiving Time"),
+                            Text("Offer Receiving Time",
+                            textAlign: TextAlign.start,
+                            ),
                             Row(
                               children: const [
-                                Text(" 22 Aug 2019 04:47:41 PM"),
+                                Text("22 Aug 2019 04:47:41 PM"),
                               ],
                             ),
                           ],
@@ -294,11 +298,13 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Container(child: Text("Offer Acceptance Time")),
+                            Container(child: Text("Offer Acceptance Time",
+                            textAlign: TextAlign.start,
+                            )),
                             Container(
                               child: Row(
                                 children: const [
-                                  Text(" 22 Aug 2019 04:47:41 PM"),
+                                  Text("22 Aug 2019 04:47:41 PM"),
                                 ],
                               ),
                             ),
@@ -338,10 +344,14 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(" Delivery PickUp Time"),
+                            Text("Delivery PickUp Time",
+                            textAlign: TextAlign.start,
+                            ),
                             Row(
                               children: const [
-                                Text(" 22 Aug 2019 04:47:41 PM"),
+                                Text("22 Aug 2019 04:47:41 PM",
+                                textAlign: TextAlign.start,
+                                ),
                               ],
                             ),
                           ],
@@ -380,10 +390,14 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(" Delivery Arrival Time"),
+                            Text("Delivery Arrival Time",
+                            textAlign: TextAlign.start,
+                            ),
                             Row(
                               children: const [
-                                Text(" 22 Aug 2019 04:47:41 PM"),
+                                Text("22 Aug 2019 04:47:41 PM",
+                                textAlign: TextAlign.start,
+                                ),
                               ],
                             ),
                           ],
@@ -422,10 +436,14 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(" Delivery Unloading  Time"),
+                            Text("Delivery Unloading  Time",
+                            textAlign: TextAlign.start,
+                            ),
                             Row(
                               children: const [
-                                Text(" 22 Aug 2019 04:47:41 PM"),
+                                Text("22 Aug 2019 04:47:41 PM",
+                                textAlign: TextAlign.start,
+                                ),
                               ],
                             ),
                           ],
@@ -463,10 +481,14 @@ Widget _scrollingList(ScrollController sc, BuildContext context) {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(" Container Return Time"),
+                          Text("Container Return Time",
+                          textAlign: TextAlign.start,
+                          ),
                           Row(
                             children: const [
-                              Text(" Pending"),
+                              Text("Pending",
+                              textAlign: TextAlign.start,
+                              ),
                             ],
                           ),
                         ],
