@@ -22,9 +22,7 @@ class _MessageState extends State<Message> {
         appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 0,
-         
-         
-        ),
+         ),
         body: Container(
             color: Colors.white,
             child: Column(
@@ -204,6 +202,7 @@ class _MessageState extends State<Message> {
               ),
             ],
           ),
-        ));
+        )
+    );
   }
 }

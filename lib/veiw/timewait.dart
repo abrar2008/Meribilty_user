@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:meribilty/veiw/Citymovement.dart';
 import 'package:meribilty/veiw/mainProfile.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:timer_count_down/timer_controller.dart';
@@ -139,7 +140,7 @@ _oncancel(context) {
     
     content: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: const <Widget>[
+      children:  <Widget>[
 
 
          Text("Cancellation Reason",
@@ -171,72 +172,128 @@ _oncancel(context) {
         SizedBox(height: 5,),
          Divider(height: 10,color:  Colors.black38,),
                  
-         Text("Driver is Cancel the request ",
-         style: TextStyle(
-           color: Colors.black,
-           fontSize: 18
+         InkWell(
+          onTap: (){
+         Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => Citymovement()),
+  );
+          },
+           child: Text("Driver is Cancel the request ",
+           style: TextStyle(
+             color: Colors.black,
+             fontSize: 18
+           ),
+                 ),
          ),
-        ),
          SizedBox(height: 5,),
          Divider(height: 10,color: Colors.black26,),
 
 
-          Text("I waited to long ",
-         style: TextStyle(
-           color: Colors.black,
-           fontSize: 18
-         ),
-        ),
+           InkWell(
+          onTap: (){
+         Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => Citymovement()),
+  );
+          },
+           child: Text("I waited to long ",
+                   style: TextStyle(
+             color: Colors.black,
+             fontSize: 18
+                   ),
+                  ),
+          ),
          SizedBox(height: 5,),
          Divider(height: 10,color: Colors.black38,),
 
-           Text("Driver is not showing  ",
-         style: TextStyle(
-           color: Colors.black,
-           fontSize: 18
-         ),
-        ),
+            InkWell(
+          onTap: (){
+         Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => Citymovement()),
+  );
+          },
+           child: Text("Driver is not showing  ",
+                    style: TextStyle(
+             color: Colors.black,
+             fontSize: 18
+                    ),
+                   ),
+           ),
          SizedBox(height: 5,),
          Divider(height: 10,color: Colors.black38,),
 
 
-      Text("Couldnt contact the driver ",
-         style: TextStyle(
-           color: Colors.black,
-           fontSize: 18
-         ),
-        ),
+       InkWell(
+          onTap: (){
+         Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => Citymovement()),
+  );
+          },
+           child: Text("Couldnt contact the driver ",
+           style: TextStyle(
+             color: Colors.black,
+             fontSize: 18
+           ),
+          ),
+      ),
          SizedBox(height: 5,),
          Divider(height: 10,color: Colors.black38,),
 
          
-            Text("Difficult to communicate with the Driver ",
-         style: TextStyle(
-           color: Colors.black,
-           fontSize: 18
-         ),
-        ),
+             InkWell(
+          onTap: (){
+         Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => Citymovement()),
+  );
+          },
+           child: Text("Difficult to communicate with the Driver ",
+                     style: TextStyle(
+                       color: Colors.black,
+                       fontSize: 18
+                     ),
+                    ),
+            ),
          SizedBox(height: 5,),
          Divider(height: 10,color: Colors.black38,),
 
          
-            Text("Driver is too far away  ",
-         style: TextStyle(
-           color: Colors.black,
-           fontSize: 18
-         ),
-        ),
+             InkWell(
+          onTap: (){
+         Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => Citymovement()),
+  );
+          },
+           child: Text("Driver is too far away  ",
+                     style: TextStyle(
+                       color: Colors.black,
+                       fontSize: 18
+                     ),
+                    ),
+            ),
          SizedBox(height: 5,),
          Divider(height: 10,color: Colors.black38,),
            
 
        
-            Text("it took too long to find a driver  ",
-         style: TextStyle(
-           color: Colors.black,
-           fontSize: 18
-         ),
-        ),
+             InkWell(
+          onTap: (){
+         Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => Citymovement()),
+  );
+          },
+           child: Text("it took too long to find a driver  ",
+                     style: TextStyle(
+                       color: Colors.black,
+                       fontSize: 18
+                     ),
+                    ),
+            ),
          SizedBox(height: 5,),
          Divider(height: 10,color: Colors.black38,),
  

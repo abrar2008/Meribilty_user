@@ -17,7 +17,7 @@ class Loadingport extends StatefulWidget {
   _LoadingportState createState() => _LoadingportState();
 }
 
-class _LoadingportState extends State<Loadingport> {
+ class _LoadingportState extends State<Loadingport> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,7 +93,7 @@ class _LoadingportState extends State<Loadingport> {
   
   }
 }
-class Floating extends StatelessWidget {
+ class Floating extends StatelessWidget {
   const Floating({ Key? key }) : super(key: key);
 
   @override

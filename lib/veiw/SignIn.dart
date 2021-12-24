@@ -4,6 +4,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:contained_tab_bar_view/contained_tab_bar_view.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:meribilty/provider/provider.dart';
 
 // ignore: unused_import
@@ -599,14 +600,6 @@ class  SignIn  extends StatelessWidget {
   }
 }
 
-
-
-
-
-
-
-
-
 class Loginin extends StatefulWidget {
   const Loginin({
     Key? key,
@@ -630,6 +623,8 @@ class _LogininState extends State<Loginin> {
           key: _formKey,
           child: Column(
             children: [
+
+
               const SizedBox(
                 height: 30,
               ),
@@ -650,86 +645,28 @@ class _LogininState extends State<Loginin> {
               Container(
                 width: MediaQuery.of(context).size.width, 
                 child: Expanded(
-                  child: Row(
-                    children: [
-                      Container(
-                        // padding: const EdgeInsets.only(left: 11),
-                        color: Colors.white,
-                        child: Row(
-                        
-                          children: [
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Container(
-                              
-                              height: 50,
-                              decoration: BoxDecoration(
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(10.0),
-                                    bottomLeft: Radius.circular(10.0),
-                                  ),
-                                  border: Border.all(
-                                    color: Colors.black26, // red as border color
-                                  )),
-                              child: Row(
-                                children: [
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  Image.asset(
-                                    "assets/pakistan.png",
-                                    width: 30,
-                                  ),
-                                  const Icon(Icons.arrow_drop_down_outlined),
-                                  const SizedBox(
-                                    width: 2,
-                                  ),
-                                  // const Text(
-                                  //   "+92",
-                                  //   style: TextStyle(fontWeight: FontWeight.bold),
-                                  // ),
-                                  // const SizedBox(
-                                  //   width: 5,
-                                  // ),
-                                 
-                                ],
-                              ),
-                            ),
-                            // SizedBox(width: 2,),
-                             Container(
-                     width: MediaQuery.of(context).size.width *0.55 ,
-                    // padding: const EdgeInsets.all(10),
-                    child: 
-                    TextFormField(
-                      keyboardType: TextInputType.number,
-                      cursorColor: Colors.black,
-                      decoration: InputDecoration(
-                        
-                        border: OutlineInputBorder(
-                   
-                         borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(10),
-                        bottomRight: Radius.circular(10),
-                      ),
-                        ),
-                        contentPadding: const EdgeInsets.only(
-                            left: 15, bottom: 11, top: 11, right: 15),
-                        hintText: "Phone Number",
-                        hintStyle:
-                            const TextStyle(fontSize: 15, color: Color(0xffC8C7CC)),
-                      ),
+                  child: Container(
+                    // padding: const EdgeInsets.only(left: 11),
+                    color: Colors.white,
+                    child: IntlPhoneField(
+                  decoration: InputDecoration(
+                    labelText: 'Phone Number',
+                    border: OutlineInputBorder(
+                  borderSide: BorderSide(),
                     ),
                   ),
-                          ],
-                        ),
-                      ),
-                    ],
+                  onChanged: (phone) {
+                    print(phone.completeNumber);
+                  },
+                  onCountryChanged: (phone) {
+                    // print('Country code changed to: ' + phone.countryCode);
+                  },
+                ),
+                     
+                     //
                   ),
                 ),
               ),
-
-              //
               const SizedBox(
                 height: 3,
               ),
@@ -824,11 +761,12 @@ class _LogininState extends State<Loginin> {
                         "Forget Password ",
                         style:
                             TextStyle(fontSize: 14, color: Color(0xffC8C7CC),
- fontWeight: FontWeight.bold
+                            fontWeight: FontWeight.bold
                             
                             ),
                       ),
                     ),
+
                   ],
                 ),
               ),
@@ -864,6 +802,8 @@ class _LogininState extends State<Loginin> {
                       }
                     },
                   )),
+
+
             ],
           ),
         ),
@@ -899,7 +839,7 @@ class Businesspro extends StatelessWidget {
           //   height: 10,
           // ),
             
-     Container(
+              Container(
        child:  state.loadscren == Screen.two ? Image.asset("assets/bussi.png") :Image.asset("assets/business.png"
        ),
      ),

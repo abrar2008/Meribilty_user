@@ -5,6 +5,8 @@ import 'package:introduction_screen/introduction_screen.dart';
 import 'package:meribilty/veiw/Location.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import 'SignIn.dart';
+
 class OnBoardingPage extends StatefulWidget {
   const OnBoardingPage({Key? key}) : super(key: key);
 
@@ -17,7 +19,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
   void _onIntroEnd(context) {
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => home()),
+      MaterialPageRoute(builder: (_) => SignIn()),
     );
   }
 

@@ -2,10 +2,11 @@
 
 // ignore_for_file: avoid_print, unnecessary_new
 
+// import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+// import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:meribilty/place/placeItem.dart';
 import 'package:meribilty/provider/provider.dart';
@@ -964,18 +965,20 @@ class _FloatingState extends State<Floating> {
                       fontWeight: FontWeight.bold),
                   size: 50,
                   onPressed: () {
-                    DatePicker.showDateTimePicker(context, showTitleActions: true,
-                        onChanged: (date) {
+
+
+                    // DatePicker.showDateTimePicker(context, showTitleActions: true,
+                    //     onChanged: (date) {
                      
-                      print('change $date in time zone ' +
-                          date.timeZoneOffset.inHours.toString());
-                    }, onConfirm: (date) {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const Citymovement(),
-                          ));
-                    }, currentTime: DateTime(2008, 12, 31, 23, 12, 34));
+                    //   print('change $date in time zone ' +
+                    //       date.timeZoneOffset.inHours.toString());
+                    // }, onConfirm: (date) {
+                    //   Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //         builder: (context) => const Citymovement(),
+                    //       ));
+                    // }, currentTime: DateTime(2008, 12, 31, 23, 12, 34));
                   },
                   text: AppLocalizations.of(context)!.sche,
                   type: GFButtonType.solid,
@@ -990,7 +993,8 @@ class _FloatingState extends State<Floating> {
                     width: 225,
                     // padding: const EdgeInsets.all(5),
                     // width: 250,
-                    child: GFButton(
+                    child: 
+                    GFButton(
              borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide.none, borderRadius:  BorderRadius.circular(10.0)), RoundedRectangleBorder(side: BorderSide.none, borderRadius: BorderRadius.circular(10.0)), 0.5),
 
                       fullWidthButton: true,

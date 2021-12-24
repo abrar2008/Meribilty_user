@@ -214,7 +214,8 @@ _onSendCounter(context) {
         ),
         onPressed: () => Navigator.pop(context),
         color: Colors.white,
-      )
+      ),
+
     ],
     context: context,
   ).show();

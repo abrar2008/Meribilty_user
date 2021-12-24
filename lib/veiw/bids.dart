@@ -16,7 +16,6 @@ class Bids extends StatefulWidget {
   @override
   _BidsState createState() => _BidsState();
 }
-
 class _BidsState extends State<Bids> {
   @override
   Widget build(BuildContext context) {
@@ -186,7 +185,7 @@ class _BidsState extends State<Bids> {
                     ),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 10, 
                   ),
                   const Divider(
                     height: 10,
@@ -251,7 +250,9 @@ class _BidsState extends State<Bids> {
                   ),
                   )
                 ],
-              )),
+              )
+
+          ),
         ),
       ),
     );

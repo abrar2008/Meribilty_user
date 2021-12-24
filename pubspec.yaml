@@ -54,6 +54,8 @@ dependencies:
   modal_bottom_sheet:
   flutter_datetime_picker:
   expandable:
+  intl_phone_field:
+
   http:
   location:
   rflutter_alert:
@@ -64,6 +66,7 @@ dependencies:
   open_file:
   timer_count_down:
   mime:
+  dio:
   url_launcher:
   flutter_test:
     sdk: flutter

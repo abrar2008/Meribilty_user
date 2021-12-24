@@ -103,11 +103,11 @@ class floating extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-  body:    Card(
+                body:    Card(
 
-             child: Container(
+                   child: Container(
              
-    decoration: BoxDecoration(
+                       decoration: BoxDecoration(
       color: Colors.white,
       borderRadius: BorderRadius.all(Radius.circular(24.0)),
       boxShadow: const [
@@ -139,16 +139,14 @@ class floating extends StatelessWidget {
                          fontWeight: FontWeight.bold,
                        letterSpacing: 1,
                         color:  Color(0xFF2F4D84),
-
-                        
-                                            ),
+                           ),
                        
                        )
                       ],
                     ),
                   ), 
                   SizedBox(height: 10,),
-              Container(
+                        Container(
                 color: Colors.white,
                 child: Center(child: Image.asset("assets/arrow.png"))),
                    SizedBox(height: 10,),

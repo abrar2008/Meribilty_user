@@ -24,17 +24,17 @@ import 'package:meribilty/veiw/selectvehicleppl.dart';
 import 'package:meribilty/widget/animatedtoggle.dart';
 import 'package:provider/provider.dart';
 
-// import 'package:sliding_up_panel/sliding_up_panel.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
 // import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
-class Portlogistics extends StatefulWidget {
-  const Portlogistics({Key? key}) : super(key: key);
+class Portlogis extends StatefulWidget {
+  const Portlogis({Key? key}) : super(key: key);
 
   @override
-  _PortlogisticsState createState() => _PortlogisticsState();
+  _PortlogisState createState() => _PortlogisState();
 }
 
-class _PortlogisticsState extends State<Portlogistics> {
+class _PortlogisState extends State<Portlogis> {
   final Completer<GoogleMapController> _controller = Completer();
 
   static const CameraPosition _kGooglePlex = const CameraPosition(
@@ -52,22 +52,28 @@ class _PortlogisticsState extends State<Portlogistics> {
   Widget build(BuildContext context) {
    
 
-
+  
     return Scaffold(
      
      extendBodyBehindAppBar: true,
-   appBar: AppBar(
+  appBar: AppBar(
     
     backgroundColor: Colors.transparent,
     iconTheme: IconThemeData(color: Colors.black),
     elevation: 0.0,
   ),
             body:
-           
+            SlidingUpPanel(
+            renderPanelSheet: false,
+            minHeight: 200,
+            maxHeight: 600,
+            panel: Floatng(),
+              
+            
+            body: 
             SafeArea(
               child: Consumer<LocaleProvider>(
                   builder: (context ,state , child ){
-                  var dropdownValue;
                   return Stack(
                   children: [
               GoogleMap(
@@ -244,51 +250,39 @@ class _PortlogisticsState extends State<Portlogistics> {
                                         ),
                                    // container 
                                     new Container(
-                                         
+                                          height: 50.0,
                                           // width: MediaQuery.of(context).size.width,
                                           color: Colors.white,
                                           child: new Column(
-                                           
-                                           
+                                            mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                             children: <Widget>[
-                                           
-                                           Container(
-  height: 50,
-  width: MediaQuery.of(context).size.width * 0.79,
-  // margin: EdgeInsets.all(20),
-  child: DropdownButtonHideUnderline(
-    child: GFDropdown(
-      hint: Text("Empty Container Return"),
-      // padding: const EdgeInsets.all(15),
-      // borderRadius: BorderRadius.circular(5),
-      border: const BorderSide(
-          color: Colors.black12, width: 1),
-      dropdownButtonColor: Colors.white,
-      value: dropdownValue,
-      onChanged: (newValue) {
-        setState(() {
-          dropdownValue = newValue;
-        });
-      },
-      items: [
-        'Karachi',
-        'Lahore',
-        'Other',
-       
-      ]
-          .map((value) => DropdownMenuItem(
-        value: value,
-        child: Text(value),
-      ))
-          .toList(),
-    ),
-  ),
-),
-                                             
-                                          
-                                          //
-                                          
-                                           ],
+                                              TextField(
+                                                style:TextStyle(fontSize: 15),
+                                                decoration:
+                                                InputDecoration.collapsed(
+                                                  fillColor: Colors.white,
+                                                  hintStyle: TextStyle(
+                                                      color: Colors.black),
+                                                  hintText: "Empty Container Return ",
+                                                ),
+                                                focusNode: state.nodecontaport,
+                                                autofocus: false,
+                                                controller: state.addconstToport,
+                                                onChanged: (String value) {
+                                                  state.placeBloc.searchPlace(value);
+                                                },
+                                                onTap: () {
+                                                  setState(() {
+                                                    state.inputTo = true;
+                                                    state.inputFrom = false;
+                                                    print(state.inputTo);
+                                                  });
+                                                },
+                                              ),
+                                            ],
                                           ),
                                         ),
                                        
@@ -415,56 +409,13 @@ class _PortlogisticsState extends State<Portlogistics> {
               ),
             ),
               ),
-                    
-                   
-            //       Positioned(
-            //         top: 500,
-            //         child: Container(
-            //           width: 330,
-            //           child:   GFButton(
-                        
-            //  borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide.none, borderRadius: new BorderRadius.circular(10.0)), RoundedRectangleBorder(side: BorderSide.none, borderRadius: new BorderRadius.circular(10.0)), 0.5),
-            //   size: 50,
-            //   color: const Color(0xFF2F4D84),
-            //    onPressed: () {
-    
-
-               
-              
-            //   },
-            //   text: AppLocalizations.of(context)!.quote,
-            //   textStyle: const TextStyle(fontSize: 17,
-            //   fontWeight: FontWeight.bold
-            //   ),
-            //   type: GFButtonType.solid,
-            //   shape: GFButtonShape.standard,
-            //   blockButton: true,
-            // ), 
-            //         )
-                    
-            //         ),
-
-
-
-                    
-                    ]
-                    
-                    
-                    ); 
-                   } 
-                   
-                   
-                   ),
-            
-            
+                    ]); 
+                   } ),
             )
-            
-            
-            );
-           
-  
-  
-  
+              
+                )
+       );
+
   }
 }
 
@@ -1212,8 +1163,7 @@ Cargo(),
       )
     )
       );
-    
-     
+
 
   }
 }

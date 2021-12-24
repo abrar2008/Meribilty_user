@@ -1,3 +1,4 @@
+import 'package:meribilty/veiw/portlogistic.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -157,7 +158,7 @@ class _HomeState extends State<Home> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  const Portlogistics()),
+                                                  const Portlogis()),
                                         );
                                       },
                                       child: Container(

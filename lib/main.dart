@@ -1,6 +1,5 @@
 
-// ignore_for_file: avoid_print
-
+// import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -9,8 +8,9 @@ import 'package:meribilty/provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:meribilty/veiw/splashscreen.dart';
 import 'package:provider/provider.dart';
+
 // import 'package:custom_splash/custom_splash.dart';
-void main() {
+void main() async {
   runApp(const MyApp());
 }
 
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         DeviceOrientation.portraitUp,
       ]);
 
-    return ChangeNotifierProvider(
+    return ChangeNotifierProvider (
         create: (_) => LocaleProvider(),
         builder: (context, child) {    
           final provider = context.watch<LocaleProvider>();
@@ -42,17 +42,7 @@ class MyApp extends StatelessWidget {
               GlobalWidgetsLocalizations.delegate,  
             ],
             home: const SplashScreen());
-            // CustomSplash(
-            // imagePath: 'assets/Logo.png',
-            // backGroundColor: Colors.white,
-            // animationEffect: 'zoom-in',
-            // home: const Language(),
-            // customFunction: duringSplash,
-            // duration: 5500,
-            // type: CustomSplashType.StaticDuration ,
-            // outputAndHome: op,
-            //   ),
-          // );
+         
         }); 
   }
 } 
