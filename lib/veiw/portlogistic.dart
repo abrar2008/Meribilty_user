@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 // import 'package:date_time_picker/date_time_picker.dart'
 import 'package:flutter/cupertino.dart';
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
@@ -16,6 +17,7 @@ import 'package:getwidget/types/gf_button_type.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:meribilty/place/placeItem.dart';
 import 'package:meribilty/provider/provider.dart';
+import 'package:meribilty/veiw/Portlogistics.dart';
 import 'package:meribilty/veiw/complete_process.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:meribilty/veiw/loading_port.dart';
@@ -90,331 +92,11 @@ class _PortlogisState extends State<Portlogis> {
             },
               ),
                   
-              SingleChildScrollView(
-            child: Align(
-            alignment: Alignment.topCenter,
-              child: Container(
-                padding: EdgeInsets.all(4),
-                width: MediaQuery.of(context).size.width / 1.0,
-                child: Card(
-                  child: Column(
-                    children: <Widget>[
-                    
-                      Card(
-                        child: Container(
-                          width: MediaQuery.of(context).size.width / 1.0,
-                          
-                          color:Colors.white,
-                          child: new 
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: <Widget>[
-                              new Expanded(
-                                flex: 1,
-                                child: new Column(
-                                  children: <Widget>[
-                                    new Icon(
-                                      Icons.my_location,
-                                      size: 20.0,
-                                      color: Colors.blue,
-                                    ),
-                                    new Icon(
-                                      Icons.more_vert,
-                                      size: 30.0,
-                                      color: Colors.grey,
-                                    ),
-                                    
-                                    new Icon(
-                                      Icons.location_on,
-                                      size: 20.0,
-                                      color: Colors.red,
-                                    ),
-                
-                                    new Icon(
-                                      Icons.more_vert,
-                                      size: 30.0,
-                                      color: Colors.grey,
-                                    ),
-                                     new Icon(
-                                      Icons.my_location,
-                                      size: 20.0,
-                                      color: Colors.blue,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              
-                              
-                              new Expanded(
-                                flex: 5,
-                                child:
-                                
-                                 Form(
-                                    child: Column( 
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: <Widget>[
-                                        // one textfeild
-                                        new Container(
-                                          height: 50.0,
-                                          width: MediaQuery.of(context).size.width -
-                                               50,
-                                          color: Colors.white,
-                                          child: new Column(
-                                            mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                            crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                            children: <Widget>[
-                                                 TextField(
-                                                style: TextStyle(fontSize: 15),
-                                                decoration:
-                                                InputDecoration.collapsed(
-                                                  fillColor:Colors.white,
-                                                  hintStyle: TextStyle(
-                                                      color: Colors.black),
-                                                  hintText: "PickUp Location",
-                                                ),
-                                                autofocus: false,
-                                                focusNode: state.nodeFromport,
-                                                controller: state.addressFromport,
-                                                onChanged: (String value) {
-                                                  state.placeBloc.searchPlace(value);
-                                                },
-                                                onTap: () {
-                                                  setState(() {
-                                                    state.inputFrom = true;
-                                                    state.inputTo = false;
-                                                  });
-                                                },
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                
-                                            // line 
-                                         Container(
-                                          width: MediaQuery.of(context).size.width -
-                                              50.0,
-                                          height: 1.0,
-                                          color: Colors.grey.withOpacity(0.4),
-                                        ),
-                                       
-                                       
-                                         // seond textfeild
-                   
-                                        new Container(
-                                          height: 50.0,
-                                          // width: MediaQuery.of(context).size.width,
-                                          color: Colors.white,
-                                          child: new Column(
-                                            mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                            crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                            children: <Widget>[
-                                              TextField(
-                                                style:TextStyle(fontSize: 15),
-                                                decoration:
-                                                InputDecoration.collapsed(
-                                                  fillColor: Colors.white,
-                                                  hintStyle: TextStyle(
-                                                      color: Colors.black),
-                                                  hintText: "Dropoff Location",
-                                                ),
-                                                focusNode: state.nodeToport,
-                                                autofocus: false,
-                                                controller: state.addressToport,
-                                                onChanged: (String value) {
-                                                  state.placeBloc.searchPlace(value);
-                                                },
-                                                onTap: () {
-                                                  setState(() {
-                                                    state.inputTo = true;
-                                                    state.inputFrom = false;
-                                                    print(state.inputTo);
-                                                  });
-                                                },
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                    // line 
-                                     Container(
-                                          width: MediaQuery.of(context).size.width -
-                                              50.0,
-                                          height: 1.0,
-                                          color: Colors.grey.withOpacity(0.4),
-                                        ),
-                                   // container 
-                                    new Container(
-                                          height: 50.0,
-                                          // width: MediaQuery.of(context).size.width,
-                                          color: Colors.white,
-                                          child: new Column(
-                                            mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                            crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                            children: <Widget>[
-                                              TextField(
-                                                style:TextStyle(fontSize: 15),
-                                                decoration:
-                                                InputDecoration.collapsed(
-                                                  fillColor: Colors.white,
-                                                  hintStyle: TextStyle(
-                                                      color: Colors.black),
-                                                  hintText: "Empty Container Return ",
-                                                ),
-                                                focusNode: state.nodecontaport,
-                                                autofocus: false,
-                                                controller: state.addconstToport,
-                                                onChanged: (String value) {
-                                                  state.placeBloc.searchPlace(value);
-                                                },
-                                                onTap: () {
-                                                  setState(() {
-                                                    state.inputTo = true;
-                                                    state.inputFrom = false;
-                                                    print(state.inputTo);
-                                                  });
-                                                },
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                       
-                
-                                   
-                                      ],
-                                    )),
-                              ),
-                            ],
-                          ),
-                       //
-                        ),
-                      ),
-                     
-                     
-                     //
-                      state.inputTo != true
-                          ? Container(
-                        color: Colors.white,
-                        child: StreamBuilder(
-                            stream: state.placeBloc.placeStream,
-                            builder: (context, snapshot) {
-                              if (snapshot.hasData) {
-                                if (snapshot.data == "start") {
-                                  return Center(
-                                    child: CupertinoActivityIndicator(),
-                                  );
-                                }
-                               state.placesport = snapshot.data as List<PlaceItemRes>?;
-                                return ListView.separated(
-                                  shrinkWrap: true,
-                                  itemCount: state.placesport!.length,
-                                  itemBuilder: (context, index) {
-                                    return ListTile(
-                                      title: Text(state.placesport!
-                                          .elementAt(index)
-                                          .name
-                                          .runtimeType ==
-                                          String
-                                          ? state.placesport!.elementAt(index).name
-                                          : ""),
-                                      subtitle: Text(state.placesport!
-                                          .elementAt(index)
-                                          .address
-                                          .runtimeType ==
-                                          String
-                                          ? state.placesport!
-                                          .elementAt(index)
-                                          .address
-                                          : ""),
-                                      onTap: () {
-                                       state.Fromdataport(index,context);
-                                      },
-                                    );
-                                  },
-                                  separatorBuilder: (context, index) =>
-                                      Divider(
-                                        height: 1,
-                                        color: Color(0xfff5f5f5),
-                                      ),
-                                );
-                              } else {
-                                return Container();
-                              }
-                            }),
-                      )
-                          : Container(
-                        color: Colors.white,
-                        child: StreamBuilder(
-                            stream: state.placeBloc.placeStream,
-                            builder: (context, snapshot) {
-                              if (snapshot.hasData) {
-                                if (snapshot.data == "start") {
-                                  return Center(
-                                    child: CupertinoActivityIndicator(),
-                                  );
-                                }
-                               state.places2port = snapshot.data as List<PlaceItemRes>?;
-                                return ListView.separated(
-                                  shrinkWrap: true,
-                                  itemCount: state.places2port!.length,
-                                  itemBuilder: (context, index) {
-                                    return ListTile(
-                                      title: Text( state.places2port!
-                                          .elementAt(index)
-                                          .name
-                                          .runtimeType ==
-                                          String
-                                          ? state.places2port!.elementAt(index).name
-                                          : ""),
-                                      subtitle: Text(state.places2port!
-                                          .elementAt(index)
-                                          .address
-                                          .runtimeType ==
-                                          String
-                                          ? state.places2port!
-                                          .elementAt(index)
-                                          .address
-                                          : ""),
-                                      onTap: () {
-                    
-                                     state.ToDataport(context,index);
-                                     var  _toLocation = LatLng(state.dataTocityport[0]['lat'], state.dataTocityport[0]['long']);
-                                     var _fromLocation = LatLng(state.dataFromport[0]['lat'], state.dataFromport[0]['long']);
-                                     state.setPolylinesport(_fromLocation, _toLocation);
-                                     
-                                      },
-                                    );
-                                  },
-                                  separatorBuilder: (context, index) =>
-                                      Divider(
-                                        height: 1,
-                                        color: Color(0xfff5f5f5),
-                                      ),
-                                );
-                              } else {
-                                return Container();
-                              }
-                            }),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-              ),
-                    ]); 
-                   } ),
-            )
+            
               
-                )
-       );
+                  ]);
+                  
+                   } ))));
 
   }
 }
@@ -1019,6 +701,34 @@ class _FloatngState extends State<Floatng> {
             const SizedBox(
               height: 20,
             ),
+             GFButton(
+             borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide.none, borderRadius: new BorderRadius.circular(10.0)), RoundedRectangleBorder(side: BorderSide.none, borderRadius: new BorderRadius.circular(10.0)), 0.5),
+         
+              size: 60,
+              color: const Color(0xFF242E42),
+              textStyle: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+              onPressed: () {
+                //
+                 Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Portlogistics(),
+                    ));
+            
+
+                //end
+              },
+              text: "Select Location",
+              type: GFButtonType.solid,
+              shape: GFButtonShape.standard,
+              blockButton: true,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
             //material
             GFButton(
              borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide.none, borderRadius: new BorderRadius.circular(10.0)), RoundedRectangleBorder(side: BorderSide.none, borderRadius: new BorderRadius.circular(10.0)), 0.5),
@@ -1133,21 +843,38 @@ Cargo(),
              borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide.none, borderRadius: new BorderRadius.circular(10.0)), RoundedRectangleBorder(side: BorderSide.none, borderRadius: new BorderRadius.circular(10.0)), 0.5),
               size: 50,
               color: const Color(0xFF2F4D84),
-               onPressed: () {
-    
+               onPressed: () async {
 
-                DatePicker.showDateTimePicker(context, showTitleActions: true,
-                    onChanged: (date) {
+//                  final DateTime? picked = await showDatePicker(
+                 
+//   context: context,
+//   initialDate: DateTime.now(),
+//   firstDate: DateTime.now().subtract(Duration(days: 1)),
+
+//   lastDate: DateTime(2100),
+  
+// );
+// showDateTimeDialog(context, initialDate: selectedDate,
+//                 onSelectedDate: (selectedDate) {
+//               setState(() {
+//                 this.selectedDate = selectedDate;
+//               });
+//             });
+     
+
+                // DatePicker.showDateTimePicker(
+                //   context,
+                  
+                //    showTitleActions: true,
+                   
+                   
+                //     onChanged: (date) {
                
-                  print('change $date in time zone ' +
-                      date.timeZoneOffset.inHours.toString());
-                }, onConfirm: (date) {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const CompleteProcess(),
-                      ));
-                }, currentTime:  DateTime.now(),);
+                //   print('change $date in time zone ' +
+                //       date.timeZoneOffset.inHours.toString());
+                // }, onConfirm: (date) {
+                 
+                // }, currentTime:   DateTime.now().subtract(Duration(days: 1)),);
               
               },
               text: AppLocalizations.of(context)!.quote,
@@ -1232,21 +959,14 @@ class _CargoState extends State<Cargo> {
             visible: isVisiable,
             child: Container(
               padding: const EdgeInsets.only(top: 20,left: 10,right: 10),
-              child: GFButton(
-             borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide(color: Colors.black, width: 2), borderRadius: new BorderRadius.circular(10.0)), RoundedRectangleBorder(side: BorderSide(color: Colors.black, width: 2), borderRadius: new BorderRadius.circular(10.0)), 0.5),
-               
-                color: Colors.white,
-                textStyle: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold),
-                size: 60,
-                onPressed: () {},
-                text: AppLocalizations.of(context)!.cargov,
-                type: GFButtonType.solid,
-                fullWidthButton: true,
-                borderSide: const BorderSide(color: Colors.black, width: 2),
-              ),
+              child: TextField(  
+                      
+                    decoration: InputDecoration(  
+                      border: OutlineInputBorder(),  
+                       
+                      hintText: 'Enter Cargo Value',  
+                    ),  
+                  ),   
             ),
           ),
 

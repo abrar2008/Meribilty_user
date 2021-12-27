@@ -3,6 +3,7 @@ import 'package:getwidget/components/avatar/gf_avatar.dart';
 import 'package:getwidget/components/list_tile/gf_list_tile.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:meribilty/provider/provider.dart';
+import 'package:meribilty/veiw/portlogistic.dart';
 import 'package:meribilty/veiw/portlogistics.dart';
 import 'package:provider/provider.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
@@ -44,7 +45,7 @@ class _UnLoadingportState extends State<UnLoadingport> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const Portlogistics()),
+                      builder: (context) => const Portlogis()),
                 );
               },
               child: Text(

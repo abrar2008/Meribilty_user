@@ -20,6 +20,7 @@ import 'package:meribilty/veiw/complete_process.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:meribilty/veiw/loading_port.dart';
 import 'package:meribilty/veiw/materialtype.dart';
+import 'package:meribilty/veiw/portlogistic.dart';
 import 'package:meribilty/veiw/selectvehicleppl.dart';
 import 'package:meribilty/widget/animatedtoggle.dart';
 import 'package:provider/provider.dart';
@@ -56,12 +57,7 @@ class _PortlogisticsState extends State<Portlogistics> {
     return Scaffold(
      
      extendBodyBehindAppBar: true,
-   appBar: AppBar(
-    
-    backgroundColor: Colors.transparent,
-    iconTheme: IconThemeData(color: Colors.black),
-    elevation: 0.0,
-  ),
+   
             body:
            
             SafeArea(
@@ -417,32 +413,34 @@ class _PortlogisticsState extends State<Portlogistics> {
               ),
                     
                    
-            //       Positioned(
-            //         top: 500,
-            //         child: Container(
-            //           width: 330,
-            //           child:   GFButton(
+                  Positioned(
+                    top: 670,
+                    child: Container(
+                      padding: EdgeInsets.all(10),
+                      width: 300,
+                      child:   GFButton(
                         
-            //  borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide.none, borderRadius: new BorderRadius.circular(10.0)), RoundedRectangleBorder(side: BorderSide.none, borderRadius: new BorderRadius.circular(10.0)), 0.5),
-            //   size: 50,
-            //   color: const Color(0xFF2F4D84),
-            //    onPressed: () {
-    
+             borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide.none, borderRadius: new BorderRadius.circular(10.0)), RoundedRectangleBorder(side: BorderSide.none, borderRadius: new BorderRadius.circular(10.0)), 0.5),
+              size: 50,
+              color: const Color(0xFF2F4D84),
+               onPressed: () {
+     Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => (Portlogis()),
+                ));
 
-               
-              
-            //   },
-            //   text: AppLocalizations.of(context)!.quote,
-            //   textStyle: const TextStyle(fontSize: 17,
-            //   fontWeight: FontWeight.bold
-            //   ),
-            //   type: GFButtonType.solid,
-            //   shape: GFButtonShape.standard,
-            //   blockButton: true,
-            // ), 
-            //         )
+              },
+              text: "Conform",
+              textStyle: const TextStyle(fontSize: 17,
+              fontWeight: FontWeight.bold
+              ),
+              type: GFButtonType.solid,
+              shape: GFButtonShape.standard,
+              blockButton: true,
+            ), 
+                    )
                     
-            //         ),
+                    ),
 
 
 
@@ -1282,21 +1280,7 @@ class _CargoState extends State<Cargo> {
             visible: isVisiable,
             child: Container(
               padding: const EdgeInsets.only(top: 20,left: 10,right: 10),
-              child: GFButton(
-             borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide(color: Colors.black, width: 2), borderRadius: new BorderRadius.circular(10.0)), RoundedRectangleBorder(side: BorderSide(color: Colors.black, width: 2), borderRadius: new BorderRadius.circular(10.0)), 0.5),
-               
-                color: Colors.white,
-                textStyle: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold),
-                size: 60,
-                onPressed: () {},
-                text: AppLocalizations.of(context)!.cargov,
-                type: GFButtonType.solid,
-                fullWidthButton: true,
-                borderSide: const BorderSide(color: Colors.black, width: 2),
-              ),
+              child: Text("data")
             ),
           ),
 
