@@ -862,19 +862,23 @@ Cargo(),
 //             });
      
 
-                // DatePicker.showDateTimePicker(
-                //   context,
+                DatePicker.showDateTimePicker(
+                  context,
                   
-                //    showTitleActions: true,
+                   showTitleActions: true,
                    
                    
-                //     onChanged: (date) {
+                    onChanged: (date) {
                
-                //   print('change $date in time zone ' +
-                //       date.timeZoneOffset.inHours.toString());
-                // }, onConfirm: (date) {
-                 
-                // }, currentTime:   DateTime.now().subtract(Duration(days: 1)),);
+                  print('change $date in time zone ' +
+                      date.timeZoneOffset.inHours.toString());
+                }, onConfirm: (date) {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CompleteProcess(),
+                      ));
+                }, currentTime:   DateTime.now().subtract(Duration(days: 1)),);
               
               },
               text: AppLocalizations.of(context)!.quote,

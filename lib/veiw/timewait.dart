@@ -3,7 +3,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:meribilty/veiw/Citymovement.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:meribilty/veiw/citymovement.dart';
 import 'package:meribilty/veiw/mainProfile.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:timer_count_down/timer_controller.dart';
@@ -28,11 +29,16 @@ class TimewaitState extends State<Timewait> {
           MaterialPageRoute(builder: (context) => const MainProfile()));
     });
   }
-
+static const CameraPosition _kGooglePlex = CameraPosition(
+    target: LatLng(37.42796133580664, -122.085749655962),  
+    zoom: 14.4746,
+   );
   @override
   Widget build(BuildContext context) {
+    
     final CountdownController _controller =
         CountdownController(autoStart: true);
+        
     return Scaffold(
       // appBar: AppBar(
       //   backgroundColor: Colors.transparent,
@@ -48,16 +54,29 @@ class TimewaitState extends State<Timewait> {
         body: Stack(
           fit: StackFit.expand,
           children: <Widget>[
+            GoogleMap(
             
+                myLocationEnabled: true,
+                myLocationButtonEnabled: true,
+                // polylines: state.polylinecity,
+                // markers: Set<Marker>.of(state.markers.values),
+                mapType: MapType.normal,
+                initialCameraPosition: _kGooglePlex,
+                onMapCreated: (GoogleMapController controller) {
+              //_controller.complete(controller);
+              // state.controller1=controller;
+                },
+              ),
             Container(
               decoration: const BoxDecoration(
                 color: Color(0xFF2F4D84),
                 image: DecorationImage(
-                    image: AssetImage('assets/loading.png'), fit: BoxFit.cover),
+                    image: AssetImage('assets/icon/best.gif'), fit: BoxFit.cover),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                   
                   Align(
                     alignment: Alignment.topRight,
                     child: Container(

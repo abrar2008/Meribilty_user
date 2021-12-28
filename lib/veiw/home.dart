@@ -1,3 +1,4 @@
+import 'package:meribilty/veiw/citymovem.dart';
 import 'package:meribilty/veiw/portlogistic.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/cupertino.dart';
@@ -169,7 +170,7 @@ class _HomeState extends State<Home> {
                                             color: Colors.white,
                                             image: DecorationImage(
                                                 image:
-                                                    AssetImage('assets/hom.png'),
+                                                    AssetImage('assets/hom.jpg'),
                                                 fit: BoxFit.cover),
                                             borderRadius: BorderRadius.only(
                                               topRight: Radius.circular(20.0),
@@ -232,7 +233,7 @@ class _HomeState extends State<Home> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              const Citymovement()),
+                                              const Citymovem()),
                                     );
                                   },
                                   child: Column(
@@ -248,7 +249,7 @@ class _HomeState extends State<Home> {
                                             color: Colors.white,
                                             image: DecorationImage(
                                                 image:
-                                                    AssetImage('assets/city.png'),
+                                                    AssetImage('assets/city.jpg'),
                                                 fit: BoxFit.cover),
                                             borderRadius: BorderRadius.only(
                                               topRight: Radius.circular(20.0),
@@ -519,7 +520,7 @@ class _HomeState extends State<Home> {
                         height: 20,
                       ),
 
-                      //
+                 
                       const SizedBox(
                         height: 10,
                       ),
@@ -582,7 +583,7 @@ class _HomeState extends State<Home> {
   ),
 ),
                      const SizedBox(height: 10,),
-                      //
+                     
                       SizedBox(
                         width: double.infinity,
                         child: Text(
@@ -682,8 +683,6 @@ class _HomeState extends State<Home> {
                       const SizedBox(
                         width: 10,
                       ),
-
-                      //
                       Container(
                         padding: const EdgeInsets.all(10),
                         height: 200,

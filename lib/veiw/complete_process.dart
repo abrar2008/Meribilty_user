@@ -92,7 +92,7 @@ class CompleteProcessState extends State<CompleteProcess> {
                 ),
               ),
               const SizedBox(
-                height: 15,
+                height: 10,
               ),
               Align(
                 alignment: Alignment.center,
@@ -105,7 +105,12 @@ class CompleteProcessState extends State<CompleteProcess> {
                       ),
                 ),
               ),
-              Image.asset("assets/load.PNG"),
+              Image.asset("assets/icon/loading.gif",
+             
+              height:250 ,
+              
+              
+              ),
               Text(
                 AppLocalizations.of(context)!.wait,
                  textAlign: TextAlign.center,

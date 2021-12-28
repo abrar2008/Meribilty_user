@@ -414,7 +414,7 @@ class _PortlogisticsState extends State<Portlogistics> {
                     
                    
                   Positioned(
-                    top: 670,
+                    top: 470,
                     child: Container(
                       padding: EdgeInsets.all(10),
                       width: 300,
