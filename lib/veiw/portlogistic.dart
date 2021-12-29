@@ -2,6 +2,7 @@
 
 import 'dart:async';
 
+import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 // import 'package:date_time_picker/date_time_picker.dart'
 import 'package:flutter/cupertino.dart';
@@ -24,6 +25,7 @@ import 'package:meribilty/veiw/loading_port.dart';
 import 'package:meribilty/veiw/materialtype.dart';
 import 'package:meribilty/veiw/selectvehicleppl.dart';
 import 'package:meribilty/widget/animatedtoggle.dart';
+import 'package:meribilty/widget/datetime.dart';
 import 'package:provider/provider.dart';
 
 import 'package:sliding_up_panel/sliding_up_panel.dart';
@@ -49,12 +51,13 @@ class _PortlogisState extends State<Portlogis> {
       target: LatLng(37.43296265331129, -122.08832357078792),
       tilt: 59.440717697143555,
       zoom: 19.151926040649414);
-
+    
   @override
   Widget build(BuildContext context) {
    
+ 
 
-  
+   GlobalKey<FormState> _oFormKey = GlobalKey<FormState>();
     return Scaffold(
      
      extendBodyBehindAppBar: true,
@@ -67,8 +70,8 @@ class _PortlogisState extends State<Portlogis> {
             body:
             SlidingUpPanel(
             renderPanelSheet: false,
-            minHeight: 200,
-            maxHeight: 600,
+            minHeight:600,
+            maxHeight: 1000,
             panel: Floatng(),
               
             
@@ -109,9 +112,15 @@ class Floatng extends StatefulWidget {
 }
 
 class _FloatngState extends State<Floatng> {
-  
+   String _valueChanged2 = '';
+    GlobalKey<FormState> _oFormKey = GlobalKey<FormState>();
+   String _valueToValidate2 = '';
+  String _valueSaved2 = '';
+   late TextEditingController _controller2;
+   
   @override
   Widget build(BuildContext context) {
+     _controller2 = TextEditingController(text: DateTime.now().toString());
     return  Container(
       decoration: BoxDecoration(
           color: Colors.white,
@@ -781,6 +790,59 @@ class _FloatngState extends State<Floatng> {
               shape: GFButtonShape.standard,
               blockButton: true,
             ),
+            
+            Container(
+              padding: EdgeInsets.all(10),
+              child: Form(
+          key: _oFormKey,
+          child: Column(
+              children: <Widget>[
+               
+                Container(
+                  width:  MediaQuery.of(context).size.width,
+                  height: 45,
+                 decoration: BoxDecoration(
+    border: Border.all(
+      color: Colors.black,
+      width: 2,
+    ),
+    borderRadius: BorderRadius.all(Radius.circular(10))
+  ),
+                  child: DateTimePicker(
+                    
+                    type: DateTimePickerType.dateTime,
+                    // dateMask: 'd MMMM, yyyy - hh:mm a',
+                    // controller: _controller2,
+                    //initialValue: _initialValue,
+                    firstDate: DateTime.now().subtract(Duration(days: 0)),
+                    lastDate: DateTime(2100),
+                    //icon: Icon(Icons.event),
+                    dateLabelText: 'Enter You Date And Time ',
+                    
+// decoration:  InputDecoration(
+//       labelStyle: TextStyle(
+       
+//       )
+//     )  ,
+                    use24HourFormat: false,
+                  
+                  //   onChanged: (val) => setState(() => _valueChanged2 = val),
+                  //   validator: (val) {
+                  //  setState(() => _valueToValidate2 = val ?? '');
+                  //     return null;
+                  //   },
+                  //   onSaved: (val) => setState(() => _valueSaved2 = val ?? ''),
+                  ),
+                ),
+               
+               
+           
+              
+              ],
+          ),
+        ),
+            ),
+           
             //text
             // Container(
             //   padding: const EdgeInsets.all(15),
@@ -849,37 +911,9 @@ Cargo(),
               // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
            
-                GFButton(
-             borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: const BorderSide(color: Colors.black, width: 2), borderRadius: new BorderRadius.circular(10.0)), RoundedRectangleBorder(side: const BorderSide(color: Colors.black, width: 2), borderRadius: new BorderRadius.circular(10.0)), 0.5),
-                  
-                  color: Colors.white,
-                  textStyle: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold),
-                  size: 50,
-                  onPressed: () {
-               
-                      
-                          
-                    // DatePicker.showDateTimePicker(context, showTitleActions: true,
-                    //     onChanged: (date) {
-                     
-                    //   print('change $date in time zone ' +
-                    //       date.timeZoneOffset.inHours.toString());
-                    // }, onConfirm: (date) {
-                    //   Navigator.push(
-                    //       context,
-                    //       MaterialPageRoute(
-                    //         builder: (context) => const Citymovement(),
-                    //       ));
-                    // }, currentTime: DateTime(2008, 12, 31, 23, 12, 34));
-                  },
-                  text: AppLocalizations.of(context)!.sche,
-                  type: GFButtonType.solid,
-                  borderSide:
-                      const BorderSide(color: Color(0xFF2F4D84), width: 2),
-                ),
+                
+                
+                //
                 const SizedBox(
                   width: 5,
                 ),

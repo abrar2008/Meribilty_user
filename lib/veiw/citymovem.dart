@@ -3,6 +3,7 @@
 
 
 // import 'package:date_time_picker/date_time_picker.dart';
+import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -371,6 +372,7 @@ class _FloatingState extends State<Floating> {
   }
   @override
   Widget build(BuildContext context) {
+    GlobalKey<FormState> _oFormKey = GlobalKey<FormState>();
     return Container(
       decoration: const BoxDecoration(
           color: Colors.white,
@@ -972,6 +974,49 @@ class _FloatingState extends State<Floating> {
             ),
           ),
          //
+            Container(
+              padding: EdgeInsets.all(10),
+              child: Form(
+          key: _oFormKey,
+          child: Column(
+              children: <Widget>[
+               
+                Container(
+                  width:  MediaQuery.of(context).size.width,
+                  height: 45,
+                 decoration: BoxDecoration(
+    border: Border.all(
+      color: Colors.black,
+      width: 2,
+    ),
+    borderRadius: BorderRadius.all(Radius.circular(10))
+  ),
+                  child: DateTimePicker(
+                    
+                    type: DateTimePickerType.dateTime,
+                    // dateMask: 'd MMMM, yyyy - hh:mm a',
+                    // controller: _controller2,
+                    //initialValue: _initialValue,
+                    firstDate: DateTime.now().subtract(Duration(days: 0)),
+                    lastDate: DateTime(2100),
+                    //icon: Icon(Icons.event),
+                    dateLabelText: 'Enter You Date And Time ',
+                    
+// decoration:  InputDecoration(
+//       labelStyle: TextStyle(
+       
+//       )
+//     )  ,
+                    use24HourFormat: false,
+                  
+                  //   onChanged: (val) => setState(() => _valueChanged2 = val),
+                  //   validator: (val) {
+                  //  setState(() => _valueToValidate2 = val ?? '');
+                  //     return null;
+                  //   },
+                  //   onSaved: (val) => setState(() => _valueSaved2 = val ?? ''),
+                  ),
+                ),
           const Cargo(),
           const SizedBox(
             height: 10,
@@ -983,39 +1028,39 @@ class _FloatingState extends State<Floating> {
               // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
            
-                GFButton(
-             borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: const BorderSide(color: Colors.black, width: 2), borderRadius: new BorderRadius.circular(10.0)), RoundedRectangleBorder(side: const BorderSide(color: Colors.black, width: 2), borderRadius: new BorderRadius.circular(10.0)), 0.5),
+            //     GFButton(
+            //  borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: const BorderSide(color: Colors.black, width: 2), borderRadius: new BorderRadius.circular(10.0)), RoundedRectangleBorder(side: const BorderSide(color: Colors.black, width: 2), borderRadius: new BorderRadius.circular(10.0)), 0.5),
                   
-                  color: Colors.white,
-                  textStyle: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold),
-                  size: 50,
-                  onPressed: () {
+            //       color: Colors.white,
+            //       textStyle: const TextStyle(
+            //           color: Colors.black,
+            //           fontSize: 15,
+            //           fontWeight: FontWeight.bold),
+            //       size: 50,
+            //       onPressed: () {
 
 
-                    // DatePicker.showDateTimePicker(context, showTitleActions: true,
-                    //     onChanged: (date) {
+            //         // DatePicker.showDateTimePicker(context, showTitleActions: true,
+            //         //     onChanged: (date) {
                      
-                    //   print('change $date in time zone ' +
-                    //       date.timeZoneOffset.inHours.toString());
-                    // }, onConfirm: (date) {
-                    //   Navigator.push(
-                    //       context,
-                    //       MaterialPageRoute(
-                    //         builder: (context) => const Citymovement(),
-                    //       ));
-                    // }, currentTime: DateTime(2008, 12, 31, 23, 12, 34));
-                  },
-                  text: AppLocalizations.of(context)!.sche,
-                  type: GFButtonType.solid,
-                  borderSide:
-                      const BorderSide(color: Color(0xFF2F4D84), width: 2),
-                ),
-                const SizedBox(
-                  width: 5,
-                ),
+            //         //   print('change $date in time zone ' +
+            //         //       date.timeZoneOffset.inHours.toString());
+            //         // }, onConfirm: (date) {
+            //         //   Navigator.push(
+            //         //       context,
+            //         //       MaterialPageRoute(
+            //         //         builder: (context) => const Citymovement(),
+            //         //       ));
+            //         // }, currentTime: DateTime(2008, 12, 31, 23, 12, 34));
+            //       },
+            //       text: AppLocalizations.of(context)!.sche,
+            //       type: GFButtonType.solid,
+            //       borderSide:
+            //           const BorderSide(color: Color(0xFF2F4D84), width: 2),
+            //     ),
+            //     const SizedBox(
+            //       width: 5,
+            //     ),
                 Expanded(
                   child: SizedBox(
                     width: 225,
@@ -1052,7 +1097,7 @@ class _FloatingState extends State<Floating> {
         ],
       ),
       ),
-    );
+    )])));
   }
 }
 

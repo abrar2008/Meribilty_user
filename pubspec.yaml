@@ -56,7 +56,7 @@ dependencies:
   expandable:
   intl_phone_field:
   intl: 
-
+  date_time_picker:
   flutter_svg:
   http:
   location:
