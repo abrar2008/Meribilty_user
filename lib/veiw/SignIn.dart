@@ -9,6 +9,7 @@ import 'package:meribilty/provider/provider.dart';
 
 // ignore: unused_import
 import 'package:meribilty/veiw/otp_screen.dart';
+import 'package:meribilty/widget/customer.dart';
 import 'package:provider/provider.dart';
 
 class  SignIn  extends StatelessWidget {
@@ -610,8 +611,7 @@ class Loginin extends StatefulWidget {
 }
 
 class _LogininState extends State<Loginin> {
-   bool isChecked = false;
-  bool isVisiable = false;
+  
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
@@ -714,18 +714,8 @@ class _LogininState extends State<Loginin> {
                   //     borderRadius: BorderRadius.circular(15)),
                   height: 30,
                   width: 30,
-                  child: Checkbox(
-                   
-                    activeColor: const Color(0xFFE2E1E8),
-                    checkColor: Colors.white,
-                    value: isChecked,
-                    onChanged: (value) {
-                      setState(() {
-                        isChecked = value!;
-                        isVisiable = value;
-                      });
-                    },
-                  ),
+                 child: Custo(),
+                  
                 ),
 
 

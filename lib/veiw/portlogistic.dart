@@ -109,6 +109,7 @@ class Floatng extends StatefulWidget {
 }
 
 class _FloatngState extends State<Floatng> {
+  
   @override
   Widget build(BuildContext context) {
     return  Container(
@@ -839,56 +840,128 @@ Cargo(),
             const SizedBox(
               height: 10,
             ),
-            GFButton(
-             borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide.none, borderRadius: new BorderRadius.circular(10.0)), RoundedRectangleBorder(side: BorderSide.none, borderRadius: new BorderRadius.circular(10.0)), 0.5),
-              size: 50,
-              color: const Color(0xFF2F4D84),
-               onPressed: () async {
 
-//                  final DateTime? picked = await showDatePicker(
-                 
-//   context: context,
-//   initialDate: DateTime.now(),
-//   firstDate: DateTime.now().subtract(Duration(days: 1)),
 
-//   lastDate: DateTime(2100),
-  
-// );
-// showDateTimeDialog(context, initialDate: selectedDate,
-//                 onSelectedDate: (selectedDate) {
-//               setState(() {
-//                 this.selectedDate = selectedDate;
-//               });
-//             });
-     
-
-                DatePicker.showDateTimePicker(
-                  context,
+             Container(
+            padding: const EdgeInsets.only(left: 10, right: 10),
+           width: MediaQuery.of(context).size.width,
+            child: Row(
+              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+           
+                GFButton(
+             borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: const BorderSide(color: Colors.black, width: 2), borderRadius: new BorderRadius.circular(10.0)), RoundedRectangleBorder(side: const BorderSide(color: Colors.black, width: 2), borderRadius: new BorderRadius.circular(10.0)), 0.5),
                   
-                   showTitleActions: true,
-                   
-                   
-                    onChanged: (date) {
+                  color: Colors.white,
+                  textStyle: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold),
+                  size: 50,
+                  onPressed: () {
                
-                  print('change $date in time zone ' +
-                      date.timeZoneOffset.inHours.toString());
-                }, onConfirm: (date) {
-                  Navigator.push(
+                      
+                          
+                    // DatePicker.showDateTimePicker(context, showTitleActions: true,
+                    //     onChanged: (date) {
+                     
+                    //   print('change $date in time zone ' +
+                    //       date.timeZoneOffset.inHours.toString());
+                    // }, onConfirm: (date) {
+                    //   Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //         builder: (context) => const Citymovement(),
+                    //       ));
+                    // }, currentTime: DateTime(2008, 12, 31, 23, 12, 34));
+                  },
+                  text: AppLocalizations.of(context)!.sche,
+                  type: GFButtonType.solid,
+                  borderSide:
+                      const BorderSide(color: Color(0xFF2F4D84), width: 2),
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                Expanded(
+                  child: SizedBox(
+                    width: 225,
+                    // padding: const EdgeInsets.all(5),
+                    // width: 250,
+                    child: 
+                    GFButton(
+             borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide.none, borderRadius:  BorderRadius.circular(10.0)), RoundedRectangleBorder(side: BorderSide.none, borderRadius: BorderRadius.circular(10.0)), 0.5),
+
+                   fullWidthButton: true,
+                      color: const Color(0xFF2F4D84),
+                      textStyle: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold),
+                      size: 50,
+                      onPressed: () {
+                      Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => const CompleteProcess(),
                       ));
-                }, currentTime:   DateTime.now().subtract(Duration(days: 1)),);
-              
-              },
-              text: AppLocalizations.of(context)!.quote,
-              textStyle: const TextStyle(fontSize: 17,
-              fontWeight: FontWeight.bold
-              ),
-              type: GFButtonType.solid,
-              shape: GFButtonShape.standard,
-              blockButton: true,
+                      },
+                      text: AppLocalizations.of(context)!.book,
+                      type: GFButtonType.solid,
+                    ),
+                  ),
+                ),
+                
+              ],
             ),
+        )
+
+//             GFButton(
+//              borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide.none, borderRadius: new BorderRadius.circular(10.0)), RoundedRectangleBorder(side: BorderSide.none, borderRadius: new BorderRadius.circular(10.0)), 0.5),
+//               size: 50,
+//               color: const Color(0xFF2F4D84),
+//                onPressed: () async {
+
+// //                  final DateTime? picked = await showDatePicker(
+                 
+// //   context: context,
+// //   initialDate: DateTime.now(),
+// //   firstDate: DateTime.now().subtract(Duration(days: 1)),
+
+// //   lastDate: DateTime(2100),
+  
+// // );
+// // showDateTimeDialog(context, initialDate: selectedDate,
+// //                 onSelectedDate: (selectedDate) {
+// //               setState(() {
+// //                 this.selectedDate = selectedDate;
+// //               });
+// //             });
+     
+
+//                 DatePicker.showDateTimePicker(
+//                   context,
+                  
+//                    showTitleActions: true,
+                   
+                   
+//                     onChanged: (date) {
+               
+//                   print('change $date in time zone ' +
+//                       date.timeZoneOffset.inHours.toString());
+//                 }, onConfirm: (date) {
+                  
+//                 }, currentTime:   DateTime.now().subtract(Duration(days: 1)),);
+              
+//               },
+//               text: AppLocalizations.of(context)!.quote,
+//               textStyle: const TextStyle(fontSize: 17,
+//               fontWeight: FontWeight.bold
+//               ),
+//               type: GFButtonType.solid,
+//               shape: GFButtonShape.standard,
+//               blockButton: true,
+//             ),
           ],
         ),
       )

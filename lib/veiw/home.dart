@@ -10,6 +10,8 @@ import 'package:meribilty/veiw/citymovement.dart';
 import 'package:meribilty/veiw/portlogistics.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:dots_indicator/dots_indicator.dart';
+
+
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
