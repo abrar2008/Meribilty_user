@@ -670,32 +670,32 @@ class _LogininState extends State<Loginin> {
               const SizedBox(
                 height: 3,
               ),
-              Container(
-                 width: MediaQuery.of(context).size.width ,
-                padding: const EdgeInsets.all(10),
-                child: 
-                TextFormField(
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter Password ';
-                    }
-                    return null;
-                  },
-                  cursorColor: Colors.black,
-                  decoration: InputDecoration(
+              // Container(
+              //    width: MediaQuery.of(context).size.width ,
+              //   padding: const EdgeInsets.all(10),
+              //   child: 
+              //   TextFormField(
+              //     validator: (value) {
+              //       if (value == null || value.isEmpty) {
+              //         return 'Please enter Password ';
+              //       }
+              //       return null;
+              //     },
+              //     cursorColor: Colors.black,
+              //     decoration: InputDecoration(
                     
-                    border: OutlineInputBorder(
+              //       border: OutlineInputBorder(
                
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    contentPadding: const EdgeInsets.only(
-                        left: 15, bottom: 11, top: 11, right: 15),
-                    hintText: "Password",
-                    hintStyle:
-                        const TextStyle(fontSize: 15, color: Color(0xffC8C7CC)),
-                  ),
-                ),
-              ),
+              //         borderRadius: BorderRadius.circular(8),
+              //       ),
+              //       contentPadding: const EdgeInsets.only(
+              //           left: 15, bottom: 11, top: 11, right: 15),
+              //       hintText: "Password",
+              //       hintStyle:
+              //           const TextStyle(fontSize: 15, color: Color(0xffC8C7CC)),
+              //     ),
+              //   ),
+              // ),
               SizedBox(height: 10,),
               Container(
                 padding: EdgeInsets.only(left: 10, right: 10),

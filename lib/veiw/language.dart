@@ -37,7 +37,7 @@ class _LanguageState extends State<Language> {
                   SizedBox(
                     height: 50,
                   ),
-                  Image.asset("assets/Logo.png"),
+                  Image.asset("assets/logo.png"),
                   SizedBox(
                     height: 10,
                   ),
