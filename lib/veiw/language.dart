@@ -35,11 +35,11 @@ class _LanguageState extends State<Language> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 90,
+                    height: 50,
                   ),
                   Image.asset("assets/Logo.png"),
                   SizedBox(
-                    height: 50,
+                    height: 10,
                   ),
                   Container(
                       padding: EdgeInsets.only(left: 20, right: 20),

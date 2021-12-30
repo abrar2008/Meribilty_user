@@ -114,7 +114,7 @@ static const CameraPosition _kGooglePlex = CameraPosition(
                         style: const TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF03DE73),
+                          color: Colors.red
                         ),
                       ),
                     ),
@@ -125,7 +125,7 @@ static const CameraPosition _kGooglePlex = CameraPosition(
                     build: (_, double time) => Text(
                       time.toString(),
                       style: const TextStyle(
-                          fontSize: 50, color: Color(0xFF03DE73)),
+                          fontSize: 50, color:   Colors.red),
                     ),
                     interval: const Duration(milliseconds: 100),
                     onFinished: () {},
@@ -140,7 +140,7 @@ static const CameraPosition _kGooglePlex = CameraPosition(
                         style: TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF03DE73),
+                          color: Colors.red,
                         ),
                       ),
                     ),

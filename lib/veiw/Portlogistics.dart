@@ -414,7 +414,7 @@ class _PortlogisticsState extends State<Portlogistics> {
                     
                    
                   Positioned(
-                    top: 470,
+                    top: 650,
                     child: Container(
                       padding: EdgeInsets.all(10),
                       width: 300,
@@ -575,6 +575,7 @@ class _FloatngState extends State<Floatng> {
             SizedBox(
               height: 10,
             ),
+            //
             GFButton(
              borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide.none, borderRadius: new BorderRadius.circular(10.0)), RoundedRectangleBorder(side: BorderSide.none, borderRadius: new BorderRadius.circular(10.0)), 0.5),
 
@@ -1063,6 +1064,8 @@ class _FloatngState extends State<Floatng> {
               shape: GFButtonShape.standard,
               blockButton: true,
             ),
+            
+            //
             const SizedBox(
               height: 20,
             ),
@@ -1092,6 +1095,8 @@ class _FloatngState extends State<Floatng> {
               shape: GFButtonShape.standard,
               blockButton: true,
             ),
+           
+           //
             const SizedBox(
               height: 20,
             ),

@@ -330,7 +330,7 @@ class _SomecitymovState extends State<Somecitymov> {
                      
                      
                     Positioned(
-                    top: 470,
+                    top: 590,
                     child: Container(
                       padding: EdgeInsets.all(10),
                       width: 300,

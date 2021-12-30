@@ -287,7 +287,35 @@ class floating extends StatelessWidget {
                             }
                             ).toList(),
                           ),
-                      
+                      Container(
+                        width: 70,
+                       
+                        child:GFButton(
+             borderShape: ShapeBorder.lerp(RoundedRectangleBorder(side: BorderSide.none, borderRadius: new BorderRadius.circular(10.0)), RoundedRectangleBorder(side: BorderSide.none, borderRadius: new BorderRadius.circular(10.0)), 0.5),
+         
+             
+              color: const Color(0xFF242E42),
+              textStyle: const TextStyle(
+                fontSize: 10,
+                fontWeight: FontWeight.bold,
+              ),
+              onPressed: () {
+                //
+                //  Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //       builder: (context) => const Materialtype(),
+                //     ));
+            
+
+                //end
+              },
+              text: "Add MORE ",
+              type: GFButtonType.solid,
+              shape: GFButtonShape.standard,
+              blockButton: true,
+            ),
+ )
                       
                       //
                         ],

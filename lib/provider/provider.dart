@@ -530,9 +530,9 @@ Fromdataport(index,context){
 // loading optioon  start
   var _loadOption = <LoadOptionModels>[   
     LoadOptionModels(count: 0),
-   LoadOptionModels(count: 0),
-    LoadOptionModels(count: 0),
-   LoadOptionModels(count: 0),
+  //  LoadOptionModels(count: 0),
+    // LoadOptionModels(count: 0),
+  //  LoadOptionModels(count: 0),
   ];
 List<LoadOptionModels> get loadOption => _loadOption;
 void decrement(LoadOptionModels counterModels) {
@@ -593,6 +593,7 @@ void decrementport(LoadOptionportM loadoptionportM) {
    UnloadOptionModels(count: 0),
   ];
 List<UnloadOptionModels> get unloadOption => _unloadOption;
+
 void decrementunload(UnloadOptionModels unloadOption) {
     _unloadOption = _unloadOption.map((e) {
       return e.id == unloadOption.id

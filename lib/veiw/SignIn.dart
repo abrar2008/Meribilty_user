@@ -556,11 +556,11 @@ class  SignIn  extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                        top: 50,
+                        
                         left: 50,
-                        child: Image.asset("assets/logo1.png")),
+                        child: Image.asset("assets/logo.png")),
                     Positioned(
-                        top: 150,
+                        top: 170,
                         child: Image.asset(
                           "assets/mai.png",
                         )),
